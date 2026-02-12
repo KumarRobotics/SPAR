@@ -1,0 +1,271 @@
+Example 1. Move a uav from one position to another
+Action: This action enables the uav to move from its current position to a new position, if its battery level is larger than or equal to the energy cost between two positions. For example, uav_1 moves from loc_1 to loc_2 if it has 10 units battery level and the cost between loc_1 and loc_2 is 7 units.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+No predicate has been defined yet
+
+You can create and define new functions, but you may also reuse the following functions:
+No function has been defined yet
+
+Parameters:
+1. ?u - uav: The uav
+2. ?from - location: Current location
+3. ?to - location: Target location 
+
+Preconditions:
+```
+(and
+    (at-uav ?u ?from)
+    (>= (battery-level ?u) (energy-cost ?from ?to))
+)
+```
+
+Effects:
+```
+(and
+    (at-uav ?u ?to)
+    (not (at-uav ?u ?from))
+    (decrease (battery-level ?u) (energy-cost ?from ?to))
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+1. (at-uav ?u - uav ?from - location): true if uav ?u is at location ?from
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+1. (battery-level ?u - uav): The battery level of uav ?u
+2. (energy-cost ?from - location ?to - location): The energy cost to move from location ?from to location ?to
+
+
+Example 2. Recharge uav at charging station
+Action: This action enables the uav to recharge its battery level to full capacity at a location if the location is a charging spot. For example, if the battery capacity is 10 units and loc_1 is a charging spot, uav_1 can recharge its battery level to 10 units at loc_1.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+1. (at-uav ?u - uav ?from - location): true if uav ?u is at location ?from
+
+You can create and define new functions, but you may also reuse the following functions:
+1. (battery-level ?u - uav): The battery level of uav ?u
+2. (energy-cost ?from - location ?to - location): The energy cost to move from location ?from to location ?to
+
+Parameters:
+1. ?u - uav: The uav
+2. ?l - location: current location
+
+Preconditions:
+```
+(and
+    (at-uav ?u ?l)
+    (charging-spot ?l)
+    (>= (battery-level ?u) 0)
+)
+```
+
+Effects:
+```
+(and
+    (assign (battery-level ?u) (capacity ?u))
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+1. (charging-spot ?l - location): true if location ?l is a charging spot
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+2. (capacity ?u - uav): The maximum battery capacity of uav ?u
+
+
+Example 3. Grasp a good fruit using uav's gripper
+Action: This action enables a uav to grasp a fruit located at the same position by clamping the gripper, provided that the fruit is marked as good. The uav can only grasp one fruit at a time. For example, if the fruit_1 is marked as good, then uav_1 can grasp and load the fruit_1 at loc_1 using gripper_1.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+1. (at-uav ?u - uav ?from - location): true if uav ?u is at location ?from
+2. (charging-spot ?l - location): true if location ?l is a charging spot
+
+You can create and define new functions, but you may also reuse the following functions:
+1. (battery-level ?u - uav): The battery level of uav ?u
+2. (energy-cost ?from - location ?to - location): The energy cost to move from location ?from to location ?to
+3. (capacity ?u - uav): The maximum battery capacity of uav ?u
+
+Parameters:
+1. ?u - uav: The uav
+2. ?f - fruit: The fruit to be grasped
+3. ?l - location: Current location
+4. ?g - gripper: The gripper of the uav
+
+Preconditions:
+```
+(and
+    (at-uav ?u ?l)
+    (at-fruit ?f ?l)
+    (good ?f)
+    (empty ?u)
+    (not (clamped ?u ?g))
+)
+```
+
+Effects:
+```
+(and
+    (hold ?u ?f)
+    (not (empty ?u))
+    (not (at-fruit ?f ?l))
+    (clamped ?u ?g)
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+1. (at-fruit ?f - fruit ?l - location): true if fruit ?f is at location ?l
+2. (good ?f - fruit): true if fruit ?f is marked as good
+3. (empty ?u - uav): true if uav ?u has no fruit in its gripper
+4. (clamped ?u - uav ?g - gripper): true if uav ?u has gripper ?g clamped
+5. (hold ?u - uav ?f - fruit): true if uav ?u is holding fruit ?f
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+
+
+Example 4. Put down a fruit held by uav
+Action: This action enables a uav to unload a held fruit at its current location and release its gripper. For example, uav_1 unloads fruit_1 at loc_2, and its gripper_1 is released.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+1. (at-uav ?u - uav ?from - location): true if uav ?u is at location ?from
+2. (charging-spot ?l - location): true if location ?l is a charging spot
+3. (at-fruit ?f - fruit ?l - location): true if fruit ?f is at location ?l
+4. (good ?f - fruit): true if fruit ?f is marked as good
+5. (empty ?u - uav): true if uav ?u has no fruit in its gripper
+6. (clamped ?u - uav ?g - gripper): true if uav ?u has gripper ?g clamped
+7. (hold ?u - uav ?f - fruit): true if uav ?u is holding fruit ?f
+
+You can create and define new functions, but you may also reuse the following functions:
+1. (battery-level ?u - uav): The battery level of uav ?u
+2. (energy-cost ?from - location ?to - location): The energy cost to move from location ?from to location ?to
+3. (capacity ?u - uav): The maximum battery capacity of uav ?u
+
+Parameters:
+1. ?u - uav: The uav
+2. ?f - fruit: The fruit to be grasped
+3. ?l - location: Current location
+4. ?g - gripper: The gripper of the uav
+
+Preconditions:
+```
+(and
+    (hold ?u ?f)
+    (clamped ?u ?g)
+    (at-uav ?u ?l)
+)
+```
+
+Effects:
+```
+(and
+    (not (hold ?u ?f))
+    (empty ?u)
+    (at-fruit ?f ?l)
+    (not (clamped ?u ?g))
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+No newly defined predicate
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+
+
+Example 5. Take image of not rotten fruit
+Action: This action enables the uav to take an image of a fruit at the same location. If the fruit is not rotten, the uav will mark it as good. For example, uav_1 take an image of fruit_1 at loc_2, if the fruit_1 is not rotten, then uav_1 will mark fruit_1 as a good fruit.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+1. (at-uav ?u - uav ?from - location): true if uav ?u is at location ?from
+2. (charging-spot ?l - location): true if location ?l is a charging spot
+3. (at-fruit ?f - fruit ?l - location): true if fruit ?f is at location ?l
+4. (good ?f - fruit): true if fruit ?f is marked as good
+5. (empty ?u - uav): true if uav ?u has no fruit in its gripper
+6. (clamped ?u - uav ?g - gripper): true if uav ?u has gripper ?g clamped
+7. (hold ?u - uav ?f - fruit): true if uav ?u is holding fruit ?f
+
+You can create and define new functions, but you may also reuse the following functions:
+1. (battery-level ?u - uav): The battery level of uav ?u
+2. (energy-cost ?from - location ?to - location): The energy cost to move from location ?from to location ?to
+3. (capacity ?u - uav): The maximum battery capacity of uav ?u
+
+Parameters:
+1. ?u - uav: The uav
+2. ?f - fruit: The fruit to be grasped
+3. ?l - location: Current location
+
+Preconditions:
+```
+(and
+    (at-uav ?u ?l)
+    (at-fruit ?f ?l)
+    (not (rot ?f))
+    (not (image-taken ?f))
+)
+```
+
+Effects:
+```
+(and
+    (image-taken ?f)
+    (good ?f)
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+1. (rot ?f - fruit): true if fruit ?f is rotten (ground truth)
+2. (image-taken ?f - fruit): true if an image of fruit ?f has been taken
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+
+
+Example 6. Take image of rotten fruit
+Action: This action enables the uav to take an image of a fruit at the same location. If the fruit is rotten, the uav will mark it as not good. For example, uav_1 take an image of fruit_1 at loc_2, if the fruit_1 is rotten, then uav_1 will mark fruit_1 as not a good fruit.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+1. (at-uav ?u - uav ?from - location): true if uav ?u is at location ?from
+2. (charging-spot ?l - location): true if location ?l is a charging spot
+3. (at-fruit ?f - fruit ?l - location): true if fruit ?f is at location ?l
+4. (good ?f - fruit): true if fruit ?f is marked as good
+5. (empty ?u - uav): true if uav ?u has no fruit in its gripper
+6. (clamped ?u - uav ?g - gripper): true if uav ?u has gripper ?g clamped
+7. (hold ?u - uav ?f - fruit): true if uav ?u is holding fruit ?f
+8. (rot ?f - fruit): true if fruit ?f is rotten (ground truth)
+9. (image-taken ?f - fruit): true if an image of fruit ?f has been taken
+
+You can create and define new functions, but you may also reuse the following functions:
+1. (battery-level ?u - uav): The battery level of uav ?u
+2. (energy-cost ?from - location ?to - location): The energy cost to move from location ?from to location ?to
+3. (capacity ?u - uav): The maximum battery capacity of uav ?u
+
+Parameters:
+1. ?u - uav: The uav
+2. ?f - fruit: The fruit to be grasped
+3. ?l - location: Current location
+
+Preconditions:
+```
+(and
+    (at-uav ?u ?l)
+    (at-fruit ?f ?l)
+    (rot ?f)
+    (not (image-taken ?f))
+)
+```
+
+Effects:
+```
+(and
+    (not (good ?f))
+    (image-taken ?f)
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+No newly defined predicate
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+

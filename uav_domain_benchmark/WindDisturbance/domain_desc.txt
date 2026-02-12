@@ -1,0 +1,1 @@
+This domain models a uav navigating in an environment with wind disturbances. The uav can actively move to adjacent positions when there is no wind at its current location, incurring a cost of one unit per movement. However, if wind is present, the uav is passively carried by the wind to designated positions without incurring any cost.

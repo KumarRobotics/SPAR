@@ -1,0 +1,20 @@
+;;!domain: CeilingPaintDomain
+
+;;!problem: hard-uav-swap-sprayers
+
+0.0: (Take-off u2)
+1.0: (Fly-to u2 p0 p2)
+2.0: (Take-off u1)
+3.0: (Fly-to u1 p0 p1)
+4.0: (Landing u2)
+5.0: (Pick-up-sprayer u2 sb2)
+6.0: (Take-off u2)
+7.0: (Paint u2 sb2 blue p2)
+8.0: (Fly-to u2 p2 p3)
+9.0: (Landing u2)
+10.0: (Put-down-sprayer u2 sb2)
+11.0: (Pick-up-sprayer u2 sr2)
+12.0: (Take-off u2)
+13.0: (Paint u2 sr2 red p3)
+14.0: (Fly-to u2 p3 p1)
+15.0: (Paint u2 sr2 red p1)

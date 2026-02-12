@@ -1,0 +1,5 @@
+;;!domain: uav_passenger_transport
+
+;;!problem: test-recharge
+
+0.0: (recharge u1 locA)

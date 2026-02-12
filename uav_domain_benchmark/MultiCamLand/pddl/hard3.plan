@@ -1,0 +1,16 @@
+;;!domain: Multicam
+
+;;!problem: hard-full-rotation-path
+
+0.0: (detect_down u1 p1 p2)
+1.0: (move-down u1 p1 p2)
+2.0: (rotate-to-right u1)
+3.0: (detect_right u1 p2 p3)
+4.0: (move-right u1 p2 p3)
+5.0: (detect_down u1 p3 p4)
+6.0: (move-down u1 p3 p4)
+7.0: (rotate-to-left u1)
+8.0: (detect_left u1 p4 p5)
+9.0: (move-left u1 p4 p5)
+10.0: (detect_down u1 p5 p6)
+11.0: (move-down u1 p5 p6)

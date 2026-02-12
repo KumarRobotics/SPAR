@@ -1,0 +1,161 @@
+Example 1. uav moves at constant speed from one location to another
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?  
+1. The uav ?r  
+2. The current position ?p1  
+3. The next position ?p2  
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)  
+1. The uav ?r:  
+    - Must be at the current position - (at ?r ?p1)  
+2. The current position ?p1:  
+    - Must be passable - (is-pass ?p1)  
+3. The next position ?p2:  
+    - Must be connected to current position - (next ?p1 ?p2)
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)  
+1. The uav ?r:  
+    - Is now at the next position - (at ?r ?p2)  
+    - No longer at the current position - (not (at ?r ?p1))  
+2. The current position ?p1:  
+    - None  
+3. The next position ?p2:  
+    - None  
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 2. uav accelerates from one location to another
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?  
+1. The uav ?r  
+2. The current position ?p1  
+3. The next position ?p2  
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)  
+1. The uav ?r:  
+    - Must be at the current position - (at ?r ?p1)  
+2. The current position ?p1:  
+    - Must be passable - (is-pass ?p1)  
+3. The next position ?p2:  
+    - Must be connected to current - (next ?p1 ?p2)
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)  
+1. The uav ?r:  
+    - Is now at the next position - (at ?r ?p2)  
+    - No longer at the current position - (not (at ?r ?p1))  
+    - Speed is increased by acc - (increase (speed ?r) (acc ?r))  
+2. The current position ?p1:  
+    - None  
+3. The next position ?p2:  
+    - None  
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 3. uav decelerates from one location to another
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?  
+1. The uav ?r  
+2. The current position ?p1  
+3. The next position ?p2  
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)  
+1. The uav ?r:  
+    - Must be at the current position - (at ?r ?p1)  
+    - Current speed must remain positive after deceleration - (> (- (speed ?r) (acc ?r)) 0)  
+2. The current position ?p1:  
+    - Must be passable - (is-pass ?p1)  
+3. The next position ?p2:  
+    - Must be connected to current - (next ?p1 ?p2)
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)  
+1. The uav ?r:  
+    - Is now at the next position - (at ?r ?p2)  
+    - No longer at the current position - (not (at ?r ?p1))  
+    - Speed is decreased by acc - (decrease (speed ?r) (acc ?r))  
+2. The current position ?p1:  
+    - None  
+3. The next position ?p2:  
+    - None  
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 4. uav detect if the cluttered position can be passed
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?  
+1. The uav ?r  
+2. The position ?p  
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)  
+1. The uav ?r:  
+    - Must be at the position - (at ?r ?p)  
+    - Speed must be less than or equal to threshold - (<= (speed ?r) (clutter-speed))  
+2. The position ?p:  
+    - Must be cluttered - (is-clutter ?p)
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)  
+1. The uav ?r:  
+    - None  
+2. The position ?p:  
+    - Marked as passable - (is-pass ?p)  
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 5. uav detect if the narrow gap can be passed
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?  
+1. The uav ?r  
+2. The position ?p  
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)  
+1. The uav ?r:  
+    - Must be at the position - (at ?r ?p)  
+    - Speed must be less than or equal to threshold - (<= (speed ?r) (narrow-gap-speed))  
+2. The position ?p:  
+    - Must be a narrow gap - (is-narrow-gap ?p)
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)  
+1. The uav ?r:  
+    - None  
+2. The position ?p:  
+    - Marked as passable - (is-pass ?p)  
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 6. uav detect if the open area can be passed
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?  
+1. The uav ?r  
+2. The position ?p  
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)  
+1. The uav ?r:  
+    - Must be at the position - (at ?r ?p)  
+    - Speed must be greater than or equal to threshold - (>= (speed ?r) (open-area-speed))  
+2. The position ?p:  
+    - Must be an open area - (is-open-area ?p)
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)  
+1. The uav ?r:  
+    - None  
+2. The position ?p:  
+    - Marked as passable - (is-pass ?p)  
+
+- Finally, write the PDDL action in the following format:
+

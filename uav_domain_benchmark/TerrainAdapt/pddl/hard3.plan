@@ -1,0 +1,16 @@
+;;!domain: TerrainAdapt
+
+;;!problem: terrain-hard-3
+
+0.0: (fly d2 p6 p7)
+1.0: (fly d1 p1 p2)
+2.0: (fly d1 p2 p3)
+3.0: (fly d2 p7 p8)
+4.0: (switch-drive d1 p3)
+5.0: (drive d1 p3 p4)
+6.0: (switch-fly d1 p4)
+7.0: (fly d1 p4 p5)
+8.0: (switch-drive d2 p8)
+9.0: (drive d2 p8 p9)
+10.0: (switch-fly d2 p9)
+11.0: (fly d2 p9 p10)

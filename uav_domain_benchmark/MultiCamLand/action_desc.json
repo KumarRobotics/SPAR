@@ -1,0 +1,56 @@
+{
+  "Move uav to its right position": {
+    "desc": "This action enables the uav to move from its current position to position on the right if the position on the right is marked as clear. This action costs one energy power.",
+    "extra_info": [],
+    "name_in_pddl": "move-right",
+    "abstract_desc": "This action enables the uav to move from [position1] to [position2], if [position2] is [state1] and marked as [state2]. This action will increase [value1] by [value2]."
+  },
+  "Move uav to its left position": {
+    "desc": "This action enables the uav to move from its current position to position on the left if the position on the left is marked as clear. This action costs one energy power.",
+    "extra_info": [],
+    "name_in_pddl": "move-left",
+    "abstract_desc": "This action enables the uav to move from [position1] to [position2], if [position2] is [state1] and marked as [state2].  This action will increase [value1] by [value2]."
+  },
+  "Move uav to its below position": {
+    "desc": "This action enables the uav to move from its current position to position below if the position below is marked as clear. This action costs one energy power.",
+    "extra_info": [],
+    "name_in_pddl": "move-down",
+    "abstract_desc": "This action enables the uav to move from [position1] to [position2], if [position2] is [state1] and marked as [state2].  This action will increase [value1] by [value2]."
+  },
+  "Move uav to its above position": {
+    "desc": "This action enables the uav to move from its current position to position above if the position above is marked as clear. This action costs one energy power.",
+    "extra_info": [],
+    "name_in_pddl": "move-up",
+    "abstract_desc": "This action enables the uav to move from [position1] to [position2], if [position2] is [state1] and marked as [state2]. This action will increase [value1] by [value2]."
+  },
+  "Rotate uav's side camera to view the right side": {
+    "desc": "This action enables the uav to rotate to let its side camera to view to right side. This action requires that the uav was previously seeing to the left.",
+    "extra_info": [],
+    "name_in_pddl": "rotate-to-right",
+    "abstract_desc": "This action enables the uav to switch [object1] to [state1] if [object1] was previously [state2]. This action will increase [value1] by [value2]."
+  },
+  "Rotate uav's side camera to view the left side": {
+    "desc": "This action enables the uav to rotate to let its side camera to view to left side. This action requires that the uav was previously seeing to the right.",
+    "extra_info": [],
+    "name_in_pddl": "rotate-to-left",
+    "abstract_desc": "This action enables the uav to switch [object1] to [state1] if [object1] was previously [state2]. This action will increase [value1] by [value2]."
+  },
+  "uav detects position below": {
+    "desc": "This action enables the uav to mark the position below its current position as clear, if the position below has no obstacle.",
+    "extra_info": [],
+    "name_in_pddl": "detect_down",
+    "abstract_desc": "This action enables the uav to mark [position1] as [state1] if [position1] is [state2] and [state3]. This action will increase [value1] by [value2]."
+  },
+  "uav detects position on the right": {
+    "desc": "This action enables the uav to mark the position on the right of its current position as clear, if it has no obstacle and the uav's side camera is seeing to the right side.",
+    "extra_info": [],
+    "name_in_pddl": "detect_right",
+    "abstract_desc": "This action enables the uav to mark [position1] as [state1] if [position1] is [state2], [state3], and the uav's [object1] is [state4]. This action will increase [value1] by [value2]."
+  },
+  "uav detects position on the left": {
+    "desc": "This action enables the uav to mark the position on the left of its current position as clear, if it has no obstacle and the uav's side camera is seeing to the left side.",
+    "extra_info": [],
+    "name_in_pddl": "detect_left",
+    "abstract_desc": "This action enables the uav to mark [position1] as [state1] if [position1] is [state2], [state2], and the uav's [object1] is [state4]. This action will increase [value1] by [value2]."
+  }
+}

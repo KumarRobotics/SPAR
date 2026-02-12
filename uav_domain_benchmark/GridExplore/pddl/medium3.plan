@@ -1,0 +1,16 @@
+;;!domain: GridExplore
+
+;;!problem: GridExploreDetourToGoal
+
+0.0: (mark-clear uav1 p11 p21)
+1.0: (move uav1 p11 p21)
+2.0: (mark-clear uav1 p21 p31)
+3.0: (move uav1 p21 p31)
+4.0: (mark-clear uav1 p31 p41)
+5.0: (move uav1 p31 p41)
+6.0: (mark-clear uav1 p41 p42)
+7.0: (move uav1 p41 p42)
+8.0: (mark-clear uav1 p42 p43)
+9.0: (move uav1 p42 p43)
+10.0: (mark-clear uav1 p43 p44)
+11.0: (move uav1 p43 p44)

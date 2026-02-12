@@ -1,0 +1,12 @@
+(define (problem push-simple)
+  (:domain MovableObs)
+  (:objects g1 - ugv p1 p2 p3 - position)
+  (:init
+    (at-ugv g1 p1)
+    (connect p1 p2) (connect p2 p3)
+    (is-clear p1) (is-clear p3)
+    (mov-obs p2)
+    (is-mov p2)
+  )
+  (:goal (and (is-clear p2) (mov-obs p3)))
+)

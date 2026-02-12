@@ -1,0 +1,32 @@
+{
+  "robot arm starts cooking a meal at some location": {
+    "desc": "This action enables a robot arm to begin cooking a meal at a location if the meal is not yet prepared. For example, if the arm is at kitchen_1 and meal_1 is unprepared, the robot arm can start cooking meal_1 at kitchen_1.",
+    "extra_info": [],
+    "name_in_pddl": "start-cooking",
+    "abstract_desc": "This action enables a robot arm to begin cooking [object1] at [position1] if [object1] is [state1]."
+  },
+  "robot arm finishes cooking a meal at some location": {
+    "desc": "This action enables a robot arm to finish cooking a meal that it has started cooking. The meal becomes prepared and is available for picking up at the location. For example, if arm_1 is cooking meal_1 at kitchen_1, it can finish cooking and meal_1 becomes prepared and present at kitchen_1.",
+    "extra_info": [],
+    "name_in_pddl": "finish-cooking",
+    "abstract_desc": "This action enables a robot arm to finish cooking [object1]. [object1] becomes [state1] and available at [position1]."
+  },
+  "uav flies from one location to another": {
+    "desc": "This action enables the UAV to fly from one location to another. For example, the UAV can fly from kitchen_1 to location_1.",
+    "extra_info": [],
+    "name_in_pddl": "fly",
+    "abstract_desc": "This action enables the uav to move from [position1] to [position2]."
+  },
+  "uav picks up a prepared meal at a location": {
+    "desc": "This action enables the UAV to pick up a prepared meal at a location, if the UAV is empty. For example, if the UAV is at kitchen_1, meal_1 is prepared and located there, and the UAV is empty, it can pick up meal_1.",
+    "extra_info": [],
+    "name_in_pddl": "pick-up-meal",
+    "abstract_desc": "This action enables the uav to load [object1] at [position1] if the uav is [state1] and [object1] is [state2]."
+  },
+  "uav delivers a meal to a location": {
+    "desc": "This action enables the UAV to deliver a carried meal to some location. After delivery, the UAV becomes empty again. For example, if the UAV is carrying meal_1 and is at location_1, it can deliver the meal there.",
+    "extra_info": [],
+    "name_in_pddl": "deliver-meal",
+    "abstract_desc": "This action enables the uav to unload [object1] to [position1]. After this, the uav becomes [state1]."
+  }
+}

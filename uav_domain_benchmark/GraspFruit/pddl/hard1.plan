@@ -1,0 +1,22 @@
+;;!domain: GraspFruit
+
+;;!problem: graspfruit-problem-9
+
+0.0: (move u1 l1 l2)
+1.0: (take-not-rot-image u1 f1 l2)
+2.0: (take-not-rot-image u1 f2 l2)
+3.0: (move u2 l1 l3)
+4.0: (take-not-rot-image u2 f3 l3)
+5.0: (grasp-fruit u2 f3 l3 g1)
+6.0: (move u2 l3 l1)
+7.0: (recharge u2 l1)
+8.0: (put-down-fruit u2 f3 l1 g1)
+9.0: (move u2 l1 l2)
+10.0: (grasp-fruit u2 f2 l2 g1)
+11.0: (move u2 l2 l1)
+12.0: (recharge u2 l1)
+13.0: (put-down-fruit u2 f2 l1 g1)
+14.0: (move u2 l1 l2)
+15.0: (grasp-fruit u2 f1 l2 g2)
+16.0: (move u2 l2 l1)
+17.0: (put-down-fruit u2 f1 l1 g2)

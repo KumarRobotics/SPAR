@@ -1,0 +1,19 @@
+;;!domain: CeilingPaintDomain
+
+;;!problem: hard-triple-uav-multicolor
+
+0.0: (Take-off u2)
+1.0: (Fly-to u2 p0 p2)
+2.0: (Pick-up-sprayer u1 sg)
+3.0: (Take-off u1)
+4.0: (Fly-to u1 p0 p3)
+5.0: (Paint u1 sg green p3)
+6.0: (Pick-up-sprayer u3 sb)
+7.0: (Take-off u3)
+8.0: (Fly-to u3 p0 p2)
+9.0: (Fly-to u2 p2 p1)
+10.0: (Paint u3 sb blue p2)
+11.0: (Landing u2)
+12.0: (Pick-up-sprayer u2 sr)
+13.0: (Take-off u2)
+14.0: (Paint u2 sr red p1)

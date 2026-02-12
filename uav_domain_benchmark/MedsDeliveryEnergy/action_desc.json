@@ -1,0 +1,26 @@
+{
+  "Move uav between locations": {
+    "desc": "This action enables the uav to move from one location to another location if battery power of uav is larger than or equals to the energy cost between two locations. For example, the uav has 10 units of battery power, moving from Location_1 to Location_2 needs 5 units of battery power, thus the uav can move from Location_1 to Location_2.",
+    "extra_info": [],
+    "name_in_pddl": "Travel",
+    "abstract_desc": "This action enables the uav to move from [position1] to [position2], if uav's [value1] is larger than or equals to the [value2] between [position1] and [position2]."
+  },
+  "Pick up blood sample": {
+    "desc": "This action enables the uav to collect a blood sample at some location. For example, the uav picks up Sample_1 at Location_1.",
+    "extra_info": [],
+    "name_in_pddl": "Collect_Blood_Sample",
+    "abstract_desc": "This action enables the uav to load [object1] at [position1]."
+  },
+  "Unload blood sample": {
+    "desc": "This action enables the uav to unload a blood sample to some location. For example, the uav unloads Sample_2 at Location_2.",
+    "extra_info": [],
+    "name_in_pddl": "Unload_Blood_Sample",
+    "abstract_desc": "This action enables the uav to unload [object1] at [position1]."
+  },
+  "Recharge uav's battery": {
+    "desc": "This action enables the uav to reassign its battery at specific locations. The battery level is directly set to the recharge capacity of the location. For example, if the uav is at Location_1 and the recharge capacity of Location_1 is 4 units, then the uav's battery level becomes 4 units after reassigning.",
+    "extra_info": [],
+    "name_in_pddl": "Recharge_Battery",
+    "abstract_desc": "This action enables the uav to reassign [value1] at [position1], setting [value1] to [value2] of [position1]."
+  }
+}

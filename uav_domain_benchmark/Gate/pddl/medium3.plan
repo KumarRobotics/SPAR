@@ -1,0 +1,10 @@
+;;!domain: Gate
+
+;;!problem: medium-overadjust-then-correct
+
+0.0: (increase_angle u1)
+1.0: (increase_angle u1)
+2.0: (increase_angle u1)
+3.0: (increase_angle u1)
+4.0: (increase_angle u1)
+5.0: (pass-gate u1)

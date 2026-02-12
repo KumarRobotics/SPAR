@@ -1,0 +1,20 @@
+{
+  "uav loads a package": {
+    "desc": "This action enables a uav to load a package at a location, provided the location is not a warehouse. The uav can carry only one package at a time. For example, if the uav is currently empty and located at position_1 as package_1, and position_1 is not a warehouse, it can load package_1.",
+    "extra_info": [],
+    "name_in_pddl": "LOAD",
+    "abstract_desc": "This action enables a uav to load [object1] at [position1], if [position1] is not [state1]. The uav can load only one [object1] at a time."
+  },
+  "uav unloads a package": {
+    "desc": "This action enables a uav to unload a held package at a location, provided the location is a warehouse. Each package has an associated value, and unloading it increases the total value accordingly. For example, if the uav is holding package_1 at a warehouse, it can unload the package, permanently store it, and increase the total value by the value of package_1.",
+    "extra_info": [],
+    "name_in_pddl": "UNLOAD",
+    "abstract_desc": "This action enables a uav to unload [object1] at [position1], if [position1] is [state1]. This action will increase [value2] by [object1]'s [value1]."
+  },
+  "uav moves from one location to another": {
+    "desc": "This action enables a uav to move from one location to another with specific time cost increased between the two locations. For example, the uav can move from location_1 to location_2 and the total time cost is increased by the travel duration between two locations.",
+    "extra_info": [],
+    "name_in_pddl": "MOVE",
+    "abstract_desc": "This action enables a uav to move from [position1] to [position2]. This action will increase [value1] by [value2] between [position1] and [position2]."
+  }
+}

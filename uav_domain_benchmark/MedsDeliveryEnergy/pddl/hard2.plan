@@ -1,0 +1,16 @@
+;;!domain: uav-sample-energy
+
+;;!problem: shared-recharge-multi-delivery
+
+0.0: (Travel u2 l2 lR)
+1.0: (Recharge_Battery u2 lR)
+2.0: (Travel u2 lR l4)
+3.0: (Collect_Blood_Sample u2 s2 l4)
+4.0: (Travel u2 l4 l1)
+5.0: (Unload_Blood_Sample u2 s2 l1)
+6.0: (Travel u2 l1 lR)
+7.0: (Recharge_Battery u2 lR)
+8.0: (Travel u2 lR l3)
+9.0: (Collect_Blood_Sample u2 s1 l3)
+10.0: (Travel u2 l3 l2)
+11.0: (Unload_Blood_Sample u2 s1 l2)

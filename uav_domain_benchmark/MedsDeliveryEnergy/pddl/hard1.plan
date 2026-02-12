@@ -1,0 +1,12 @@
+;;!domain: uav-sample-energy
+
+;;!problem: dual-uav-two-sample-delivery
+
+0.0: (Travel u1 l1 l3)
+1.0: (Travel u2 l2 l4)
+2.0: (Collect_Blood_Sample u1 s1 l3)
+3.0: (Travel u1 l3 l2)
+4.0: (Collect_Blood_Sample u2 s2 l4)
+5.0: (Travel u2 l4 l1)
+6.0: (Unload_Blood_Sample u1 s1 l2)
+7.0: (Unload_Blood_Sample u2 s2 l1)

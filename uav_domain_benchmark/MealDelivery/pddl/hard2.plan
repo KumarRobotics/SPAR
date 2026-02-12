@@ -1,0 +1,15 @@
+;;!domain: uav_meal_delivery
+
+;;!problem: meal-8
+
+0.0: (start-cooking a1 m1 l1)
+1.0: (start-cooking a1 m2 l1)
+2.0: (finish-cooking a1 m1 l1)
+3.0: (finish-cooking a1 m2 l1)
+4.0: (pick-up-meal u1 m1 l1)
+5.0: (fly u1 l1 l4)
+6.0: (deliver-meal u1 m1 l4)
+7.0: (fly u1 l4 l1)
+8.0: (pick-up-meal u1 m2 l1)
+9.0: (fly u1 l1 l3)
+10.0: (deliver-meal u1 m2 l3)

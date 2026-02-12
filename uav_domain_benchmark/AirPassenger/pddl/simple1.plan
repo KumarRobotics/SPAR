@@ -1,0 +1,6 @@
+;;!domain: uav_passenger_transport
+
+;;!problem: test-move
+
+0.0: (move u1 locA locB)
+1.0: (move u1 locB locC)

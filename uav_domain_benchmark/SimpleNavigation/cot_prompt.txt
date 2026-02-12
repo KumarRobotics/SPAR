@@ -1,0 +1,51 @@
+Example 1. Move to the next designated location
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?  
+1. The uav ?r
+2. The current location ?current
+3. The next location ?next
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)  
+1. The uav ?r:  
+    - Must be at the current location - (at-location ?r ?current)  
+2. The current location ?current:  
+    - Must lead to the next location - (at-next ?current ?next)  
+3. The next location ?next:  
+    - None
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)  
+1. The uav ?r:  
+    - No longer at the current location - (not (at-location ?r ?current))  
+    - Now at the next location - (at-location ?r ?next)  
+2. The current location ?current:  
+    - None  
+3. The next location ?next:  
+    - None
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 2. Check if uav reaches goal location
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?  
+1. The uav ?r  
+2. The current location ?loc
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)  
+1. The uav ?r:  
+    - Must be at the location - (at-location ?r ?loc)  
+2. The current location ?loc:  
+    - Must be the goal location - (is-goal ?loc)
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)  
+1. The uav ?r: 
+    - Reaches the goal - (reach-goal ?r)  
+2. The current location ?loc:  
+    - None
+
+- Finally, write the PDDL action in the following format:
+

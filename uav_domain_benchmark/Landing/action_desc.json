@@ -1,0 +1,20 @@
+{
+  "Fly to a connected location": {
+    "desc": "This action enables the uav to fly from its current location to another location that is directly connected. The uav must be in the air to fly. For example, the uav is in the air and can fly from position_1 to position_2 if they are connected.",
+    "extra_info": [],
+    "name_in_pddl": "fly",
+    "abstract_desc": "This action enables the uav to move from [position1] to [position2] if [position1] and [position2] are [state1] and if the uav is in [state2]."
+  },
+  "Check if a location is suitable for landing": {
+    "desc": "This action enables the uav to mark the current location as a valid landing spot, if the uav is in the air and if the location is clear. For example, the uav flies to check position_1, if position_1 is clear, then position_1 is marked as valid landing spot.",
+    "extra_info": [],
+    "name_in_pddl": "check-landing-spot",
+    "abstract_desc": "This action enables the uav to mark [position1] as [state1], if the uav is in [state2] and [position1] is [state3]."
+  },
+  "Land at a verified landing spot": {
+    "desc": "This action enables the uav to land at a location, if the location has been marked as a valid landing spot. For example, the uav can land at position_1 if it has been marked as a valid landing spot.",
+    "extra_info": [],
+    "name_in_pddl": "land",
+    "abstract_desc": "This action enables the uav to land at [position1] if [position1] is marked as [state1]."
+  }
+}

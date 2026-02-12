@@ -1,0 +1,5 @@
+;;!domain: DeliveryCapacityDomain
+
+;;!problem: test-move
+
+0.0: (MOVE u1 l1 l2)

@@ -1,0 +1,1 @@
+This domain models a uav (Unmanned Aerial Vehicle) tracking task, where the uav must track a series of subgoals. The uav can move between connected positions, updating to the next subgoal only after reaching the current subgoal.

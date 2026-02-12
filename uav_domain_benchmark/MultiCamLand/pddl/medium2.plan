@@ -1,0 +1,10 @@
+;;!domain: Multicam
+
+;;!problem: medium-left-down-left
+
+0.0: (detect_left u1 p1 p2)
+1.0: (move-left u1 p1 p2)
+2.0: (detect_down u1 p2 p3)
+3.0: (move-down u1 p2 p3)
+4.0: (detect_left u1 p3 p4)
+5.0: (move-left u1 p3 p4)

@@ -1,0 +1,5 @@
+;;!domain: AirQualityMonitoring
+
+;;!problem: simple-move
+
+0.0: (move u1 r1 r2)

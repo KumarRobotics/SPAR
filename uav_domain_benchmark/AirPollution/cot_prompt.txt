@@ -1,0 +1,50 @@
+Example 1. uav move from one region to another
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?
+1. uav ?u
+2. current region ?from
+3. destination region ?to
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)
+1. uav ?u:
+    - Located at the current region - (at ?u ?from)
+2. current region ?from:
+    - Connected to destination region - (next ?from ?to)
+3. destination region ?to:
+    - Connected from current region - (next ?from ?to)
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)
+1. uav ?u:
+    - No longer at current region - (not (at ?u ?from))
+    - Now at destination region - (at ?u ?to)
+2. current region ?from:
+    - Nothing changes
+3. destination region ?to:
+    - Nothing changes
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 2. Monitoring at one region
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?
+1. uav ?u
+2. region to be monitored ?r
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)
+1. uav ?u:
+    - Located at the region - (at ?u ?r)
+2. region to be monitored ?r:
+    - Required monitoring time is not yet reached - (>= (need-time ?r) (spend-time ?r))
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)
+1. uav ?u:
+    - None
+2. region to be monitored ?r:
+    - Monitoring time is increased by 1 - (increase (spend-time ?r) 1)
+
+- Finally, write the PDDL action in the following format:

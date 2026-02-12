@@ -1,0 +1,14 @@
+;;!domain: MovableObs
+
+;;!problem: long-push-chain
+
+0.0: (uav-detect-mov u1 p2)
+1.0: (move-uav u1 p2 p3)
+2.0: (uav-detect-clear u1 p3)
+3.0: (move-uav u1 p3 p4)
+4.0: (uav-detect-clear u1 p4)
+5.0: (push g1 p1 p2 p3)
+6.0: (push g1 p2 p3 p4)
+7.0: (move-uav u1 p4 p5)
+8.0: (uav-detect-clear u1 p5)
+9.0: (push g1 p3 p4 p5)

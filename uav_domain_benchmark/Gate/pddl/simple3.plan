@@ -1,0 +1,5 @@
+;;!domain: Gate
+
+;;!problem: test-pass-gate
+
+0.0: (pass-gate u1)

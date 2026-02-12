@@ -1,0 +1,239 @@
+Example 1. Take an image of a component
+Action: This action enables a uav to take an image of a component, but only if it is currently available. After taking the image, the uav becomes unavailable. For example, if the uav is available, it can take an image of component_1 and then becomes unavailable.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+No predicate has been defined yet
+
+You can create and define new functions, but you may also reuse the following functions:
+No function has been defined yet
+
+Parameters:
+1. ?d - uav: The uav taking the image
+2. ?c - component: The component being imaged
+
+Preconditions:
+```
+(and 
+    (available ?d)
+)
+```
+
+Effects:
+```
+(and 
+    (image_taken ?c)
+    (not (available ?d))
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+1. (image_taken ?c - component): true if an image of component ?c has been taken
+2. (available ?d - uav): true if uav ?d is available for task
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+
+
+Example 2. Analyse image of a component that is in bad state
+Action: This action enables a uav to analyze an image of a component that is in a bad state. If an image has been taken, the uav can process it and mark the component as an anomaly. After analysis, the uav becomes available again. For example, if component_1 is a bad component and the uav has already taken its image, the uav can analyze it, mark it as anomaly, and become available again.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+1. (image_taken ?c - component): true if an image of component ?c has been taken
+2. (available ?d - uav): true if uav ?d is available for task
+
+You can create and define new functions, but you may also reuse the following functions:
+No function has been defined yet
+
+Parameters:
+1. ?d - uav: The uav performing analysis
+2. ?c - component: The component being analyzed
+
+Preconditions:
+```
+(and 
+    (image_taken ?c)
+    (bad-state ?c)
+)
+```
+
+Effects:
+```
+(and 
+    (image_analyzed ?c)
+    (anomaly ?c)
+    (available ?d)
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+1. (bad-state ?c - component): true if the component ?c is known to be in a bad state
+2. (image_analyzed ?c - component): true if image of component ?c has been analyzed
+3. (anomaly ?c - component): true if component ?c has been diagnosed with an anomaly
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+
+
+Example 3. Analyse image of a good component
+Action:This action enables a uav to analyze an image of a component that is not in a bad state. If an image has been taken, the uav can process it and then doesn't need to do anything. After analysis, the uav becomes available again. For example, if component_1 is not in a bad state and its image has been taken, the uav can analyze it, and become available again.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+1. (image_taken ?c - component): true if an image of component ?c has been taken
+2. (available ?d - uav): true if uav ?d is available for task
+3. (bad-state ?c - component): true if the component ?c is known to be in a bad state
+4. (image_analyzed ?c - component): true if image of component ?c has been analyzed
+5. (anomaly ?c - component): true if component ?c has been diagnosed with an anomaly
+
+You can create and define new functions, but you may also reuse the following functions:
+No function has been defined yet
+
+Parameters:
+1. ?d - uav: The uav performing analysis
+2. ?c - component: The component being analyzed
+
+Preconditions:
+```
+(and 
+    (image_taken ?c)
+    (not (bad-state ?c))
+)
+```
+
+Effects:
+```
+(and 
+    (image_analyzed ?c)
+    (available ?d)
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+No newly defined predicate
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+
+
+Example 4. Measure thermal value of a component
+Action: This action enables a uav to measure the thermal value of a component, but only if the uav is currently available. After measuring, the uav becomes unavailable. For example, if the uav is available, it can measure the thermal value of component_1 and then becomes unavailable.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+1. (image_taken ?c - component): true if an image of component ?c has been taken
+2. (available ?d - uav): true if uav ?d is available for task
+3. (bad-state ?c - component): true if the component ?c is known to be in a bad state
+4. (image_analyzed ?c - component): true if image of component ?c has been analyzed
+5. (anomaly ?c - component): true if component ?c has been diagnosed with an anomaly
+
+You can create and define new functions, but you may also reuse the following functions:
+No function has been defined yet
+
+Parameters:
+1. ?d - uav: The uav analyzing the data
+2. ?c - component: The component whose heat is being analyzed
+
+Preconditions:
+```
+(and 
+    (available ?d)
+)
+```
+
+Effects:
+```
+(and 
+    (thermal_measured ?c)
+    (not (available ?d))
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+1. (thermal_measured ?c - component): true if the heat of component ?c has been measured
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+
+
+Example 5. Analyse thermal value of a good component
+Action: This action enables a uav to analyze the thermal value of a component. If the value is below the maximum threshold, the uav doesn't have to do anything. After analysis, the uav becomes available again. For example, if the measured thermal value of component_1 is 5 units that belows the maximum of 10 units, the uav doesn't have to do anything and becomes available.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+1. (image_taken ?c - component): true if an image of component ?c has been taken
+2. (available ?d - uav): true if uav ?d is available for task
+3. (bad-state ?c - component): true if the component ?c is known to be in a bad state
+4. (image_analyzed ?c - component): true if image of component ?c has been analyzed
+5. (anomaly ?c - component): true if component ?c has been diagnosed with an anomaly
+6. (thermal_measured ?c - component): true if the heat of component ?c has been measured
+
+You can create and define new functions, but you may also reuse the following functions:
+No function has been defined yet
+
+Parameters:
+1. ?d - uav: The uav analyzing the data
+2. ?c - component: The component whose heat is being analyzed
+
+Preconditions:
+```
+(and 
+    (thermal_measured ?c)
+    (< (heat ?c) (max_heat))
+)
+```
+
+Effects:
+```
+(and 
+    (heat_analyzed ?c)
+    (available ?d)
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+1. (heat_analyzed ?c - component): true if the heat of component ?c has been analyzed
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+1. (heat ?c - component): The current heat of component ?c
+2. (max_heat): The heat threshold
+
+
+Example 6. Analyse thermal value of a anomaly component
+Action: This action enables a uav to analyze the thermal value of a component. If the value is equal to or above the maximum threshold, the component is marked as an anomaly. After the analysis, the uav becomes available again. For example, if component_1 has a 15 units of thermal value that is above the maximum of 10 units, the uav marks it as anomaly and becomes available.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+1. (image_taken ?c - component): true if an image of component ?c has been taken
+2. (available ?d - uav): true if uav ?d is available for task
+3. (bad-state ?c - component): true if the component ?c is known to be in a bad state
+4. (image_analyzed ?c - component): true if image of component ?c has been analyzed
+5. (anomaly ?c - component): true if component ?c has been diagnosed with an anomaly
+6. (thermal_measured ?c - component): true if the heat of component ?c has been measured
+7. (heat_analyzed ?c - component): true if the heat of component ?c has been analyzed
+
+You can create and define new functions, but you may also reuse the following functions:
+No function has been defined yet
+
+Parameters:
+1. ?d - uav: The uav analyzing the data
+2. ?c - component: The component whose heat is being analyzed
+
+Preconditions:
+```
+(and 
+    (thermal_measured ?c)
+    (>= (heat ?c) (max_heat))
+)
+```
+
+Effects:
+```
+(and 
+    (heat_analyzed ?c)
+    (anomaly ?c)
+    (available ?d)
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+No newly defined predicate
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+

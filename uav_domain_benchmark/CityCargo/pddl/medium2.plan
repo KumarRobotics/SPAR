@@ -1,0 +1,7 @@
+;;!domain: CityCargo
+
+;;!problem: medium-uav-transfer
+
+0.0: (uav-load u1 p1 a1)
+1.0: (uav-fly u1 a1 a2 c1 c2)
+2.0: (uav-unload u1 p1 a2)

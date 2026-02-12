@@ -1,0 +1,5 @@
+The environment consists of a forest divided into three designated areas: area_1, area_2, and area_3. A UAV (Unmanned Aerial Vehicle) and a UGV (Unmanned Ground Vehicle) are stationed at a central station.
+
+Currently, area_1 and area_3 are on fires, while area_2 remains unaffected.
+
+The objective is to deploy the UAV to detect and UGV to extinguish all fires in the forest, ensuring that no areas remain on fire.

@@ -1,0 +1,17 @@
+;;!domain: TerrainAdapt
+
+;;!problem: terrain-hard-2
+
+0.0: (fly u3 c1 c2)
+1.0: (fly u1 a1 a2)
+2.0: (drive u2 b1 b2)
+3.0: (fly u1 a2 a3)
+4.0: (switch-fly u2 b2)
+5.0: (switch-drive u1 a3)
+6.0: (fly u2 b2 b3)
+7.0: (fly u2 b3 b4)
+8.0: (drive u1 a3 a4)
+9.0: (switch-drive u3 c2)
+10.0: (drive u3 c2 c3)
+11.0: (switch-fly u3 c3)
+12.0: (fly u3 c3 c4)

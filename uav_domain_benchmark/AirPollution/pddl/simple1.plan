@@ -1,0 +1,6 @@
+;;!domain: AirQualityMonitoring
+
+;;!problem: simple-monitoring
+
+0.0: (monitoring u1 r1)
+1.0: (monitoring u1 r1)

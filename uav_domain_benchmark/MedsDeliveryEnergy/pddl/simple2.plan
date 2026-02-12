@@ -1,0 +1,5 @@
+;;!domain: uav-sample-energy
+
+;;!problem: test-collect
+
+0.0: (Collect_Blood_Sample u1 s1 l1)

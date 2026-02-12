@@ -1,0 +1,7 @@
+;;!domain: TerrainAdapt
+
+;;!problem: terrain-medium-2
+
+0.0: (fly uav1 l1 l2)
+1.0: (switch-drive uav1 l2)
+2.0: (drive uav1 l2 l3)

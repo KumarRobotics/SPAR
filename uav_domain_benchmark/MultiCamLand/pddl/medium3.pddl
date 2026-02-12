@@ -1,0 +1,17 @@
+(define (problem medium-down-right-chain)
+  (:domain Multicam)
+  (:objects u1 - uav p1 p2 p3 p4 - position)
+  (:init 
+    (at u1 p1)
+    (down p2 p1)
+    (right p3 p2)
+    (down p4 p3)
+    (see-left u1)
+    (not (obs p2))
+    (not (obs p3))
+    (not (obs p4))
+  )
+  (:goal 
+    (at u1 p4)
+  )
+)

@@ -1,0 +1,1 @@
+This domain models a grid-based exploration task in which a uav navigates through a environment composed of discrete connected positions. Some positions will have obstacles, the uav must identify which positions are clear before moving into them. It accumulates one unit movement cost.

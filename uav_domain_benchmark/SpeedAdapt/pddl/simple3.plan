@@ -1,0 +1,5 @@
+;;!domain: SpeedAdapt
+
+;;!problem: speedadapt-simple-open
+
+0.0: (pass-narrow-gap u1 p1)

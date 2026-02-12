@@ -1,0 +1,187 @@
+Example 1. Move uav between locations
+
+Let's think step by step and answer the following questions:
+
+- According to the description, what are the objects involved in this action?
+1. The uav ?u  
+2. The origin location ?from  
+3. The destination location ?to
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)
+1. The uav ?u:
+    - Must be at ?from: (at-uav ?u ?from)
+    - Battery level must be enough: (>= (battery-level ?u) (energy-cost ?from ?to))
+2. The origin location ?from:
+    - None
+3. The destination location ?to:
+    - None
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)
+1. The uav ?u:
+    - Now at ?to: (at-uav ?u ?to)
+    - Not at ?from anymore: (not (at-uav ?u ?from))
+    - Battery level reduced: (decrease (battery-level ?u) (energy-cost ?from ?to))
+2. The origin location ?from:
+    - None
+3. The destination location ?to:
+    - None
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 2. Recharge uav at charging station
+
+Let's think step by step and answer the following questions:
+
+- According to the description, what are the objects involved in this action?
+1. The uav ?u  
+2. The location ?l
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)
+1. The uav ?u:
+    - Must be at location: (at-uav ?u ?l)
+    - Battery level is positive: (>= (battery-level ?u) 0)
+2. The location ?l:
+    - Must be a charging spot: (charging-spot ?l)
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)
+1. The uav ?u:
+    - Battery level is reassign to full capacity: (assign (battery-level ?u) (capacity ?u))
+2. The location ?l:
+    - None
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 3. Grasp a good fruit using uav's gripper
+
+Let's think step by step and answer the following questions:
+
+- According to the description, what are the objects involved in this action?
+1. The uav ?u  
+2. The fruit ?f  
+3. The location ?l  
+4. The gripper ?g
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)
+1. The uav ?u:
+    - Must be at the fruit's location: (at-uav ?u ?l)
+    - Must be empty: (empty ?u)
+2. The fruit ?f:
+    - Must be at the same location: (at-fruit ?f ?l)
+    - Must be good: (good ?f)
+3. The location ?l:
+    - None
+4. The gripper ?g:
+    - Gripper must not be clamped: (not (clamped ?u ?g))
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)
+1. The uav ?u:
+    - Holding the fruit: (hold ?u ?f)
+    - Not empty anymore: (not (empty ?u))
+2. The fruit ?f:
+    - Not at the location anymore: (not (at-fruit ?f ?l))
+3. The location ?l:
+    - None
+4. The gripper ?g:
+    - Gripper becomes clamped: (clamped ?u ?g)
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 4. Put down a fruit held by uav
+
+Let's think step by step and answer the following questions:
+
+- According to the description, what are the objects involved in this action?
+1. The uav ?u  
+2. The fruit ?f  
+3. The location ?l  
+4. The gripper ?g
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)
+1. The uav ?u:
+    - Must be holding the fruit: (hold ?u ?f)
+    - Must be at location: (at-uav ?u ?l)
+2. The fruit ?f:
+    - None
+3. The location ?l:
+    - None
+4. The gripper ?g:
+    - Gripper must be clamped: (clamped ?u ?g)
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)
+1. The uav ?u:
+    - Becomes empty: (empty ?u)
+    - Releases fruit: (not (hold ?u ?f))
+2. The fruit ?f:
+    - Now at the location: (at-fruit ?f ?l)
+3. The location ?l:
+    - None
+4. The gripper ?g:
+    - Gripper unclamps: (not (clamped ?u ?g))
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 5. Take image of not rotten fruit
+
+Let's think step by step and answer the following questions:
+
+- According to the description, what are the objects involved in this action?
+1. The uav ?u  
+2. The fruit ?f  
+3. The location ?l
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)
+1. The uav ?u:
+    - Must be at the fruit's location: (at-uav ?u ?l)
+2. The fruit ?f:
+    - Must be at the location: (at-fruit ?f ?l)
+    - Must not be rotten: (not (rot ?f))
+    - Image not yet taken: (not (image-taken ?f))
+3. The location ?l:
+    - None
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)
+1. The uav ?u:
+    - None
+2. The fruit ?f:
+    - Image is taken: (image-taken ?f)
+    - Marked as good: (good ?f)
+3. The location ?l:
+    - None
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 6. Take image of rotten fruit
+
+Let's think step by step and answer the following questions:
+
+- According to the description, what are the objects involved in this action?
+1. The uav ?u  
+2. The fruit ?f  
+3. The location ?l
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)
+1. The uav ?u:
+    - Must be at the fruit's location: (at-uav ?u ?l)
+2. The fruit ?f:
+    - Must be at the location: (at-fruit ?f ?l)
+    - Must be rotten: (rot ?f)
+    - Image not yet taken: (not (image-taken ?f))
+3. The location ?l:
+    - None
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)
+1. The uav ?u:
+    - None
+2. The fruit ?f:
+    - Image is taken: (image-taken ?f)
+    - Marked as Not good: (not (good ?f))
+3. The location ?l:
+    - None
+
+- Finally, write the PDDL action in the following format:
+

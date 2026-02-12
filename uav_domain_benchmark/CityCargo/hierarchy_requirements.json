@@ -1,0 +1,16 @@
+{
+    "hierarchy": {
+        "uav": [],
+        "truck": [],
+        "location": [],
+        "city": [],
+        "package": []
+    },
+    "requirements": [
+        "typing",
+        "strips",
+        "negative-preconditions",
+        "numeric-fluents",
+        "equality"
+    ]
+}

@@ -1,0 +1,73 @@
+Example 1. uav move from one region to another
+Action: This action enables a uav to move from its current region to a new region if two regions are connected. For example, the uav moves from region_1 to region_2 if there is a connection between them.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+No predicate has been defined yet
+
+You can create and define new functions, but you may also reuse the following functions:
+No function has been defined yet
+
+Parameters:
+1. ?u - uav: The uav
+2. ?from - region: The current region 
+3. ?to - region: The destination region
+
+Preconditions:
+```
+(and 
+    (at ?u ?from)
+    (next ?from ?to)
+)
+```
+
+Effects:
+```
+(and
+    (not (at ?u ?from))
+    (at ?u ?to)
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+1. (at ?u - uav ?from - region): true if uav ?u is in region ?from
+2. (next ?from - region ?to - region): true if region ?to is the next region after region ?from
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+
+
+Example 2. Monitoring at one region
+Action: This action allows a uav to monitor in the current region if the required monitoring time of that region has not yet been reached. Each execution of this action increases the region's monitoring time by one unit. For example, if the uav is in region_1 and the required monitoring time for region_1 is 3 units, then executing this action will increase region_1's monitoring time by 1 unit.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+1. (at ?u - uav ?from - region): true if uav ?r is in region ?from
+2. (next ?from - region ?to - region): true if region ?to is the next region after region ?from
+
+You can create and define new functions, but you may also reuse the following functions:
+No function has been defined yet
+
+Parameters:
+1. ?u - uav: The uav
+2. ?r - region: The current region
+
+Preconditions:
+```
+(and 
+    (at ?u ?r)
+    (>= (need-time ?r) (spend-time ?r))
+)
+```
+
+Effects:
+```
+(and
+    (increase (spend-time ?r) 1)
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+No newly defined predicate.
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+1. (need-time ?r - region): The required monitoring time for region ?r.
+2. (spend-time ?r - region): The current monitoring time in region ?r.

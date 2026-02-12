@@ -1,0 +1,1 @@
+This domain involves a uav that autonomously navigate between connected locations, and stop at the goal location.

@@ -1,0 +1,38 @@
+{
+  "Move ugv from one position to another": {
+    "desc": "This action enables the ugv to move from one position to another if both positions are marked as clear and connected. This movement incur a unit cost. For example, the ugv moves from Position_1 to Position_2 if Position_1 and Position_2 are clear and the cost is increased by 1 unit.",
+    "extra_info": [],
+    "name_in_pddl": "move-ugv",
+    "abstract_desc": "This action enables the ugv to move from [position1] to [position2] if [position1] and [position2] are [state1] and if [position1] and [position2] are both marked as [state2]. This action will increase [value1] by [value2]."
+  },
+  "Move uav from one position to another": {
+    "desc": "This action enables the uav to move from one position to another if two positions are connected. This movement incur a unit cost. For example, the uav moves from Position_1 to Position_2 if Position_1 and Position_2 are connected and the cost is increased by 1 unit.",
+    "extra_info": [],
+    "name_in_pddl": "move-uav",
+    "abstract_desc": "This action enables the uav to move from [position1] to [position2] if [position1] and [position2] are [state1]. This action will increase [value1] by [value2]."
+  },
+  "uav detects clear position": {
+    "desc": "This action enables the uav to mark the current position as clear, not having-fixed-obstacle and not having-movable-obstacle, if the position has no fixed and movable obstacle. This movement incur a unit cost. For example, if the uav is at position_1 and position_1 has no fixed and movable obstacle, the uav will mark position_1 as clear, and not having-fixed-obstacle and not having-fixed-obstacle. The cost is increased by 1 unit.",
+    "extra_info": [],
+    "name_in_pddl": "uav-detect-clear",
+    "abstract_desc": "This action enables the uav to mark [position1] as [state1], [state2] and [state3] if [position1] is [state4]. This action will increase [value1] by [value2]."
+  },
+  "uav detects positions that has fixed obstacles": {
+    "desc": "This action enables the uav to mark the current position as having-fixed-obstacle, not clear and not having-movable-obstacle, if the position has fixed obstacle. This movement incur a unit cost. For example, if the uav is at position_1 and position_1 has fixed obstacle, the uav will mark position_1 as having-fixed-obstacle, and not clear and not having-fixed-obstacle. The cost is increased by 1 unit.",
+    "extra_info": [],
+    "name_in_pddl": "uav-detect-fix",
+    "abstract_desc": "This action enables the uav to mark [position1] as [state1], [state2] and [state3] if [position1] is [state4]. This action will increase [value1] by [value2]."
+  },
+  "uav detects positions that has movable obstacles": {
+    "desc": "This action enables the uav to mark the current position as having-movable-obstacle, not clear and not having-fixed-obstacle, if the position has movable obstacle. This movement incur a unit cost. For example, if the uav is at position_1 and position_1 has movable obstacle, the uav will mark position_1 as having-movable-obstacle, and not clear and not having-fixed-obstacle. The cost is increased by 1 unit.",
+    "extra_info": [],
+    "name_in_pddl": "uav-detect-mov",
+    "abstract_desc": "This action enables the uav to mark [position1] as [state1], [state2] and [state3] if [position1] is [state4]. This action will increase [value1] by [value2]."
+  },
+  "ugv pushs the movable obstacles to another position": {
+    "desc": "This action enables the ugv pushes a movable obstacle from an adjacent position to another new position that is adjacent to that obstacle's location, given that the new position is marked as clear and not equal to the ugv's current location. The ugv also move forward to the obstacle's original position. After this action, the obstacle states in these positions also are updated. This movement incur two units cost. For example, if the ugv is at Position_1, and Position_2 is marked as having-moveable-obstacles, the ugv can push the obstacle to Position_3 and move to Position_2 if Position_3 is marked as clear, connected to Position_2 and not equal to Position_1. The cost is increased by 2 units. Now Position_2 is marked clear and Position_3 has a movable obstacle and it is marked as having-moveable-obstacles.",
+    "extra_info": [],
+    "name_in_pddl": "push",
+    "abstract_desc": "This action enables the ugv to push [object1] from [position1] to [position2], if [position2] is [state1], [position2] and [position1] are [state2], and [position1] is not equal to [position3]. The ugv then moves to [position1]. This action will increase [value1] by [value2]."
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "Load a package into a truck": {
+    "desc": "This action enables the truck to load a packagea at some location, the truck doesn't have load limit. For example, truck_1 loads package_1 at location_1.",
+    "extra_info": [],
+    "name_in_pddl": "truck-load",
+    "abstract_desc": "This action enables the truck to load [object1] at [position1], the truck doesn't have load limit."
+  },
+  "Unload a package from a truck": {
+    "desc": "This action enables the truck to unload a package at some location. For example, truck_1 unloads package_1 at location_2.",
+    "extra_info": [],
+    "name_in_pddl": "truck-unload",
+    "abstract_desc": "This action enables the truck to unload [object1] at [position1]."
+  },
+  "Load a package into an uav": {
+    "desc": "This action enables the uav to load a package if the location is an airport. the uav doesn't have load limit. For example, uav loads package_1 at airport_1.",
+    "extra_info": [],
+    "name_in_pddl": "uav-load",
+    "abstract_desc": "This action enables the uav to load [object1] if [position1] is [state1]. The uav doesn't have load limit."
+  },
+  "Unload a package from an uav": {
+    "desc": "This action enables the uav to unload a package if the location is an airport. For example, uav unloads package_1 at airport_2.",
+    "extra_info": [],
+    "name_in_pddl": "uav-unload",
+    "abstract_desc": "This action enables the uav to unload [object1] if [position1] is [state1]."
+  },
+  "Drive a truck from one location to another inside the same city": {
+    "desc": "This action enables the truck to go from one location to another inside the same city. For example, truck_1 drives from location_1 to location_2 inside city_1.",
+    "extra_info": [],
+    "name_in_pddl": "truck-drive",
+    "abstract_desc": "This action enables the truck to move from [object1]'s [position1] to [object1]'s [position2]."
+  },
+  "Fly an uav from one location to another in a city": {
+    "desc": "This action enables the uav to fly from one airport to another airport across different cities. For example, uav flies from airport_1 in city_1 to airport_2 in city_2.",
+    "extra_info": [],
+    "name_in_pddl": "uav-fly",
+    "abstract_desc": "This action enables the uav to move from [object1]'s [position1] to [object2]'s [position2]."
+  }
+}

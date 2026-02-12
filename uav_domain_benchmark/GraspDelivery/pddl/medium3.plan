@@ -1,0 +1,10 @@
+;;!domain: GraspDelivery
+
+;;!problem: medium-shrink-move-grasp-pass-unload
+
+0.0: (detect-clear u1 l1)
+1.0: (move u1 l1 l2)
+2.0: (grasp u1 l2 p1)
+3.0: (detect-obstacle u1 l2)
+4.0: (shrink-pass u1 l2 l3)
+5.0: (unload u1 l3 p1)

@@ -1,0 +1,8 @@
+;;!domain: uav-navigation
+
+;;!problem: uav-house-navigation
+
+0.0: (Move-to-Next-Location drone1 kitchen living_room)
+1.0: (Move-to-Next-Location drone1 living_room hallway)
+2.0: (Move-to-Next-Location drone1 hallway bathroom)
+3.0: (Verify-Arrival-at-Goal-Location drone1 bathroom)

@@ -1,0 +1,76 @@
+Example 1. uav move from one position to another
+Action: This action allows a uav to move from its current position to a connected new position. This costs one unit of energy. For example, the uav moves from position_1 to position_2 if there is a connection between them. This costs one unit of energy.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+No predicate has been defined yet
+
+You can create and define new functions, but you may also reuse the following functions:
+No function has been defined yet
+
+Parameters:
+1. ?r - uav: The uav
+2. ?from - position: The current position 
+3. ?to - position: The destination position
+
+Preconditions:
+```
+(and 
+    (at ?r ?from) 
+    (connect ?from ?to)
+)
+```
+
+Effects:
+```
+(and
+    (not(at ?r ?from)) 
+    (at ?r ?to) 
+    (increase (cost) 1)
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+1. (at ?r - uav ?from - position): true if uav ?r is in position ?from
+2. (connect ?from - position ?to - position): true if position ?to is the next position after position ?from
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+1. (cost): total traversal cost for uav
+
+
+Example 2. Verify if uav has reached the goal
+Action: This action enables a uav to mark the task as finished when it is at the position that is marked as goal position. For example, if position_2 is the goal position and the uav is currently at position_2, it can perform this action to indicate that the task is finished.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+1. (at ?r - uav ?from - position): true if uav ?r is in position ?from
+2. (connect ?from - position ?to - position): true if position ?to is the next position after position ?from
+
+You can create and define new functions, but you may also reuse the following functions:
+1. (cost): total traversal cost for uav
+
+Parameters:
+1. ?r - uav: The uav
+2. ?p - position: The current position
+
+Preconditions:
+```
+(and 
+    (at ?r ?p) 
+    (goal ?p)
+)
+```
+
+Effects:
+```
+(and
+    (finish)
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+1. (finish): The task has benn finished.
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+
+
+

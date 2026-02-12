@@ -1,0 +1,388 @@
+Example 1. Move uav to its right position
+Action: This action enables the uav to move from its current position to position on the right if the position on the right is marked as clear. This action costs one energy power. For example, if the uav is at position_1, position_2 is marked as clear and on the right side of position_1, the uav can move to position_2. The cost is increased by 1 unit.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+No predicate has been defined yet
+
+You can create and define new functions, but you may also reuse the following functions:
+No function has been defined yet
+
+Parameters:
+1. ?r - uav: The uav
+2. ?p1 - position: The current position
+3. ?p2 - position: The position on the right side
+
+Preconditions:
+```
+(and 
+    (at ?r ?p1) 
+    (clear ?p2) 
+    (right ?p2 ?p1)
+)
+```
+
+Effects:
+```
+(and 
+    (at ?r ?p2) 
+    (not(at ?r ?p1)) 
+    (increase (cost) 1)
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+1. (at ?r - uav ?p1 - position): true if uav ?r is at position ?p1
+2. (clear ?p2 - position): true if position ?p2 is clear
+3. (right ?p2 - position ?p1 - position): true if position ?p2 is on the right side of position ?p1
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+1. (cost): The total cost
+
+
+Example 2. Move uav to its left position
+Action: This action enables the uav to move from its current position to position on the left if the position on the left is marked as clear. This action costs one energy power. For example, if the uav is at position_1, position_2 is marked as clear and on the left side of position_1, the uav can move to position_2. The cost is increased by 1 unit.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+1. (at ?r - uav ?p1 - position): true if uav ?r is at position ?p1
+2. (clear ?p2 - position): true if position ?p2 is clear
+3. (right ?p2 - position ?p1 - position): true if position ?p2 is on the right side of position ?p1
+
+You can create and define new functions, but you may also reuse the following functions:
+1. (cost): The total cost
+
+Parameters:
+1. ?r - uav: The uav
+2. ?p1 - position: The current position
+3. ?p2 - position: The position on the left side
+
+Preconditions:
+```
+(and 
+    (at ?r ?p1) 
+    (clear ?p2) 
+    (left ?p2 ?p1)
+)
+```
+
+Effects:
+```
+(and 
+    (at ?r ?p2) 
+    (not(at ?r ?p1)) 
+    (increase (cost) 1)
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+1. (left ?p2 - position ?p1 - position): true if position ?p2 is on the left side of position ?p1
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+
+
+Example 3. Move uav to its below position
+Action: This action enables the uav to move from its current position to position below if the position below is marked as clear. This action costs one energy power. For example, if the uav is at position_1, position_2 is marked as clear and below position_1, the uav can move to position_2. The cost is increased by 1 unit.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+1. (at ?r - uav ?p1 - position): true if uav ?r is at position ?p1
+2. (clear ?p2 - position): true if position ?p2 is clear
+3. (right ?p2 - position ?p1 - position): true if position ?p2 is on the right side of position ?p1
+4. (left ?p2 - position ?p1 - position): true if position ?p2 is on the left side of position ?p1
+
+You can create and define new functions, but you may also reuse the following functions:
+1. (cost): The total cost
+
+Parameters:
+1. ?r - uav: The uav
+2. ?p1 - position: The current position
+3. ?p2 - position: The position below
+
+Preconditions:
+```
+(and 
+    (at ?r ?p1) 
+    (clear ?p2) 
+    (down ?p2 ?p1)
+)
+```
+
+Effects:
+```
+(and 
+    (at ?r ?p2) 
+    (not(at ?r ?p1)) 
+    (increase (cost) 1)
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+1. (down ?p2 - position ?p1 - position): true if position ?p2 is below position ?p1
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+
+
+Example 4. Move uav to its above position
+Action: This action enables the uav to move from its current position to position above if the position above is marked as clear. This action costs one energy power. For example, if the uav is at position_1, position_2 is marked as clear and above position_1, the uav can move to position_2. The cost is increased by 1 unit.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+1. (at ?r - uav ?p1 - position): true if uav ?r is at position ?p1
+2. (clear ?p2 - position): true if position ?p2 is clear
+3. (right ?p2 - position ?p1 - position): true if position ?p2 is on the right side of position ?p1
+4. (left ?p2 - position ?p1 - position): true if position ?p2 is on the left side of position ?p1
+5. (down ?p2 - position ?p1 - position): true if position ?p2 is below position ?p1
+
+You can create and define new functions, but you may also reuse the following functions:
+1. (cost): The total cost
+
+Parameters:
+1. ?r - uav: The uav
+2. ?p1 - position: The current position
+3. ?p2 - position: The position above
+
+Preconditions:
+```
+(and 
+    (at ?r ?p1) 
+    (clear ?p2) 
+    (up ?p2 ?p1)
+)
+```
+
+Effects:
+```
+(and 
+    (at ?r ?p2) 
+    (not(at ?r ?p1)) 
+    (increase (cost) 1)
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+1. (up ?p2 - position ?p1 - position): true if position ?p2 is above position ?p1
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+
+
+Example 5. Rotate uav's side camera to view the right side
+Action: This action enables the uav to rotate to let its side camera to view to right side. This action requires that the uav was previously seeing to the left. This action costs one energy power. For example, if the side camera is currently seeing to the left position, the uav can rotate to let the camera see to the right position. The cost is increased by 1 unit.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+1. (at ?r - uav ?p1 - position): true if uav ?r is at position ?p1
+2. (clear ?p2 - position): true if position ?p2 is clear
+3. (right ?p2 - position ?p1 - position): true if position ?p2 is on the right side of position ?p1
+4. (left ?p2 - position ?p1 - position): true if position ?p2 is on the left side of position ?p1
+5. (down ?p2 - position ?p1 - position): true if position ?p2 is below position ?p1
+6. (up ?p2 - position ?p1 - position): true if position ?p2 is above position ?p1
+
+You can create and define new functions, but you may also reuse the following functions:
+1. (cost): The total cost
+
+Parameters:
+1. ?r - uav: The uav
+
+Preconditions:
+```
+(and 
+    (see-left ?r)
+)
+```
+
+Effects:
+```
+(and 
+    (see-right ?r)
+    (not (see-left ?r))
+    (increase (cost) 1)
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+1. (see-left ?r - uav): true if the camera view of uav ?r is seeing its left side
+2. (see-right ?r - uav): true if the camera view of uav ?r is seeing its right side
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+
+
+Example 6. Rotate uav's side camera to view the left side
+Action: This action enables the uav to rotate to let its side camera to view to left side. This action requires that the uav was previously seeing to the right. This action costs one energy power. For example, if the side camera is currently seeing to the right position, the uav can rotate to let the camera see to the left position. The cost is increased by 1 unit.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+1. (at ?r - uav ?p1 - position): true if uav ?r is at position ?p1
+2. (clear ?p2 - position): true if position ?p2 is clear
+3. (right ?p2 - position ?p1 - position): true if position ?p2 is on the right side of position ?p1
+4. (left ?p2 - position ?p1 - position): true if position ?p2 is on the left side of position ?p1
+5. (down ?p2 - position ?p1 - position): true if position ?p2 is below position ?p1
+6. (up ?p2 - position ?p1 - position): true if position ?p2 is above position ?p1
+7. (see-left ?r - uav): true if the camera view of uav ?r is seeing its left side
+8. (see-right ?r - uav): true if the camera view of uav ?r is seeing its right side
+
+You can create and define new functions, but you may also reuse the following functions:
+1. (cost): The total cost
+
+Parameters:
+1. ?r - uav: The uav
+
+Preconditions:
+```
+(and 
+    (see-right ?r)
+)
+```
+
+Effects:
+```
+(and 
+    (see-left ?r)
+    (not (see-right ?r))
+    (increase (cost) 1)
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+No newly defined predicate
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+
+
+Example 7. uav detects position below
+Action: This action enables the uav to mark the position below its current position as clear, if the position below has on obstacle. This action costs one energy power. For example, if the uav is at position_1 and position_2 is below position_1 and has no obstacle, the uav can mark position_2 as clear. The cost is increased by 1 unit.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+1. (at ?r - uav ?p1 - position): true if uav ?r is at position ?p1
+2. (clear ?p2 - position): true if position ?p2 is clear
+3. (right ?p2 - position ?p1 - position): true if position ?p2 is on the right side of position ?p1
+4. (left ?p2 - position ?p1 - position): true if position ?p2 is on the left side of position ?p1
+5. (down ?p2 - position ?p1 - position): true if position ?p2 is below position ?p1
+6. (up ?p2 - position ?p1 - position): true if position ?p2 is above position ?p1
+7. (see-left ?r - uav): true if the camera view of uav ?r is seeing its left side
+8. (see-right ?r - uav): true if the camera view of uav ?r is seeing its right side
+
+You can create and define new functions, but you may also reuse the following functions:
+1. (cost): The total cost
+
+Parameters:
+1. ?r - uav: The uav
+2. ?p1 - position: The current position
+3. ?p2 - position: The position below
+
+Preconditions:
+```
+(and 
+    (at ?r ?p)
+    (down ?pp ?p)
+    (not (obs ?pp))
+)
+```
+
+Effects:
+```
+(and 
+    (clear ?pp)
+    (increase (cost) 1)
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+1. (obs ?pp - position): true if position ?pp has obstacle
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+
+
+Example 8. uav detects position on the right
+Action: This action enables the uav to mark the position on the right of its current position as clear, if the position on the right has on obstacle, and the uav's side camera is seeing to the right side. This action costs one energy power. For example, if the uav is at position_1 and position_2 is on the right of position_1 and has no obstacle, then the uav can mark position_2 as clear if the side camera is seeing to the right. The cost is increased by 1 unit.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+1. (at ?r - uav ?p1 - position): true if uav ?r is at position ?p1
+2. (clear ?p2 - position): true if position ?p2 is clear
+3. (right ?p2 - position ?p1 - position): true if position ?p2 is on the right side of position ?p1
+4. (left ?p2 - position ?p1 - position): true if position ?p2 is on the left side of position ?p1
+5. (down ?p2 - position ?p1 - position): true if position ?p2 is below position ?p1
+6. (up ?p2 - position ?p1 - position): true if position ?p2 is above position ?p1
+7. (see-left ?r - uav): true if the camera view of uav ?r is seeing its left side
+8. (see-right ?r - uav): true if the camera view of uav ?r is seeing its right side
+9. (obs ?pp - position): true if position ?pp has obstacle
+
+You can create and define new functions, but you may also reuse the following functions:
+1. (cost): The total cost
+
+Parameters:
+1. ?r - uav: The uav
+2. ?p1 - position: The current position
+3. ?p2 - position: The position on the right side
+
+Preconditions:
+```
+(and 
+    (at ?r ?p)
+    (see-right ?r)
+    (right ?pp ?p)
+    (not (obs ?pp))
+)
+```
+
+Effects:
+```
+(and 
+    (clear ?pp)
+    (increase (cost) 1)
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+No newly defined predicate
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+
+
+Example 9. uav detects position on the left
+Action: This action enables the uav to mark the position on the left of its current position as clear, if the position on the left has on obstacle, and the uav's side camera is seeing to the left side. This action costs one energy power. For example, if the uav is at position_1 and position_2 is on the left of position_1 and has no obstacle, then the uav can mark position_2 as clear if the side camera is seeing to the left. The cost is increased by 1 unit.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+1. (at ?r - uav ?p1 - position): true if uav ?r is at position ?p1
+2. (clear ?p2 - position): true if position ?p2 is clear
+3. (right ?p2 - position ?p1 - position): true if position ?p2 is on the right side of position ?p1
+4. (left ?p2 - position ?p1 - position): true if position ?p2 is on the left side of position ?p1
+5. (down ?p2 - position ?p1 - position): true if position ?p2 is below position ?p1
+6. (up ?p2 - position ?p1 - position): true if position ?p2 is above position ?p1
+7. (see-left ?r - uav): true if the camera view of uav ?r is seeing its left side
+8. (see-right ?r - uav): true if the camera view of uav ?r is seeing its right side
+9. (obs ?pp - position): true if position ?pp has obstacle
+
+You can create and define new functions, but you may also reuse the following functions:
+1. (cost): The total cost
+
+Parameters:
+1. ?r - uav: The uav
+2. ?p1 - position: The current position
+3. ?p2 - position: The position on the left side
+
+Preconditions:
+```
+(and 
+    (at ?r ?p)
+    (see-left ?r)
+    (left ?pp ?p)
+    (not (obs ?pp))
+)
+```
+
+Effects:
+```
+(and 
+    (clear ?pp)
+    (increase (cost) 1)
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+No newly defined predicate
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+

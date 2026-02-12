@@ -1,0 +1,26 @@
+{
+  "uav flies from one position to another": {
+    "desc": "This action enables the uav to fly from one position to another connected position when it is in the flying mode, and the weather at the current position is not bad. For example, if the uav is at position A and wants to fly to position B, it can do so if the uav is flying, the weather at position A is not bad and there is a direct connection to position B.",
+    "extra_info": [],
+    "name_in_pddl": "fly",
+    "abstract_desc": "This action enables the uav to move from [position1] to [position2], if the uav is in [state1], [position1] and [position2] are [state2], and [position1] is [state3]."
+  },
+  "uav drives from one position to another": {
+    "desc": "This action enables the uav to drive from one position to another connected position when it is in the driving mode, and the road at the current position is not slippery. For example, if the uav is at position A and wants to drive to position B, it can do so if the uav is in driving mode, the road at position A is not slippery and there is a direct connection to position B.",
+    "extra_info": [],
+    "name_in_pddl": "drive",
+    "abstract_desc": "This action enables the uav to move from [position1] to [position2], if the uav is in [state1], [position1] and [position2] are [state2], and [position1] is [state3]."
+  },
+  "uav switch to flying mode": {
+    "desc": "This action enables the uav to switch from driving mode to flying mode at its current position if the road is slippery. For example, if the uav is at position A and the road is slippery, it can switch to flying mode.",
+    "extra_info": [],
+    "name_in_pddl": "switch-fly",
+    "abstract_desc": "This action enables the uav to switch from [state1] to [state2] at [position1] if [position1] is [state3]."
+  },
+  "uav switch to drive mode": {
+    "desc": "This action enables the uav to switch from flying mode to driving mode at its current position if the weather is bad. For example, if the uav is at position A and the weather is bad, it can switch to driving mode.",
+    "extra_info": [],
+    "name_in_pddl": "switch-drive",
+    "abstract_desc": "This action enables the uav to switch from [state1] to [state2] at [position1] if [position1] is [state3]."
+  }
+}

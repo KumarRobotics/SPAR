@@ -1,0 +1,24 @@
+;;!domain: GridExplore
+
+;;!problem: GridExploreHard-2
+
+0.0: (mark-clear uav2 p41 p42)
+1.0: (move uav2 p41 p42)
+2.0: (mark-clear uav1 p11 p21)
+3.0: (move uav1 p11 p21)
+4.0: (mark-clear uav1 p21 p31)
+5.0: (move uav1 p21 p31)
+6.0: (mark-clear uav2 p42 p32)
+7.0: (move uav1 p31 p32)
+8.0: (move uav1 p32 p42)
+9.0: (mark-clear uav2 p42 p43)
+10.0: (move uav2 p42 p43)
+11.0: (move uav1 p42 p43)
+12.0: (mark-clear uav2 p43 p44)
+13.0: (move uav2 p43 p44)
+14.0: (move uav1 p43 p44)
+15.0: (mark-clear uav2 p44 p34)
+16.0: (move uav1 p44 p34)
+17.0: (move uav2 p44 p34)
+18.0: (mark-clear uav2 p34 p24)
+19.0: (move uav1 p34 p24)

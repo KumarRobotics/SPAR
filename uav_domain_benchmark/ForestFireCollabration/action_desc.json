@@ -1,0 +1,26 @@
+{
+  "Move uav to another area": {
+    "desc": "This action enables the uav to move from its current area to a different area if two areas are connected. For example, the uav moves from area_1 to area_2 if area_1 and area_2 are connected.",
+    "extra_info": [],
+    "name_in_pddl": "MOVE-uav",
+    "abstract_desc": "This action enables the uav to move from [position1] to [position2] if [position1] and [position2] are [state1]."
+  },
+  "Move ugv to another area": {
+    "desc": "This action enables the ugv to move from one area to another if two areas are connected. For example, the ugv moves from area_1 to area_2 if area_1 and area_2 are connected.",
+    "extra_info": [],
+    "name_in_pddl": "MOVE-ugv",
+    "abstract_desc": "This action enables the ugv to move from [position1] to [position2] if [position1] and [position2] are [state1]."
+  },
+  "Monitor an area for fire": {
+    "desc": "This action enables the uav to mark an area dangerous if the area has fire and the uav is at that area. For example, if the uav at area_2 and area_2 has fire, uav will mark area_2 as dangerous.",
+    "extra_info": [],
+    "name_in_pddl": "CALL-uav",
+    "abstract_desc": "This action enables the uav to mark [position1] as [state1], if [position1] has [object1] and the uav is at [position1]."
+  },
+  "Extinguish fire in an area": {
+    "desc": "This action enables the ugv to extinguish a fire in a area only if the area is dangerous. For example, the ugv extinguishes the fire in area_1 if area_1 has been marked as dangerous.",
+    "extra_info": [],
+    "name_in_pddl": "ExTINGUISH-FIRE",
+    "abstract_desc": "This action enables the ugv to remove [object1] in [position1] if [position1] is [state1]."
+  }
+}

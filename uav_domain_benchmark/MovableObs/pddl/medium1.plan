@@ -1,0 +1,6 @@
+;;!domain: MovableObs
+
+;;!problem: detect-then-move
+
+0.0: (uav-detect-clear u1 p2)
+1.0: (move-ugv g1 p1 p2)

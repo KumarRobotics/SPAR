@@ -1,0 +1,1 @@
+This domain models a food delivery system where robot arms are responsible for cooking and preparing meals, and uavs delivers meals to different locations. Each robot arm can cook meals and it is stationary, when the meal is prepared, the uav can pick it up and deliver to some location, uav can only deliver one meal at a time.

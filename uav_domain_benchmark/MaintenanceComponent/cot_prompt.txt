@@ -1,0 +1,143 @@
+Example 1. Take an image of a component
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?
+1. The uav ?d  
+2. The component ?c
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)
+1. The uav ?d:
+    - Must be available to do this task - (available ?d)
+2. The component ?c:
+    - None
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)
+1. The uav ?d:
+    - Busy, Will no longer be available - (not (available ?d))
+2. The component ?c:
+    - Will have an image taken - (image_taken ?c)
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 2. Analyse image of a component that is in bad state
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?
+1. The uav ?d  
+2. The component ?c
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)
+1. The uav ?d:
+    - None
+2. The component ?c:
+    - Must have had an image taken - (image_taken ?c)  
+    - Must be in a bad state (ground truth) - (bad-state ?c)
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)
+1. The uav ?d:
+    - Becomes available again - (available ?d)
+2. The component ?c:
+    - Image is analyzed - (image_analyzed ?c)  
+    - Component marked as anomaly - (anomaly ?c)
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 3. Analyse image of a good component
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?
+1. The uav ?d  
+2. The component ?c
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)
+1. The uav ?d:
+    - None
+2. The component ?c:
+    - Must have had an image taken - (image_taken ?c)  
+    - Must not be in a bad state (ground truth) - (not (bad-state ?c))
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)
+1. The uav ?d
+    - Becomes available again - (available ?d)
+2. The component ?c:
+    - Image is analyzed - (image_analyzed ?c)
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 4. Measure thermal value of a component
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?
+1. The uav ?d  
+2. The component ?c
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)
+1. The uav ?d:
+    - Must be available for this task - (available ?d)
+2. The component ?c:
+    - None
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)
+1. The uav ?d:
+    - Becomes unavailable - (not (available ?d))
+2. The component ?c:
+    - Thermal value is measured - (thermal_measured ?c)
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 5. Analyse thermal value of a good component
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?
+1. The uav ?d  
+2. The component ?c
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)
+1. The uav ?d:
+    - None
+2. The component ?c:
+    - Thermal value must have been measured - (thermal_measured ?c)
+    - Thermal value must be below threshold - (< (heat ?c) (max_heat))
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)
+1. The uav ?d:
+    - Becomes available - (available ?d)
+2. The component ?c:
+    - Thermal value is analyzed - (heat_analyzed ?c)
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 6. Analyse thermal value of an anomaly component
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?
+1. The uav ?d  
+2. The component ?c
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)
+1. The uav ?d:
+    - None
+2. The component ?c:
+    - Thermal value must have been measured - (thermal_measured ?c)
+    - Thermal value must be above or equal to threshold - (>= (heat ?c) (max_heat))
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)
+1. The uav ?d:
+    - Becomes available - (available ?d)
+2. The component ?c:
+    - Thermal value is analyzed - (heat_analyzed ?c)
+    - Component is diagnosed with anomaly - (anomaly ?c)
+
+- Finally, write the PDDL action in the following format:
+

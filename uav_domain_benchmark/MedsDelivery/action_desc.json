@@ -1,0 +1,20 @@
+{
+  "Move the uav to another location": {
+    "desc": "This action enables a uav to move from its current location to a new location. For example, the uav can move from the location_1 to location_2.",
+    "extra_info": [],
+    "name_in_pddl": "move-uav",
+    "abstract_desc": "This action enables a uav to move from [position1] to [position2]."
+  },
+  "Pick up a blood sample from a location": {
+    "desc": "This action enables a uav to pick up a blood sample from some location if the uav is holding nothing. For example, the uav picks up a sample at the location_1.",
+    "extra_info": [],
+    "name_in_pddl": "get-blood-sample",
+    "abstract_desc": "This action enables a uav to load [object1] from [position1] if the uav is [state1]."
+  },
+  "Deliver a blood sample to a location": {
+    "desc": "This action enables a uav to deliver a carried blood sample to a target location. The uav must be holding the sample and be at the target location. For example, the uav drop the sample to the location_2.",
+    "extra_info": [],
+    "name_in_pddl": "give-blood-sample",
+    "abstract_desc": "This action enables a uav to unload [object1] to [position1] if the uav is [state1] and it is at [position1]."
+  }
+}

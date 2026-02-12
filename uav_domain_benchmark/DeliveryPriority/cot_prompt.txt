@@ -1,0 +1,113 @@
+Example 1. uav moves from one location to another
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?
+1. The uav ?d
+2. The start location ?from
+3. The destination location ?to
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)
+1. The uav ?d:
+    - Must be at the starting location - (at-uav ?d ?from)
+2. The start location ?from:
+    - None
+3. The destination location ?to:
+    - None
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)
+1. The uav ?d:
+    - Is no longer at the starting location - (not (at-uav ?d ?from))
+    - Is now at the destination location - (at-uav ?d ?to)
+2. The start location ?from:
+    - None
+3. The destination location ?to:
+    - None
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 2. uav loads a package
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?
+1. The uav ?d
+2. The package ?p
+3. The location ?l
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)
+1. The uav ?d:
+    - Must be at the location - (at-uav ?d ?l)
+    - Must be empty - (uav-empty ?d)
+2. The package ?p:
+    - Must be at the same location - (at-package ?p ?l)
+    - Must be loadable - (loadable ?p)
+3. The location ?l:
+    - None
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)
+1. The uav ?d:
+    - Becomes not empty - (not (uav-empty ?d))
+    - Is now holding the package - (holding ?d ?p)
+2. The package ?p:
+    - Is no longer at the location - (not (at-package ?p ?l))
+3. The location ?l:
+    - None
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 3. Mark the next package as loadable
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?
+1. The current package ?p1
+2. The next package ?p2
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)
+1. The current package ?p1:
+    - Must have been delivered - (delivered ?p1)
+2. The next package ?p2:
+    - Must not have been delivered yet - (not (delivered ?p2))
+    - The next package must come after the current one - (next ?p1 ?p2)
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)
+1. The current package ?p1:
+    - Is no longer loadable - (not (loadable ?p1))
+2. The next package ?p2:
+    - Becomes loadable - (loadable ?p2)
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 4. uav unloads a package
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?
+1. The uav ?d
+2. The package ?p
+3. The location ?l
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)
+1. The uav ?d:
+    - Must be at the location - (at-uav ?d ?l)
+    - Must be holding the package - (holding ?d ?p)
+2. The package ?p:
+    - None
+3. The location ?l:
+    - None
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)
+1. The uav ?d:
+    - Becomes empty - (uav-empty ?d)
+    - Is no longer holding the package - (not (holding ?d ?p))
+2. The package ?p:
+    - Is now delivered - (delivered ?p)
+    - Is now at the location - (at-package ?p ?l)
+3. The location ?l:
+    - None
+
+- Finally, write the PDDL action in the following format:

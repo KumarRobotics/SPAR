@@ -1,0 +1,5 @@
+;;!domain: uav_passenger_transport
+
+;;!problem: test-board
+
+0.0: (board u1 p1 locA)

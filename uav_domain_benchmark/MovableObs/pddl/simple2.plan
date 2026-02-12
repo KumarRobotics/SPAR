@@ -1,0 +1,5 @@
+;;!domain: MovableObs
+
+;;!problem: detect-fix-simple
+
+0.0: (uav-detect-fix u1 p1)

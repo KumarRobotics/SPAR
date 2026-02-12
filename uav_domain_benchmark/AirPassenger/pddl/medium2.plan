@@ -1,0 +1,10 @@
+;;!domain: uav_passenger_transport
+
+;;!problem: recharge-midway
+
+0.0: (move u1 la lb)
+1.0: (board u1 p1 lb)
+2.0: (move u1 lb lc)
+3.0: (recharge u1 lc)
+4.0: (move u1 lc ld)
+5.0: (deboard p1 u1 ld)

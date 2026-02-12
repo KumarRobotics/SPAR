@@ -1,0 +1,7 @@
+;;!domain: CeilingPaintDomain
+
+;;!problem: medium-test-flight-chain
+
+0.0: (Take-off u1)
+1.0: (Fly-to u1 p1 p3)
+2.0: (Landing u1)

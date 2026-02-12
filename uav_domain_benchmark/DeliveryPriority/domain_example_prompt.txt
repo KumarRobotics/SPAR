@@ -1,0 +1,167 @@
+Example 1. uav moves from one location to another
+Action: This action enables a uav to move from one location to another. For example, the uav can move from location_1 to location_2.
+
+You can create and define new predicates, but you may also reuse the following predicates: 
+No predicate has been defined yet
+
+You can create and define new functions, but you may also reuse the following functions: 
+No function has been defined yet
+
+Parameters:
+1. ?d - uav: The uav
+2. ?from - location: The starting location
+3. ?to - location: The destination location
+
+Preconditions:
+```
+(and
+    (at-uav ?d ?from)
+)
+```
+
+Effects:
+```
+(and
+    (not (at-uav ?d ?from))
+    (at-uav ?d ?to)
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+1. (at-uav ?d - uav ?from - location): true if uav ?d is at location ?from
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+
+
+Example 2. uav loads a package
+Action: This action enables a uav to load a package at some location if the package is marked as loadable. The uav can only load one package at a time. For example, if uav is holding nothing and package_1 is marked as loadable at location_1, the uav can load package_1 at location_1.
+
+You can create and define new predicates, but you may also reuse the following predicates: 
+1. (at-uav ?d - uav ?from - location): true if uav ?d is at location ?from
+
+You can create and define new functions, but you may also reuse the following functions: 
+No function has been defined yet
+
+Parameters:
+1. ?d - uav: The uav
+2. ?p - package: The package to load
+3. ?l - location: The location where the loading takes place
+
+Preconditions:
+```
+(and
+    (at-uav ?d ?l)
+	(at-package ?p ?l)
+	(uav-empty ?d)
+	(loadable ?p)
+)
+```
+
+Effects:
+```
+(and
+    (not (uav-empty ?d))
+	(not (at-package ?p ?l))
+	(holding ?d ?p)
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+1. (at-package ?p - package ?l - location): true if package ?p is at location ?l
+2. (uav-empty ?d - uav): true if uav ?d is empty, not holding anything
+3. (loadable ?p - package): true if package ?p is loadable
+4. (holding ?d - uav ?p - package): true if uav ?d is holding package ?p
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+
+
+Example 3. Mark the next package as loadable
+Action: This action enables a uav to mark a package as loadable if the package follows previously delivered package in the order. It also disables the previously delivered package from being loadable again. For example, if package_1 has been delivered and the next package in the order is package_2, this action marks package_2 as loadable and package_1 as no longer loadable.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+1. (at-uav ?d - uav ?from - location): true if uav ?d is at location ?from
+2. (at-package ?p - package ?l - location): true if package ?p is at location ?l
+3. (uav-empty ?d - uav): true if uav ?d is empty, not holding anything
+4. (loadable ?p - package): true if package ?p is loadable
+5. (holding ?d - uav ?p - package): true if uav ?d is holding package ?p
+
+You can create and define new functions, but you may also reuse the following functions:
+No function has been defined yet
+
+Parameters:
+1. ?p1 - package: The package ?p1 that has been delivered
+2. ?p2 - package: The package ?p2 that is going to be delivered next after ?p1
+
+Preconditions:
+```
+(and
+    (next ?p1 ?p2)
+	(delivered ?p1)
+	(not (delivered ?p2))
+)
+```
+
+Effects:
+```
+(and
+    (loadable ?p2)
+    (not (loadable ?p1))
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+1. (next ?p1 - package ?p2 - package): true if package ?p2 is ordered next after package ?p1
+2. (delivered ?p1 - package): true if package ?p1 has been delivered
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+
+
+Example 4. uav unloads a package
+Action: This action enables a uav to unload a held package at the current location, marking the package as delivered. For example, if the uav is holding package_1 and is at location_2, it can unload package_1 at location_2. Package_1 is marked as delivered.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+1. (at-uav ?d - uav ?from - location): true if uav ?d is at location ?from
+2. (at-package ?p - package ?l - location): true if package ?p is at location ?l
+3. (uav-empty ?d - uav): true if uav ?d is empty, not holding anything
+4. (loadable ?p - package): true if package ?p is loadable
+5. (holding ?d - uav ?p - package): true if uav ?d is holding package ?p
+6. (next ?p1 - package ?p2 - package): true if package ?p2 is ordered next after package ?p1
+7. (delivered ?p1 - package): true if package ?p1 has been delivered
+
+You can create and define new functions, but you may also reuse the following functions:
+No function has been defined yet
+
+Parameters:
+1. ?d - uav: The uav
+2. ?p - package: The package that is being unloaded
+3. ?l - location: The current location
+
+Preconditions:
+```
+(and
+    (at-uav ?d ?l)
+    (holding ?d ?p)
+)
+```
+
+Effects:
+```
+(and
+    (uav-empty ?d)
+	(delivered ?p)
+	(at-package ?p ?l)
+	(not (holding ?d ?p))
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+No newly defined predicate
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+
+
+

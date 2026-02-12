@@ -1,0 +1,11 @@
+(define (problem winddist-simple-2)
+  (:domain WindDist)
+  (:objects u1 - uav p1 p2 p3 - position)
+  (:init
+    (at u1 p1)
+    (wind p1)
+    (blow-to p1 p2)
+    (connect p2 p3)
+  )
+  (:goal (at u1 p3))
+)

@@ -1,0 +1,8 @@
+;;!domain: AirQualityMonitoring
+
+;;!problem: move-and-monitor-graph
+
+0.0: (move u1 r1 r3)
+1.0: (move u1 r3 r4)
+2.0: (move u1 r4 r5)
+3.0: (move u1 r5 r6)

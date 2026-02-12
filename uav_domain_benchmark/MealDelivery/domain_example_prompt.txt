@@ -1,0 +1,204 @@
+Example 1. robot arm starts cooking a meal at some location  
+Action: This action enables a robot arm to begin cooking a meal at a location if the meal is not yet prepared. For example, if the arm is at kitchen_1 and meal_1 is unprepared, the robot arm can start cooking meal_1 at kitchen_1.
+
+You can create and define new predicates, but you may also reuse the following predicates:  
+No predicate has been defined yet
+
+You can create and define new functions, but you may also reuse the following functions:  
+No function has been defined yet
+
+Parameters:  
+1. ?r - arm: The robot arm  
+2. ?m - meal: The meal to be cooked  
+3. ?l - location: The cooking location  
+
+Preconditions:
+```
+(and
+    (at-arm ?r ?l)
+    (not (prepared ?m))
+)
+```
+
+Effects:
+```
+(and
+    (cooking ?r ?m)
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)  
+1. (at-arm ?r - arm ?l - location): true if the robot arm ?r is at location ?l  
+2. (prepared ?m - meal): true if meal ?m is prepared  
+3. (cooking ?r - arm ?m - meal): true if the robot arm ?r is currently cooking meal ?m  
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)  
+No newly defined function
+
+
+Example 2. robot arm finishes cooking a meal at some location  
+Action: This action enables a robot arm to finish cooking a meal that it has started cooking. The meal becomes prepared and is available for picking up at the location. For example, if arm_1 is cooking meal_1 at kitchen_1, it can finish cooking and meal_1 becomes prepared and present at kitchen_1.
+
+You can create and define new predicates, but you may also reuse the following predicates:  
+1. (at-arm ?r - arm ?l - location): true if the robot arm ?r is at location ?l  
+2. (prepared ?m - meal): true if meal ?m is prepared  
+3. (cooking ?r - arm ?m - meal): true if the robot arm ?r is currently cooking meal ?m   
+
+You can create and define new functions, but you may also reuse the following functions:  
+No function has been defined yet
+
+Parameters:  
+1. ?r - arm: The robot arm  
+2. ?m - meal: The meal being cooked  
+3. ?l - location: The location where cooking finishes  
+
+Preconditions:
+```
+(and
+    (at-arm ?r ?l)
+    (cooking ?r ?m)
+)
+```
+
+Effects:
+```
+(and
+    (prepared ?m)
+    (at-meal ?m ?l)
+    (not (cooking ?r ?m))
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)  
+1. (at-meal ?m - meal ?l - location): true if the meal ?m is located at location ?l  
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)  
+No newly defined function
+
+
+Example 3. uav flies from one location to another  
+Action: This action enables the UAV to fly from one location to another. For example, the UAV can fly from kitchen_1 to location_1.
+
+You can create and define new predicates, but you may also reuse the following predicates:  
+1. (at-arm ?r - arm ?l - location): true if the robot arm ?r is at location ?l  
+2. (prepared ?m - meal): true if meal ?m is prepared  
+3. (cooking ?r - arm ?m - meal): true if the robot arm ?r is currently cooking meal ?m
+4. (at-meal ?m - meal ?l - location): true if the meal ?m is located at location ?l   
+
+You can create and define new functions, but you may also reuse the following functions:  
+No function has been defined yet  
+
+Parameters:  
+1. ?u - uav: The uav  
+2. ?from - location: The starting location  
+3. ?to - location: The destination location  
+
+Preconditions:
+```
+(and
+    (at-uav ?u ?from)
+)
+```
+
+Effects:
+```
+(and
+    (not (at-uav ?u ?from))
+    (at-uav ?u ?to)
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)  
+1. (at-uav ?u - uav ?l - location): true if uav ?u is at location ?l  
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)  
+No newly defined function
+
+
+Example 4. uav picks up a prepared meal at a location  
+Action: This action enables the UAV to pick up a prepared meal at a location, if the UAV is empty. For example, if the UAV is at kitchen_1, meal_1 is prepared and located there, and the UAV is empty, it can pick up meal_1.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+1. (at-arm ?r - arm ?l - location): true if the robot arm ?r is at location ?l  
+2. (prepared ?m - meal): true if meal ?m is prepared  
+3. (cooking ?r - arm ?m - meal): true if the robot arm ?r is currently cooking meal ?m
+4. (at-meal ?m - meal ?l - location): true if the meal ?m is located at location ?l  
+5. (at-uav ?u - uav ?l - location): true if uav ?u is at location ?l    
+
+You can create and define new functions, but you may also reuse the following functions:  
+No function has been defined yet  
+
+Parameters:  
+1. ?u - uav: The uav  
+2. ?m - meal: The meal to be picked up  
+3. ?l - location: The location where the meal is picked up  
+
+Preconditions:
+```
+(and
+    (at-uav ?u ?l)
+    (at-meal ?m ?l)
+    (prepared ?m)
+    (empty-uav ?u)
+)
+```
+
+Effects:
+```
+(and
+    (carrying ?u ?m)
+    (not (at-meal ?m ?l))
+    (not (empty-uav ?u))
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate) 
+1. (empty-uav ?u - uav): true if uav ?u is not carrying any meal 
+2. (carrying ?u - uav ?m - meal): true if uav ?u is carrying meal ?m
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)  
+No newly defined function  
+
+
+Example 5. uav delivers a meal to a location  
+Action: This action enables the UAV to deliver a carried meal to some location. After delivery, the UAV becomes empty again. For example, if the UAV is carrying meal_1 and is at location_1, it can deliver the meal there.
+
+You can create and define new predicates, but you may also reuse the following predicates:  
+1. (at-arm ?r - arm ?l - location): true if the robot arm ?r is at location ?l  
+2. (prepared ?m - meal): true if meal ?m is prepared  
+3. (cooking ?r - arm ?m - meal): true if the robot arm ?r is currently cooking meal ?m
+4. (at-meal ?m - meal ?l - location): true if the meal ?m is located at location ?l  
+5. (at-uav ?u - uav ?l - location): true if uav ?u is at location ?l  
+6. (empty-uav ?u - uav): true if uav ?u is not carrying any meal 
+7. (carrying ?u - uav ?m - meal): true if uav ?u is carrying meal ?m
+
+You can create and define new functions, but you may also reuse the following functions:  
+No function has been defined yet  
+
+Parameters:  
+1. ?u - uav: The uav  
+2. ?m - meal: The meal to be delivered  
+3. ?l - location: The destination location  
+
+Preconditions:
+```
+(and
+    (at-uav ?u ?l)
+    (carrying ?u ?m)
+)
+```
+
+Effects:
+```
+(and
+    (not (carrying ?u ?m))
+    (at-meal ?m ?l)
+    (empty-uav ?u)
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)  
+No newly defined predicate  
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)  
+No newly defined function

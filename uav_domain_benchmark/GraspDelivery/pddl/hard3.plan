@@ -1,0 +1,16 @@
+;;!domain: GraspDelivery
+
+;;!problem: GraspDeliveryProb
+
+0.0: (detect-clear u p0)
+1.0: (move u p0 p1)
+2.0: (shrinking u)
+3.0: (detect-obstacle u p1)
+4.0: (shrink-pass u p1 p5)
+5.0: (detect-clear u p5)
+6.0: (release u)
+7.0: (grasp u p5 p)
+8.0: (move u p5 p3)
+9.0: (detect-obstacle u p3)
+10.0: (shrink-pass u p3 p8)
+11.0: (unload u p8 p)

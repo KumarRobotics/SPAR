@@ -1,0 +1,14 @@
+{
+  "Move to the next location": {
+    "desc": "This action enables the uav to move from its current location to the next location if two locations are connected. For example, the uav can move from location_1 to location_2 if they are connected.",
+    "extra_info": [],
+    "name_in_pddl": "Move-to-Next-Location",
+    "abstract_desc": "This action enables the uav to move from [position1] to [position2] if [position1] and [position2] are [state1]."
+  },
+  "Check if the uav has reached the goal location": {
+    "desc": "This action enables a uav to mark that it has reached the goal, if it is at the goal position. For example, if position_2 is the goal position and the uav is currently at position_2, it can perform this action to indicate that it has reached the goal.",
+    "extra_info": [],
+    "name_in_pddl": "Verify-Arrival-at-Goal-Location",
+    "abstract_desc": "This action enables the uav to mark that it has [state1] if it is at [position1] and [position1] is [state2]."
+  }
+}

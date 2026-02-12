@@ -1,0 +1,113 @@
+Example 1. Move uav between locations
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?  
+1. The uav ?d  
+2. The current location ?from 
+3. The destination location ?to 
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)  
+1. The uav ?d:  
+    - Must be at the current location - (at-uav ?d ?from)  
+    - Must have enough battery power - (>= (battery-power ?d) (energy-cost ?from ?to))  
+2. The current location ?from:  
+    - None  
+3. The destination location ?to:  
+    - None
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)  
+1. The uav ?d:  
+    - No longer at the current location - (not (at-uav ?d ?from))  
+    - Now at the destination location - (at-uav ?d ?to)  
+    - Battery power is reduced - (decrease (battery-power ?d) (energy-cost ?from ?to))  
+2. The current location ?from:  
+    - None  
+3. The destination location ?to:  
+    - None
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 2. Pick up blood sample
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?  
+1. The uav ?d  
+2. The blood sample ?s  
+3. The location ?h
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)  
+1. The uav ?d:  
+    - Must be at the location - (at-uav ?d ?h)  
+    - Must be empty - (empty ?d)  
+2. The blood sample ?s:  
+    - Must be at the location - (at-sample ?s ?h)  
+3. The location ?h:  
+    - None
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)  
+1. The uav ?d:
+    - Now holding the sample - (holding ?d ?s)  
+    - No longer empty - (not (empty ?d))  
+2. The blood sample ?s:  
+    - No longer at the location - (not (at-sample ?s ?h))  
+3. The location ?h:  
+    - None
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 3. Unload blood sample
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?  
+1. The uav ?d  
+2. The blood sample ?s  
+3. The location ?h
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)  
+1. The uav ?d:  
+    - Must be at the location - (at-uav ?d ?h)  
+    - Must be holding the sample - (holding ?d ?s)  
+2. The blood sample ?s:  
+    - None  
+3. The location ?h:  
+    - None
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)  
+1. The uav ?d: 
+    - No longer holding the sample - (not (holding ?d ?s))  
+    - Becomes empty - (empty ?d)  
+2. The blood sample ?s:  
+    - Now at the location - (at-sample ?s ?h)  
+3. The location ?h:  
+    - None
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 4. Recharge uav's battery
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?  
+1. The uav ?d  
+2. The location ?h
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)  
+1. The uav ?d:  
+    - Must be at the recharge location - (at-uav ?d ?h)  
+    - Battery must be greater than 0 - (> (battery-power ?d) 0)  
+2. The location ?h:  
+    - None
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)  
+1. The uav ?d  
+    - Battery power is reassigned to the recharge capacity at this location - (assign (battery-power ?d) (recharge-capacity ?h))  
+2. The location ?h:  
+    - None
+
+- Finally, write the PDDL action in the following format:

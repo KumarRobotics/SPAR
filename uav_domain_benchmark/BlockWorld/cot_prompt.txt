@@ -1,0 +1,53 @@
+Example 1. Put down an object
+
+Let's think step by step and answers the following questions. Your output should be strictly following this format:
+
+- What are the objects?
+1. Robot arm ?r
+2. Block to be put down ?x
+
+- For each object, what are the preconditions? state them using predicates or functions (reused or newly created)
+1. Robot arm: 
+    - Robot is holding the block - (robot-holding ?r ?x)
+2. Block to be put down: 
+    - Nothing
+
+- For each object, what are the effects? state them using predicates or functions (reused or newly created)
+1. Robot arm: 
+    - Robot no longer holding - (not (robot-holding ?r ?x))
+    - Robot hand becomes empty - (robot-hand-empty ?r)
+    - Increase cost - (increase (cost) 1)
+2. Block to be put down:
+    - Block is on the table - (block-on-table ?x)
+    - Block is clear - (block-clear ?x)
+
+- Finally, write the action in following format:
+
+
+Example 2. Pick up an object
+
+Let's think step by step and answers the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?
+1. Robot arm ?r
+2. Block to pick up ?x
+
+- For each object, what are the preconditions? state them using predicates or functions (reused or newly created)
+1. Robot arm: 
+    - Robot hand is empty - (robot-hand-empty ?r)
+2. Block to pick up: 
+    - Block is clear - (block-clear ?x)
+    - Block is on table - (block-on-table ?x)
+
+- For each object, what are the effects? state them using predicates or functions (reused or newly created)
+1. The robot arm: 
+    - Robot is now holding block - (robot-holding ?r ?x)
+    - Robot hand is not empty - (not (robot-hand-empty ?r))
+    - Increase cost - (increase (cost) 1)
+2. The block to pick up:
+    - Block is no longer on table - (not (block-on-table ?x))
+    - Block is no longer clear - (not (block-clear ?x))
+
+- Finally, write the PDDL action in the following format:
+
+

@@ -1,0 +1,74 @@
+Example 1. Move to the next designated location
+Action: This action enables the uav to move from its current location to the next location if the two locations are connected. For example, the uav moves from location_1 to location_2 if location_1 and location_2 are connected.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+No predicate has been defined yet
+
+You can create and define new functions, but you may also reuse the following functions:
+No function has been defined yet
+
+Parameters:
+1. ?r - uav: The uav
+2. ?current - location: The current location
+3. ?next - location: The next location
+
+Preconditions:
+```
+(and 
+    (at-location ?r ?current)
+    (at-next ?current ?next)
+)
+```
+
+Effects:
+```
+(and 
+    (not (at-location ?r ?current))
+    (at-location ?r ?next)
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+1. (at-location ?r - uav ?current - location): true if uav ?r is at location ?current
+2. (at-next ?current - location ?next - location): true if location ?next goes after location ?current
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+
+
+Example 2. Check if uav reach goal location
+Action: This action enables a uav to mark it has reached the goal when it is at the goal location. For example, if location_2 is the goal location and the uav is currently at location_2, it can mark as having reached the goal.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+1. (at-location ?r - uav ?current - location): true if uav ?r is at location ?current
+2. (at-next ?current - location ?next - location): true if location ?next goes after location ?current
+
+You can create and define new functions, but you may also reuse the following functions:
+No function has been defined yet
+
+Parameters:
+1. ?r - uav: The uav
+2. ?loc - location: The current location
+
+Preconditions:
+```
+(and 
+    (at-location ?r ?loc)
+    (is-goal ?loc)
+)
+```
+
+Effects:
+```
+(and 
+    (reach-goal ?r)
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+1. (is-goal ?loc - location): true if location ?loc is set as the goal
+2. (reach-goal ?r - uav): true if uav ?r reach the goal and finish the task
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+

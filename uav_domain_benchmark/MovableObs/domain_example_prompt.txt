@@ -1,0 +1,273 @@
+Example 1. Move ugv from one position to another
+Action: This action enables the ugv to move from one position to another if both positions are marked as clear and connected. This movement incur a unit cost. For example, the ugv moves from Position_1 to Position_2 if Position_1 and Position_2 are clear and the cost is increased by 1 unit.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+No predicate has been defined yet
+
+You can create and define new functions, but you may also reuse the following functions:
+No function has been defined yet
+
+Parameters:
+1. ?r - ugv: The ugv
+2. ?p1 - position: The current position ugv at
+3. ?p2 - position: The next position ugv plans to go to
+
+Preconditions:
+```
+(and 
+    (at-ugv ?r ?p1) 
+    (connect ?p1 ?p2) 
+    (is-clear ?p1) 
+    (is-clear ?p2)
+)
+```
+
+Effects:
+```
+(and 
+    (not (at-ugv ?r ?p1)) 
+    (at-ugv ?r ?p2) 
+    (increase (cost) 1)
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+1. (at-ugv ?r - ugv ?p1 - position): true if ugv ?r is at position ?p1
+2. (connect ?p1 - position ?p2 - position): true if position ?p2 goes after position ?p1
+3. (is-clear ?p1 - position): true if position ?p1 is detected as free of obstacle
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+1. (cost): The total cost
+
+
+Example 2. Move uav from one position to another
+Action: This action enables the uav to move from one position to another if two positions are connected. This movement incur a unit cost. For example, the uav moves from Position_1 to Position_2 if Position_1 and Position_2 are connected and the cost is increased by 1 unit.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+1. (at-ugv ?r - ugv ?p1 - position): true if ugv ?r is at position ?p1
+2. (connect ?p1 - position ?p2 - position): true if position ?p2 goes after position ?p1
+3. (is-clear ?p1 - position): true if position ?p1 is detected as free of obstacle
+
+You can create and define new functions, but you may also reuse the following functions:
+1. (cost): The total cost
+
+Parameters:
+1. ?r - uav: The uav
+2. ?p1 - position: The current position ugv at
+3. ?p2 - position: The next position ugv plans to go to
+
+Preconditions:
+```
+(and 
+    (at-uav ?r ?p1) 
+    (connect ?p1 ?p2)
+)
+```
+
+Effects:
+```
+(and 
+    (not (at-uav ?r ?p1)) 
+    (at-uav ?r ?p2) 
+    (increase (cost) 1)
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+1. (at-uav ?r - uav ?p1 - position): true if uav ?r is at position ?p1
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+
+
+Example 3. uav detects clear position
+Action: This action enables the uav to mark the current position as clear, not having-fixed-obstacle and not having-movable-obstacle, if the position has no fixed and movable obstacle. This movement incur a unit cost. For example, if the uav is at position_1 and position_1 has no fixed and movable obstacle, the uav will mark position_1 as clear, and not having-fixed-obstacle and not having-fixed-obstacle. The cost is increased by 1 unit.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+1. (at-ugv ?r - ugv ?p1 - position): true if ugv ?r is at position ?p1
+2. (connect ?p1 - position ?p2 - position): true if position ?p2 goes after position ?p1
+3. (is-clear ?p1 - position): true if position ?p1 is detected as free of obstacle
+4. (at-uav ?r - uav ?p1 - position): true if uav ?r is at position ?p1
+
+You can create and define new functions, but you may also reuse the following functions:
+1. (cost): The total cost
+
+Parameters:
+1. ?r - uav: The uav
+2. ?p - position: The detected position
+
+Preconditions:
+```
+(and 
+    (at-uav ?r ?p) 
+    (clear ?p)
+)
+```
+
+Effects:
+```
+(and 
+    (is-clear ?p)
+    (not (is-fix ?p))
+    (not (is-mov ?p))
+    (increase (cost) 1)
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+1. (clear ?p - position): true if the position ?p is free of obstacle
+2. (is-fix ?p - position): true if position ?p is detected as having fixed obstacle
+3. (is-mov ?p - position): true if position ?p is detected as having movable obstacle
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+
+
+Example 4. uav detects positions that has fixed obstacles
+Action: This action enables the uav to mark the current position as having-fixed-obstacle, not clear and not having-movable-obstacle, if the position has fixed obstacle. This movement incur a unit cost. For example, if the uav is at position_1 and position_1 has fixed obstacle, the uav will mark position_1 as having-fixed-obstacle, and not clear and not having-fixed-obstacle. The cost is increased by 1 unit.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+1. (at-ugv ?r - ugv ?p1 - position): true if ugv ?r is at position ?p1
+2. (connect ?p1 - position ?p2 - position): true if position ?p2 goes after position ?p1
+3. (is-clear ?p1 - position): true if position ?p1 is detected as free of obstacle
+4. (at-uav ?r - uav ?p1 - position): true if uav ?r is at position ?p1
+5. (clear ?p - position): true if the position ?p is free of obstacle
+6. (is-fix ?p - position): true if position ?p is detected as having fixed obstacle
+7. (is-mov ?p - position): true if position ?p is detected as having movable obstacle
+
+You can create and define new functions, but you may also reuse the following functions:
+1. (cost): The total cost
+
+Parameters:
+1. ?r - uav: The uav
+2. ?p - position: The detected position
+
+Preconditions:
+```
+(and 
+    (at-uav ?r ?p) 
+    (fix-obs ?p)
+)
+```
+
+Effects:
+```
+(and 
+    (is-fix ?p)
+    (not (is-clear ?p))
+    (not (is-mov ?p))
+    (increase (cost) 1)
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+1. (fix-obs ?p - position): true if position ?p has fixed obstacle
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+
+
+Example 5. uav detects positions that has movable obstacles
+Action: This action enables the uav to mark the current position as having-movable-obstacle, not clear and not having-fixed-obstacle, if the position has movable obstacle. This movement incur a unit cost. For example, if the uav is at position_1 and position_1 has movable obstacle, the uav will mark position_1 as having-movable-obstacle, and not clear and not having-fixed-obstacle. The cost is increased by 1 unit.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+1. (at-ugv ?r - ugv ?p1 - position): true if ugv ?r is at position ?p1
+2. (connect ?p1 - position ?p2 - position): true if position ?p2 goes after position ?p1
+3. (is-clear ?p1 - position): true if position ?p1 is detected as free of obstacle
+4. (at-uav ?r - uav ?p1 - position): true if uav ?r is at position ?p1
+5. (clear ?p - position): true if the position ?p is free of obstacle
+6. (is-fix ?p - position): true if position ?p is detected as having fixed obstacle
+7. (is-mov ?p - position): true if position ?p is detected as having movable obstacle
+8. (fix-obs ?p - position): true if position ?p has fixed obstacle
+
+You can create and define new functions, but you may also reuse the following functions:
+1. (cost): The total cost
+
+Parameters:
+1. ?r - uav: The uav
+2. ?p - position: The detected position
+
+Preconditions:
+```
+(and 
+    (at-uav ?r ?p) 
+    (mov-obs ?p)
+)
+```
+
+Effects:
+```
+(and 
+    (is-mov ?p)
+    (not (is-clear ?p))
+    (not (is-fix ?p))
+    (increase (cost) 1)
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+1. (mov-obs ?p - position): true if position ?p has movable obstacle
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+
+
+Example 6. ugv pushs the movable obstacles to another position
+Action: This action enables the ugv pushes a movable obstacle from an adjacent position to another new position that is adjacent to that obstacle's location, given that the new position is marked as clear and not equal to the ugv's current location. The ugv also move forward to the obstacle's original position. After this action, the obstacle states in these positions also are updated. This movement incur two units cost. For example, if the ugv is at Position_1, and Position_2 is marked as having-moveable-obstacles, the ugv can push the obstacle to Position_3 and move to Position_2 if Position_3 is marked as clear, connected to Position_2 and not equal to Position_1. The cost is increased by 2 units. Now Position_2 is marked clear and Position_3 has a movable obstacle and it is marked as having-moveable-obstacles.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+1. (at-ugv ?r - ugv ?p1 - position): true if ugv ?r is at position ?p1
+2. (connect ?p1 - position ?p2 - position): true if position ?p2 goes after position ?p1
+3. (is-clear ?p1 - position): true if position ?p1 is detected as free of obstacle
+4. (at-uav ?r - uav ?p1 - position): true if uav ?r is at position ?p1
+5. (clear ?p - position): true if the position ?p is free of obstacle
+6. (is-fix ?p - position): true if position ?p is detected as having fixed obstacle
+7. (is-mov ?p - position): true if position ?p is detected as having movable obstacle
+8. (fix-obs ?p - position): true if position ?p has fixed obstacle
+9. (mov-obs ?p - position): true if position ?p has movable obstacle
+
+You can create and define new functions, but you may also reuse the following functions:
+1. (cost): The total cost
+
+Parameters:
+1. ?r - ugv: The ugv
+2. ?p - position: The position ugv currently at
+3. ?pp - position: The position that has movable obstacle, adjacent to position of ugv
+4. ?ppp - position: The position where ugv is going to push the movable obstacle to
+
+Preconditions:
+```
+(and 
+    (at-ugv ?r ?p)
+    (is-mov ?pp)
+    (connect ?p ?pp)
+    (connect ?pp ?ppp)
+    (is-clear ?p)
+    (is-clear ?ppp)
+    (not (= ?p ?ppp))
+)
+```
+
+Effects:
+```
+(and 
+    (is-clear ?pp)
+    (not (mov-obs ?pp))
+    (mov-obs ?ppp)
+    (is-mov ?ppp)
+    (not (is-clear ?ppp))
+    (not (clear ?ppp))
+    (not (fix-obs ?ppp))
+    (not (is-fix ?ppp))
+    (at-ugv ?r ?pp)
+    (not (at-ugv ?r ?p))
+    (increase (cost) 2)
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+No newly defined predicate
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+

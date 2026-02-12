@@ -1,0 +1,1 @@
+In this domain, autonomous uavs and rovers collaborate to explore and collect resources across a Martian terrain. uavs are responsible for exploring locations with valuable resources. Once explored, rovers are dispatched to collect the resource. Each location may have a specific resource value and the total value is accumulated. uavs and rovers can move between locations freely.

@@ -1,0 +1,1 @@
+This domain models a uav responsible for deliverying packages between different locations. The uav can load a package stored at some location, carry it and move to the other location, and unload it. However, it can only transport one package at a time before returning for another delivery.

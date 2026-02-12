@@ -1,0 +1,12 @@
+;;!domain: DeliveryDuratiion
+
+;;!problem: DeliveryDurativePromblem
+
+0.0: (MOVE uav1 warehouse location4)
+1.0: (LOAD uav1 package4 location4)
+2.0: (MOVE uav1 location4 warehouse)
+3.0: (UNLOAD uav1 package4 warehouse)
+4.0: (MOVE uav1 warehouse location5)
+5.0: (LOAD uav1 package5 location5)
+6.0: (MOVE uav1 location5 warehouse)
+7.0: (UNLOAD uav1 package5 warehouse)

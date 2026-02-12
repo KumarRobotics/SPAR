@@ -1,0 +1,17 @@
+(define (problem tracking-medium-2)
+  (:domain trackingdomain)
+  (:objects u1 - uav p1 p2 p3 - position)
+  (:init 
+    (at u1 p1)
+    (next-uav p1 p2)
+    (next-uav p2 p3)
+    (current-goal p3)
+    (next-goal p3 p1)
+  )
+  (:goal 
+    (and (at u1 p3)
+         (reach-subgoal p3)
+         (current-goal p1))
+  )
+  (:metric minimize (cost))
+)

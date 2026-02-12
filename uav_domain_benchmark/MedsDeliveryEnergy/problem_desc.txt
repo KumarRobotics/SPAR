@@ -1,0 +1,19 @@
+There is one central hospital and five other hospitals: Hospital1, Hospital2, Hospital3, Hospital4 and Hospital5. The UAV must deliver blood sample Sample1 to Hospital1, Sample2 to Hospital2, Sample3 to Hospital3, Sample4 to Hospital4, and Sample5 to Hospital5. 
+All samples are initially located at the central hospital.
+The totol energy power of battery is 10 units, there are recharging station at central hospital, Hospital2, Hospital5, which can recharge 8, 6, 5 units of power.
+Travel from central hospital to Hospital1 will cost 4 units of power and the same in reverse direction.
+Travel from central hospital to Hospital2 will cost 3 units of power and the same in reverse direction.
+Travel from central hospital to Hospital3 will cost 4 units of power and the same in reverse direction.
+Travel from central hospital to Hospital4 will cost 5 units of power and the same in reverse direction.
+Travel from central hospital to Hospital5 will cost 5 units of power and the same in reverse direction.
+Travel from Hospital1 to Hospital2 will cost 1 units of power and the same in reverse direction.
+Travel from Hospital1 to Hospital3 will cost 3 units of power and the same in reverse direction.
+Travel from Hospital1 to Hospital4 will cost 3 units of power and the same in reverse direction.
+Travel from Hospital1 to Hospital5 will cost 4 units of power and the same in reverse direction.
+Travel from Hospital2 to Hospital3 will cost 2 units of power and the same in reverse direction.
+Travel from Hospital2 to Hospital3 will cost 2 units of power and the same in reverse direction.
+Travel from Hospital2 to Hospital4 will cost 4 units of power and the same in reverse direction.
+Travel from Hospital3 to Hospital4 will cost 6 units of power and the same in reverse direction.
+Travel from Hospital3 to Hospital5 will cost 3 units of power and the same in reverse direction.
+Travel from Hospital4 to Hospital5 will cost 4 units of power and the same in reverse direction.
+The goal is to find the most efficient delivery route that minimizes total battery consumption while ensuring all blood samples are successfully delivered.

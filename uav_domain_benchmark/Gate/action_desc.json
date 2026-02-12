@@ -1,0 +1,20 @@
+{
+  "Increase uav orientation toward target gate angle": {
+    "desc": "This action enables the uav to increase its current angle by some rate if the current angle is less than the required angle. For example, if the gate angle is 10 degrees and the uav's current angle is 5 degress, this action will increase the uav angle by some control rate.",
+    "extra_info": [],
+    "name_in_pddl": "increase_angle",
+    "abstract_desc": "This action enables the uav to increase its [value1] by [value2] if [value1] is less than [value3]."
+  },
+  "Decrease uav orientation toward target gate angle": {
+    "desc": "This action enables the uav to decrease its current angle by some rate if the current angle is more than the required angle. For example, if the gate angle is 10 degrees and the uav's current angle is 15 degress, this action will decrease the uav angle by some control rate.",
+    "extra_info": [],
+    "name_in_pddl": "decrease_angle",
+    "abstract_desc": "This action enables the uav to decrease its [value1] by [value2] if [value1] is greater than [value3]."
+  },
+  "Pass through the gate": {
+    "desc": "This action enables the uav to pass through the gate if the uav's angle equals to the gate's required angle. For example, if the gate angle is 10 degrees and the uav's current angle is also 10 degress, this action will enable the uav to pass through the gate.",
+    "extra_info": [],
+    "name_in_pddl": "pass-gate",
+    "abstract_desc": "This action enables the uav to move from [position1] if [value1] equals [value2]."
+  }
+}

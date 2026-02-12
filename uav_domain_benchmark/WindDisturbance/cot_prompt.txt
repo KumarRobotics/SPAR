@@ -1,0 +1,60 @@
+Example 1. uav moves from one position to another
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?  
+1. The uav ?r  
+2. The current position ?p0  
+3. The next position ?p1  
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)  
+1. The uav ?r:  
+    - Must be at the current position ?p0 - (at ?r ?p0)  
+2. The current position ?p0:  
+    - Must be connected to next position - (connect ?p0 ?p1)  
+    - Must not have wind - (not (wind ?p0))  
+3. The next position ?p1:  
+    - None  
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)  
+1. The uav ?r:  
+    - No longer at the current position - (not (at ?r ?p0))  
+    - Now at the next position - (at ?r ?p1) 
+    - Increases the total movement cost by one unit - (increase (cost) 1) 
+2. The current position ?p0:  
+    - None  
+3. The next position ?p1:  
+    - None  
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 2. Wind blows the uav to another position
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?  
+1. The uav ?r  
+2. The current position ?p  
+3. The next position ?p2  
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)  
+1. The uav ?r:  
+    - Must be at the current position ?p - (at ?r ?p)  
+2. The current position ?p:  
+    - Must have wind - (wind ?p)  
+    - Wind in current position must can blow the uav to the next position ?p2 - (blow-to ?p ?p2)  
+3. The next position ?p2:  
+    - None  
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)  
+1. The uav ?r:  
+    - No longer at the current position - (not (at ?r ?p))  
+    - Now at the next position - (at ?r ?p2)  
+2. The current position ?p:  
+    - None  
+3. The next position ?p2:  
+    - None  
+
+- Finally, write the PDDL action in the following format:
+

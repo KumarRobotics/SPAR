@@ -1,0 +1,7 @@
+;;!domain: DeliveryCapacityDomain
+
+;;!problem: medium-complete-delivery
+
+0.0: (LOAD u1 p1 l1)
+1.0: (MOVE u1 l1 l2)
+2.0: (UNLOAD u1 p1 l2)

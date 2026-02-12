@@ -1,0 +1,27 @@
+;;!domain: Multicam
+
+;;!problem: MulticamProb
+
+0.0: (detect_down uav p11 p21)
+1.0: (move-down uav p11 p21)
+2.0: (detect_right uav p21 p22)
+3.0: (move-right uav p21 p22)
+4.0: (detect_right uav p22 p23)
+5.0: (move-right uav p22 p23)
+6.0: (detect_down uav p23 p33)
+7.0: (move-down uav p23 p33)
+8.0: (detect_right uav p33 p34)
+9.0: (move-right uav p33 p34)
+10.0: (detect_right uav p34 p35)
+11.0: (move-right uav p34 p35)
+12.0: (detect_down uav p35 p45)
+13.0: (move-down uav p35 p45)
+14.0: (detect_down uav p45 p55)
+15.0: (move-down uav p45 p55)
+16.0: (detect_down uav p55 p65)
+17.0: (move-down uav p55 p65)
+18.0: (rotate-to-left uav)
+19.0: (detect_left uav p65 p64)
+20.0: (move-left uav p65 p64)
+21.0: (detect_left uav p64 p63)
+22.0: (move-left uav p64 p63)

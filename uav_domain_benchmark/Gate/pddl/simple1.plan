@@ -1,0 +1,5 @@
+;;!domain: Gate
+
+;;!problem: test-increase-angle
+
+0.0: (increase_angle u1)

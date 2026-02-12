@@ -1,0 +1,10 @@
+;;!domain: DeliveryDuratiion
+
+;;!problem: hard-dual-uav-max-value
+
+0.0: (LOAD u2 p2 l2)
+1.0: (MOVE u2 l2 l4)
+2.0: (UNLOAD u2 p2 l4)
+3.0: (LOAD u1 p1 l1)
+4.0: (MOVE u1 l1 l3)
+5.0: (UNLOAD u1 p1 l3)

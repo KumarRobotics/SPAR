@@ -1,0 +1,89 @@
+Example 1. uav loads a package
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?
+1. The uav ?d
+2. The package ?p
+3. The location ?l
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)
+1. The uav ?d:
+    - Must be at the location - (at-uav ?d ?l)
+    - The remaining load must be larger or equal to the weight of package - (>= (remaining-load) (weights ?p))
+2. The package ?p:
+    - Must be at the same location - (at-package ?p ?l)
+3. The location ?l:
+    - None
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)
+1. The uav ?d:
+    - Holds the package - (holding ?d ?p)
+    - Decreases the remaining load - (decrease (remaining-load) (weights ?p))
+2. The package ?p:
+    - No longer at the location - (not (at-package ?p ?l))
+3. The location ?l:
+    - None
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 2. uav unloads a package
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?
+1. The uav ?d
+2. The package ?p
+3. The location ?l
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)
+1. The uav ?d:
+    - Must be at the location - (at-uav ?d ?l)
+    - Must be holding the package - (holding ?d ?p)
+2. The package ?p:
+    - None
+3. The location ?l:
+    - None
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)
+1. The uav ?d:
+    - No longer holding the package - (not (holding ?d ?p))
+    - Increases the remaining load - (increase (remaining-load) (weights ?p))
+2. The package ?p:
+    - Now at the location - (at-package ?p ?l)
+3. The location ?l:
+    - None
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 3. uav moves from one location to another
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?
+1. The uav ?d
+2. The source location ?from
+3. The destination location ?to
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)
+1. The uav ?d:
+    - Must be at the source location - (at-uav ?d ?from)
+2. The source location ?from:
+    - None
+3. The destination location ?to:
+    - None
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)
+1. The uav ?d:
+    - Is no longer at the source location - (not (at-uav ?d ?from))
+    - Is now at the destination location - (at-uav ?d ?to)
+    - Travel distance increases - (increase (total-distance) (distance ?from ?to))
+2. The source location ?from:
+    - None
+3. The destination location ?to:
+    - None
+
+- Finally, write the PDDL action in the following format:
+

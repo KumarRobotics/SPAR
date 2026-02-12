@@ -1,0 +1,8 @@
+;;!domain: GraspDelivery
+
+;;!problem: medium-grasp-detect-move-unload
+
+0.0: (grasp u1 l1 p1)
+1.0: (detect-clear u1 l1)
+2.0: (move u1 l1 l2)
+3.0: (unload u1 l2 p1)

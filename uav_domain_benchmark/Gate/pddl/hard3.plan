@@ -1,0 +1,17 @@
+;;!domain: Gate
+
+;;!problem: hard-extreme-multi-adjust
+
+0.0: (increase_angle u1)
+1.0: (increase_angle u1)
+2.0: (increase_angle u1)
+3.0: (decrease_angle u3)
+4.0: (decrease_angle u3)
+5.0: (decrease_angle u3)
+6.0: (decrease_angle u3)
+7.0: (decrease_angle u2)
+8.0: (decrease_angle u2)
+9.0: (decrease_angle u2)
+10.0: (pass-gate u3)
+11.0: (pass-gate u2)
+12.0: (pass-gate u1)

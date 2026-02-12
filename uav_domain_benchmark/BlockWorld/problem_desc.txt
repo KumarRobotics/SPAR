@@ -1,0 +1,1 @@
+There are three blocks: a, b, and c. Initially, all three blocks are placed on a table. The goal is for the robot arm to stack the blocks in a specific order: block a on top of block b, and block b on top of block c.

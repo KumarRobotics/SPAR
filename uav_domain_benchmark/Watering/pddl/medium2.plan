@@ -1,0 +1,8 @@
+;;!domain: uavWatering
+
+;;!problem: watering-medium-3
+
+0.0: (load-pot u1 p2 l1)
+1.0: (watering-pour-to-fill u1 p2 l1)
+2.0: (move u1 l1 l2)
+3.0: (watering-pour-to-fill u1 p2 l2)

@@ -1,0 +1,5 @@
+;;!domain: GraspDelivery
+
+;;!problem: test-shrink-pass
+
+0.0: (shrink-pass u1 l1 l2)

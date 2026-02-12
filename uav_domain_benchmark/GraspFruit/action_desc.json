@@ -1,0 +1,38 @@
+{
+  "Move a uav from one position to another": {
+    "desc": "This action enables the uav to move from its current position to a new position, if its battery level is larger than or equal to the energy cost between two positions. For example, uav_1 moves from loc_1 to loc_2 if it has 10 units battery level and the cost between loc_1 and loc_2 is 7 units.",
+    "extra_info": [],
+    "name_in_pddl": "move",
+    "abstract_desc": "This action enables the uav to move from [position1] to [position2], if uav's [value1] is larger than or equals to the [value2] between [position1] and [position2]."
+  },
+  "Recharge uav at charging station": {
+    "desc": "This action enables the uav to recharge its battery level to full capacity at a location if the location is a charging spot. For example, if the battery capacity is 10 units and loc_1 is a charging spot, uav_1 can recharge its battery level to 10 units at loc_1.",
+    "extra_info": [],
+    "name_in_pddl": "recharge",
+    "abstract_desc": "This action enables the uav to reassign [value1] to [value2] at [position1] if [position1] is [state1]."
+  },
+  "Grasp a good fruit using uav's gripper": {
+    "desc": "This action enables a uav to grasp a fruit located at the same position by clamping the gripper, provided that the fruit is marked as good. The uav can only grasp one fruit at a time. For example, if the fruit_1 is marked as good, then uav_1 can grasp and load the fruit_1 at loc_1 using gripper_1.",
+    "extra_info": [],
+    "name_in_pddl": "grasp-fruit",
+    "abstract_desc": "This action enables the uav to load [object1] at [location1], if [object1] is marked as [state1] and uav's [object2] is [state2]."
+  },
+  "Put down a fruit held by uav": {
+    "desc": "This action enables a uav to unload a held fruit at its current location and release its gripper. For example, uav_1 unloads fruit_1 at loc_2, and its gripper_1 is released.",
+    "extra_info": [],
+    "name_in_pddl": "put-down-fruit",
+    "abstract_desc": "This action enables the uav to unload [object1] at [location1], and the uav's [object] is in [state1]."
+  },
+  "Take image of not rotten fruit": {
+    "desc": "This action enables the uav to take an image of a fruit at the same location. If the fruit is not rotten, the uav will mark it as good. For example, uav_1 take an image of fruit_1 at loc_2, if the fruit_1 is not rotten, then uav_1 will mark fruit_1 as a good fruit.",
+    "extra_info": [],
+    "name_in_pddl": "take-not-rot-image",
+    "abstract_desc": "This action enables the uav to take a picture of [object1] at [location1]. If [object1] is in [state1], the uav will mark it as [state2]."
+  },
+  "Take image of rotten fruit": {
+    "desc": "This action enables the uav to take an image of a fruit at the same location. If the fruit is rotten, the uav will mark it as not good. For example, uav_1 take an image of fruit_1 at loc_2, if the fruit_1 is rotten, then uav_1 will mark fruit_1 as not a good fruit.",
+    "extra_info": [],
+    "name_in_pddl": "take-rot-image",
+    "abstract_desc": "This action enables the uav to take a picture of [object1] at [location1]. If [object1] is in [state1], the uav will mark it as [state2]."
+  }
+}

@@ -1,0 +1,16 @@
+;;!domain: AirQualityMonitoring
+
+;;!problem: hard-three-uav-loop
+
+0.0: (monitoring u3 f)
+1.0: (monitoring u3 f)
+2.0: (monitoring u3 f)
+3.0: (move u3 f g)
+4.0: (move u2 c d)
+5.0: (move u1 a b)
+6.0: (monitoring u2 d)
+7.0: (monitoring u2 d)
+8.0: (monitoring u1 b)
+9.0: (monitoring u1 b)
+10.0: (monitoring u1 b)
+11.0: (monitoring u3 g)

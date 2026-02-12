@@ -1,0 +1,26 @@
+{
+  "uav flies from one location to another": {
+    "desc": "This action enables the uav to fly from one location to another if the two locations are connected and the uav is currently flying. For example, a uav can fly from location_1 to location_2 if the two positions are connected and the uav is flying.",
+    "extra_info": [],
+    "name_in_pddl": "fly",
+    "abstract_desc": "This action enables the uav to move from [position1] to [position2] if [position1] and [position2] are [state1] and the uav is in [state2]."
+  },
+  "uav detects if a location can be perched": {
+    "desc": "The action enables the uav to mark the current location as suitable for perching if the location is clear. The uav can only detect when it is flying at that location. For example, if the uav is flying at location_1, it can mark location_1 as suitable for perching if location_1 is clear.",
+    "extra_info": [],
+    "name_in_pddl": "detect-perch-spot",
+    "abstract_desc": "This action enables the uav to mark [position1] as [state1], if [position1] is [state2] and the uav is in [state3]."
+  },
+  "uav perches at the location": {
+    "desc": "The action enables the uav to perch at some location, if it is currently flying at that location and the location has been marked as a perchable spot. This perching spot will be recorded. For example, if the uav is flying at location_1 and location_1 is marked as a perchable spot, the uav can perch at location_1. Location_1 will be marked as visited.",
+    "extra_info": [],
+    "name_in_pddl": "perch",
+    "abstract_desc": "This action enables the uav to land at [position1], if the uav is in [state1] and at [position1], and if [position1] is marked as [state2]."
+  },
+  "uav takes off from the perched location": {
+    "desc": "This action enables the uav to take off vertically at a location, if it is currently perched at that location. For example, if the uav is perched at location_1, it can take off in place and flying at location_1.",
+    "extra_info": [],
+    "name_in_pddl": "takeoff",
+    "abstract_desc": "This action enables the uav to take off at [position1] if it is at [position1]."
+  }
+}

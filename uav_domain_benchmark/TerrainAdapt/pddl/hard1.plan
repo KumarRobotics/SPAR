@@ -1,0 +1,18 @@
+;;!domain: TerrainAdapt
+
+;;!problem: terrain-hard-1
+
+0.0: (fly uav1 l1 l2)
+1.0: (fly uav1 l2 l3)
+2.0: (drive uav2 l2 l3)
+3.0: (drive uav2 l3 l4)
+4.0: (drive uav2 l4 l5)
+5.0: (switch-fly uav2 l5)
+6.0: (fly uav2 l5 l6)
+7.0: (switch-drive uav1 l3)
+8.0: (drive uav1 l3 l4)
+9.0: (drive uav1 l4 l5)
+10.0: (switch-fly uav1 l5)
+11.0: (fly uav1 l5 l6)
+12.0: (switch-drive uav1 l6)
+13.0: (drive uav1 l6 l7)

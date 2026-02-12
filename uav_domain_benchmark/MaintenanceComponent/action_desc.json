@@ -1,0 +1,38 @@
+{
+  "Take an image of a component": {
+    "desc": "This action enables a uav to take an image of a component, but only if it is currently available. After taking the image, the uav becomes unavailable.",
+    "extra_info": [],
+    "name_in_pddl": "take_image",
+    "abstract_desc": "This action enables the uav to take a picture of [object1] if the uav is [state1]. After taking picture, the uav becomes [state2]."
+  },
+  "Analyse image of a component that is in bad state": {
+    "desc": "This action enables a uav to analyze an image of a component that is in a bad state. If an image has been taken, the uav can process it and mark the component as an anomaly. After analysis, the uav becomes available again.",
+    "extra_info": [],
+    "name_in_pddl": "analyse_bad_image",
+    "abstract_desc": "This action enables the uav to analyze [object1] of [object2] that is in [state1]. If [object1] has been taken, the uav processes it, marks [object2] as [state2], and becomes [state3]."
+  },
+  "Analyse image of a good component": {
+    "desc": "This action enables a uav to analyze an image of a component that is not in a bad state. If an image has been taken, the uav can process it and then doesn't need to do anything. After analysis, the uav becomes available again.",
+    "extra_info": [],
+    "name_in_pddl": "analyse_good_image",
+    "abstract_desc": "This action enables the uav to analyze [object1] of [object2] that is in [state1] state. If [object1] has been taken, the uav does nothing and becomes [state2]."
+  },
+  "Measure thermal value of a component": {
+    "desc": "This action enables a uav to measure the thermal value of a component, but only if the uav is currently available. After measuring, the uav becomes unavailable.",
+    "extra_info": [],
+    "name_in_pddl": "measure_thermal",
+    "abstract_desc": "This action enables the uav to measure [value1] of [object1] if the uav is [state1]. After measuring, the uav becomes [state2]."
+  },
+  "Analyse thermal value of a good component": {
+    "desc": "This action enables a uav to analyze the thermal value of a component. If the value is below the maximum threshold, the uav doesn't have to do anything. After analysis, the uav becomes available again.",
+    "extra_info": [],
+    "name_in_pddl": "analyse_normal_heat",
+    "abstract_desc": "This action enables the uav to analyze [value1] of [object1]. If [value1] is below [value2], the uav does nothing and becomes [state1]."
+  },
+  "Analyse thermal value of a anomaly component": {
+    "desc": "This action enables a uav to analyze the thermal value of a component. If the value is equal to or above the maximum threshold, the component is marked as an anomaly. After the analysis, the uav becomes available again.",
+    "extra_info": [],
+    "name_in_pddl": "analyse_nomaly_heat",
+    "abstract_desc": "This action enables the uav to analyze [value1] of [object1]. If [value1] is above or equal to [value2], the uav can mark [object1] as [state1], and the uav becomes [state2]."
+  }
+}

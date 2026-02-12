@@ -1,0 +1,16 @@
+;;!domain: AirQualityMonitoring
+
+;;!problem: hard-two-uav-disjoint-areas
+
+0.0: (move u2 r4 r5)
+1.0: (move u1 r1 r2)
+2.0: (monitoring u2 r5)
+3.0: (move u2 r5 r6)
+4.0: (move u1 r2 r3)
+5.0: (monitoring u1 r3)
+6.0: (monitoring u1 r3)
+7.0: (monitoring u1 r3)
+8.0: (monitoring u2 r6)
+9.0: (monitoring u2 r6)
+10.0: (monitoring u2 r6)
+11.0: (monitoring u2 r6)

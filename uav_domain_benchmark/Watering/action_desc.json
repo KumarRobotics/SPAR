@@ -1,0 +1,38 @@
+{
+  "uav loads a watering pot": {
+    "desc": "This action enables the uav to load a pot at some location if the uav is holding nothing. For example, the uav loads the pot at location_1.",
+    "extra_info": [],
+    "name_in_pddl": "load-pot",
+    "abstract_desc": "This action enables the uav to load [object1] at [position1] if the uav is [state1]."
+  },
+  "Refill a watering pot": {
+    "desc": "This action enables the uav to refill the pot to its full capacity at the home location. For example, if the uav is holding a pot at the home location, and if the capacity is 10 units, the pot will be filled to 10 units.",
+    "extra_info": [],
+    "name_in_pddl": "refill",
+    "abstract_desc": "This action enables the uav to reassign [value1] of [object1] to [value2] at [position1]."
+  },
+  "Pour water to fulfill the location's need on water": {
+    "desc": "This action enables the uav to pour water to the location to fully fulfill the amount of location's need, if the water level in the pot is larger than or equal to the amount of location's need. For example, if the uav is at location_1 and holding a pot with 10 units water, if the need is 5 units at location_1, it will pour 5 units water to fulfill the need.",
+    "extra_info": [],
+    "name_in_pddl": "watering-pour-to-fill",
+    "abstract_desc": "This action enables the uav to pour [value1] of [object1] to fully fulfill [value2] of [position1], if [value1] of [object1] is larger than or equal to [value2] of [position1]."
+  },
+  "Pour all the water into a location that needs water": {
+    "desc": "This action enables the uav to pour all the water from the pot into a location, if the water level in the pot is less than the amount of location's need. For example, if the uav is at location_1 and holding a pot with 10 units water and location_1 needs 15 units, it will pour all 10 units water into location_1, and the need at location_1 will be reduced by 10 units and the pot has no water now.",
+    "extra_info": [],
+    "name_in_pddl": "watering-pour-empty",
+    "abstract_desc": "This action enables the uav to pour all the [value1] of [object1] into [value2] of [position1], if the [value1] of [object1] is less than [value2] of [position1]."
+  },
+  "Move uav from one location to another": {
+    "desc": "This action enables the uav to move from one location to another. For example, the uav can move from location_1 to location_2.",
+    "extra_info": [],
+    "name_in_pddl": "move",
+    "abstract_desc": "This action enables the uav to move from [position1] to [position2]."
+  },
+  "uav unloads a watering pot": {
+    "desc": "This action enables the uav to unload the pot at some location. For example, the uav unloads the pot at location_1 and is now holding nothing.",
+    "extra_info": [],
+    "name_in_pddl": "unload",
+    "abstract_desc": "This action enables the uav to unload [object1] at [position1] and become [state1]."
+  }
+}

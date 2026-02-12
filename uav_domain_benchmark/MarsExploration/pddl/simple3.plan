@@ -1,0 +1,5 @@
+;;!domain: MarsExplorationDomain
+
+;;!problem: mars-prob-4
+
+0.0: (GetResource r1 l1)

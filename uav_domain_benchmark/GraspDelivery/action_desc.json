@@ -1,0 +1,50 @@
+{
+  "Move uav from one location to another": {
+    "desc": "This action enables the uav to move from its current location to a neighboring location if the current location is clear and they are connected. For example, if the uav is at location_1 and location_1 is clear and connected to location_2, the uav can move to location_2.",
+    "extra_info": [],
+    "name_in_pddl": "move",
+    "abstract_desc": "This action enables the uav to move from [position1] to [position2] if [position1] is [state1] and [position1] and [position2] are [state2]."
+  },
+  "Detect if current location is a gap": {
+    "desc": "This action enables the uav to mark the current location as narrow and not clear, if the uav is at a gap location. For example, if the uav is at location_1, and location_1 is a gap, then the uav can mark this location as narrow and not clear.",
+    "extra_info": [],
+    "name_in_pddl": "detect-obstacle",
+    "abstract_desc": "This action enables the uav to mark [position1] as [state1] and [state2] if [position1] is [state3]."
+  },
+  "Detect if current location is not gap": {
+    "desc": "This action enables the uav to mark the current location as clear and not narrow, if the uav is not at a gap location. For example, if the uav is at location_1, and location_1 is not a gap, then the uav can mark this location as clear and not narrow.",
+    "extra_info": [],
+    "name_in_pddl": "detect-clear",
+    "abstract_desc": "This action enables the uav to mark [position1] as [state1] and [state2] if [position1] is [state3]."
+  },
+  "uav passes through a gap": {
+    "desc": "This action enables the uav to move between two locations if these two locations are connected, and the current location is marked as narrow and not clear, the uav can pass it in a shrunk state. For example, if the uav is at location_1 and is in a shrunk state, and location_1 is marked as narrow and not clear, the uav can pass through the gap to another connected location.",
+    "extra_info": [],
+    "name_in_pddl": "shrink-pass",
+    "abstract_desc": "This action enables the uav to move from [position1] to [position2] if [position1] and [position2] are [state1] and [position1] is marked as [state2] and [state3], and if the uav is in [state4]."
+  },
+  "Shrink the uav": {
+    "desc": "This action enables the uav to enter shrunk mode if it is currently in normal mode. For example, a uav in normal size can shrink to switch into shrunk mode.",
+    "extra_info": [],
+    "name_in_pddl": "shrinking",
+    "abstract_desc": "This action enables the uav to switch to [state1] if it is currently in [state2]."
+  },
+  "Release the uav to normal size": {
+    "desc": "This action enables the uav to enter normal size mode if it is currently in shrunk mode. For example, a shrunk uav can expand to switch into normal size mode.",
+    "extra_info": [],
+    "name_in_pddl": "release",
+    "abstract_desc": "This action enables the uav to switch to [state1] if it is currently in [state2]."
+  },
+  "Grasp a package": {
+    "desc": "This action enables the uav to grasp a package at its current location, the uav must be in shrunk mode for holding. For example, if the uav is at location_1 and there is a package at location_1, the uav can grasp the package and shrink to hold it.",
+    "extra_info": [],
+    "name_in_pddl": "grasp",
+    "abstract_desc": "This action enables the uav to load [object1] at [position1], the uav must be in [state1]."
+  },
+  "Unload a package": {
+    "desc": "This action enables the uav to release a held package at the current location and return to normal size mode. For example, if the uav is at location_1 and it has a package held, it can unload the package at location_1 and return to normal size.",
+    "extra_info": [],
+    "name_in_pddl": "unload",
+    "abstract_desc": "This action enables the uav to unload [object1] at [position1] and be in [state1]."
+  }
+}

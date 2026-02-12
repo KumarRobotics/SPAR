@@ -1,0 +1,22 @@
+;;!domain: WindDist
+
+;;!problem: wind-hard-9
+
+0.0: (move u2 a b)
+1.0: (move u1 a b)
+2.0: (blow u2 b d)
+3.0: (blow u2 d f)
+4.0: (move u2 f g)
+5.0: (move u2 g h)
+6.0: (blow u1 b d)
+7.0: (blow u1 d f)
+8.0: (move u1 f g)
+9.0: (move u1 g h)
+10.0: (blow u1 h j)
+11.0: (blow u1 j l)
+12.0: (move u1 l m)
+13.0: (move u1 m n)
+14.0: (blow u2 h j)
+15.0: (blow u2 j l)
+16.0: (move u2 l m)
+17.0: (blow u1 n p)

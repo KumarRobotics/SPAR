@@ -1,0 +1,6 @@
+;;!domain: uav_maintenance
+
+;;!problem: maintenance-prob-4
+
+0.0: (measure_thermal u1 c1)
+1.0: (analyse_nomaly_heat u1 c1)

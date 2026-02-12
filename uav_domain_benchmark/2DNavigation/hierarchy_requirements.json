@@ -1,0 +1,13 @@
+{
+    "hierarchy": {
+        "uav": [],
+        "position": []
+    },
+    "requirements": [
+        "typing",
+        "numeric-fluents",
+        "strips",
+        "negative-preconditions",
+        "equality"
+    ]
+}

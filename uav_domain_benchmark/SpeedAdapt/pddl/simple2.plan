@@ -1,0 +1,5 @@
+;;!domain: SpeedAdapt
+
+;;!problem: speedadapt-simple-open
+
+0.0: (pass-open-area u1 p1)

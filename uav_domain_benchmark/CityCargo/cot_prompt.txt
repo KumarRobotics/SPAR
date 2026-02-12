@@ -1,0 +1,191 @@
+Example 1. Load a package into a truck
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?
+1. The truck ?t
+2. The package ?p
+3. The location ?l
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)
+1. The truck ?t:
+    - Must be at the location - (truck-at ?t ?l)
+2. The package ?p:
+    - Must be at the location - (package-at ?p ?l)
+3. The location ?l:
+    - None
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)
+1. The truck ?t:
+    - None
+2. The package ?p:
+    - Is no longer at the location - (not (package-at ?p ?l))
+    - Is now in the truck - (package-in-truck ?p ?t)
+3. The location ?l:
+    - None
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 2. Unload a package from a truck
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?
+1. The truck ?t
+2. The package ?p
+3. The location ?l
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)
+1. The truck ?t:
+    - Must be at the location - (truck-at ?t ?l)
+2. The package ?p:
+    - Must be in the truck - (package-in-truck ?p ?t)
+3. The location ?l:
+    - None
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)
+1. The truck ?t:
+    - None
+2. The package ?p:
+    - Is no longer in the truck - (not (package-in-truck ?p ?t))
+    - Is now at the location - (package-at ?p ?l)
+3. The location ?l:
+    - None
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 3. Load a package into an uav
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?
+1. The uav ?u
+2. The package ?p
+3. The location ?l
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)
+1. The uav ?u:
+    - Must be at the airport location - (uav-at ?u ?l)
+2. The package ?p:
+    - Must be at the airport location - (package-at ?p ?l)
+3. The location ?l:
+    - Must be an airport - (location-is-airport ?l)
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)
+1. The uav ?u:
+    - None
+2. The package ?p:
+    - Package is now inside the uav - (package-in-uav ?p ?u)
+    - No longer at the airport location - (not (package-at ?p ?l))
+3. The location ?l:
+    - None
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 4. Unload a package from an uav
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?
+1. The uav ?u
+2. The package ?p
+3. The location ?l
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)
+1. The uav ?u:
+    - Must be at the airport location - (uav-at ?u ?l)
+2. The package ?p:
+    - Must be inside the uav - (package-in-uav ?p ?u)
+3. The location ?l:
+    - Must be an airport - (location-is-airport ?l)
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)
+1. The uav ?u:
+    - None
+2. The package ?p:
+    - No longer inside the uav - (not (package-in-uav ?p ?u))
+    - Now at the airport location - (package-at ?p ?l)
+3. The location ?l:
+    - None
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 5. Drive a truck from one location to another inside the same city
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?
+1. The truck ?t
+2. The starting location ?from
+3. The destination location ?to
+4. The city ?c
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)
+1. The truck ?t:
+    - Must be at the starting location - (truck-at ?t ?from)
+    - Must not be at the destination location - (not (truck-at ?t ?to))
+2. The starting location ?from:
+    - Must be inside the city - (location-in-city ?from ?c)
+3. The destination location ?to:
+    - Must be inside the city - (location-in-city ?to ?c)
+4. The city ?c:
+    - None
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)
+1. The truck ?t:
+    - No longer at the starting location - (not (truck-at ?t ?from))
+    - Now at the destination location - (truck-at ?t ?to)
+2. The starting location ?from:
+    - None
+3. The destination location ?to:
+    - None
+4. The city ?c:
+    - None
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 6. Fly an uav from one location to another in a city
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?
+1. The uav ?u
+2. The departure airport ?from
+3. The destination airport ?to
+4. The departure city ?c1
+5. The arrival city ?c2
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)
+1. The uav ?u:
+    - Must be at the departure airport - (uav-at ?u ?from)
+    - Must not be at the destination airport - (not (uav-at ?u ?to))
+2. The departure airport ?from:
+    - Must be in city ?c1 - (location-in-city ?from ?c1)
+    - Must be an airport - (location-is-airport ?from)
+3. The destination airport ?to:
+    - Must be in city ?c2 - (location-in-city ?to ?c2)
+    - Must be an airport - (location-is-airport ?to)
+4. The departure city ?c1:
+    - None
+5. The arrival city ?c2:
+    - None
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)
+1. The uav ?u:
+    - No longer at the departure airport - (not (uav-at ?u ?from))
+    - Now at the destination airport - (uav-at ?u ?to)
+2. The departure airport ?from:
+    - None
+3. The destination airport ?to:
+    - None
+4. The departure city ?c1:
+    - None
+5. The arrival city ?c2:
+    - None
+
+- Finally, write the PDDL action in the following format:

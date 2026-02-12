@@ -1,0 +1,11 @@
+;;!domain: CityCargo
+
+;;!problem: medium-truck-to-uav-transfer
+
+0.0: (truck-drive t1 a1 l1 c1)
+1.0: (truck-load t1 p1 l1)
+2.0: (truck-drive t1 l1 a1 c1)
+3.0: (truck-unload t1 p1 a1)
+4.0: (uav-load u1 p1 a1)
+5.0: (uav-fly u1 a1 a2 c1 c2)
+6.0: (uav-unload u1 p1 a2)

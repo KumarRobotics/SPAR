@@ -1,0 +1,24 @@
+;;!domain: CityCargo
+
+;;!problem: hard-city-dispatch
+
+0.0: (truck-drive t2 l3 l4 c2)
+1.0: (truck-drive t1 l1 l2 c1)
+2.0: (truck-load t1 p1 l2)
+3.0: (truck-load t2 p2 l4)
+4.0: (truck-drive t2 l4 a2 c2)
+5.0: (truck-drive t1 l2 a1 c1)
+6.0: (truck-unload t1 p1 a1)
+7.0: (truck-unload t2 p2 a2)
+8.0: (uav-load u2 p2 a2)
+9.0: (uav-fly u2 a2 a1 c2 c1)
+10.0: (uav-load u2 p1 a1)
+11.0: (uav-unload u2 p2 a1)
+12.0: (uav-fly u2 a1 a2 c1 c2)
+13.0: (uav-unload u2 p1 a2)
+14.0: (truck-load t1 p2 a1)
+15.0: (truck-drive t1 a1 l2 c1)
+16.0: (truck-load t2 p1 a2)
+17.0: (truck-drive t2 a2 l4 c2)
+18.0: (truck-unload t2 p1 l4)
+19.0: (truck-unload t1 p2 l2)

@@ -1,0 +1,17 @@
+(define (problem perch-medium-3)
+  (:domain UAV-Perching)
+  (:objects u1 - uav l1 l2 l3 - location)
+  (:init
+    (at u1 l1)
+    (perched u1)
+    (connected l1 l2)
+    (connected l2 l3)
+    (clear l2)
+    (clear l3)
+  )
+  (:goal (and
+    (perched u1)
+    (at u1 l3)
+    (perch-visit l3)
+  ))
+)

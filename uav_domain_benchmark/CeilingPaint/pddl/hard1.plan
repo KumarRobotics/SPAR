@@ -1,0 +1,15 @@
+;;!domain: CeilingPaintDomain
+
+;;!problem: hard-two-uav-split-color-task
+
+0.0: (Take-off u2)
+1.0: (Fly-to u2 p0 p2)
+2.0: (Pick-up-sprayer u1 s2)
+3.0: (Take-off u1)
+4.0: (Fly-to u1 p0 p2)
+5.0: (Fly-to u2 p2 p1)
+6.0: (Paint u1 s2 blue p2)
+7.0: (Landing u2)
+8.0: (Pick-up-sprayer u2 s1)
+9.0: (Take-off u2)
+10.0: (Paint u2 s1 red p1)

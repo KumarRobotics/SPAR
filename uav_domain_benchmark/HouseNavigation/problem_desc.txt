@@ -1,0 +1,3 @@
+The house consists of a single level and a basement. On the main level, there are five rooms: a living room, a kitchen, a balcony, and two bedrooms (bedroom_1 and bedroom_2). A UAV is tasked with navigating through the house following a predefined route. We set a goal in the basement,
+The UAV starts in the living room and must visit the following locations in order: Bedroom_1, Balcony, Bedroom_2, Kitchen. Finally, the UAV reaches the goal the basement.
+The objective is to successfully guide the UAV through all designated locations in sequence and ensure it reaches the goal.

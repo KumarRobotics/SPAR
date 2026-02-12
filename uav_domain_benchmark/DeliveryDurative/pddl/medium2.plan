@@ -1,0 +1,6 @@
+;;!domain: DeliveryDuratiion
+
+;;!problem: medium-move-unload
+
+0.0: (MOVE u1 l1 l2)
+1.0: (UNLOAD u1 p1 l2)

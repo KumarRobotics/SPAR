@@ -1,0 +1,109 @@
+Example 1. uav flies from one position to another
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?  
+1. The uav ?r  
+2. The current position ?p1  
+3. The next position ?p2 
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)  
+1. The uav ?r:  
+    - Must be at position ?p1 - (at ?r ?p1)  
+    - Must be in fly mode - (fly-mode ?r)  
+2. The current position ?p1:  
+    - Must not have bad weather - (not (bad-weather ?p1))  
+3. The next position ?p2:  
+    - Must be connected - (next ?p1 ?p2)
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)  
+1. The uav ?r:  
+    - Moves to ?p2 - (at ?r ?p2)  
+    - No longer at ?p1 - (not (at ?r ?p1))
+2. The current position ?p1:  
+    - None 
+3. The next position ?p2:  
+    - None
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 2. uav drives from one position to another
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?  
+1. The uav ?r  
+2. The current position ?p1   
+3. The next position ?p2   
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)  
+1. The uav ?r:  
+    - Must be at position ?p1 - (at ?r ?p1)  
+    - Must be in drive mode - (drive-mode ?r)  
+2. The current position ?p1:  
+    - Must not be slippery - (not (slippery-road ?p1))  
+3. The next position ?p2:  
+    - Must be connected - (next ?p1 ?p2)
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)  
+1. The uav ?r:  
+    - Moves to ?p2 - (at ?r ?p2)  
+    - No longer at ?p1 - (not (at ?r ?p1))
+2. The current position ?p1:  
+    - None 
+3. The next position ?p2:  
+    - None
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 3. uav switch to flying mode
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?  
+1. The uav ?r  
+2. The position ?p  
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)  
+1. The uav ?r:  
+    - Must be at position ?p - (at ?r ?p)  
+    - Must be in drive mode - (drive-mode ?r)  
+2. The position ?p:  
+    - Must be slippery - (slippery-road ?p)
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)  
+1. The uav ?r: 
+    - No longer in drive mode - (not (drive-mode ?r))  
+    - Enters fly mode - (fly-mode ?r)
+2. The position ?p:  
+    - None
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 4. uav switch to drive mode
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?  
+1. The uav ?r  
+2. The position ?p
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)  
+1. The uav ?r:  
+    - Must be at position ?p - (at ?r ?p)  
+    - Must be in fly mode - (fly-mode ?r)  
+2. The position ?p:  
+    - Must have bad weather - (bad-weather ?p)
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)  
+1. The uav ?r:  
+    - No longer in fly mode - (not (fly-mode ?r))  
+    - Enters drive mode - (drive-mode ?r)
+2. The position ?p:
+    - None
+
+- Finally, write the PDDL action in the following format:
+

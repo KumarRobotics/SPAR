@@ -1,0 +1,5 @@
+;;!domain: DeliveryDomain
+
+;;!problem: test-load
+
+0.0: (LOAD u1 p1 l1)

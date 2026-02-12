@@ -1,0 +1,8 @@
+;;!domain: GraspFruit
+
+;;!problem: graspfruit-problem-4
+
+0.0: (take-not-rot-image u1 f1 l1)
+1.0: (grasp-fruit u1 f1 l1 g1)
+2.0: (move u1 l1 l2)
+3.0: (put-down-fruit u1 f1 l2 g1)

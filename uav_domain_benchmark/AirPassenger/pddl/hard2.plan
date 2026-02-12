@@ -1,0 +1,14 @@
+;;!domain: uav_passenger_transport
+
+;;!problem: hard-distributed-passengers-recharge
+
+0.0: (move u1 la lb)
+1.0: (board u1 p2 lb)
+2.0: (move u1 lb lf)
+3.0: (deboard p2 u1 lf)
+4.0: (move u1 lf lc)
+5.0: (recharge u1 lc)
+6.0: (move u1 lc lb)
+7.0: (board u1 p1 lb)
+8.0: (move u1 lb lf)
+9.0: (deboard p1 u1 lf)

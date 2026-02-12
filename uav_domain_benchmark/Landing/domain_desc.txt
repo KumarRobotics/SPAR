@@ -1,0 +1,1 @@
+This domain describes a uav landing scenario where a uav must navigate through a set of connected locations in the air, identify a safe spot to land if the spot is clear, and then perform the landing. The uav starts in the air, can fly between connected locations, and must check whether a location is clear before marking it as a landing spot. Once verified, the uav can land.

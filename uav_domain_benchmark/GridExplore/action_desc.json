@@ -1,0 +1,14 @@
+{
+  "Move uav to another position": {
+    "desc": "This action enables the uav to move from its current position to a new position if two positions are connected and the new position is marked as clear. Each move incurs a unit cost. For example, if the uav is at position_1, position_1 is connected to position_2, if position_2 is marked as clear, then the uav can move to position_2.",
+    "extra_info": [],
+    "name_in_pddl": "move",
+    "abstract_desc": "This action enables the uav to move from [position1] to [position2] if [position1] and [position2] are [state1], and if [position2] is marked as [state2]. This action will increase [value1] by [value2]."
+  },
+  "Detect obstacles in adjacent positions": {
+    "desc": "This action enables the uav to mark the position as clear if the position is connected to its current position, and if the connected position does not have obstacle. For example, the uav is at position_1 and position_2 is connected to position_1, if position_2 does not have obstacle, then the uav can mark position_2 as clear.",
+    "extra_info": [],
+    "name_in_pddl": "mark-clear",
+    "abstract_desc": "This action enables the uav to mark [position1] as [state1] if [position1] and [position2] are [state2], and [position1] is [state3]."
+  }
+}

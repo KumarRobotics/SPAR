@@ -1,0 +1,27 @@
+;;!domain: MarsExplorationDomain
+
+;;!problem: mars-prob-9
+
+0.0: (Move-rov r2 l1 l4)
+1.0: (Move-rov r1 l1 l2)
+2.0: (Move-uav u2 l1 l1)
+3.0: (Move-rov r1 l2 l3)
+4.0: (Move-uav u1 l1 l2)
+5.0: (Move-rov r1 l3 l1)
+6.0: (Explore u1 l2)
+7.0: (Move-uav u1 l2 l1)
+8.0: (Move-rov r1 l1 l2)
+9.0: (GetResource r1 l2)
+10.0: (Move-rov r1 l2 l1)
+11.0: (Move-uav u1 l1 l2)
+12.0: (Move-rov r1 l1 l3)
+13.0: (Move-uav u1 l2 l3)
+14.0: (Explore u1 l3)
+15.0: (GetResource r1 l3)
+16.0: (Move-uav u1 l3 l1)
+17.0: (Move-rov r1 l3 l1)
+18.0: (Move-uav u1 l1 l2)
+19.0: (Move-rov r1 l1 l2)
+20.0: (Move-uav u1 l2 l4)
+21.0: (Explore u1 l4)
+22.0: (GetResource r2 l4)

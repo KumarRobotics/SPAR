@@ -1,0 +1,124 @@
+Example 1. uav loads a package
+Action: This action enables the uav to load a package from a location if the uav's remaining capacity is larger than or equal to the package's weight. For example, if the remaining capacity of uav is 5 units and the weight of package_1 is 2 units, then the uav can load package_1 at location_1.
+
+You can create and define new predicates, but you may also reuse the following predicates: 
+No predicate has been defined yet
+
+You can create and define new functions, but you may also reuse the following functions: 
+No function has been defined yet
+
+Parameters:
+1. ?d - uav: The uav
+2. ?p - package: The package to load
+3. ?l - location: The location where the loading takes place
+
+Preconditions:
+```
+(and
+    (at-uav ?d ?l)
+    (at-package ?p ?l)
+    (>= (remaining-load) (weights ?p))
+)
+```
+
+Effects:
+```
+(and
+    (holding ?d ?p)
+    (not (at-package ?p ?l))
+    (decrease (remaining-load) (weights ?p)) 	
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+1. (holding ?d - uav ?p - package): true if uav ?d is holding package ?p
+2. (at-uav ?d - uav ?l - location): true if uav ?d is at location ?l
+3. (at-package ?p - package ?l - location): true if package ?p is at location ?l
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+1. (weights ?p - package): weight of the package ?p
+2. (remaining-load): remaining load capacity of the uav
+
+
+Example 2. uav unloads a package
+Action: This action enables the uav to unload a package it is currently holding at a location. For example, the uav unloads package_1 at location_2.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+1. (holding ?d - uav ?p - package): true if uav ?d is holding package ?p
+2. (at-uav ?d - uav ?l - location): true if uav ?d is at location ?l
+3. (at-package ?p - package ?l - location): true if package ?p is at location ?l
+
+You can create and define new functions, but you may also reuse the following functions:
+1. (weights ?p - package): weight of the package ?p
+2. (remaining-load): remaining load capacity of the uav
+
+Parameters:
+1. ?d - uav: The uav
+2. ?p - package: The package to unload
+3. ?l - location: The location to unload at
+
+Preconditions:
+```
+(and
+    (at-uav ?d ?l)
+    (holding ?d ?p)
+)
+```
+
+Effects:
+```
+(and
+    (not (holding ?d ?p))
+    (at-package ?p ?l)
+    (increase (remaining-load) (weights ?p))
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+No newly defined predicate
+
+New Functions:(Please write: "No newly defined function" below if there is no new function) 
+No newly defined function
+
+
+Example 3. uav moves from one location to another
+Action: This action enables the uav to move from one location to another. The total travel distance is accumulated by the distance between these two locations. For example, the uav moves from location_1 to location_2 and total travel distance is increased by the distance between these two locations.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+1. (holding ?d - uav ?p - package): true if uav ?d is holding package ?p
+2. (at-uav ?d - uav ?l - location): true if uav ?d is at location ?l
+3. (at-package ?p - package ?l - location): true if package ?p is at location ?l
+
+You can create and define new functions, but you may also reuse the following functions:
+1. (weights ?p - package): weight of the package ?p
+2. (remaining-load): remaining load capacity of the uav
+
+Parameters:
+1. ?d - uav: The uav
+2. ?from - location: The starting location
+3. ?to - location: The destination location
+
+Preconditions:
+```
+(and
+    (at-uav ?d ?from)
+)
+```
+
+Effects:
+```
+(and
+    (at-uav ?d ?to)
+    (not (at-uav ?d ?from))
+    (increase (total-distance) (distance ?from ?to))
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+No newly defined predicate
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+1. (distance ?from - location ?to - location): distance from location ?from to ?to
+2. (total-distance): total distance the uav has traveled
+
+

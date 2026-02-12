@@ -1,0 +1,5 @@
+;;!domain: SimpleNavigationDomain
+
+;;!problem: nav-prob-1
+
+0.0: (if-reach-goal u1 l1)

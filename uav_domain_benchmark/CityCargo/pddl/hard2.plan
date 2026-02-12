@@ -1,0 +1,22 @@
+;;!domain: CityCargo
+
+;;!problem: hard-triple-city-transfer
+
+0.0: (truck-load t2 p2 lx2)
+1.0: (truck-load t1 p1 lx1)
+2.0: (truck-drive t2 lx2 la2 c2)
+3.0: (truck-load t3 p3 lx3)
+4.0: (truck-drive t3 lx3 la3 c3)
+5.0: (truck-drive t1 lx1 la1 c1)
+6.0: (truck-unload t2 p2 la2)
+7.0: (truck-unload t3 p3 la3)
+8.0: (truck-unload t1 p1 la1)
+9.0: (uav-load u1 p1 la1)
+10.0: (uav-load u2 p2 la2)
+11.0: (uav-fly u2 la2 la3 c2 c3)
+12.0: (uav-fly u1 la1 la2 c1 c2)
+13.0: (uav-load u2 p3 la3)
+14.0: (uav-unload u2 p2 la3)
+15.0: (uav-fly u2 la3 la1 c3 c1)
+16.0: (uav-unload u2 p3 la1)
+17.0: (uav-unload u1 p1 la2)

@@ -1,0 +1,117 @@
+Example 1. Move the uav to another location
+Action: This action enables a uav to move from its current location to a new location. For example, the uav can move from the location_1 to location_2.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+No predicate has been defined yet
+
+You can create and define new functions, but you may also reuse the following functions:
+No function has been defined yet
+
+Parameters:
+1. ?d - uav: The uav
+2. ?from - location: The current location
+3. ?to - location: The next location
+
+Preconditions:
+```
+(and 
+    (at-uav ?d ?from)
+)
+```
+
+Effects:
+```
+(and 
+    (at-uav ?d ?to) 
+    (not (at-uav ?d ?from))
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+1. (at-uav ?d - uav ?from - location): true if uav ?d is at location ?from
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+
+
+Example 2. Pick up a blood sample from a location
+Action: This action enables a uav to pick up a blood sample from some location if the uav is holding nothing. For example, the uav picks up a sample at the location_1.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+1. (at-uav ?d - uav ?from - location): true if uav ?d is at location ?from
+
+You can create and define new functions, but you may also reuse the following functions:
+No function has been defined yet
+
+Parameters:
+1. ?d - uav: The uav
+2. ?s - sample: The blood sample
+3. ?h - location: The location that has sample
+
+Preconditions:
+```
+(and 
+    (at-uav ?d ?h) 
+    (uav-empty ?d) 
+    (at-sample ?s ?h)
+)
+```
+
+Effects:
+```
+(and 
+    (holding ?d ?s) 
+    (not (uav-empty ?d)) 
+    (not (at-sample ?s ?h))
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+1. (uav-empty ?d - uav): true if uav ?d is empty
+2. (at-sample ?s - sample ?h - location): true if sample ?s is in location ?h
+3. (holding ?d - uav ?s - sample): true if uav ?d is holding sample ?s
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+
+
+Example 3. Deliver a blood sample to a location
+Action: This action enables a uav to deliver a carried blood sample to a target location. The uav must be holding the sample and be at the target location. For example, the uav drop the sample to the location_2.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+1. (at-uav ?d - uav ?from - location): true if uav ?d is at location ?from
+2. (uav-empty ?d - uav): true if uav ?d is empty
+3. (at-sample ?s - sample ?h - location): true if sample ?s is in location ?h
+4. (holding ?d - uav ?s - sample): true if uav ?d is holding sample ?s
+
+You can create and define new functions, but you may also reuse the following functions:
+No function has been defined yet
+
+Parameters:
+1. ?d - uav: The uav
+2. ?s - sample: The blood sample
+3. ?h - location: The deliver location
+
+Preconditions:
+```
+(and 
+    (at-uav ?d ?h) 
+    (holding ?d ?s)
+)
+```
+
+Effects:
+```
+(and 
+    (not (holding ?d ?s)) 
+    (uav-empty ?d) 
+    (at-sample ?s ?h)
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+No newly defined predicate
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+

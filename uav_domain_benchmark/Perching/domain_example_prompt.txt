@@ -1,0 +1,163 @@
+Example 1. uav flies from one location to another
+Action: This action enables the uav to fly from one location to another if the two locations are connected and the uav is currently flying. For example, a uav can fly from location_1 to location_2 if the two positions are connected and the uav is flying.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+No predicate has been defined yet
+
+You can create and define new functions, but you may also reuse the following functions:
+No function has been defined yet
+
+Parameters:
+1. ?u - uav: The uav
+2. ?from - location: The current location
+3. ?to - location: The next location
+
+Preconditions:
+```
+(and 
+    (at ?u ?from)
+    (connected ?from ?to)
+    (in-air ?u)
+)
+```
+
+Effects:
+```
+(and 
+    (not (at ?u ?from))
+    (at ?u ?to)
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+1. (at ?u - uav ?from - location): true if the uav ?u is at location ?from
+2. (connected ?from - location ?to - location): true if location ?to goes after location ?from
+3. (in-air ?u - location): true if the uav ?u is in the flying mode
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+
+
+Example 2. uav detects if a location can be perched
+Action: The action enables the uav to mark the current location as suitable for perching if the location is clear. The uav can only detect when it is flying at that location. For example, if the uav is flying at location_1, it can mark location_1 as suitable for perching if location_1 is clear.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+1. (at ?u - uav ?from - location): true if the uav ?u is at location ?from
+2. (connected ?from - location ?to - location): true if location ?to goes after location ?from
+3. (in-air ?u - location): true if the uav ?u is in the flying mode
+
+You can create and define new functions, but you may also reuse the following functions:
+No function has been defined yet
+
+Parameters:
+1. ?u - uav: The uav
+2. ?l - location: The current location
+
+Preconditions:
+```
+(and 
+    (at ?u ?l)
+    (in-air ?u)
+    (clear ?l)
+)
+```
+
+Effects:
+```
+(and 
+    (perch-spot ?l)
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+1. (clear ?l - location): true if location ?l is clear for perching
+2. (perch-spot ?l - location): true if location ?l is detected as a suitable perching location 
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+
+
+Example 3. uav perches at the location
+Action: The action enables the uav to perch at some location, if it is currently flying at that location and the location has been marked as a perchable spot. This perching spot will be recorded. For example, if the uav is flying at location_1 and location_1 is marked as a perchable spot, the uav can perch at location_1. Location_1 will be marked as visited.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+1. (at ?u - uav ?from - location): true if the uav ?u is at location ?from
+2. (connected ?from - location ?to - location): true if location ?to goes after location ?from
+3. (in-air ?u - location): true if the uav ?u is in the flying mode
+4. (clear ?l - location): true if location ?l is clear for perching
+5. (perch-spot ?l - location): true if location ?l is detected as a suitable perching location 
+
+You can create and define new functions, but you may also reuse the following functions:
+No function has been defined yet
+
+Parameters:
+1. ?u - uav: The uav
+2. ?l - location: The current location
+
+Preconditions:
+```
+(and 
+    (at ?u ?l)
+    (perch-spot ?l)
+    (in-air ?u)
+)
+```
+
+Effects:
+```
+(and 
+    (perched ?u)
+    (not (in-air ?u))
+    (perch-visit ?l)
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+1. (perched ?u - uav): true if uav ?u is in perched mode
+2. (perch-visit ?l - location): true if location ?l is recorded and marked as perched.
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+
+
+Example 4. uav takes off from the perched location
+Action: This action enables the uav to take off vertically at a location, if it is currently perched at that location. For example, if the uav is perched at location_1, it can take off in place and flying at location_1.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+1. (at ?u - uav ?from - location): true if the uav ?u is at location ?from
+2. (connected ?from - location ?to - location): true if location ?to goes after location ?from
+3. (in-air ?u - location): true if the uav ?u is in the flying mode
+4. (clear ?l - location): true if location ?l is clear for perching
+5. (perch-spot ?l - location): true if location ?l is detected as a suitable perching location 
+6. (perched ?u - uav): true if uav ?u is in perched mode
+7. (perch-visit ?l - location): true if location ?l is recorded and marked as perched.
+
+You can create and define new functions, but you may also reuse the following functions:
+No function has been defined yet
+
+Parameters:
+1. ?u - uav: The uav
+2. ?l - location: The current location
+
+Preconditions:
+```
+(and 
+    (at ?u ?l)
+    (perched ?u)
+)
+```
+
+Effects:
+```
+(and 
+    (in-air ?u)
+    (not (perched ?u))
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+No newly defined predicate
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+

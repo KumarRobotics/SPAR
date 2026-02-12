@@ -1,0 +1,5 @@
+;;!domain: CeilingPaintDomain
+
+;;!problem: test-pickup
+
+0.0: (Pick-up-sprayer u1 s1)

@@ -1,0 +1,19 @@
+;;!domain: DeliveryOrderDomain-STRIPS
+
+;;!problem: hard-multi-uav-3locations
+
+0.0: (LOAD u1 p1 l1)
+1.0: (UNLOAD u1 p1 l1)
+2.0: (LOAD u1 p1 l1)
+3.0: (PickNext p1 p2)
+4.0: (LOAD u2 p2 l2)
+5.0: (UNLOAD u2 p2 l2)
+6.0: (MOVE u1 l1 l4)
+7.0: (UNLOAD u1 p1 l4)
+8.0: (LOAD u2 p2 l2)
+9.0: (PickNext p2 p3)
+10.0: (LOAD u3 p3 l3)
+11.0: (MOVE u2 l2 l4)
+12.0: (MOVE u3 l3 l4)
+13.0: (UNLOAD u3 p3 l4)
+14.0: (UNLOAD u2 p2 l4)

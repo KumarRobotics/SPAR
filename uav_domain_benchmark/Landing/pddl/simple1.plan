@@ -1,0 +1,5 @@
+;;!domain: UAV-Landing
+
+;;!problem: landing-prob-1
+
+0.0: (check-landing-spot u1 l1)

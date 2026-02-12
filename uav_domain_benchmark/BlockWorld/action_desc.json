@@ -1,0 +1,22 @@
+{
+    "Pick up an object": {
+        "desc": "This action allows the robot to pick up an object from a surface or stack. For example, the robot picks up a block from the table or from another block.",
+        "extra_info": [],
+        "name_in_pddl": "pickup"
+    },
+    "Put down an object": {
+        "desc": "This action enables the robot to put down an object that it is holding. For example, the robot puts down a block on the table or on top of another block.",
+        "extra_info": [],
+        "name_in_pddl": "putdown"
+    },
+    "Stack an object on top of another": {
+        "desc": "This action enables the robot to place one object on top of another, creating a stack. For example, the robot stacks a yellow block on top of a green block.",
+        "extra_info": [],
+        "name_in_pddl": "stack"
+    },
+    "Unstack an object from the top of another": {
+        "desc": "This action enables the robot to remove an object from the top of a stack. For example, the robot unstacks a yellow block that is on top of a green block.",
+        "extra_info": [],
+        "name_in_pddl": "unstack"
+    }
+}

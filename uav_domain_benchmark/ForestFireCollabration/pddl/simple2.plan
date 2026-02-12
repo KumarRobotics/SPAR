@@ -1,0 +1,6 @@
+;;!domain: ForestFireCollabration
+
+;;!problem: test-call-then-extinguish
+
+0.0: (CALL-uav u1 a1)
+1.0: (ExTINGUISH-FIRE g1 a1)

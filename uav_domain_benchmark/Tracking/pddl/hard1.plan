@@ -1,0 +1,8 @@
+;;!domain: trackingdomain
+
+;;!problem: tracking-hard-single-1
+
+0.0: (move u1 p1 p2)
+1.0: (update-subgoal u1 p2 p4)
+2.0: (move u1 p2 p4)
+3.0: (update-subgoal u1 p4 p6)

@@ -1,0 +1,162 @@
+Example 1. Move uav between locations
+Action: This action enables the uav to move from one location to another location, consuming battery power by the energy cost between two locations. For example, the uav moves from Location_1 to Location_2, using 5 units of battery power.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+No predicate has been defined yet
+
+You can create and define new functions, but you may also reuse the following functions:
+No function has been defined yet
+
+Parameters:
+1. ?d - uav: The uav
+2. ?from - location: The current location
+3. ?to - location: The next location
+
+Preconditions:
+```
+(and 
+    (at-uav ?d ?from)
+    (>= (battery-power ?d) (energy-cost ?from ?to))
+)
+```
+
+Effects:
+```
+(and 
+    (not (at-uav ?d ?from))
+    (at-uav ?d ?to)
+    (decrease (battery-power ?d) (energy-cost ?from ?to))
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+1. (at-uav ?d - uav ?from - location): true if uav ?d is at location ?from
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+1. (battery-power ?d - uav): The current battery power of uav
+2. (energy-cost ?from - location ?to - location): The energy cost of uav travelling from location ?from to ?to
+
+
+Example 2. Pick up blood sample
+Action: This action enables the uav to reassign its battery at specific locations. The battery level is directly set to the recharge capacity of the location. For example, if the uav is at Location_1 and the recharge capacity of Location_1 is 4 units, then the uav's battery level becomes 4 units after reassigning.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+1. (at-uav ?d - uav ?from - location): true if uav ?d is at location ?from
+
+You can create and define new functions, but you may also reuse the following functions:
+1. (battery-power ?d - uav): The current battery power of uav
+2. (energy-cost ?from - location ?to - location): The energy cost of uav travelling from location ?from to ?to
+
+Parameters:
+1. ?d - uav: The uav
+2. ?s - sample: The blood sample
+3. ?h - location: The location that has sample
+
+Preconditions:
+```
+(and 
+    (at-uav ?d ?h)
+    (at-sample ?s ?h)
+    (empty ?d)
+)
+```
+
+Effects:
+```
+(and 
+    (holding ?d ?s)
+    (not (empty ?d))
+    (not (at-sample ?s ?h))
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+1. (at-sample ?s - sample ?h - location): true if sample ?s is in location ?h
+2. (empty ?d - uav): true if uav ?d is empty
+3. (holding ?d - uav ?s - sample): true if uav ?d is holding sample ?s
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+
+
+Example 3. Unload blood sample
+Action: This action enables the uav to unload a blood sample to some location. For example, the uav unloads Sample_2 at Location_2.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+1. (at-uav ?d - uav ?from - location): true if uav ?d is at location ?from
+2. (at-sample ?s - sample ?h - location): true if sample ?s is in location ?h
+3. (empty ?d - uav): true if uav ?d is empty
+4. (holding ?d - uav ?s - sample): true if uav ?d is holding sample ?s
+
+You can create and define new functions, but you may also reuse the following functions:
+1. (battery-power ?d - uav): The current battery power of uav
+2. (energy-cost ?from - location ?to - location): The energy cost of uav travelling from location ?from to ?to
+
+Parameters:
+1. ?d - uav: The uav
+2. ?s - sample: The blood sample
+3. ?h - location: The deliver location
+
+Preconditions:
+```
+(and 
+    (at-uav ?d ?h)
+    (holding ?d ?s)
+)
+```
+
+Effects:
+```
+(and 
+    (not (holding ?d ?s))
+    (at-sample ?s ?h)
+    (empty ?d)
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+No newly defined predicate
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+
+
+Example 4. Recharge uav's battery
+Action: This action enables the uav to reassign its battery at some locations. The amount of reassigned energy is the location's recharge capacity. For example, the uav reassigns 4 energy units at Location_1 since the recharge capacity of Location_1 is 4 units.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+1. (at-uav ?d - uav ?from - location): true if uav ?d is at location ?from
+2. (at-sample ?s - sample ?h - location): true if sample ?s is in location ?h
+3. (empty ?d - uav): true if uav ?d is empty
+4. (holding ?d - uav ?s - sample): true if uav ?d is holding sample ?s
+
+You can create and define new functions, but you may also reuse the following functions:
+1. (battery-power ?d - uav): The current battery power of uav
+2. (energy-cost ?from - location ?to - location): The energy cost of uav travelling from location ?from to ?to
+
+Parameters:
+1. ?d - uav: The uav
+2. ?h - location: The recharge location
+
+Preconditions:
+```
+(and 
+    (at-uav ?d ?h)
+    (> (battery-power ?d) 0)
+)
+```
+
+Effects:
+```
+(and 
+    (assign (battery-power ?d) (recharge-capacity ?h))
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+No newly defined predicate
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+1. (recharge-capacity ?h - location): The recharge capacity of location ?h
+
+

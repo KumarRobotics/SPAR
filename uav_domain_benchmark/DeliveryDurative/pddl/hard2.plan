@@ -1,0 +1,12 @@
+;;!domain: DeliveryDuratiion
+
+;;!problem: hard-routing-vs-value
+
+0.0: (MOVE u2 b d)
+1.0: (LOAD u2 p2 d)
+2.0: (MOVE u2 d f)
+3.0: (MOVE u1 a e)
+4.0: (LOAD u1 p3 e)
+5.0: (MOVE u1 e f)
+6.0: (UNLOAD u2 p2 f)
+7.0: (UNLOAD u1 p3 f)

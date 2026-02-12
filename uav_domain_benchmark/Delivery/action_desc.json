@@ -1,0 +1,20 @@
+{
+  "Load a package": {
+    "desc": "This action enables the uav to pick up a package at some location. The uav can only carry one package at a time. For example, the uav loads package_1 at location_1.",
+    "extra_info": [],
+    "name_in_pddl": "LOAD",
+    "abstract_desc": "This action enables the uav to load [object1] at [position1]. The uav can only load one [object1] at a time."
+  },
+  "Unload a package": {
+    "desc": "This action enables the uav to unload a package at some location. For example, the uav unloads package_1 at location_1.",
+    "extra_info": [],
+    "name_in_pddl": "UNLOAD",
+    "abstract_desc": "This action enables the uav to unload [object1] at [position1]."
+  },
+  "Move uav to another location": {
+    "desc": "This action allows the uav to travel from its current location to another location. For example, the uav moves from location_1 to location_2.",
+    "extra_info": [],
+    "name_in_pddl": "MOVE",
+    "abstract_desc": "This action allows the uav to move from [position1] to [position2]."
+  }
+}

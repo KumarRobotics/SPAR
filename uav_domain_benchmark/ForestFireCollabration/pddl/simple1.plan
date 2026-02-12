@@ -1,0 +1,5 @@
+;;!domain: ForestFireCollabration
+
+;;!problem: test-call-uav
+
+0.0: (CALL-uav u1 a1)

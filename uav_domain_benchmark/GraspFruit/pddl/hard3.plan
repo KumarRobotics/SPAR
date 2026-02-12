@@ -1,0 +1,17 @@
+;;!domain: GraspFruit
+
+;;!problem: p1
+
+0.0: (take-not-rot-image uav1 fruit3 location1)
+1.0: (take-rot-image uav1 fruit1 location1)
+2.0: (move uav1 location1 location2)
+3.0: (take-not-rot-image uav1 fruit4 location2)
+4.0: (take-rot-image uav1 fruit2 location2)
+5.0: (grasp-fruit uav1 fruit4 location2 gripper1)
+6.0: (recharge uav1 location2)
+7.0: (move uav1 location2 location3)
+8.0: (put-down-fruit uav1 fruit4 location3 gripper1)
+9.0: (move uav1 location3 location1)
+10.0: (grasp-fruit uav1 fruit3 location1 gripper1)
+11.0: (move uav1 location1 location3)
+12.0: (put-down-fruit uav1 fruit3 location3 gripper1)

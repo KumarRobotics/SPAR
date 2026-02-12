@@ -1,0 +1,6 @@
+;;!domain: SpeedAdapt
+
+;;!problem: speedadapt-dcc-clutter
+
+0.0: (dcc-move u1 p1 p2)
+1.0: (pass-clutter u1 p2)

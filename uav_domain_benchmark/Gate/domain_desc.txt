@@ -1,0 +1,1 @@
+In this domain, a uav attempts to pass through a gate with certain angle. The uav can adjust its own angle gradually until the value equals to the gate's angle. The uav's controller will increase or decrease the uav's angle by some control rate incrementally. 

@@ -1,0 +1,14 @@
+{
+  "uav moves from one position to another": {
+    "desc": "This action enables the uav to move from one position to another connected position if there is no wind at the current position. This action increases the total cost by one unit. For example, if the uav is at position_1 and position_1 has no wind, then the uav can move from position_1 to position_2 if two positions are connected.",
+    "extra_info": [],
+    "name_in_pddl": "move",
+    "abstract_desc": "This action enables the uav to move from [position1] to [position2], if [position1] has [state1] and [position1] and [position2] are [state2]. This action will increase [value1] by [value2]."
+  },
+  "Wind blows the uav to another position": {
+    "desc": "This action enables the uav to be passively moved by wind from its current position to the next position, if the wind at the current location blows toward the next position. No cost is incurred for this action. For example, if the uav is at position_1 and the wind at position_1 blows toward position_2, then the uav can be passively moved by wind from position_1 to position_2 with no cost.",
+    "extra_info": [],
+    "name_in_pddl": "blow",
+    "abstract_desc": "This action enables the uav to be passively moved by [object1] from [position1] to [position2] if [object1] at [position1] is [state1] toward [position2]."
+  }
+}

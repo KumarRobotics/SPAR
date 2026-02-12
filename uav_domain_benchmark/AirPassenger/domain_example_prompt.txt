@@ -1,0 +1,161 @@
+Example 1. Move the uav between two locations
+Action: This action enables the uav to move from one location to another if the uav's battery level is larger than the energy cost of the traveling between two locations. For example, if the uav is at loc1, the battery level of uav is 5 units and the energy cost from loc1 to loc2 is 2 units, then the uav can move from loc1 to loc2.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+No predicate has been defined yet
+
+You can create and define new functions, but you may also reuse the following functions:
+No function has been defined yet
+
+Parameters:
+1. ?u - uav: The uav
+2. ?from - location: The starting location
+3. ?to - location: The destination location
+
+Preconditions:
+```
+(and
+    (at-uav ?u ?from)
+    (<= (energy-cost ?from ?to) (battery-level ?u))
+)
+```
+
+Effects:
+```
+(and
+    (not (at-uav ?u ?from))
+    (at-uav ?u ?to)
+    (decrease (battery-level ?u) (energy-cost ?from ?to))
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+1. (at-uav ?u - uav ?from - location): true if uav ?u is at location ?from
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+1. (energy-cost ?from - location ?to - location): the energy cost of moving from location ?from to location ?to
+2. (battery-level ?u - uav): the current battery level of uav ?u
+
+
+Example 2. Passenger boards the uav
+Action: This action enables the uav to pick up a passenger at some location if the uav's remaining capacity is larger than or equal to the passenger's weight. For example, if Alice and the uav are both at loc2, Alice's weight is 3 units and the remaining capacity of uav is 5 units, Alice can board the uav.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+1. (at-uav ?u - uav ?from - location): true if uav ?u is at location ?from
+
+You can create and define new functions, but you may also reuse the following functions:
+1. (energy-cost ?from - location ?to - location): the energy cost of moving from location ?from to location ?to
+2. (battery-level ?u - uav): the current battery level of uav ?u
+
+Parameters:
+1. ?u - uav: The uav
+2. ?p - passenger: The passenger
+3. ?l - location: The shared boarding location
+
+Preconditions:
+```
+(and
+    (at-passenger ?p ?l)
+    (at-uav ?u ?l)
+    (<= (weight ?p) (remaining-load ?u))
+)
+```
+
+Effects:
+```
+(and
+    (not (at-passenger ?p ?l))
+    (in-uav ?p ?u)
+    (decrease (remaining-load ?u) (weight ?p))
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+1. (at-passenger ?p - passenger ?l - location): true if passenger ?p is at location ?l
+2. (in-uav ?p - passenger ?u - uav): true if passenger ?p is inside uav ?u
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+1. (weight ?p - passenger): the weight of passenger ?p
+2. (remaining-load ?u - uav): the remaining load capacity of uav ?u
+
+
+Example 3. Passenger exits the uav
+Action: This action enables the uav to drop a passenger off at some location if the passenger is in the uav. For example, if Alice is in the uav and the uav is at loc3, she can deboard and appear at loc3.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+1. (at-uav ?u - uav ?from - location): true if uav ?u is at location ?from
+2. (at-passenger ?p - passenger ?l - location): true if passenger ?p is at location ?l
+3. (in-uav ?p - passenger ?u - uav): true if passenger ?p is inside uav ?u
+
+You can create and define new functions, but you may also reuse the following functions:
+1. (energy-cost ?from - location ?to - location): the energy cost of moving from location ?from to location ?to
+2. (battery-level ?u - uav): the current battery level of uav ?u
+3. (weight ?p - passenger): the weight of passenger ?p
+4. (remaining-load ?u - uav): the remaining load capacity of uav ?u
+
+Parameters:
+1. ?p - passenger: The passenger
+2. ?u - uav: The uav
+3. ?l - location: The drop-off location
+
+Preconditions:
+```
+(and
+    (in-uav ?p ?u)
+    (at-uav ?u ?l)
+)
+```
+
+Effects:
+```
+(and
+    (not (in-uav ?p ?u))
+    (at-passenger ?p ?l)
+    (increase (remaining-load ?u) (weight ?p))
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+No newly defined predicate
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+
+
+Example 4. Recharge the uav
+Action: This action enables the uav to reassign its battery to maximum capacity if it is located at a charging station. For example, if the uav is at loc1 and loc1 is a charging station, it can perform recharge to full battery capacity.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+1. (at-uav ?u - uav ?from - location): true if uav ?u is at location ?from
+2. (at-passenger ?p - passenger ?l - location): true if passenger ?p is at location ?l
+3. (in-uav ?p - passenger ?u - uav): true if passenger ?p is inside uav ?u
+
+You can create and define new functions, but you may also reuse the following functions:
+1. (energy-cost ?from - location ?to - location): the energy cost of moving from location ?from to location ?to
+2. (battery-level ?u - uav): the current battery level of uav ?u
+3. (weight ?p - passenger): the weight of passenger ?p
+4. (remaining-load ?u - uav): the remaining load capacity of uav ?u
+
+Parameters:
+1. ?u - uav: The uav
+2. ?l - location: The charging station location
+
+Preconditions:
+```
+(and
+    (at-uav ?u ?l)
+    (is-charging-station ?l)
+)
+```
+
+Effects:
+```
+(assign (battery-level ?u) (max-battery ?u))
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+1. (is-charging-station ?l - location): true if location ?l is a charging station
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+2. (max-battery ?u - uav): the maximum battery capacity of uav ?u
+

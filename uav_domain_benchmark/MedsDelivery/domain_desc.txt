@@ -1,0 +1,1 @@
+In this domain, an unmanned aerial vehicle (uav) is tasked with transporting blood samples between locations. uav starts at a location and may carry at most one sample at a time. A uav can move between locations, pick up a sample, and deliver that sample to another location.

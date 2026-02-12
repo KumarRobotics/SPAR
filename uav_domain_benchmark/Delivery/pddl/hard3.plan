@@ -1,0 +1,20 @@
+;;!domain: DeliveryDomain
+
+;;!problem: hard-multi-uav-cross-delivery
+
+0.0: (MOVE u2 l2 l3)
+1.0: (LOAD u1 p1 l1)
+2.0: (MOVE u1 l1 l6)
+3.0: (UNLOAD u1 p1 l6)
+4.0: (MOVE u1 l6 l5)
+5.0: (LOAD u1 p4 l5)
+6.0: (MOVE u1 l5 l1)
+7.0: (UNLOAD u1 p4 l1)
+8.0: (MOVE u1 l1 l3)
+9.0: (LOAD u2 p2 l3)
+10.0: (MOVE u2 l3 l2)
+11.0: (UNLOAD u2 p2 l2)
+12.0: (MOVE u2 l2 l4)
+13.0: (LOAD u2 p3 l4)
+14.0: (MOVE u2 l4 l3)
+15.0: (UNLOAD u2 p3 l3)

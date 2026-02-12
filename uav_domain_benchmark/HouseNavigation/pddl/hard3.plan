@@ -1,0 +1,24 @@
+;;!domain: uav-navigation
+
+;;!problem: nav-prob-9
+
+0.0: (Move-to-Next-Location u2 l10 l9)
+1.0: (Move-to-Next-Location u1 l1 l2)
+2.0: (Move-to-Next-Location u1 l2 l3)
+3.0: (Move-to-Next-Location u2 l9 l8)
+4.0: (Move-to-Next-Location u2 l8 l7)
+5.0: (Move-to-Next-Location u1 l3 l4)
+6.0: (Move-to-Next-Location u1 l4 l5)
+7.0: (Move-to-Next-Location u2 l7 l6)
+8.0: (Move-to-Next-Location u2 l6 l5)
+9.0: (Move-to-Next-Location u1 l5 l6)
+10.0: (Move-to-Next-Location u1 l6 l7)
+11.0: (Move-to-Next-Location u2 l5 l4)
+12.0: (Move-to-Next-Location u2 l4 l3)
+13.0: (Move-to-Next-Location u1 l7 l8)
+14.0: (Move-to-Next-Location u1 l8 l9)
+15.0: (Move-to-Next-Location u2 l3 l2)
+16.0: (Move-to-Next-Location u2 l2 l1)
+17.0: (Move-to-Next-Location u1 l9 l10)
+18.0: (Verify-Arrival-at-Goal-Location u1 l10)
+19.0: (Verify-Arrival-at-Goal-Location u2 l1)

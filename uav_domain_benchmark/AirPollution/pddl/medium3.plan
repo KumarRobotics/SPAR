@@ -1,0 +1,17 @@
+;;!domain: AirQualityMonitoring
+
+;;!problem: medium-looped-graph
+
+0.0: (move u1 a b)
+1.0: (monitoring u1 b)
+2.0: (monitoring u1 b)
+3.0: (monitoring u1 b)
+4.0: (move u1 b c)
+5.0: (monitoring u1 c)
+6.0: (monitoring u1 c)
+7.0: (monitoring u1 c)
+8.0: (monitoring u1 c)
+9.0: (monitoring u1 c)
+10.0: (monitoring u1 c)
+11.0: (move u1 c d)
+12.0: (monitoring u1 d)

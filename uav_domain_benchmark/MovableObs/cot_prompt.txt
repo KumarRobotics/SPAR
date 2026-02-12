@@ -1,0 +1,178 @@
+Example 1. Move ugv from one position to another
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?  
+1. The ugv ?r  
+2. The current position ?p1
+3. The destination position ?p2 
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)  
+1. The ugv ?r:  
+    - Must be at current position - (at-ugv ?r ?p1)  
+2. The current position ?p1:  
+    - Must be marked clear - (is-clear ?p1)
+    - Must be connected to ?p1 - (connect ?p1 ?p2)  
+3. The destination position ?p2:  
+    - Must be marked clear - (is-clear ?p2)
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)  
+1. The ugv ?r: 
+    - No longer at ?p1 - (not (at-ugv ?r ?p1))  
+    - Now at ?p2 - (at-ugv ?r ?p2)
+    - Increased cost by 1 - (increase (cost) 1)
+2. The current position ?p1:  
+    - None  
+3. The destination position ?p2:  
+    - None
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 2. Move uav from one position to another
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?  
+1. The ugv ?r  
+2. The current position ?p1
+3. The destination position ?p2 
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)  
+1. The ugv ?r:  
+    - Must be at current position - (at-uav ?r ?p1)  
+2. The current position ?p1 
+    - Must be connected - (connect ?p1 ?p2)
+3. The destination position ?p2 
+    - None
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)  
+1. The ugv ?r:  
+    - No longer at ?p1 - (not (at-uav ?r ?p1))  
+    - Now at ?p2 - (at-uav ?r ?p2)  
+    - Increased cost by 1 - (increase (cost) 1)
+2. The current position ?p1:  
+    - None  
+3. The destination position ?p2:  
+    - None
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 3. uav detects clear position
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?  
+1. The uav ?r  
+2. The position ?p
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)  
+1. The uav ?r:  
+    - Must be at the position - (at-uav ?r ?p)  
+2. The position ?p:  
+    - Must actually be clear - (clear ?p)
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)  
+1. The uav ?r: 
+    - Increased cost by 1 - (increase (cost) 1)
+2. The position ?p:  
+    - Marked as clear - (is-clear ?p)  
+    - No longer assumed to have fixed obstacle - (not (is-fix ?p))  
+    - No longer assumed to have movable obstacle - (not (is-mov ?p))  
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 4. uav detects positions that has fixed obstacles
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?  
+1. The uav ?r  
+2. The position ?p  
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)  
+1. The uav ?r:  
+    - Must be at the position - (at-uav ?r ?p)  
+2. The position ?p:  
+    - Must be known to have fixed obstacle (ground truth) - (fix-obs ?p)
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)  
+1. The uav ?r:  
+    - Increased cost by 1 - (increase (cost) 1)
+2. The position ?p:  
+    - Marked as having fixed obstacle - (is-fix ?p)  
+    - No longer assumed to be clear - (not (is-clear ?p))  
+    - No longer assumed to have movable obstacle - (not (is-mov ?p))  
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 5. uav detects positions that has movable obstacles
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?  
+1. The uav ?r  
+2. The position ?p  
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)  
+1. The uav ?r:  
+    - Must be at the position - (at-uav ?r ?p)  
+2. The position ?p:  
+    - Must be known to have a movable obstacle (ground truth) - (mov-obs ?p)
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)  
+1. The uav ?r:  
+    - Increased cost by 1 - (increase (cost) 1)
+2. The position ?p:  
+    - Marked as having a movable obstacle - (is-mov ?p)  
+    - No longer assumed to be clear - (not (is-clear ?p))  
+    - No longer assumed to have a fixed obstacle - (not (is-fix ?p))  
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 6. ugv pushes the movable obstacles to another position
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?  
+1. The ugv ?r  
+2. The current position of the ugv ?p  
+3. The position that contains the movable obstacle ?pp  
+4. The position to which the obstacle will be pushed ?ppp
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)  
+1. The ugv ?r:  
+    - Must be at position ?p - (at-ugv ?r ?p)  
+2. The current position of the ugv ?p:  
+    - Must be marked as clear - (is-clear ?p)  
+3. The position that contains the movable obstacle ?pp:  
+    - Must be adjacent to ?p - (connect ?p ?pp)  
+    - Must be adjacent to ?ppp - (connect ?pp ?ppp)  
+    - Must have a movable obstacle - (is-mov ?pp)  
+4. The position to which the obstacle will be pushed ?ppp:  
+    - Must be marked as clear - (is-clear ?ppp)  
+    - Must not be the same as ?p - (not (= ?p ?ppp))
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)  
+1. The ugv ?r:  
+    - Now at ?pp - (at-ugv ?r ?pp)  
+    - No longer at ?p - (not (at-ugv ?r ?p))  
+    - Increased cost by 2 - (increase (cost) 2)  
+2. The current position of the ugv ?p:  
+    - None
+3. The position that contains the movable obstacle ?pp:  
+    - No longer has a movable obstacle - (not (mov-obs ?pp))  
+    - Marked as clear - (is-clear ?pp)  
+4. The position to which the obstacle will be pushed ?ppp:  
+    - Gains the movable obstacle - (mov-obs ?ppp)  
+    - Marked as having a movable obstacle - (is-mov ?ppp)  
+    - No longer clear - (not (is-clear ?ppp))  
+    - No longer assumed to be clear - (not (clear ?ppp))  
+    - No longer have fixed obstacle - (not (fix-obs ?ppp))  
+    - No longer assumed to have fixed obstacle - (not (is-fix ?ppp))
+
+- Finally, write the PDDL action in the following format:

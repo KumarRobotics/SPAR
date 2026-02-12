@@ -1,0 +1,320 @@
+Example 1. Move uav from one location to another
+Action: This action enables the uav to move from its current location to a neighboring location if the current location is clear and they are connected. For example, if the uav is at location_1 and location_1 is clear and connected to location_2, the uav can move to location_2.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+No predicate has been defined yet
+
+You can create and define new functions, but you may also reuse the following functions:
+No function has been defined yet
+
+Parameters:
+1. ?r - uav: The uav  
+2. ?l1 - location: The current location  
+3. ?l2 - location: The next location  
+
+Preconditions:
+```
+(and 
+    (at ?r ?l1) 
+    (next ?l1 ?l2) 
+    (clear ?l1)
+)
+```
+
+Effects:
+```
+(and 
+    (not (at ?r ?l1)) 
+    (at ?r ?l2)
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+1. (at ?r - uav ?l1 - location): true if uav ?r is at location ?l1 
+2. (next ?l1 - location ?l2 - location): true if location ?l1 is adjacent to location ?l2  
+3. (clear ?l1 - location): true if location ?l1 is detected as clear
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+
+
+Example 2. Detect if current location is a gap
+Action: This action enables the uav to mark the current location as narrow and not clear, if the uav is at a gap location. For example, if the uav is at location_1, and location_1 is a gap, then the uav can mark this location as narrow and not clear.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+1. (at ?r - uav ?l1 - location): true if uav ?r is at location ?l1 
+2. (next ?l1 - location ?l2 - location): true if location ?l1 is adjacent to location ?l2  
+3. (clear ?l1 - location): true if location ?l1 is detected as clear
+
+You can create and define new functions, but you may also reuse the following functions:
+No function has been defined yet
+
+Parameters:
+1. ?r - uav: The uav  
+2. ?l - location: The current location  
+
+Preconditions:
+```
+(and 
+    (at ?r ?l) 
+    (narrow-gap ?l)
+)
+```
+
+Effects:
+```
+    (is-narrow ?l)
+    (not (clear ?l))
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+1. (narrwo-gap ?l - location): true if location ?l is gap (ground truth)  
+2. (is-narrow ?l - location): true if location ?l is detected as narrow 
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+
+
+Example 3. Detect if current location is not gap
+Action: This action enables the uav to mark the current location as clear and not narrow, if the uav is not at a gap location. For example, if the uav is at location_1, and location_1 is not a gap, then the uav can mark this location as clear and not narrow.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+1. (at ?r - uav ?l1 - location): true if uav ?r is at location ?l1 
+2. (next ?l1 - location ?l2 - location): true if location ?l1 is adjacent to location ?l2  
+3. (clear ?l1 - location): true if location ?l1 is detected as clear
+4. (narrwo-gap ?l - location): true if location ?l is gap (ground truth)  
+5. (is-narrow ?l - location): true if location ?l is detected as narrow 
+
+You can create and define new functions, but you may also reuse the following functions:
+No function has been defined yet
+
+Parameters:
+1. ?r - uav: The uav  
+2. ?l - location: The current location  
+
+Preconditions:
+```
+(and 
+    (at ?r ?l) 
+    (not (narrow-gap ?l))
+)
+```
+
+Effects:
+```
+    (clear ?l)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+No newly defined predicate
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+
+
+Example 4. uav passes through a gap
+Action: This action enables the uav to move between two locations if these two locations are connected, and the current location is marked as narrow and not clear, the uav can pass it in a shrunk state. For example, if the uav is at location_1 and is in a shrunk state, and location_1 is marked as narrow and not clear, the uav can pass through the gap to another connected location.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+1. (at ?r - uav ?l1 - location): true if uav ?r is at location ?l1 
+2. (next ?l1 - location ?l2 - location): true if location ?l1 is adjacent to location ?l2  
+3. (clear ?l1 - location): true if location ?l1 is detected as clear
+4. (narrwo-gap ?l - location): true if location ?l is gap (ground truth)  
+5. (is-narrow ?l - location): true if location ?l is detected as narrow 
+
+You can create and define new functions, but you may also reuse the following functions:
+No function has been defined yet
+
+Parameters:
+1. ?r - uav: The uav  
+2. ?l1 - location: The current location  
+3. ?l2 - location: The next location  
+
+Preconditions:
+```
+(and 
+    (at ?r ?l1)
+    (is-narrow ?l1) 
+    (shrink ?r)
+)
+```
+
+Effects:
+```
+(and 
+    (at ?r ?l2) 
+    (not (at ?r ?l1))
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+1. (shrink ?r - uav): true if uav ?r is currently in a shrunk state
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+
+
+Example 5. Shrink the uav
+Action: This action enables the uav to enter shrunk mode if it is currently in normal mode. For example, a uav in normal size can shrink to switch into shrunk mode.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+1. (at ?r - uav ?l1 - location): true if uav ?r is at location ?l1 
+2. (next ?l1 - location ?l2 - location): true if location ?l1 is adjacent to location ?l2  
+3. (clear ?l1 - location): true if location ?l1 is detected as clear
+4. (narrwo-gap ?l - location): true if location ?l is gap (ground truth)  
+5. (is-narrow ?l - location): true if location ?l is detected as narrow 
+6. (shrink ?r - uav): true if uav ?r is currently in a shrunk state
+
+You can create and define new functions, but you may also reuse the following functions:
+No function has been defined yet
+
+Parameters:
+1. ?r - uav: The uav  
+
+Preconditions:
+```
+(and 
+    (not (shrink ?r))
+)
+```
+
+Effects:
+```
+(and 
+    (shrink ?r)
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+No newly defined predicate
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+
+
+Example 6. Release the uav to normal size
+Action: This action enables the uav to enter normal size mode if it is currently in shrunk mode. For example, a shrunk uav can expand to switch into normal size mode.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+1. (at ?r - uav ?l1 - location): true if uav ?r is at location ?l1 
+2. (next ?l1 - location ?l2 - location): true if location ?l1 is adjacent to location ?l2  
+3. (clear ?l1 - location): true if location ?l1 is detected as clear
+4. (narrwo-gap ?l - location): true if location ?l is gap (ground truth)  
+5. (is-narrow ?l - location): true if location ?l is detected as narrow 
+6. (shrink ?r - uav): true if uav ?r is currently in a shrunk state
+
+You can create and define new functions, but you may also reuse the following functions:
+No function has been defined yet
+
+Parameters:
+1. ?r - uav: The uav  
+
+Preconditions:
+```
+(and 
+    (shrink ?r)
+)
+```
+
+Effects:
+```
+(and 
+    (not (shrink ?r))
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+No newly defined predicate
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No function has been defined yet
+
+
+Example 7. Grasp a package
+Action: This action enables the uav to grasp a package at its current location, the uav must be in shrunk mode for holding. For example, if the uav is at location_1 and there is a package at location_1, the uav can grasp the package and shrink to hold it.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+1. (at ?r - uav ?l1 - location): true if uav ?r is at location ?l1 
+2. (next ?l1 - location ?l2 - location): true if location ?l1 is adjacent to location ?l2  
+3. (clear ?l1 - location): true if location ?l1 is detected as clear
+4. (narrwo-gap ?l - location): true if location ?l is gap (ground truth)  
+5. (is-narrow ?l - location): true if location ?l is detected as narrow 
+6. (shrink ?r - uav): true if uav ?r is currently in a shrunk state
+
+You can create and define new functions, but you may also reuse the following functions:
+No function has been defined yet
+
+Parameters:
+1. ?r - uav: The uav  
+2. ?l - location: The location  
+3. ?p - package: The package  
+
+Preconditions:
+```
+(and 
+    (at ?r ?l) 
+    (at ?p ?l) 
+    (not (hold ?r)) 
+    (not (shrink ?r))
+)
+```
+
+Effects:
+```
+(and 
+    (hold ?r) 
+    (shrink ?r)
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+1. (hold ?r - uav): true if uav ?r is holding a package
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+
+
+Example 8. Unload a package
+Action: This action enables the uav to release a held package at the current location and return to normal size mode. For example, if the uav is at location_1 and it has a package held, it can unload the package at location_1 and return to normal size.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+1. (at ?r - uav ?l1 - location): true if uav ?r is at location ?l1 
+2. (next ?l1 - location ?l2 - location): true if location ?l1 is adjacent to location ?l2  
+3. (clear ?l1 - location): true if location ?l1 is detected as clear
+4. (narrwo-gap ?l - location): true if location ?l is gap (ground truth)  
+5. (is-narrow ?l - location): true if location ?l is detected as narrow 
+6. (shrink ?r - uav): true if uav ?r is currently in a shrunk state
+8. (hold ?r - uav): true if uav ?r is holding a package
+
+You can create and define new functions, but you may also reuse the following functions:
+No function has been defined yet
+
+Parameters:
+1. ?r - uav: The uav  
+2. ?l - location: The location  
+3. ?p - package: The package  
+
+Preconditions:
+```
+(and 
+    (at ?r ?l) 
+    (hold ?r) 
+    (shrink ?r)
+)
+```
+
+Effects:
+```
+(and 
+    (not (hold ?r)) 
+    (at ?p ?l) 
+    (not(shrink ?r))
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+No newly defined predicate
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+

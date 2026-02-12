@@ -1,0 +1,6 @@
+;;!domain: UAV-Perching
+
+;;!problem: perch-simple-2
+
+0.0: (detect-perch-spot u1 l1)
+1.0: (perch u1 l1)

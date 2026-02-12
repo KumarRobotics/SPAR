@@ -1,0 +1,1 @@
+There is one central hospital and three other hospitals: Hospital1, Hospital2, and Hospital3. The UAV must deliver blood sample Sample1 to Hospital1, Sample2 to Hospital3, and Sample3 to Hospital2. All samples are initially located at the central hospital.

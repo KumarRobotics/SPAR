@@ -1,0 +1,6 @@
+;;!domain: NavDomain
+
+;;!problem: NavProblem3
+
+0.0: (move uav1 p0 p1)
+1.0: (reach-goal uav1 p1)

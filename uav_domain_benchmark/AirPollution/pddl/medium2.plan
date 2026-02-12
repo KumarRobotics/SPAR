@@ -1,0 +1,15 @@
+;;!domain: AirQualityMonitoring
+
+;;!problem: medium-branching-with-partial-data
+
+0.0: (move u1 r1 r2)
+1.0: (move u1 r2 r4)
+2.0: (monitoring u1 r4)
+3.0: (monitoring u1 r4)
+4.0: (monitoring u1 r4)
+5.0: (monitoring u1 r4)
+6.0: (move u1 r4 r1)
+7.0: (move u1 r1 r3)
+8.0: (move u1 r3 r5)
+9.0: (monitoring u1 r5)
+10.0: (monitoring u1 r5)

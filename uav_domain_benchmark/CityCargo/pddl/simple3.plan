@@ -1,0 +1,5 @@
+;;!domain: CityCargo
+
+;;!problem: test-truck-drive
+
+0.0: (truck-drive t1 l1 l2 c1)

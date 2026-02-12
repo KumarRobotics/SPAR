@@ -1,0 +1,6 @@
+;;!domain: uavWatering
+
+;;!problem: watering-simple-1
+
+0.0: (load-pot u1 p1 l1)
+1.0: (watering-pour-to-fill u1 p1 l1)

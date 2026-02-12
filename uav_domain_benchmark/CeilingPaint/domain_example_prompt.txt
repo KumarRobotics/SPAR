@@ -1,0 +1,241 @@
+Example 1. Pick up a sprayer  
+Action: This action enables the uav to pick up a sprayer if the uav is on the ground and currently carrying nothing. This action incurs a cost of 5. For example, the uav can pick up a sprayer from the ground if the uav and sprayer are both on the ground, and incur 5 units cost.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+No predicate has been defined yet
+
+You can create and define new functions, but you may also reuse the following functions:
+No function has been defined yet
+
+Parameters:
+1. ?r - uav: The uav
+2. ?b - sprayer: The sprayer
+
+Preconditions:
+```
+(and 
+    (landed ?r)
+    (empty ?r)
+)
+```
+
+Effects:
+```
+(and 
+    (holding ?r ?b) 
+    (not (empty ?r))
+    (increase (cost) 5)
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+1. (landed ?r - uav): true if uav ?r is landed on the ground
+2. (empty ?r - uav): true if uav ?r is empty, holding nothing
+3. (holding ?r - uav ?b - sprayer): true if the uav ?r is holding sprayer ?b
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+1. (cost): The total action cost
+
+
+Example 2. Put down a sprayer
+Action: This action enables the uav to put down a sprayer that it is holding if the uav is on the ground. This action incurs a cost of 4. For example, the uav puts down a sprayer on the ground if it is on the gound, and incur 4 units cost.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+1. (landed ?r - uav): true if uav ?r is landed on the ground
+2. (empty ?r - uav): true if uav ?r is empty, holding nothing
+3. (holding ?r - uav ?b - sprayer): true if the uav ?r is holding sprayer ?b
+
+You can create and define new functions, but you may also reuse the following functions:
+1. (cost): The total action cost
+
+Parameters:
+1. ?r - uav: The uav
+2. ?b - sprayer: The sprayer
+
+Preconditions:
+```
+(and 
+    (holding ?r ?b)
+    (landed ?r)
+)
+```
+
+Effects:
+```
+(and 
+    (not (holding ?r ?b))
+    (empty ?r)
+    (increase (cost) 4)
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+No newly defined predicate
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+
+
+Example 3. uav takes off from the ground
+Action: This action enables the uav to take off from the ground and start flying. This action incurs a cost of 6. For example, the uav can take off from the ground and be in the air, and incur 6 units cost.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+1. (landed ?r - uav): true if uav ?r is landed on the ground
+2. (empty ?r - uav): true if uav ?r is empty, holding nothing
+3. (holding ?r - uav ?b - sprayer): true if the uav ?r is holding sprayer ?b
+
+You can create and define new functions, but you may also reuse the following functions:
+1. (cost): The total action cost
+
+Parameters:
+1. ?r - uav: The uav
+
+Preconditions:
+```
+(and  
+    (landed ?r)
+)
+```
+
+Effects:
+```
+(and 
+    (not (landed ?r))
+    (flying ?r)
+    (increase (cost) 6)
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+1. (flying ?r - uav): true if uav ?r is current flying in the air.
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+
+
+Example 4. uav lands on the ground
+Action: This action enables the uav to land on the ground after flying. This action incurs a cost of 7. For example, the uav can land on the ground after flying and incur 7 units cost.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+1. (landed ?r - uav): true if uav ?r is landed on the ground
+2. (empty ?r - uav): true if uav ?r is empty, holding nothing
+3. (holding ?r - uav ?b - sprayer): true if the uav ?r is holding sprayer ?b
+4. (flying ?r - uav): true if uav ?r is current flying in the air.
+
+You can create and define new functions, but you may also reuse the following functions:
+1. (cost): The total action cost
+
+Parameters:
+1. ?r - uav: The uav
+
+Preconditions:
+```
+(and 
+    (flying ?r)
+)
+```
+
+Effects:
+```
+(and 
+    (not (flying ?r))
+    (landed ?r)
+    (increase (cost) 7)
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+No newly defined predicate
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+
+
+Example 5. uav flies to another position on the ceiling
+Action: This action enables the uav to fly to another position from the current position on the ceiling, the uav must be in the air all the time. This action incurs a cost of 1. For example, the uav can fly from position_1 to position_2 on the ceiling, and incur 1 unit cost.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+1. (landed ?r - uav): true if uav ?r is landed on the ground
+2. (empty ?r - uav): true if uav ?r is empty, holding nothing
+3. (holding ?r - uav ?b - sprayer): true if the uav ?r is holding sprayer ?b
+4. (flying ?r - uav): true if uav ?r is current flying in the air.
+
+You can create and define new functions, but you may also reuse the following functions:
+1. (cost): The total action cost
+
+Parameters:
+1. ?r - uav: The uav
+2. ?from - position: The current position
+3. ?to - position: The goal position
+
+Preconditions:
+```
+(and 
+    (flying ?r)
+    (uav-at ?r ?from)
+)
+```
+
+Effects:
+```
+(and 
+    (not (uav-at ?r ?from))
+    (uav-at ?r ?to)
+    (increase (cost) 1)
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+1. (uav-at ?r - position ?from - position): True if uav ?r is at the position ?from
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+
+
+Example 6. uav paints a position on the ceiling
+Action: This action enables the uav to paint a position with a specific color on the ceiling, the uav must be in the air to paint. This action incurs a cost of 1. For example, the uav can fly and paint position_1 with red color on the ceiling, and incur 1 unit cost.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+1. (landed ?r - uav): true if uav ?r is landed on the ground
+2. (empty ?r - uav): true if uav ?r is empty, holding nothing
+3. (holding ?r - uav ?b - sprayer): true if the uav ?r is holding sprayer ?b
+4. (flying ?r - uav): true if uav ?r is current flying in the air.
+5. (uav-at ?r - position ?from - position): True if uav ?r is at the position ?from
+
+You can create and define new functions, but you may also reuse the following functions:
+1. (cost): The total action cost
+
+Parameters:
+1. ?r - uav: The uav
+2. ?b - sprayer: The sprayer
+3. ?c - color: The painted color
+4. ?t - position: The current position
+
+Preconditions:
+```
+(and 
+    (flying ?r)
+    (holding ?r ?b)
+    (uav-at ?r ?t)
+    (sprayer-color ?b ?c)
+    (clear ?t)
+)
+```
+
+Effects:
+```
+(and 
+    (painted ?t ?c)
+    (not (clear ?t))
+    (increase (cost) 1)
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+1. (sprayer-color ?b - sprayer ?c - color): true if the sprayer ?b is color ?c
+2. (clear ?t - position): true if the position ?t has not been painted yet
+3. (painted ?t - position ?c - color): true if position ?t is painted with color ?c
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+

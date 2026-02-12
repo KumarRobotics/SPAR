@@ -1,0 +1,11 @@
+(define (problem nav-prob-2)
+  (:domain SimpleNavigationDomain)
+  (:objects u1 - uav l1 l2 l3 - location)
+  (:init
+    (at-location u1 l1)
+    (at-next l1 l2)
+    (at-next l2 l3)
+    (is-goal l3)
+  )
+  (:goal (reach-goal u1))
+)

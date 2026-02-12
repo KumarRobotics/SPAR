@@ -1,0 +1,8 @@
+;;!domain: SimpleNavigationDomain
+
+;;!problem: nav-prob-3
+
+0.0: (move-next u1 l1 l2)
+1.0: (move-next u1 l2 l3)
+2.0: (move-next u1 l3 l4)
+3.0: (if-reach-goal u1 l4)

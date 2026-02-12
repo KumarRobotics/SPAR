@@ -1,0 +1,15 @@
+{
+    "hierarchy": {
+        "uav": [],
+        "location": [],
+        "fruit": [],
+        "gripper": []
+    },
+    "requirements": [
+        "typing",
+        "strips",
+        "negative-preconditions",
+        "numeric-fluents",
+        "equality"
+    ]
+}

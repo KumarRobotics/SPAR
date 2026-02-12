@@ -1,0 +1,11 @@
+(define (problem TerrainAdapt-simple-3)
+  (:domain TerrainAdapt)
+  (:objects u1 - uav p1 p2 - position)
+  (:init 
+    (at u1 p1)
+    (drive-mode u1)
+    (slippery-road p1)
+    (next p1 p2)
+  )
+  (:goal (and (at u1 p2)))
+)

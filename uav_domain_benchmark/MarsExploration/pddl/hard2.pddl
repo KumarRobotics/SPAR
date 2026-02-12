@@ -1,0 +1,26 @@
+(define (problem mars-prob-9)
+  (:domain MarsExplorationDomain)
+  (:objects u1 u2 - uav r1 r2 - rover 
+            l1 l2 l3 l4 - location)
+  (:init 
+    (at-uav u1 l1)
+    (at-uav u2 l1)
+    (at-rov r1 l1)
+    (at-rov r2 l1)
+    (resource l2)
+    (resource l3)
+    (resource l4)
+    (= (value l2) 6)
+    (= (value l3) 8)
+    (= (value l4) 9)
+    (= (total-resource) 0)
+  )
+  (:goal 
+    (and 
+      (resource-collected l2)
+      (resource-collected l3)
+      (resource-collected l4)
+    )
+  )
+   (:metric maximize (total-resource))
+)

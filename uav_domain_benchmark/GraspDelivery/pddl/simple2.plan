@@ -1,0 +1,5 @@
+;;!domain: GraspDelivery
+
+;;!problem: test-grasp
+
+0.0: (grasp u1 l1 p1)

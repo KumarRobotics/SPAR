@@ -1,0 +1,1 @@
+This domain models a uav navigating through an environment with multiple connected locations. The uav can fly between locations, detect suitable perching spot, perch at that location when appropriate, and take off from that location again. If a location is clear, then it can be a valid perching spot. Every perched location will be recorded.

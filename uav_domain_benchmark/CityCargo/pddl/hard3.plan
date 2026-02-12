@@ -1,0 +1,26 @@
+;;!domain: CityCargo
+
+;;!problem: hard-multidelivery-with-transit
+
+0.0: (truck-load t1 p1 l1)
+1.0: (truck-load t2 p3 l3)
+2.0: (truck-drive t1 l1 la1 c1)
+3.0: (truck-drive t2 l3 la2 c2)
+4.0: (truck-unload t2 p3 la2)
+5.0: (uav-load u2 p3 la2)
+6.0: (uav-fly u2 la2 la1 c2 c1)
+7.0: (uav-unload u2 p3 la1)
+8.0: (truck-load t1 p3 la1)
+9.0: (truck-drive t1 la1 l2 c1)
+10.0: (truck-load t1 p2 l2)
+11.0: (truck-unload t1 p1 l2)
+12.0: (truck-drive t1 l2 la1 c1)
+13.0: (truck-unload t1 p2 la1)
+14.0: (truck-drive t1 la1 l1 c1)
+15.0: (uav-load u2 p2 la1)
+16.0: (uav-fly u2 la1 la2 c1 c2)
+17.0: (uav-unload u2 p2 la2)
+18.0: (truck-load t2 p2 la2)
+19.0: (truck-drive t2 la2 l3 c2)
+20.0: (truck-unload t1 p3 l1)
+21.0: (truck-unload t2 p2 l3)

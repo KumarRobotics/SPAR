@@ -1,0 +1,176 @@
+Example 1. uav loads a watering pot
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?  
+1. The uav ?r  
+2. The pot ?p  
+3. The location ?l  
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)  
+1. The uav ?r:  
+    - Must be at location ?l - (at-uav ?r ?l) 
+    - Must not be holding anything - (empty ?r)
+2. The pot ?p:  
+    - Must also be at the same location ?l - (at-pot ?p ?l) 
+3. The location ?l:
+    - None
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)  
+1. The uav ?r:  
+    - The uav holds the pot - (hold ?r ?p)  
+    - The uav is no longer empty - (not (empty ?r))
+2. The pot ?p:
+    - No longer at location ?l - (not (at-pot ?p ?l)) 
+3. The location ?l:
+    - None
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 2. Refill a watering pot
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?  
+1. The uav ?r  
+2. The pot ?p  
+3. The location ?l  
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)  
+1. The uav ?r:  
+    - Must be at location ?l - (at-uav ?r ?l)  
+    - Must be holding the pot - (hold ?r ?p)  
+2. The pot ?p:  
+    - None
+3. The location ?l:  
+    - Must be the home location - (home ?l)
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)  
+1. The uav ?r:  
+    - None  
+2. The pot ?p:  
+    - Its water level becomes full - (assign (water-level ?p) (capacity ?p))  
+3. The location ?l:  
+    - None
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 3. Pour water to fulfill the location's need on water
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?  
+1. The uav ?r  
+2. The pot ?p  
+3. The location ?l  
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)  
+1. The uav ?r:  
+    - Must be at location ?l - (at-uav ?r ?l)  
+    - Must be holding the pot - (hold ?r ?p)  
+2. The pot ?p:  
+    - Must have water - (> (water-level ?p) 0)  
+3. The location ?l:  
+    - Must need water less than the amount in the pot - (< (need-water ?l) (water-level ?p))
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)  
+1. The uav ?r:  
+    - None  
+2. The pot ?p:  
+    - Water level is decreased by the amount poured - (decrease (water-level ?p) (need-water ?l))
+3. The location ?l:  
+    - Water need is satisfied - (assign (need-water ?l) 0)  
+    - Marked as done - (done ?l)
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 4. Pour all the water into a location that needs water
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?  
+1. The uav ?r  
+2. The pot ?p  
+3. The location ?l  
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)  
+1. The uav ?r:  
+    - Must be at location ?l - (at-uav ?r ?l)  
+    - Must be holding the pot - (hold ?r ?p)  
+2. The pot ?p:  
+    - Must have water - (> (water-level ?p) 0)  
+3. The location ?l:  
+    - Must need more water than what the pot holds - (> (need-water ?l) (water-level ?p))
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)  
+1. The uav ?r:  
+    - None  
+2. The pot ?p:  
+    - Becomes empty - (assign (water-level ?p) 0)  
+3. The location ?l:  
+    - Water need is partially fulfilled - (decrease (need-water ?l) (water-level ?p))
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 5. Move uav from one location to another
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?  
+1. The uav ?r  
+2. The current location ?l1  
+3. The next location ?l2  
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)  
+1. The uav ?r:  
+    - Must be at current location ?l1 - (at-uav ?r ?l1)  
+2. The current location ?l1:  
+    - None  
+3. The next location ?l2:  
+    - None  
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)  
+1. The uav ?r:  
+    - No longer at current location - (not (at-uav ?r ?l1))  
+    - Now at next location - (at-uav ?r ?l2)  
+2. The current location ?l1:  
+    - None  
+3. The next location ?l2:  
+    - None  
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 6. uav unloads a watering pot
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?  
+1. The uav ?r  
+2. The pot ?p  
+3. The location ?l  
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)  
+1. The uav ?r:  
+    - Must be holding the pot - (hold ?r ?p)
+    - Must be at location ?l - (at-uav ?r ?l)
+2. The pot ?p:  
+    - None  
+3. The location ?l:  
+    - None  
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)  
+1. The uav ?r:  
+    - No longer holds the pot - (not (hold ?r ?p))  
+    - Becomes empty - (empty ?r)  
+2. The pot ?p:  
+    - Now at location ?l - (at-pot ?p ?l)  
+3. The location ?l:  
+    - None  
+
+- Finally, write the PDDL action in the following format:
+

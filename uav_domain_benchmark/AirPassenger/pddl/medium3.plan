@@ -1,0 +1,11 @@
+;;!domain: uav_passenger_transport
+
+;;!problem: transport-two-passengers
+
+0.0: (move u1 l1 l2)
+1.0: (board u1 p1 l2)
+2.0: (move u1 l2 l3)
+3.0: (board u1 p2 l3)
+4.0: (move u1 l3 l4)
+5.0: (deboard p2 u1 l4)
+6.0: (deboard p1 u1 l4)

@@ -1,0 +1,5 @@
+;;!domain: WindDist
+
+;;!problem: winddist-simple-1
+
+0.0: (blow u1 p1 p2)

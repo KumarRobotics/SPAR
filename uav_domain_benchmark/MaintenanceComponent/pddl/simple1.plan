@@ -1,0 +1,6 @@
+;;!domain: uav_maintenance
+
+;;!problem: maintenance-prob-2
+
+0.0: (take_image u1 c1)
+1.0: (analyse_bad_image u1 c1)

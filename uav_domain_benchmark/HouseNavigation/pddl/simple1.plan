@@ -1,0 +1,5 @@
+;;!domain: uav-navigation
+
+;;!problem: nav-prob-1
+
+0.0: (Move-to-Next-Location u1 l1 l2)

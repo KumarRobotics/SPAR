@@ -1,0 +1,153 @@
+Example 1. Move uav to another area
+Action: This action enables the uav to move from its current area to a different area if two areas are connected. For example, the uav moves from area_1 to area_2 if area_1 and area_2 are connected.
+
+You can create and define new predicates, but you may also reuse the following predicates: 
+No predicate has been defined yet
+
+You can create and define new functions, but you may also reuse the following functions: 
+No function has been defined yet
+
+Parameters:
+1. ?d - uav: The uav
+2. ?from - area: The area uav is current at
+3. ?to - area: The area uav is going
+
+Preconditions:
+```
+(and
+    (at-uav-location ?d ?from)
+    (next ?from ?to)
+)
+```
+
+Effects:
+```
+(and
+    (not (at-uav-location ?d ?from))
+    (at-uav-location ?d ?to)
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+1. (at-uav-location ?d - uav ?from - area): true if uav ?d is at area ?from
+2. (next ?from - area ?to - area): true if area ?to is after the area ?from
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+
+
+Example 2. Move ugv to another area upon receiving a uav call
+Action: This action enables the ugv to move from one area to another if two areas are connected. For example, the ugv moves from area_1 to area_2 if area_1 and area_2 are connected.
+
+You can create and define new predicates, but you may also reuse the following predicates: 
+1. (at-uav-location ?d - uav ?from - area): true if uav ?d is at area ?from
+2. (next ?from - area ?to - area): true if area ?to is after the area ?from
+
+You can create and define new functions, but you may also reuse the following functions: 
+No function has been defined yet
+
+Parameters:
+1. ?d - ugv: The ugv
+2. ?from - area: The area ugv is current at
+3. ?to - area: The area ugv is going
+
+Preconditions:
+```
+(and
+    (at-ugv-location ?d ?from)
+    (next ?from ?to)
+)
+```
+
+Effects:
+```
+(and
+    (not(at-ugv-location ?d ?from))
+    (at-ugv-location ?d ?to)
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+1. (at-ugv-location ?d - ugv ?from - area): true if ugv ?d is at area ?from
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+
+
+Example 3. Monitor an area for fire
+Action: This action enables the uav to mark an area dangerous if the area has fire and the uav is at that area. For example, if the uav at area_2 and area_2 has fire, uav will mark area_2 as dangerous.
+
+You can create and define new predicates, but you may also reuse the following predicates: 
+1. (at-uav-location ?d - uav ?from - area): true if uav ?d is at area ?from
+2. (next ?from - area ?to - area): true if area ?to is after the area ?from
+3. (at-ugv-location ?d - ugv ?from - area): true if ugv ?d is at area ?from
+
+You can create and define new functions, but you may also reuse the following functions: 
+No function has been defined yet
+
+Parameters:
+1. ?d - uav: The uav
+2. ?a - area: The area uav is current at
+
+Preconditions:
+```
+(and
+    (at-uav-location ?d ?a)
+    (on-fire ?a)
+)
+```
+
+Effects:
+```
+(and
+    (fire-signal ?a)
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+1. (on-fire ?a - area): true if area ?a is on fire
+2. (fire-signal ?to - area): true if uav has send fire signal in area ?to
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+
+
+Example 4. Extinguish fire in an area
+Action: This action enables the ugv to extinguish a fire in a area only if the area is dangerous. For example, the ugv extinguishes the fire in area_1 if area_1 has been marked as dangerous.
+
+You can create and define new predicates, but you may also reuse the following predicates: 
+1. (at-uav-location ?d - uav ?from - area): true if uav ?d is at area ?from
+2. (next ?from - area ?to - area): true if area ?to is after the area ?from
+3. (at-ugv-location ?d - ugv ?from - area): true if ugv ?d is at area ?from
+4. (on-fire ?a - area): true if area ?a is on fire
+5. (fire-signal ?to - area): true if uav has send fire signal in area ?to
+
+You can create and define new functions, but you may also reuse the following functions: 
+No function has been defined yet
+
+Parameters:
+1. ?d - ugv: The ugv
+2. ?a - area: The area ugv is current at
+
+Preconditions:
+```
+(and
+    (fire-signal ?a)
+    (at-ugv-location ?d ?a)
+)
+```
+
+Effects:
+```
+(and
+    (not (on-fire ?a))
+    (not (fire-signal ?a))
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+No newly defined predicate
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+

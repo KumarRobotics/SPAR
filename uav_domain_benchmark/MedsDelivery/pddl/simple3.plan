@@ -1,0 +1,5 @@
+;;!domain: uav-sample-collection
+
+;;!problem: give-sample-only
+
+0.0: (give-blood-sample u1 s1 l1)

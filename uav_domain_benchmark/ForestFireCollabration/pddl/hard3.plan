@@ -1,0 +1,24 @@
+;;!domain: ForestFireCollabration
+
+;;!problem: hard-fullfire-multibot
+
+0.0: (MOVE-ugv g3 a6 a1)
+1.0: (CALL-uav u1 a1)
+2.0: (ExTINGUISH-FIRE g3 a1)
+3.0: (MOVE-uav u1 a1 a2)
+4.0: (MOVE-ugv g3 a1 a6)
+5.0: (MOVE-ugv g3 a6 a5)
+6.0: (CALL-uav u3 a5)
+7.0: (ExTINGUISH-FIRE g3 a5)
+8.0: (MOVE-uav u3 a5 a6)
+9.0: (MOVE-ugv g3 a5 a6)
+10.0: (CALL-uav u1 a2)
+11.0: (ExTINGUISH-FIRE g1 a2)
+12.0: (MOVE-ugv g1 a2 a3)
+13.0: (CALL-uav u2 a3)
+14.0: (ExTINGUISH-FIRE g1 a3)
+15.0: (MOVE-uav u2 a3 a4)
+16.0: (CALL-uav u2 a4)
+17.0: (ExTINGUISH-FIRE g2 a4)
+18.0: (CALL-uav u3 a6)
+19.0: (ExTINGUISH-FIRE g3 a6)

@@ -1,0 +1,7 @@
+;;!domain: ForestFireCollabration
+
+;;!problem: medium-move-call-extinguish
+
+0.0: (MOVE-uav u1 a1 a2)
+1.0: (CALL-uav u1 a2)
+2.0: (ExTINGUISH-FIRE g1 a2)

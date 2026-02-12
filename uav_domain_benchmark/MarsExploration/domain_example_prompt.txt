@@ -1,0 +1,150 @@
+Example 1. Move uav from one location to another
+Action: This action enables a uav to move from its current location to another target location. For example, a uav can move from Site-A to Site-B.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+No predicate has been defined yet
+
+You can create and define new functions, but you may also reuse the following functions:
+No function has been defined yet
+
+Parameters:
+1. ?d - uav: The uav
+2. ?l - location: The current location
+3. ?to - location: The next location
+
+Preconditions:
+```
+(and 
+    (at-uav ?d ?l)
+)
+```
+
+Effects:
+```
+(and 
+    (not(at-uav ?d ?l)) 
+    (at-uav ?d ?to)
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+1. (at-uav ?d - uav ?l - location): true if uav ?d is at location ?l
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+
+
+Example 2. Move Rover from one location to another
+Action: This action enables a rover to drive from its current position to another target location. For example, a rover may travel from Site-B to Site-C.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+1. (at-uav ?d - uav ?l - location): true if uav ?d is at location ?l
+
+You can create and define new functions, but you may also reuse the following functions:
+No function has been defined yet
+
+Parameters:
+1. ?r - rover: The rover
+2. ?l - location: The current location
+3. ?to - location: The next location
+
+Preconditions:
+```
+(and 
+    (at-rov ?r ?l)
+)
+```
+
+Effects:
+```
+(and 
+    (not(at-rov ?r ?l)) 
+    (at-rov ?r ?to)
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+1. (at-rov ?r - rover ?l - location): true if rover ?r is at location ?l
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+
+
+Example 3. uav explores a location
+Action: This action enables a uav to explore a location that contains potential resources. If the location holds a resource, then the uav marks the location as explored. For example, if the uav is at Site-A where there is a resource, the uav will mark Site-A as explored.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+1. (at-uav ?d - uav ?l - location): true if uav ?d is at location ?l
+2. (at-rov ?r - rover ?l - location): true if rover ?r is at location ?l
+
+You can create and define new functions, but you may also reuse the following functions:
+No function has been defined yet
+
+Parameters:
+1. ?d - uav: The uav
+2. ?l - location: The current location
+
+Preconditions:
+```
+(and 
+    (at-uav ?d ?l)
+    (resource ?l)
+    (not (explored ?l))
+)
+```
+
+Effects:
+```
+(and 
+    (explored ?l)
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+1. (resource ?l - location): true if location ?l has resource
+2. (explored ?l - location): true if location ?l has been explored 
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+
+
+Example 4. Rover gets resource from locations
+Action: This action enables a rover to collect resources from a previously explored location. The resource at each location can only be collected once. The amount collected increases the total resource based on the value at that location. For example, if the Site-A has 5 units of resource, a rover can collect it, and the total resource increases by 5 units.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+1. (at-uav ?d - uav ?l - location): true if uav ?d is at location ?l
+2. (at-rov ?r - rover ?l - location): true if rover ?r is at location ?l
+3. (resource ?l - location): true if location ?l has resource
+4. (explored ?l - location): true if location ?l has been explored 
+
+You can create and define new functions, but you may also reuse the following functions:
+No function has been defined yet
+
+Parameters:
+1. ?r - rover: The rover
+2. ?l - location: The location that contains resource
+
+Preconditions:
+```
+(and 
+    (at-rov ?r ?l)  
+    (explored ?l) 
+    (not (resource-collected ?l))
+)
+```
+
+Effects:
+```
+(and 
+    (increase (total-resource) (value ?l)) 
+    (resource-collected ?l)
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+1. (resource-collected ?l - location): true if resource at location ?l has been collected
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+1. (total-resource): The total collected resource value
+2. (value ?l - location): The value of resource at location ?l
+

@@ -1,0 +1,12 @@
+;;!domain: GraspDelivery
+
+;;!problem: hard-two-uav-two-packages-two-gaps
+
+0.0: (grasp u1 l1 p1)
+1.0: (grasp u2 l2 p2)
+2.0: (detect-obstacle u2 l2)
+3.0: (detect-obstacle u1 l1)
+4.0: (shrink-pass u1 l1 l3)
+5.0: (shrink-pass u2 l2 l4)
+6.0: (unload u2 l4 p2)
+7.0: (unload u1 l3 p1)

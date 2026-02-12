@@ -1,0 +1,8 @@
+;;!domain: uav_passenger_transport
+
+;;!problem: transport-one-passenger
+
+0.0: (move u1 locA locB)
+1.0: (board u1 p1 locB)
+2.0: (move u1 locB locC)
+3.0: (deboard p1 u1 locC)

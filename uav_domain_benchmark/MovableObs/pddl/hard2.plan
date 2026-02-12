@@ -1,0 +1,10 @@
+;;!domain: MovableObs
+
+;;!problem: multi-uav-analysis
+
+0.0: (uav-detect-clear u1 p2)
+1.0: (uav-detect-mov u2 p3)
+2.0: (move-uav u2 p3 p4)
+3.0: (move-ugv g1 p1 p2)
+4.0: (uav-detect-clear u2 p4)
+5.0: (push g1 p2 p3 p4)

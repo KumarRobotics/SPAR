@@ -1,0 +1,7 @@
+;;!domain: uav_meal_delivery
+
+;;!problem: meal-3
+
+0.0: (pick-up-meal u1 m1 l1)
+1.0: (fly u1 l1 l2)
+2.0: (deliver-meal u1 m1 l2)

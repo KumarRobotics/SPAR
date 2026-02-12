@@ -1,0 +1,5 @@
+;;!domain: DeliveryOrderDomain-STRIPS
+
+;;!problem: test-picknext-only
+
+0.0: (PickNext p1 p2)

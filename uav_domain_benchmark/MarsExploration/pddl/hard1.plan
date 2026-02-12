@@ -1,0 +1,27 @@
+;;!domain: MarsExplorationDomain
+
+;;!problem: MarsExplorationProblem
+
+0.0: (Move-uav uav base loc4)
+1.0: (Explore uav loc4)
+2.0: (Move-uav uav loc4 loc2)
+3.0: (Explore uav loc2)
+4.0: (Move-uav uav loc2 base)
+5.0: (Move-rov rov base loc1)
+6.0: (Move-uav uav base loc1)
+7.0: (Move-rov rov loc1 loc2)
+8.0: (GetResource rov loc2)
+9.0: (Move-rov rov loc2 base)
+10.0: (Move-uav uav loc1 base)
+11.0: (Move-rov rov base loc1)
+12.0: (Move-uav uav base loc2)
+13.0: (Move-rov rov loc1 loc3)
+14.0: (Move-uav uav loc2 loc3)
+15.0: (Move-rov rov loc3 loc4)
+16.0: (GetResource rov loc4)
+17.0: (Move-rov rov loc4 base)
+18.0: (Move-uav uav loc3 loc1)
+19.0: (Explore uav loc1)
+20.0: (Move-uav uav loc1 base)
+21.0: (Move-rov rov base loc1)
+22.0: (GetResource rov loc1)

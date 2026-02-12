@@ -1,0 +1,256 @@
+Example 1. Load a package into a truck
+Action: This action enables the truck to load a packagea at some location, the truck doesn't have load limit. For example, truck_1 loads package_1 at location_1.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+No predicate has been defined yet
+
+You can create and define new functions, but you may also reuse the following functions:
+No function has been defined yet
+
+Parameters:
+1. ?t - truck: The truck
+2. ?p - package: The package to be loaded
+3. ?l - location: The location where the truck and package are
+
+Preconditions:
+```
+(and 
+    (package-at ?p ?l)
+    (truck-at ?t ?l)
+)
+```
+
+Effects:
+```
+(and 
+    (not (package-at ?p ?l))
+    (package-in-truck ?p ?t)
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+1. (package-at ?p - package ?l - location): true if the package is at a given location
+2. (truck-at ?t - truck ?l - location): true if the truck is at a given location
+3. (package-in-truck ?p - package ?t - truck): true if the package is inside the truck
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+
+
+Example 2. Unload a package from a truck
+Action: This action enables the truck to unload a package at some location. For example, truck_1 unloads package_1 at location_2.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+1. (package-at ?p - package ?l - location): true if the package is at a given location
+2. (truck-at ?t - truck ?l - location): true if the truck is at a given location
+3. (package-in-truck ?p - package ?t - truck): true if the package is inside the truck
+
+You can create and define new functions, but you may also reuse the following functions:
+No function has been defined yet
+
+Parameters:
+1. ?t - truck: The truck
+2. ?p - package: The package to be unloaded
+3. ?l - location: The location where the truck is
+
+Preconditions:
+```
+(and 
+    (package-in-truck ?p ?t)
+    (truck-at ?t ?l)
+)
+```
+
+Effects:
+```
+(and 
+    (not (package-in-truck ?p ?t))
+    (package-at ?p ?l)
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+No newly defined predicate
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+
+
+Example 3. Load a package into an uav
+Action: This action enables the uav to load a package if the location is an airport. the uav doesn't have load limit. For example, uav loads package_1 at airport_1.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+1. (package-at ?p - package ?l - location): true if the package is at a given location
+2. (truck-at ?t - truck ?l - location): true if the truck is at a given location
+3. (package-in-truck ?p - package ?t - truck): true if the package is inside the truck
+
+You can create and define new functions, but you may also reuse the following functions:
+No function has been defined yet
+
+Parameters:
+1. ?u - uav: The uav
+2. ?p - package: The package to be loaded
+3. ?l - location: The airport location
+
+Preconditions:
+```
+(and 
+    (package-at ?p ?l)
+    (uav-at ?u ?l)
+    (location-is-airport ?l)
+)
+```
+
+Effects:
+```
+(and 
+    (not (package-at ?p ?l))
+    (package-in-uav ?p ?u)
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+1. (uav-at ?u - uav ?l - location): true if the uav is at a given location
+2. (location-is-airport ?l - location): true if the location is an airport
+3. (package-in-uav ?p - package ?u - uav): true if the package is in the uav
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+
+
+Example 4. Unload a package from an uav
+Action: This action enables the uav to unload a package if the location is an airport. For example, uav unloads package_1 at airport_2.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+1. (package-at ?p - package ?l - location): true if the package is at a given location
+2. (truck-at ?t - truck ?l - location): true if the truck is at a given location
+3. (package-in-truck ?p - package ?t - truck): true if the package is inside the truck
+4. (uav-at ?u - uav ?l - location): true if the uav is at a given location
+5. (location-is-airport ?l - location): true if the location is an airport
+6. (package-in-uav ?p - package ?u - uav): true if the package is in the uav
+
+You can create and define new functions, but you may also reuse the following functions:
+No function has been defined yet
+
+Parameters:
+1. ?u - uav: The uav
+2. ?p - package: The package to be unloaded
+3. ?l - location: The airport location
+
+Preconditions:
+```
+(and 
+    (package-in-uav ?p ?u)
+    (uav-at ?u ?l)
+    (location-is-airport ?l)
+)
+```
+
+Effects:
+```
+(and 
+    (not (package-in-uav ?p ?u))
+    (package-at ?p ?l)
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+No newly defined predicate
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+
+
+Example 5. Drive a truck from one location to another inside the same city
+Action: This action enables the truck to go from one location to another inside the same city. For example, truck_1 drives from location_1 to location_2 inside city_1.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+1. (package-at ?p - package ?l - location): true if the package is at a given location
+2. (truck-at ?t - truck ?l - location): true if the truck is at a given location
+3. (package-in-truck ?p - package ?t - truck): true if the package is inside the truck
+4. (uav-at ?u - uav ?l - location): true if the uav is at a given location
+5. (location-is-airport ?l - location): true if the location is an airport
+6. (package-in-uav ?p - package ?u - uav): true if the package is in the uav
+
+You can create and define new functions, but you may also reuse the following functions:
+No function has been defined yet
+
+Parameters:
+1. ?t - truck: The truck to be driven
+2. ?from - location: The starting location
+3. ?to - location: The destination location
+4. ?c - city: The city in which both locations exist
+
+Preconditions:
+```
+(and 
+    (truck-at ?t ?from)
+    (location-in-city ?from ?c)
+    (location-in-city ?to ?c)
+)
+```
+
+Effects:
+```
+(and 
+    (not (truck-at ?t ?from))
+    (truck-at ?t ?to)
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+1. (location-in-city ?l - location ?c - city): true if the location is inside the city
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+
+
+Example 6. Fly an uav from one location to another in a city
+Action: This action enables the uav to fly from one airport to another airport across different cities. For example, uav flies from airport_1 in city_1 to airport_2 in city_2.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+1. (package-at ?p - package ?l - location): true if the package is at a given location
+2. (truck-at ?t - truck ?l - location): true if the truck is at a given location
+3. (package-in-truck ?p - package ?t - truck): true if the package is inside the truck
+4. (uav-at ?u - uav ?l - location): true if the uav is at a given location
+5. (location-is-airport ?l - location): true if the location is an airport
+6. (package-in-uav ?p - package ?u - uav): true if the package is in the uav
+7. (location-in-city ?l - location ?c - city): true if the location is inside the city
+
+You can create and define new functions, but you may also reuse the following functions:
+No function has been defined yet
+
+Parameters:
+1. ?u - uav: The uav to fly
+2. ?from - location: The departure airport
+3. ?to - location: The destination airport
+4. ?c1 - city: The city of departure
+5. ?c2 - city: The city of arrival
+
+Preconditions:
+```
+(and 
+    (uav-at ?u ?from)
+    (location-in-city ?from ?c1)
+    (location-in-city ?to ?c2)
+    (location-is-airport ?from)
+    (location-is-airport ?to)
+)
+```
+
+Effects:
+```
+(and 
+    (not (uav-at ?u ?from))
+    (uav-at ?u ?to)
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+No newly defined predicate
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+
+
+

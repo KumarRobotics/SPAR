@@ -1,0 +1,247 @@
+Example 1. uav moves at constant speed from one location to another
+Action: This action enables the uav to move from one position to the next connected position without changing its current speed. The current position must be marked as passable. For example, if uav is at position_1, the position_1 is connected to position_2, if the position_1 is marked as passable, then the uav can move from position_1 to position_2 with no speed change.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+No predicate has been defined yet
+
+You can create and define new functions, but you may also reuse the following functions:
+No function has been defined yet
+
+Parameters:
+1. ?r - uav: The uav
+2. ?p1 - position: The current position
+3. ?p2 - position: The next position
+
+Preconditions:
+```
+(and 
+    (at ?r ?p1) 
+    (is-pass ?p1) 
+    (next ?p1 ?p2)
+)
+```
+
+Effects:
+```
+(and 
+    (at ?r ?p2) 
+    (not (at ?r ?p1))
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+1. (at ?r - uav ?p1 - position): true if uav ?r is at position ?p1
+2. (next ?p1 - position ?p2 - position): true if position ?p2 goes after position ?p1
+3. (is-pass ?p1 - position): true if position ?p1 is passable
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+
+
+Example 2. uav accelerates from one location to another
+Action: This action enables the uav to move from one position to the next connected position while accelerating its current speed by the acceleration value. The current position must be marked as passable. For example, if uav is at position_1, the position_1 is connected to position_2, if the position_1 is marked as passable, then the uav can move from position_1 to position_2. The current speed is increased by the acceleration value of 5 units.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+1. (at ?r - uav ?p1 - position): true if uav ?r is at position ?p1
+2. (next ?p1 - position ?p2 - position): true if position ?p2 goes after position ?p1
+3. (is-pass ?p1 - position): true if position ?p1 is passable
+
+You can create and define new functions, but you may also reuse the following functions:
+No function has been defined yet
+
+Parameters:
+1. ?r - uav: The uav
+2. ?p1 - position: The current position
+3. ?p2 - position: The next position
+
+Preconditions:
+```
+(and 
+    (at ?r ?p1) 
+    (is-pass ?p1) 
+    (next ?p1 ?p2)
+)
+```
+
+Effects:
+```
+(and 
+    (at ?r ?p2) 
+    (not (at ?r ?p1)) 
+    (increase (speed ?r) (acc ?r))
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+No newly defined predicate
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+1. (speed ?r - uav): the current speed of uav
+2. (acc ?r - uav): the acceleration rate of uav
+
+
+Example 3. uav decelerates from one location to another
+Action: This action enables the uav to move from one position to the next connected position while decelerating its current speed. The speed value after decelerating must also be positive. The current position must be marked as passable. For example, if uav is at position_1, the position_1 is connected to position_2, if the position_1 is marked as passable, then the uav can move from position_1 to position_2. The current speed is decreased by the deceleration value.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+1. (at ?r - uav ?p1 - position): true if uav ?r is at position ?p1
+2. (next ?p1 - position ?p2 - position): true if position ?p2 goes after position ?p1
+3. (is-pass ?p1 - position): true if position ?p1 is passable
+
+You can create and define new functions, but you may also reuse the following functions:
+1. (speed ?r - uav): the current speed of uav
+2. (acc ?r - uav): the acceleration rate of uav
+
+Parameters:
+1. ?r - uav: The uav
+2. ?p1 - position: The current position
+3. ?p2 - position: The next position
+
+Preconditions:
+```
+(and 
+    (at ?r ?p1) 
+    (is-pass ?p1) 
+    (next ?p1 ?p2) 
+    (> (- (speed ?r) (acc ?r)) 0)
+)
+```
+
+Effects:
+```
+(and 
+    (at ?r ?p2) 
+    (not (at ?r ?p1)) 
+    (decrease (speed ?r) (acc ?r))
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+No newly defined predicate
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+
+
+Example 4. uav detect if the cluttered position can be passed
+Action: This action enables the uav to move from one position to the next connected position while decelerating its current speed by the deceleration value. The speed value after decelerating must also be positive. The current position must be marked as passable. For example, if uav is at position_1, the position_1 is connected to position_2, if the position_1 is marked as passable, then the uav can move from position_1 to position_2. The current speed is decreased by the deceleration value of 3 units.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+1. (at ?r - uav ?p1 - position): true if uav ?r is at position ?p1
+2. (next ?p1 - position ?p2 - position): true if position ?p2 goes after position ?p1
+3. (is-pass ?p1 - position): true if position ?p1 is passable
+
+You can create and define new functions, but you may also reuse the following functions:
+1. (speed ?r - uav): the current speed of uav
+2. (acc ?r - uav): the acceleration rate of uav
+
+Parameters:
+1. ?r - uav: The uav
+2. ?p - position: The current position
+
+Preconditions:
+```
+(and 
+    (at ?r ?p) 
+    (is-clutter ?p) 
+    (<= (speed ?r) (clutter-speed))
+)
+```
+
+Effects:
+```
+(and 
+    (is-pass ?p)
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+1. (is-clutter ?p - position): true if the position ?p is cluttered
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+1. (clutter-speed): The maximum threshold speed of cluttered terrain
+
+
+Example 5. uav detect if the narrow gap can be passed
+Action: This action enables the uav to mark a narrow-gap position as passable if the current speed is less than or equal to the maximum allowed speed for narrow-gap terrain. For example, if the current speed is 5 and the maximum allowed speed for narrow-gap terrain is 10, then the uav can mark the narrow-gap position as passable.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+1. (at ?r - uav ?p1 - position): true if uav ?r is at position ?p1
+2. (next ?p1 - position ?p2 - position): true if position ?p2 goes after position ?p1
+3. (is-pass ?p1 - position): true if position ?p1 is passable
+4. (is-clutter ?p - position): true if the position ?p is cluttered
+
+You can create and define new functions, but you may also reuse the following functions:
+1. (speed ?r - uav): the current speed of uav
+2. (acc ?r - uav): the acceleration rate of uav
+3. (clutter-speed): The maximum threshold speed of cluttered terrain
+
+Parameters:
+1. ?r - uav: The uav
+2. ?p - position: The current position
+
+Preconditions:
+```
+(and 
+    (at ?r ?p) 
+    (is-narrow-gap ?p) 
+    (<= (speed ?r) (narrow-gap-speed))
+)
+```
+
+Effects:
+```
+(and 
+    (is-pass ?p)
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+1. (is-narrow-gap ?p - position): true if the position ?p is narrow gap
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+1. (narrow-gap-speed): The maximum threshold speed of narrow gap terrain
+
+
+Example 6. uav detect if the open area can be passed
+Action: This action enables the uav to mark a open-area position as passable if the current speed is equal to or above the minimum allowed speed for open-area terrain. For example, if the current speed is 10 and the minimum allowed speed for open-area terrain is 5, then the uav can mark the open-area position as passable.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+1. (at ?r - uav ?p1 - position): true if uav ?r is at position ?p1
+2. (next ?p1 - position ?p2 - position): true if position ?p2 goes after position ?p1
+3. (is-pass ?p1 - position): true if position ?p1 is passable
+4. (is-clutter ?p - position): true if the position ?p is cluttered
+5. (is-narrow-gap ?p - position): true if the position ?p is narrow gap
+
+You can create and define new functions, but you may also reuse the following functions:
+1. (speed ?r - uav): the current speed of uav
+2. (acc ?r - uav): the acceleration rate of uav
+3. (clutter-speed): The maximum threshold speed of cluttered terrain
+4. (narrow-gap-speed): The maximum threshold speed of narrow gap terrain
+
+Parameters:
+1. ?r - uav: The uav
+2. ?p - position: The current position
+
+Preconditions:
+```
+(and 
+    (at ?r ?p) 
+    (is-open-area ?p) 
+    (>= (speed ?r ) (open-area-speed))
+)
+```
+
+Effects:
+```
+(and 
+    (is-pass ?p)
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+1. (is-open-area ?p - position): true if the position ?p is open area
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+1. (open-area-speed): The minimum threshold speed of open area terrain
+

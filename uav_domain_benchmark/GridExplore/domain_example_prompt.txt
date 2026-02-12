@@ -1,0 +1,79 @@
+Example 1. Move uav to another position
+Action: This action enables the uav to move from its current position to a new position if two positions are connected and the new position is marked as clear. Each move incurs a unit cost. For example, if the uav is at position_1, position_1 is connected to position_2, if position_2 is marked as clear, then the uav can move to position_2.
+
+You can create and define new predicates, but you may also reuse the following predicates: 
+No predicate has been defined yet
+
+You can create and define new functions, but you may also reuse the following functions: 
+No function has been defined yet
+
+Parameters:
+1. ?r - uav: The uav
+2. ?p1 - position: The current position
+3. ?p2 - position: The destination position
+
+Preconditions:
+```
+(and
+    (at ?r ?p1) 
+    (connect ?p1 ?p2) 
+    (clear ?p2)
+)
+```
+
+Effects:
+```
+(and
+    (at ?r ?p2) 
+    (not(at ?r ?p1)) 
+    (increase (cost) 1)
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+1. (at ?r - uav ?p1 - position): true if uav ?r is in position ?p1
+2. (connect ?p1 - position ?p2 - position): true if position ?p1 and position ?p2 are connected and ?p2 is the next position of ?p1
+3. (clear ?p2 - position): true if the position ?p2 is clear
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+1. (cost): The total travel cost
+
+
+Example 2. Detect obstacles in adjacent positions
+Action: This action enables the uav to mark the position as clear if the position is connected to its current position, and if the connected position does not have obstacle. For example, the uav is at position_1 and position_2 is connected to position_1, if position_2 does not have obstacle, then the uav can mark position_2 as clear.
+
+You can create and define new predicates, but you may also reuse the following predicates: 
+1. (at ?r - uav ?p1 - position): true if uav ?r is in position ?p1
+2. (connect ?p1 - position ?p2 - position): true if position ?p1 and position ?p2 are connected and ?p2 is the next position of ?p1
+3. (clear ?p2 - position): true if the position ?p2 is clear
+
+You can create and define new functions, but you may also reuse the following functions: 
+1. (cost): The total travel cost
+
+Parameters:
+1. ?r - uav: The uav
+2. ?p1 - position: The current position
+3. ?p2 - position: The destination position
+
+Preconditions:
+```
+(and
+    (at ?r ?p1) 
+    (connect ?p1 ?p2) 
+    (not (obs ?p2))
+)
+```
+
+Effects:
+```
+(and
+    (clear ?p2)
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+1. (obs ?p2 - position): true if position ?p2 has obstacle
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+

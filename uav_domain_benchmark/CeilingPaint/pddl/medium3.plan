@@ -1,0 +1,16 @@
+;;!domain: CeilingPaintDomain
+
+;;!problem: medium-multilocation-multicolor
+
+0.0: (Take-off u1)
+1.0: (Fly-to u1 p0 p1)
+2.0: (Landing u1)
+3.0: (Pick-up-sprayer u1 s1)
+4.0: (Take-off u1)
+5.0: (Paint u1 s1 red p1)
+6.0: (Fly-to u1 p1 p2)
+7.0: (Landing u1)
+8.0: (Put-down-sprayer u1 s1)
+9.0: (Pick-up-sprayer u1 s2)
+10.0: (Take-off u1)
+11.0: (Paint u1 s2 blue p2)

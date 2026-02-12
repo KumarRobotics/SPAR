@@ -1,0 +1,38 @@
+{
+  "Pick up a sprayer": {
+    "desc": "This action enables the uav to pick up a sprayer if the uav is on the ground and currently carrying nothing. This action incurs a cost of 5. For example, the uav can pick up a sprayer from the ground if the uav and sprayer are both on the ground, and incur 5 units cost.",
+    "extra_info": [],
+    "name_in_pddl": "Pick-up-sprayer",
+    "abstract_desc": "This action enables the uav to load [object1] on [position1] if the uav is on [position1] and is [state1]. This action will increase [value1] by [value2]."
+  },
+  "Put down a sprayer": {
+    "desc": "This action enables the uav to put down a sprayer that it is holding if the uav is on the ground. This action incurs a cost of 4. For example, the uav puts down a sprayer on the ground if it is on the gound, and incur 4 units cost.",
+    "extra_info": [],
+    "name_in_pddl": "Put-down-sprayer",
+    "abstract_desc": "This action enables the uav to unload [object1] if the uav is on [position1]. This action will increase [value1] by [value2]."
+  },
+  "uav takes off from the ground": {
+    "desc": "This action enables the uav to take off from the ground and start flying. This action incurs a cost of 6. For example, the uav can take off from the ground and be in the air, and incur 6 units cost.",
+    "extra_info": [],
+    "name_in_pddl": "Take-off",
+    "abstract_desc": "This action enables the uav to take off from [position1] and start [state1]. This action will increase [value1] by [value2]."
+  },
+  "uav lands on the ground": {
+    "desc": "This action enables the uav to land on the ground after flying. This action incurs a cost of 7. For example, the uav can land on the ground after flying and incur 7 units cost.",
+    "extra_info": [],
+    "name_in_pddl": "Landing",
+    "abstract_desc": "This action enables the uav to land at [position1] after [state1]. This action will increase [value1] by [value2]."
+  },
+  "uav flies to another position on the ceiling": {
+    "desc": "This action enables the uav to fly to another position from the current position on the ceiling, the uav must be in the air all the time. This action incurs a cost of 1. For example, the uav can fly from position_1 to position_2 on the ceiling, and incur 1 unit cost.",
+    "extra_info": [],
+    "name_in_pddl": "Fly-to",
+    "abstract_desc": "This action enables the uav to move from [position1] to [position2], the uav must be in [state1]. This action will increase [value1] by [value2]."
+  },
+  "uav paints a position on the ceiling": {
+    "desc": "This action enables the uav to paint a position with specific color on the ceiling, the uav must hold the sprayer with that specific color, and must be in the air to paint. This action incurs a cost of 1. For example, if the UAV is flying and equipped with a red sprayer, it can paint position_1 red on the ceiling, and incur 1 unit cost.",
+    "extra_info": [],
+    "name_in_pddl": "Paint",
+    "abstract_desc": "This action enables the uav to paint at [position1] with [state1], the uav must load [object1] with [state1], the uav also need to be in [state2]. This action will increase [value1] by [value2]."
+  }
+}

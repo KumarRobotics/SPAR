@@ -1,0 +1,160 @@
+Example 1. Pick up a sprayer
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?
+1. The uav ?r
+2. The sprayer ?b
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)
+1. The uav ?r:
+    - Must be landed - (landed ?r)
+    - Must be empty - (empty ?r)
+2. The sprayer ?b:
+    - None
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)
+1. The uav ?r:
+    - Is holding the sprayer - (holding ?r ?b)
+    - Is no longer empty - (not (empty ?r))
+    - Cost increases by 5 - (increase (cost) 5)
+2. The sprayer ?b:
+    - None
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 2. Put down a sprayer
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?
+1. The uav ?r
+2. The sprayer ?b
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)
+1. The uav ?r:
+    - Must be landed - (landed ?r)
+    - Must be holding the sprayer - (holding ?r ?b)
+2. The sprayer ?b
+    - None
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)
+1. The uav ?r:
+    - No longer holding the sprayer - (not (holding ?r ?b))
+    - Becomes empty - (empty ?r)
+    - Cost increases by 4 - (increase (cost) 4)
+2. The sprayer ?b
+    - None
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 3. uav takes off from the ground
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?
+1. The uav ?r
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)
+1. The uav ?r:
+    - Must be landed - (landed ?r)
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)
+1. The uav ?r:
+    - No longer landed - (not (landed ?r))
+    - Starts flying - (flying ?r)
+    - Cost increases by 6 - (increase (cost) 6)
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 4. uav lands on the ground
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?
+1. The uav ?r
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)
+1. The uav ?r:
+    - Must be flying - (flying ?r)
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)
+1. The uav ?r:
+    - No longer flying - (not (flying ?r))
+    - Becomes landed - (landed ?r)
+    - Cost increases by 7 - (increase (cost) 7)
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 5. uav flies to another position on the ceiling
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?
+1. The uav ?r  
+2. The current position ?from  
+3. The goal position ?to
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)
+1. The uav ?r:
+    - Must be flying - (flying ?r)
+    - Must be at the current position - (uav-at ?r ?from)
+2. The current position ?from:
+    - None
+3. The goal position ?to:
+    - None
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)
+1. The uav ?r:
+    - No longer at the current position - (not (uav-at ?r ?from))
+    - Now at the goal position - (uav-at ?r ?to)
+    - Cost increases by 1 - (increase (cost) 1)
+2. The current position ?from:
+    - None
+3. The goal position ?to:
+    - None
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 6. uav paints a position on the ceiling
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?
+1. The uav ?r  
+2. The sprayer ?b  
+3. The color ?c  
+4. The target position ?t
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)
+1. The uav ?r:
+    - Must be flying - (flying ?r)
+    - Must be holding the sprayer - (holding ?r ?b)
+    - Must be at the target position - (uav-at ?r ?t)
+2. The sprayer ?b:
+    - Must match the correct color - (sprayer-color ?b ?c)
+3. The color ?c:
+    - Must match the correct sprayer - (sprayer-color ?b ?c)
+4. The target position ?t:
+    - Must be clear (not painted yet) - (clear ?t)
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)
+1. The uav ?r:
+    - Cost increases by 1 - (increase (cost) 1)
+2. The sprayer ?b:
+    - None
+3. The color ?c:
+    - None
+4. The target position ?t:
+    - Becomes painted with color - (painted ?t ?c)
+    - Is no longer clear - (not (clear ?t))
+
+- Finally, write the PDDL action in the following format:
+
+
+

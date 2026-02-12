@@ -1,0 +1,11 @@
+;;!domain: UAV-Landing
+
+;;!problem: landing-prob-9
+
+0.0: (check-landing-spot u3 c)
+1.0: (check-landing-spot u2 g)
+2.0: (fly u1 a b)
+3.0: (land u3 c)
+4.0: (fly u1 b c)
+5.0: (land u2 g)
+6.0: (land u1 c)

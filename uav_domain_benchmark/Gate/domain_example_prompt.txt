@@ -1,0 +1,106 @@
+Example 1. Increase uav orientation toward target gate angle
+Action: This action enables the uav to adjust its current angle incrementally toward the required gate angle. If the current angle is less than the required angle, the uav will increase the angle at a certain rate. For example, if the gate angle is 10 degrees and the uav's current angle is 5 degress, this action will increase the uav angle by some control rate.
+
+You can create and define new predicates, but you may also reuse the following predicates: 
+No predicate has been defined yet
+
+You can create and define new functions, but you may also reuse the following functions: 
+No function has been defined yet
+
+Parameters:
+1. ?r - uav: The uav
+
+Preconditions:
+```
+(and
+    (> (gate_angle) (cur_angel ?r))
+)
+```
+
+Effects:
+```
+(and
+    (increase (cur_angel ?r) (control_rate ?r))
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+No newly defined predicate
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+1. (gate_angle): The gate's required angle for passing
+2. (cur_angel ?r - uav): The current uav angle
+3. (control_rate ?r - uav): The rate of angle adjustment
+
+
+Example 2. Decrease uav orientation toward target gate angle
+Action: This action enables the uav to adjust its current angle incrementally toward the required gate angle. If the current angle is more than the required angle, the uav will decrease the angle at a certain rate. For example, if the gate angle is 10 degrees and the uav's current angle is 15 degress, this action will decrease the uav angle by some control rate.
+
+You can create and define new predicates, but you may also reuse the following predicates: 
+No predicate has been defined yet
+
+You can create and define new functions, but you may also reuse the following functions: 
+1. (gate_angle): The gate's required angle for passing
+2. (cur_angel ?r - uav): The current uav angle
+3. (control_rate ?r - uav): The rate of angle adjustment
+
+Parameters:
+1. ?r - uav: The uav
+
+Preconditions:
+```
+(and
+    (< (gate_angle) (cur_angel ?r)) 
+)
+```
+
+Effects:
+```
+(and
+    (decrease (cur_angel ?r) (control_rate ?r))
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+No newly defined predicate
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+
+
+Example 3. Pass through the gate
+Action: This action enables the uav to pass through the gate if the uav's angle equals to the gate's required angle. For example, if the gate angle is 10 degrees and the uav's current angle is also 10 degress, this action will enable the uav to pass through the gate.
+
+You can create and define new predicates, but you may also reuse the following predicates: 
+No predicate has been defined yet
+
+You can create and define new functions, but you may also reuse the following functions: 
+1. (gate_angle): The gate's required angle for passing
+2. (cur_angel ?r - uav): The current uav angle
+3. (control_rate ?r - uav): The rate of angle adjustment
+
+Parameters:
+1. ?r - uav: The uav
+
+Preconditions:
+```
+(and
+    (= (cur_angel ?r) (gate_angle))
+)
+```
+
+Effects:
+```
+(and
+    (pass ?r)
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+1. (pass ?r - uav): true if uav passed the gate
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+
+
+

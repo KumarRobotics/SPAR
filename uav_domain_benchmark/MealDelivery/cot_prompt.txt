@@ -1,0 +1,147 @@
+
+Example 1. robot arm starts cooking a meal at some location
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?  
+1. The robot arm ?r  
+2. The meal ?m  
+3. The location ?l  
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)  
+1. The robot arm ?r:  
+    - Must be at location ?l - (at-arm ?r ?l)  
+2. The meal ?m:  
+    - Must not be prepared - (not (prepared ?m))  
+3. The location ?l:  
+    - None  
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)  
+1. The robot arm ?r:  
+    - Starts cooking the meal - (cooking ?r ?m)  
+2. The meal ?m:  
+    - None  
+3. The location ?l:  
+    - None  
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 2. robot arm finishes cooking a meal at some location
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?  
+1. The robot arm ?r  
+2. The meal ?m  
+3. The location ?l  
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)  
+1. The robot arm ?r:  
+    - Must be at location ?l - (at-arm ?r ?l)  
+    - Must be cooking the meal - (cooking ?r ?m)  
+2. The meal ?m:  
+    - None  
+3. The location ?l:  
+    - None  
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)  
+1. The robot arm ?r:  
+    - No longer cooking the meal - (not (cooking ?r ?m))  
+2. The meal ?m:  
+    - Becomes prepared - (prepared ?m)  
+    - Is located at location ?l - (at-meal ?m ?l)  
+3. The location ?l:  
+    - None  
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 3. uav flies from one location to another
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?  
+1. The uav ?u  
+2. The current location ?from  
+3. The destination location ?to  
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)  
+1. The uav ?u:  
+    - Must be at location ?from - (at-uav ?u ?from)  
+2. The current location ?from:  
+    - None  
+3. The destination location ?to:  
+    - None  
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)  
+1. The uav ?u:  
+    - No longer at location ?from - (not (at-uav ?u ?from))  
+    - Now at location ?to - (at-uav ?u ?to)  
+2. The current location ?from:  
+    - None  
+3. The destination location ?to:  
+    - None  
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 4. uav picks up a prepared meal at a location
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?  
+1. The uav ?u  
+2. The meal ?m  
+3. The location ?l  
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)  
+1. The uav ?u:  
+    - Must be at location ?l - (at-uav ?u ?l)  
+    - Must be empty - (empty-uav ?u)  
+2. The meal ?m:  
+    - Must be at location ?l - (at-meal ?m ?l)  
+    - Must be prepared - (prepared ?m)  
+3. The location ?l:  
+    - None  
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)  
+1. The uav ?u:  
+    - Now carrying the meal - (carrying ?u ?m)  
+    - No longer empty - (not (empty-uav ?u)) 
+2. The meal ?m:  
+    - No longer at location ?l - (not (at-meal ?m ?l))  
+3. The location ?l:  
+    - None  
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 5. uav delivers a meal to a location
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?  
+1. The uav ?u  
+2. The meal ?m  
+3. The location ?l  
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)  
+1. The uav ?u:  
+    - Must be at location ?l - (at-uav ?u ?l)  
+    - Must be carrying the meal - (carrying ?u ?m)  
+2. The meal ?m:  
+    - None 
+3. The location ?l:  
+    - None  
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)  
+1. The uav ?u:  
+    - No longer carrying the meal - (not (carrying ?u ?m))  
+    - Becomes empty - (empty-uav ?u)  
+2. The meal ?m:  
+    - Now at location ?l - (at-meal ?m ?l)  
+3. The location ?l:  
+    - None  
+
+- Finally, write the PDDL action in the following format:

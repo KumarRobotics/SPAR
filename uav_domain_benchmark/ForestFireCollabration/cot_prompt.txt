@@ -1,0 +1,104 @@
+Example 1. Move uav to another area
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?
+1. The uav ?d
+2. The source area ?from
+3. The destination area ?to
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)
+1. The uav ?d:
+    - Must be at the source area - (at-uav-location ?d ?from)
+2. The source area ?from:
+    - Must be connected to the destination area - (next ?from ?to)
+3. The destination area ?to:
+    - None
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)
+1. The uav ?d:
+    - Is now at the destination area - (at-uav-location ?d ?to)
+    - Is no longer at the source area - (not (at-uav-location ?d ?from))
+2. The source area ?from:
+    - None
+3. The destination area ?to:
+    - None
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 2. Move ugv to another area
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?
+1. The ugv ?d
+2. The source area ?from
+3. The destination area ?to
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)
+1. The ugv ?d:
+    - Must be at the source area - (at-ugv-location ?d ?from)
+2. The source area ?from:
+    - Must be connected to the destination area - (next ?from ?to)
+3. The destination area ?to:
+    - None
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)
+1. The ugv ?d:
+    - Is now at the destination area - (at-ugv-location ?d ?to)
+    - Is no longer at the source area - (not (at-ugv-location ?d ?from))
+2. The source area ?from:
+    - None
+3. The destination area ?to:
+    - None
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 3. Monitor an area for fire
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?
+1. The uav ?d
+2. The area ?a
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)
+1. The uav ?d:
+    - Must be at the area - (at-uav-location ?d ?a)
+2. The area ?a:
+    - Must be on fire - (on-fire ?a)
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)
+1. The uav ?d:
+    - None
+2. The area ?a:
+    - Mark dangerous - (danger ?a)
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 4. Extinguish fire in an area
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?
+1. The ugv ?d
+2. The area ?a
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)
+1. The ugv ?d:
+    - Must be at the area - (at-ugv-location ?d ?a)
+2. The area ?a:
+    - Marked as dangerous - (danger ?a)
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)
+1. The ugv ?d:
+    - None
+2. The area ?a:
+    - Fire is extinguished - (not (on-fire ?a))
+    - No longer dangerous - (not (danger ?a))
+
+- Finally, write the PDDL action in the following format:
+

@@ -1,0 +1,7 @@
+;;!domain: CityCargo
+
+;;!problem: medium-truck-move-package
+
+0.0: (truck-load t1 p1 l1)
+1.0: (truck-drive t1 l1 l2 c1)
+2.0: (truck-unload t1 p1 l2)

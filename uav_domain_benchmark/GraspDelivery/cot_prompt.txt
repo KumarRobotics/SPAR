@@ -1,0 +1,206 @@
+Example 1. Move uav from one location to another
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?
+1. The uav ?r  
+2. The current location ?l1  
+3. The next location ?l2  
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)
+1. The uav ?r:
+    - Must be at the current location - (at ?r ?l1)
+2. The current location ?l1:
+    - Must be clear, free of obstacles - (clear ?l1)
+    - Must be adjacent to next location - (next ?l1 ?l2)
+3. The next location ?l2:
+    - None
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)
+1. The uav ?r:
+    - Is no longer at the current location - (not (at ?r ?l1))
+    - Is now at the next location - (at ?r ?l2)
+2. The current location ?l1:
+    - None
+3. The next location ?l2:
+    - None
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 2. Detect if current location is a gap
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?
+1. The uav ?r  
+2. The location ?l  
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)
+1. The uav ?r:
+    - Must be at the location - (at ?r ?l)
+2. The location ?l:
+    - Must actually be a gap (ground truth) - (narrow-gap ?l)
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)
+1. The uav ?r:
+    - None
+2. The location ?l:
+    - Is detected as narrow - (is-narrow ?l)
+    - Is no longer marked as clear - (not (clear ?l))
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 3. Detect if current location is not gap
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?
+1. The uav ?r  
+2. The location ?l  
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)
+1. The uav ?r:
+    - Must be at the location - (at ?r ?l)
+2. The location ?l:
+    - Must not be a gap (ground truth) - (not (narrow-gap ?l))
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)
+1. The uav ?r:
+    - None
+2. The location ?l:
+    - Is marked as clear - (clear ?l)
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 4. uav passes through a gap
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?
+1. The uav ?r  
+2. The current location ?l1  
+3. The target location ?l2  
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)
+1. The uav ?r:
+    - Must be at the current location - (at ?r ?l1)
+    - Must be in a shrunk state - (shrink ?r)
+2. The current location ?l1:
+    - Must be detected as narrow - (is-narrow ?l1)
+    - Must be adjacent to the target location - (next ?l1 ?l2)
+3. The target location ?l2:
+    - None
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)
+1. The uav ?r:
+    - Moves to the new location - (at ?r ?l2)
+    - Is no longer at the original location - (not (at ?r ?l1))
+2. The current location ?l1:
+    - None
+3. The target location ?l2:
+    - None
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 5. Shrink the uav
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?
+1. The uav ?r
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)
+1. The uav ?r:
+    - Must not already be shrunk - (not (shrink ?r))
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)
+1. The uav ?r:
+    - Enters the shrunk state - (shrink ?r)
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 6. Release the uav to normal size
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?
+1. The uav ?r
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)
+1. The uav ?r:
+    - Must be in a shrunk state - (shrink ?r)
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)
+1. The uav ?r:
+    - Exits the shrunk state - (not (shrink ?r))
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 7. Grasp a package
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?
+1. The uav ?r  
+2. The package ?p
+3. The location ?l  
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)
+1. The uav ?r:
+    - Must be at location ?l - (at ?r ?l)
+    - Must not be holding anything - (not (hold ?r))
+    - Must not be in a shrunk state - (not (shrink ?r))
+2. The package ?p:
+    - Must be at the same location ?l - (at ?p ?l)
+3. The location ?l:
+    - None
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)
+1. The uav ?r:
+    - Enters holding state - (hold ?r)
+    - Enters shrunk state to grasp the package - (shrink ?r)
+2. The package ?p:
+    - None
+3. The location ?l:
+    - None
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 8. Unload a package
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?
+1. The uav ?r
+2. The package ?p  
+3. The location ?l  
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)
+1. The uav ?r:
+    - Must be at location ?l - (at ?r ?l)
+    - Must be holding a package - (hold ?r)
+    - Must be in a shrunk state - (shrink ?r)
+2. The package ?p:
+    - None
+3. The location ?l:
+    - None
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)
+1. The uav ?r:
+    - No longer holding a package - (not (hold ?r))
+    - No longer shrunk so that it can release the package - (not (shrink ?r))
+2. The package ?p:
+    - Is placed at location ?l - (at ?p ?l)
+3. The location ?l:
+    - None
+
+- Finally, write the PDDL action in the following format:
+
+

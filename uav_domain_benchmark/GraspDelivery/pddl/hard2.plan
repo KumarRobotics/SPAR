@@ -1,0 +1,18 @@
+;;!domain: GraspDelivery
+
+;;!problem: hard-two-uav-post-gap-move
+
+0.0: (grasp u1 l1 p1)
+1.0: (shrinking u2)
+2.0: (detect-obstacle u2 l2)
+3.0: (shrink-pass u2 l2 l4)
+4.0: (detect-obstacle u1 l1)
+5.0: (shrink-pass u1 l1 l3)
+6.0: (detect-clear u1 l3)
+7.0: (detect-clear u2 l4)
+8.0: (move u1 l3 l5)
+9.0: (unload u1 l5 p1)
+10.0: (release u2)
+11.0: (grasp u2 l4 p2)
+12.0: (move u2 l4 l6)
+13.0: (unload u2 l6 p2)

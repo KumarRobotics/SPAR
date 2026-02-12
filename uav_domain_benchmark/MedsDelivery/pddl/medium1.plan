@@ -1,0 +1,7 @@
+;;!domain: uav-sample-collection
+
+;;!problem: sample-delivery-basic
+
+0.0: (get-blood-sample u1 s1 h1)
+1.0: (move-uav u1 h1 h2)
+2.0: (give-blood-sample u1 s1 h2)

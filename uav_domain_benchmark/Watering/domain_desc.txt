@@ -1,0 +1,1 @@
+This domain models a uav-based watering system in which a uav navigates between locations, carrying a single watering pot. The uav can pick up and drop off the pot, refill it only at a home location, and pour water into areas that require irrigation. The amount of water poured depends on both the current water level in the pot and the water demand at the target location.

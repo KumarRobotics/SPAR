@@ -1,0 +1,182 @@
+Example 1. Pick up an object
+Action: This action allows the robot to pick up an object from a surface or stack. For example, the robot picks up a block from the table or from another block.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+No predicate has been defined yet
+
+You can create and define new functions, but you may also reuse the following functions:
+No function has been defined yet
+
+Parameters:
+1. ?ob - obj: The block to be picked up
+
+Preconditions:
+```
+(and 
+    (clear ?ob)
+    (on-table ?ob)
+    (arm-empty)
+)
+```
+
+Effects:
+```
+(and 
+    (holding ?ob)
+    (not (clear ?ob))
+    (not (on-table ?ob))
+    (not (arm-empty))
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+
+
+1. (clear ?ob - obj): true if nothing is on top of block ?ob
+2. (on-table ?ob - obj): true if block ?ob is directly on the table
+3. (arm-empty): true if the robot’s arm is not holding anything
+4. (holding ?ob - obj): true if the robot is holding block ?ob
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+
+
+No newly defined function
+
+
+Example 2. Put down an object
+Action: This action enables the robot to put down an object that it is holding. For example, the robot puts down a block on the table or on top of another block.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+1. (clear ?ob - obj): true if nothing is on top of block ?ob
+2. (on-table ?ob - obj): true if block ?ob is directly on the table
+3. (arm-empty): true if the robot’s arm is not holding anything
+4. (holding ?ob - obj): true if the robot is holding block ?ob
+
+You can create and define new functions, but you may also reuse the following functions:
+No function has been defined yet
+
+Parameters:
+1. ?ob - obj: The block to be put down
+
+Preconditions:
+```
+(and 
+    (holding ?ob)
+)
+```
+
+Effects:
+```
+(and 
+    (clear ?ob)
+    (arm-empty)
+    (on-table ?ob)
+    (not (holding ?ob))
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+
+
+No newly defined predicate
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+
+
+No newly defined function
+
+
+Example 3. Stack an object on top of another
+Action: This action enables the robot to place one object on top of another, creating a stack. For example, the robot stacks a yellow block on top of a green block.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+1. (clear ?ob - obj): true if nothing is on top of block ?ob
+2. (on-table ?ob - obj): true if block ?ob is directly on the table
+3. (arm-empty): true if the robot’s arm is not holding anything
+4. (holding ?ob - obj): true if the robot is holding block ?ob
+
+You can create and define new functions, but you may also reuse the following functions:
+No function has been defined yet
+
+Parameters:
+1. ?ob - obj: The block to be stacked
+2. ?underob - obj: The block to stack onto
+
+Preconditions:
+```
+(and  
+    (clear ?underob)
+    (holding ?ob)
+)
+```
+
+Effects:
+```
+(and 
+    (arm-empty)
+    (clear ?ob)
+    (on ?ob ?underob)
+    (not (clear ?underob))
+    (not (holding ?ob))
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+
+
+1. (on ?ob - obj ?underob - obj): true if block ?ob is directly on top of block ?underob
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+
+
+No newly defined function
+
+
+Example 4. Unstack an object from the top of another
+Action: This action enables the robot to remove an object from the top of a stack. For example, the robot unstacks a yellow block that is on top of a green block.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+1. (clear ?ob - obj): true if nothing is on top of block ?ob
+2. (on-table ?ob - obj): true if block ?ob is directly on the table
+3. (arm-empty): true if the robot’s arm is not holding anything
+4. (holding ?ob - obj): true if the robot is holding block ?ob
+5. (on ?ob - obj ?underob - obj): true if block ?ob is directly on top of block ?underob
+
+You can create and define new functions, but you may also reuse the following functions:
+No function has been defined yet
+
+Parameters:
+1. ?ob - obj: The block to be unstacked
+2. ?underob - obj: The block beneath it
+
+Preconditions:
+```
+(and 
+    (on ?ob ?underob)
+    (clear ?ob)
+    (arm-empty)
+)
+```
+
+Effects:
+```
+(and 
+    (holding ?ob)
+    (clear ?underob)
+    (not (on ?ob ?underob))
+    (not (clear ?ob))
+    (not (arm-empty))
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+
+
+No newly defined predicate
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+
+
+No newly defined function
+
+

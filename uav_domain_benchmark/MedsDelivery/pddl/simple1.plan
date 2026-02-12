@@ -1,0 +1,5 @@
+;;!domain: uav-sample-collection
+
+;;!problem: move-only
+
+0.0: (move-uav u1 l1 l2)

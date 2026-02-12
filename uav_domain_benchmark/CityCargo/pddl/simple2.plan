@@ -1,0 +1,5 @@
+;;!domain: CityCargo
+
+;;!problem: test-uav-load
+
+0.0: (uav-load u1 p1 l1)

@@ -1,0 +1,12 @@
+;;!domain: trackingdomain
+
+;;!problem: TrackingProb
+
+0.0: (update-subgoal uav p0 p1)
+1.0: (move uav p0 p1)
+2.0: (update-subgoal uav p1 p5)
+3.0: (move uav p1 p5)
+4.0: (update-subgoal uav p5 p9)
+5.0: (move uav p5 p8)
+6.0: (move uav p8 p7)
+7.0: (move uav p7 p9)

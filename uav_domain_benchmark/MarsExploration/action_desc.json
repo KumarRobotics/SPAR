@@ -1,0 +1,26 @@
+{
+  "Move uav from one location to another": {
+    "desc": "This action enables a uav to move from its current location to another target location. For example, a uav can move from Site-A to Site-B.",
+    "extra_info": [],
+    "name_in_pddl": "Move-uav",
+    "abstract_desc": "This action enables the uav to move from [position1] to [position2]."
+  },
+  "Move Rover from one location to another": {
+    "desc": "This action enables a rover to drive from its current position to another target location. For example, a rover may travel from Site-B to Site-C.",
+    "extra_info": [],
+    "name_in_pddl": "Move-rov",
+    "abstract_desc": "This action enables the rover to move from [position1] to [position2]."
+  },
+  "uav explores a location": {
+    "desc": "This action enables a uav to explore a location that contains potential resources. If the location holds a resource, then the uav marks the location as explored. For example, if the uav is at Site-A where there is a resource, the uav will mark Site-A as explored.",
+    "extra_info": [],
+    "name_in_pddl": "Explore",
+    "abstract_desc": "This action enables the uav to mark [position1] as [state1] if [position1] has [object1]."
+  },
+  "Rover gets resource from locations": {
+    "desc": "This action enables a rover to collect resources from a previously explored location. The resource at each location can only be collected once. The amount collected increases the total resource based on the value at that location. For example, if the Site-A has 5 units of resource, a rover can collect it, and the total resource increases by 5 units.",
+    "extra_info": [],
+    "name_in_pddl": "GetResource",
+    "abstract_desc": "This action enables the rover to load [object1] from [position1] if [position1] is [state1]. This action will increase [value1] by [value2] of [object1]."
+  }
+}

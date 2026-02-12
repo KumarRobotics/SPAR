@@ -1,0 +1,9 @@
+;;!domain: SpeedAdapt
+
+;;!problem: speedadapt-loop
+
+0.0: (dcc-move u1 p1 p2)
+1.0: (pass-clutter u1 p2)
+2.0: (acc-move u1 p2 p3)
+3.0: (pass-narrow-gap u1 p3)
+4.0: (dcc-move u1 p3 p4)

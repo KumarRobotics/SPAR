@@ -1,0 +1,10 @@
+;;!domain: CeilingPaintDomain
+
+;;!problem: test-paint
+
+0.0: (Take-off u1)
+1.0: (Fly-to u1 p1 p2)
+2.0: (Landing u1)
+3.0: (Pick-up-sprayer u1 s1)
+4.0: (Take-off u1)
+5.0: (Paint u1 s1 c1 p2)

@@ -1,0 +1,121 @@
+Example 1. Load a package
+Action: This action enables the uav to pick up a package at some location. The uav can only carry one package at a time. For example, the uav loads package_1 at location_1.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+No predicate has been defined yet
+
+You can create and define new functions, but you may also reuse the following functions:
+No function has been defined yet
+
+Parameters:
+1. ?d - uav: The uav
+2. ?p - package: The package
+3. ?l - location: The location
+
+Preconditions:
+```
+(and
+    (at-uav ?d ?l)
+	(uav-empty ?d)
+	(at-package ?p ?l)
+)
+```
+
+Effects:
+```
+(and
+    (holding ?d ?p)
+	(not (uav-empty ?d))
+	(not (at-package ?p ?l))
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+1. (at-uav ?d - uav ?l - location): true if the uav is in location ?l
+2. (uav-empty ?d - uav): true if the uav ?d is not holding anything
+3. (at-package ?p - package ?l - location): true if package ?p is in location ?l
+4. (holding ?d - uav ?p - package): true if uav ?d is holding package ?p
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+
+
+Example 2. Unload a package
+Action: This action enables the uav to unload a package at some location. For example, the uav unloads package_1 at location_1.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+1. (at-uav ?d - uav ?l - location): true if the uav is in location ?l
+2. (uav-empty ?d - uav): true if the uav ?d is not holding anything
+3. (at-package ?p - package ?l - location): true if package ?p is in location ?l
+4. (holding ?d - uav ?p - package): true if uav ?d is holding package ?p
+
+You can create and define new functions, but you may also reuse the following functions:
+No function has been defined yet
+
+Parameters:
+1. ?d - uav: The uav
+2. ?p - package: The package
+3. ?l - location: The location
+
+Preconditions:
+```
+(and
+    (at-uav ?d ?l)
+	(holding ?d ?p)
+)
+```
+
+Effects:
+```
+(and
+    (not (holding ?d ?p))
+	(uav-empty ?d)
+	(at-package ?p ?l)
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+No newly defined predicate
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+
+
+Example 3. Move UAV to another location
+Action: This action allows the uav to travel from its current location to another location. For example, the uav moves from location_1 to location_2.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+1. (at-uav ?d - uav ?l - location): true if the uav is in location ?l
+2. (uav-empty ?d - uav): true if the uav ?d is not holding anything
+3. (at-package ?p - package ?l - location): true if package ?p is in location ?l
+4. (holding ?d - uav ?p - package): true if uav ?d is holding package ?p
+
+You can create and define new functions, but you may also reuse the following functions:
+No function has been defined yet
+
+Parameters:
+1. ?d - uav: The uav
+2. ?from - location: The current location 
+3. ?to - location: The destination location
+
+Preconditions:
+```
+(and 
+    (at-uav ?d ?from)
+)
+```
+
+Effects:
+```
+(and
+    (at-uav ?d ?to)
+	(not (at-uav ?d ?from))
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+No newly defined predicate
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+

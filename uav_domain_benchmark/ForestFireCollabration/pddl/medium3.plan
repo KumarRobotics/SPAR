@@ -1,0 +1,11 @@
+;;!domain: ForestFireCollabration
+
+;;!problem: medium-uav-round-trip
+
+0.0: (MOVE-ugv g1 a3 a1)
+1.0: (MOVE-ugv g1 a1 a2)
+2.0: (MOVE-uav u1 a1 a2)
+3.0: (CALL-uav u1 a2)
+4.0: (ExTINGUISH-FIRE g1 a2)
+5.0: (MOVE-uav u1 a2 a3)
+6.0: (MOVE-uav u1 a3 a1)

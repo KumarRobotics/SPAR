@@ -1,0 +1,102 @@
+Example 1. uav flies from one location to another
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?  
+1. The uav ?u  
+2. The current location ?from  
+3. The next location ?to  
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)  
+1. The uav ?u:  
+    - Must be at the location ?from - (at ?u ?from)  
+    - Must be in the flying mode - (in-air ?u)
+2. The current location ?from:
+    - The locations must be connected - (connected ?from ?to) 
+3. The next location ?to:
+    - None
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)  
+1. The uav ?u:  
+    - No longer at the old location - (not (at ?u ?from))  
+    - Now at the new location - (at ?u ?to)
+2. The current location ?from:
+    - None
+3. The next location ?to:
+    - None
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 2. uav detects if a location can be perched
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?  
+1. The uav ?u  
+2. The location ?l  
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)  
+1. The uav ?u:  
+    - Must be at location ?l - (at ?u ?l)  
+    - Must be in the flying mode - (in-air ?u)  
+2. The location ?l:  
+    - Must be clear - (clear ?l)  
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)  
+1. The uav ?u:  
+    - None 
+2. The location ?l: 
+    - Marked as a suitable perching spot - (perch-spot ?l)  
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 3. uav perches at the location
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?  
+1. The uav ?u  
+2. The location ?l  
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)  
+1. The uav ?u:  
+    - Must be at location ?l - (at ?u ?l)  
+    - Must be in the flying mode - (in-air ?u)  
+2. The location ?l:  
+    - Must already be marked as a perching spot - (perch-spot ?l)  
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)  
+1. The uav ?u:  
+    - Perched - (perched ?u)  
+    - No longer in air - (not (in-air ?u))  
+2. The location ?l:  
+    - Marked as visited perching spot - (perch-visit ?l)  
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 4. uav takes off from the perched location
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?  
+1. The uav ?u  
+2. The location ?l  
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)  
+1. The uav ?u:  
+    - Perched - (perched ?u)  
+    - Must be at location ?l - (at ?u ?l)  
+2. The location ?l:  
+    - None  
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)  
+1. The uav ?u:  
+    - Becomes flying - (in-air ?u)  
+    - No longer perched - (not (perched ?u))  
+2. The location ?l:  
+    - None  
+
+- Finally, write the PDDL action in the following format:

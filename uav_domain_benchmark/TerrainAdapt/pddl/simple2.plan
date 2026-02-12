@@ -1,0 +1,5 @@
+;;!domain: TerrainAdapt
+
+;;!problem: TerrainAdapt-simple-2
+
+0.0: (drive u1 p1 p2)

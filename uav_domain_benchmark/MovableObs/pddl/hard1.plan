@@ -1,0 +1,8 @@
+;;!domain: MovableObs
+
+;;!problem: hard-path-with-obstacle-analysis
+
+0.0: (uav-detect-mov u1 p2)
+1.0: (move-uav u1 p2 p3)
+2.0: (uav-detect-clear u1 p3)
+3.0: (push g1 p1 p2 p3)

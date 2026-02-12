@@ -1,0 +1,112 @@
+Example 1. Move the uav between two locations
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?  
+1. The uav ?u  
+2. The current location ?from  
+3. The target location ?to  
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)  
+1. The uav ?u:  
+    - Must be at the current location - (at-uav ?u ?from)  
+    - Must have sufficient battery - (<= (energy-cost ?from ?to) (battery-level ?u))  
+2. The current location ?from:  
+    - None  
+3. The target location ?to:  
+    - None 
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)  
+1. The uav ?u:  
+    - Is now at the target location - (at-uav ?u ?to)  
+    - No longer at the current location - (not (at-uav ?u ?from))  
+    - Battery level is reduced by movement cost - (decrease (battery-level ?u) (energy-cost ?from ?to))  
+2. The current location ?from:  
+    - None  
+3. The target location ?to:  
+    - None  
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 2. Board a passenger onto the uav
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?  
+1. The uav ?u  
+2. The passenger ?p  
+3. The location ?l  
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)  
+1. The uav ?u:  
+    - Must be at the same location - (at-uav ?u ?l)  
+    - Must have enough remaining capacity - (<= (weight ?p) (remaining-load ?u))  
+2. The passenger ?p:  
+    - Must be at the location - (at-passenger ?p ?l)  
+3. The location ?l:  
+    - None  
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)  
+1. The uav ?u:  
+    - Remaining load is decreased - (decrease (remaining-load ?u) (weight ?p))  
+2. The passenger ?p:  
+    - Is now onboard - (in-uav ?p ?u)  
+    - No longer at location - (not (at-passenger ?p ?l))  
+3. The location ?l:  
+    - None  
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 3. Deboard a passenger from the uav
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?  
+1. The uav ?u  
+2. The passenger ?p  
+3. The location ?l  
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)  
+1. The uav ?u:  
+    - Must be at the location - (at-uav ?u ?l)  
+2. The passenger ?p:  
+    - Must be onboard the uav - (in-uav ?p ?u)  
+3. The location ?l:  
+    - None  
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)  
+1. The uav ?u:  
+    - Regains remaining load - (increase (remaining-load ?u) (weight ?p))  
+2. The passenger ?p:  
+    - Is now at the location - (at-passenger ?p ?l)  
+    - No longer onboard - (not (in-uav ?p ?u))  
+3. The location ?l:  
+    - None  
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 4. Recharge the uav at a charging station
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?  
+1. The uav ?u  
+2. The location ?l  
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)  
+1. The uav ?u:  
+    - Must be at the location - (at-uav ?u ?l)  
+2. The location ?l:  
+    - Must be a charging station - (is-charging-station ?l)  
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)  
+1. The uav ?u:  
+    - Battery is fully recharged - (assign (battery-level ?u) (max-battery ?u))  
+2. The location ?l:  
+    - None 
+
+- Finally, write the PDDL action in the following format:
+

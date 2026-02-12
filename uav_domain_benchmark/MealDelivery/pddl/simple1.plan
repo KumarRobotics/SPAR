@@ -1,0 +1,6 @@
+;;!domain: uav_meal_delivery
+
+;;!problem: meal-1
+
+0.0: (start-cooking a1 m1 l1)
+1.0: (finish-cooking a1 m1 l1)

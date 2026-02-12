@@ -1,0 +1,8 @@
+;;!domain: WindDist
+
+;;!problem: wind-medium-4
+
+0.0: (move u1 a b)
+1.0: (move u1 b c)
+2.0: (blow u1 c e)
+3.0: (blow u1 e g)

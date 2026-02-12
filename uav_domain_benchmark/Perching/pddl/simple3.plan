@@ -1,0 +1,5 @@
+;;!domain: UAV-Perching
+
+;;!problem: perch-simple-3
+
+0.0: (takeoff u1 l1)

@@ -1,0 +1,1 @@
+In this Domain, a uav navigates through a connected graph of positions. Each uav can move from one position to another if there is a connection between them. Each movement incurs one unit cost. The task is finished when the uav reaches the goal position.

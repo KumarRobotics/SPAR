@@ -1,0 +1,8 @@
+The warehouse contains three packages: package1, package2, and package3. Each package must be delivered to its designated destination: package1 to location1, package2 to location2, and package3 to location3. The UAV starts at the warehouse, and returns to the warehouse upon completing all deliveries.
+The UAV capacity is 10 units. The weights of package1, package2, and package3 are 2 units, 9 units, 7 units.
+Distance from warehouse to location1 is 3 units and the same in reverse direction.
+Distance from warehouse to location2 is 2 units and the same in reverse direction.
+Distance from warehouse to location3 is 5 units and the same in reverse direction.
+Distance from location1 to location2 is 6 units and the same in reverse direction.
+Distance from location1 to location3 is 1 units and the same in reverse direction.
+Distance from location2 to location3 is 2 units and the same in reverse direction.

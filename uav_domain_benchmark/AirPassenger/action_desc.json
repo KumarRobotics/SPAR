@@ -1,0 +1,26 @@
+{
+  "Move the uav between two locations": {
+    "desc": "This action enables the uav to move from one location to another if the uav's battery level is larger than the energy cost of the traveling between two locations. For example, if the uav is at loc1, the battery level of uav is 5 units and the energy cost from loc1 to loc2 is 2 units, then the uav can move from loc1 to loc2.",
+    "extra_info": [],
+    "name_in_pddl": "move",
+    "abstract_desc": "This action enables the uav to move from [position1] to [position2] if the uav's [value1] is larger than [value2] between [position1] and [position2]."
+  },
+  "Board a passenger onto the uav": {
+    "desc": "This action enables the uav to pick up a passenger at some location if the uav's remaining capacity is larger than or equal to the passenger's weight. For example, if Alice and the uav are both at loc2, Alice's weight is 3 units and the remaining capacity of uav is 5 units, Alice can board the uav.",
+    "extra_info": [],
+    "name_in_pddl": "board",
+    "abstract_desc": "This action enables the uav to load [object1] at [position1] if the uav's [value1] is larger than or equal to [object1]'s [value2]."
+  },
+  "Deboard a passenger from the uav": {
+    "desc": "This action enables the uav to drop a passenger off at some location if the passenger is in the uav. For example, if Alice is in the uav and the uav is at loc3, she can deboard and appear at loc3.",
+    "extra_info": [],
+    "name_in_pddl": "deboard",
+    "abstract_desc": "This action enables the uav to unload [object1] at [position1] if [object1] is [state1]."
+  },
+  "Recharge the uav at a charging station": {
+    "desc": "This action enables the uav to reassign its battery to maximum capacity if it is located at a charging station. For example, if the uav is at loc1 and loc1 is a charging station, it can perform recharge to full battery capacity.",
+    "extra_info": [],
+    "name_in_pddl": "recharge",
+    "abstract_desc": "This action enables the uav to reassign [value1] to [value2] if it is at [position1]."
+  }
+}

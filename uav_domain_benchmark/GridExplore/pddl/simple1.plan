@@ -1,0 +1,5 @@
+;;!domain: GridExplore
+
+;;!problem: simple-test-mark-clear
+
+0.0: (mark-clear u1 p1 p2)

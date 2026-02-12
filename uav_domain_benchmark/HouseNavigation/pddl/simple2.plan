@@ -1,0 +1,5 @@
+;;!domain: uav-navigation
+
+;;!problem: nav-prob-2
+
+0.0: (Verify-Arrival-at-Goal-Location u1 l1)

@@ -1,0 +1,5 @@
+;;!domain: DeliveryDuratiion
+
+;;!problem: test-unload
+
+0.0: (UNLOAD u1 p1 l2)

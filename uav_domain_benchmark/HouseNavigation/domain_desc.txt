@@ -1,0 +1,1 @@
+This domain models a uav (Unmanned Aerial Vehicle) navigation task in a environment composed of discrete connected locations. The uav moves from one location to another if they are connected and can verify when it has reached a specified goal location.

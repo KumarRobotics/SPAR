@@ -1,0 +1,12 @@
+;;!domain: AirQualityMonitoring
+
+;;!problem: medium-monitor-two-goals
+
+0.0: (move u1 r1 r2)
+1.0: (move u1 r2 r3)
+2.0: (monitoring u1 r3)
+3.0: (monitoring u1 r3)
+4.0: (move u1 r3 r4)
+5.0: (monitoring u1 r4)
+6.0: (monitoring u1 r4)
+7.0: (monitoring u1 r4)

@@ -1,0 +1,57 @@
+Example 1. Move uav to another position
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?
+1. The uav ?r  
+2. The current position ?p1  
+3. The destination position ?p2
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)
+1. The uav ?r:
+    - Must be at the current position - (at ?r ?p1)
+2. The current position ?p1:
+    - Must be connected to the destination - (connect ?p1 ?p2)
+3. The destination position ?p2:
+    - Must be clear - (clear ?p2)
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)
+1. The uav ?r:
+    - Moves to destination - (at ?r ?p2)
+    - Leaves the current position - (not (at ?r ?p1))
+    - Cost increases by 1 - (increase (cost) 1)
+2. The current position ?p1:
+    - None
+3. The destination position ?p2:
+    - None
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 2. Detect obstacles in adjacent positions
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?
+1. The uav ?r  
+2. The current position ?p1  
+3. The adjacent position ?p2
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)
+1. The uav ?r:
+    - Must be at the current position - (at ?r ?p1)
+2. The current position ?p1:
+    - Must be connected to the adjacent position - (connect ?p1 ?p2)
+3. The adjacent position ?p2:
+    - Must not have obstacles (ground truth) - (not (obs ?p2))
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)
+1. The uav ?r:
+    - None
+2. The current position ?p1:
+    - None
+3. The adjacent position ?p2:
+    - Is marked as clear - (clear ?p2)
+
+- Finally, write the PDDL action in the following format:
+

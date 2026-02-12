@@ -1,0 +1,5 @@
+;;!domain: GraspDelivery
+
+;;!problem: test-detect-obstacle
+
+0.0: (detect-obstacle u1 l1)

@@ -1,0 +1,14 @@
+{
+  "uav move from one region to another": {
+    "desc": "This action enables a uav to move from its current region to a new region if two regions are connected. For example, the uav moves from region_1 to region_2 if there is a connection between them.",
+    "extra_info": [],
+    "name_in_pddl": "move",
+    "abstract_desc": "This action enables a uav to move from [position1] to [position2] if [position1] and [position2] are [state1]."
+  },
+  "Monitoring at one region": {
+    "desc": "This action enables a uav to monitor in the current region if the region's monitoring time is less than the required monitoring time of that region. Each execution of this action increases the region's monitoring time by one unit. For example, if the uav is in region_1, the current monitoring time of region_1 is 2 units and the required monitoring time for region_1 is 3 units, then this action will increase region_1's monitoring time by 1 unit.",
+    "extra_info": [],
+    "name_in_pddl": "monitoring",
+    "abstract_desc": "This action enables a uav to observe in [position1] if [position1]'s [value1] is less than [position1]'s [value2]. This action will increase the [position1]'s [value1] by [value3]."
+  }
+}

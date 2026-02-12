@@ -1,0 +1,89 @@
+Example 1. Move the uav to another location
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?  
+1. The uav ?d  
+2. The current location ?from  
+3. The destination location ?to  
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)  
+1. The uav ?d:  
+    - Must be at the current location - (at-uav ?d ?from)  
+2. The current location ?from:  
+    - None  
+3. The destination location ?to:  
+    - None  
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)  
+1. The uav ?d:
+    - No longer at the current location - (not (at-uav ?d ?from))  
+    - Now at the destination location - (at-uav ?d ?to)  
+2. The current location ?from:  
+    - None  
+3. The destination location ?to:  
+    - None  
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 2. Pick up a blood sample from a location
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?  
+1. The uav ?d  
+2. The sample ?s  
+3. The location ?h  
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)  
+1. The uav ?d:  
+    - Must be at the location - (at-uav ?d ?h)  
+    - Must be empty - (uav-empty ?d)  
+2. The sample ?s:  
+    - Must be at the location - (at-sample ?s ?h)  
+3. The location ?h:  
+    - None  
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)  
+1. The uav ?d:  
+    - Is now holding the sample - (holding ?d ?s)  
+    - Is no longer empty - (not (uav-empty ?d))  
+2. The sample ?s:  
+    - Is no longer at the location - (not (at-sample ?s ?h))  
+3. The location ?h:   
+    - None  
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 3. Deliver a blood sample to a location
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?  
+1. The uav ?d  
+2. The sample ?s  
+3. The location ?h  
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)  
+1. The uav ?d:  
+    - Must be at the delivery location - (at-uav ?d ?h)  
+    - Must be holding the sample - (holding ?d ?s)  
+2. The sample ?s:  
+    - None  
+3. The location ?h:  
+    - None
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)  
+1. The uav ?d:   
+    - Is no longer holding the sample - (not (holding ?d ?s))  
+    - Becomes empty - (uav-empty ?d)  
+2. The sample ?s:  
+    - Now at the new location - (at-sample ?s ?h)  
+3. The location ?h:  
+    - None  
+
+- Finally, write the PDDL action in the following format:
+
+

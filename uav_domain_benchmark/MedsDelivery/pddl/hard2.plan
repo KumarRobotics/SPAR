@@ -1,0 +1,11 @@
+;;!domain: uav-sample-collection
+
+;;!problem: single-uav-multi-sample
+
+0.0: (get-blood-sample u1 s1 loc1)
+1.0: (move-uav u1 loc1 loc3)
+2.0: (give-blood-sample u1 s1 loc3)
+3.0: (move-uav u1 loc3 loc2)
+4.0: (get-blood-sample u1 s2 loc2)
+5.0: (move-uav u1 loc2 loc3)
+6.0: (give-blood-sample u1 s2 loc3)

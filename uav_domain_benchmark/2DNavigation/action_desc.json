@@ -1,0 +1,14 @@
+{
+  "uav move from one position to another": {
+    "desc": "This action enables a uav to move from its current position to a new position if two positions are connected. This costs one unit of energy. For example, the uav moves from position_1 to position_2 if there is a connection between them. This costs one unit of energy.",
+    "extra_info": [],
+    "name_in_pddl": "move",
+    "abstract_desc": "This action enables a uav to move from [position1] to [position2] if [position1] and [position2] are [state1]. This action will increase [value1] by [value2]."
+  },
+  "Verify if uav has reached the goal": {
+    "desc": "This action enables a uav to mark the task as finished when it is at the position that is marked as goal position. For example, if position_2 is the goal position and the uav is currently at position_2, it can perform this action to indicate that the task is finished.",
+    "extra_info": [],
+    "name_in_pddl": "reach-goal",
+    "abstract_desc": "This action enables a uav to mark that it has [state1], if it is at [position1] and [position1] is [state1]."
+  }
+}

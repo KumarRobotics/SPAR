@@ -1,0 +1,19 @@
+;;!domain: uavWatering
+
+;;!problem: watering-hard-3
+
+0.0: (load-pot u2 p1 l1)
+1.0: (move u2 l1 l2)
+2.0: (refill u2 p1 l2)
+3.0: (move u1 l1 l2)
+4.0: (load-pot u1 p2 l2)
+5.0: (move u2 l2 l1)
+6.0: (refill u1 p2 l2)
+7.0: (watering-pour-to-fill u2 p1 l1)
+8.0: (move u2 l1 l4)
+9.0: (watering-pour-to-fill u2 p1 l4)
+10.0: (move u2 l4 l3)
+11.0: (watering-pour-to-fill u1 p2 l2)
+12.0: (refill u1 p2 l2)
+13.0: (move u1 l2 l3)
+14.0: (watering-pour-to-fill u1 p2 l3)

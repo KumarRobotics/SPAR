@@ -1,0 +1,80 @@
+Example 1. uav moves from one position to another
+Action: This action enables the uav to move from one position to another connected position if there is no wind at the current position. This action increases the total cost by one unit. For example, if the uav is at position_1 and position_1 has no wind, then the uav can move from position_1 to position_2 if two positions are connected.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+No predicate has been defined yet
+
+You can create and define new functions, but you may also reuse the following functions:
+No function has been defined yet
+
+Parameters:
+1. ?r - uav: The uav
+2. ?p0 - position: The current position
+3. ?p1 - position: The next position
+
+Preconditions:
+```
+(and 
+    (at ?r ?p0) 
+    (connect ?p0 ?p1) 
+    (not (wind ?p0))
+)
+```
+
+Effects:
+```
+(and 
+    (not(at ?r ?p0)) 
+    (at ?r ?p1) 
+    (increase (cost) 1) 
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+1. (at ?r - uav ?p0 - position): true if uav ?r is at position ?p0
+2. (connect ?p0 - position ?p1 - position): true if position ?p1 goes after position ?p0
+3. (wind ?p0 - position): true if position ?p0 has wind
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+1. (cost): the total cost of uav
+
+
+Example 2. Wind blows the uav to another position
+Action: This action enables the uav to be passively moved by wind from its current position to the next position, if the wind at the current location blows toward the next position. No cost is incurred for this action. For example, if the uav is at position_1 and the wind at position_1 blows toward position_2, then the uav can be passively moved by wind from position_1 to position_2 with no cost.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+1. (at ?r - uav ?p0 - position): true if uav ?r is at position ?p0
+2. (connect ?p0 - position ?p1 - position) : true if position ?p1 goes after position ?p0
+3. (wind ?p0 - position): true if position ?p0 has wind
+
+You can create and define new functions, but you may also reuse the following functions:
+1. (cost): the total cost of uav
+
+Parameters:
+1. ?r - uav: The uav
+2. ?p - position: The current position
+3. ?p1 - position: The next position
+
+Preconditions:
+```
+(and 
+    (at ?r ?p) 
+    (wind ?p) 
+    (blow-to ?p ?p2)
+)
+```
+
+Effects:
+```
+(and 
+    (not (at ?r ?p)) 
+    (at ?r ?p2)
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+1. (blow-to ?p - position ?p2 - position): true if wind in position ?p can blow the uav to position ?p2
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+

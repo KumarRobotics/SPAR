@@ -1,0 +1,6 @@
+;;!domain: ForestFireCollabration
+
+;;!problem: test-move-call
+
+0.0: (MOVE-uav u1 a1 a2)
+1.0: (CALL-uav u1 a2)

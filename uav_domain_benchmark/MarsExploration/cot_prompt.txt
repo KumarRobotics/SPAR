@@ -1,0 +1,106 @@
+Example 1. Move uav from one location to another
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?
+1. The uav ?d  
+2. The current location ?l 
+3. The destination location ?to
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)
+1. The uav ?d:
+    - Must be at the current location - (at-uav ?d ?l)
+2. The current location ?l:
+    - None
+3. The destination location ?to:
+    - None
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)
+1. The uav ?d:
+    - No longer at the old location - (not (at-uav ?d ?l))  
+    - Now at the new location - (at-uav ?d ?to)
+2. The current location ?l:
+    - None
+3. The destination location ?to:
+    - None
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 2. Move Rover from one location to another
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?
+1. The rover ?r  
+2. The current location ?l  
+3. The destination location ?to 
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)
+1. The rover ?r:
+    - Must be at the current location - (at-rov ?r ?l)
+2. The current location ?l:
+    - None
+3. The destination location ?to:
+    - None
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)
+1. The rover ?r:
+    - No longer at the old location - (not (at-rov ?r ?l))  
+    - Now at the new location - (at-rov ?r ?to)
+2. The current location ?l:
+    - None
+3. The destination location ?to:
+    - None
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 3. uav explores a location
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?  
+1. The uav ?d  
+2. The location ?l  
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)  
+1. The uav ?d:  
+    - Must be at the location - (at-uav ?d ?l)  
+2. The location ?l:  
+    - Must have resource - (resource ?l)  
+    - Must not be explored - (not (explored ?l))  
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)  
+1. The uav ?d  
+    - None  
+2. The location ?l:  
+    - Marked as explored - (explored ?l)  
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 4. Rover gets resource from locations
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?  
+1. The rover ?r  
+2. The location ?l  
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)  
+1. The rover ?r:  
+    - Must be at the location - (at-rov ?r ?l)  
+2. The location ?l:  
+    - Must have been explored - (explored ?l)  
+    - Resource must not have been collected - (not (resource-collected ?l))  
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)  
+1. The rover ?r: 
+    - None  
+2. The location ?l:  
+    - Resource marked as collected - (resource-collected ?l)  
+    - Total resource increased by value at location - (increase (total-resource) (value ?l))  
+
+- Finally, write the PDDL action in the following format:
+

@@ -1,0 +1,7 @@
+;;!domain: Gate
+
+;;!problem: medium-increase-then-pass
+
+0.0: (increase_angle u1)
+1.0: (increase_angle u1)
+2.0: (pass-gate u1)

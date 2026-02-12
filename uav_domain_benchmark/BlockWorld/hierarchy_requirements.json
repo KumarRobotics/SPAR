@@ -1,0 +1,12 @@
+{
+    "hierarchy": {
+        "obj": []
+    },
+    "requirements": [
+        "typing",
+        "strips",
+        "negative-preconditions",
+        "numeric-fluents",
+        "equality"
+    ]
+}

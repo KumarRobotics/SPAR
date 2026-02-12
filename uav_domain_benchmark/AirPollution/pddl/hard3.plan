@@ -1,0 +1,16 @@
+;;!domain: AirQualityMonitoring
+
+;;!problem: hard-net-topology
+
+0.0: (move u2 r6 r7)
+1.0: (move u1 r1 r2)
+2.0: (move u1 r2 r3)
+3.0: (monitoring u2 r7)
+4.0: (monitoring u2 r7)
+5.0: (monitoring u2 r7)
+6.0: (move u2 r7 r8)
+7.0: (monitoring u1 r3)
+8.0: (monitoring u2 r8)
+9.0: (move u1 r3 r4)
+10.0: (monitoring u1 r4)
+11.0: (monitoring u1 r4)

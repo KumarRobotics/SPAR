@@ -1,0 +1,52 @@
+Example 1. Increase uav orientation toward target gate angle
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?
+1. The uav ?r
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)
+1. The uav ?r:
+    - Current angle is less than the gate angle - (> (gate_angle) (cur_angel ?r))
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)
+1. The uav ?r:
+    - Increases its current angle by its control rate - (increase (cur_angel ?r) (control_rate ?r))
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 2. Decrease uav orientation toward target gate angle
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?
+1. The uav ?r
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)
+1. The uav ?r:
+    - Current angle is greater than the gate angle - (< (gate_angle) (cur_angel ?r))
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)
+1. The uav ?r:
+    - Decreases its current angle by its control rate - (decrease (cur_angel ?r) (control_rate ?r))
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 3. Pass through the gate
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?
+1. The uav ?r
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)
+1. The uav ?r:
+    - Current angle must equal the gate angle - (= (cur_angel ?r) (gate_angle))
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)
+1. The uav ?r:
+    - Successfully passes the gate - (pass ?r)
+
+- Finally, write the PDDL action in the following format:

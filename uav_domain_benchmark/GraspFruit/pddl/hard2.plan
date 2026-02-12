@@ -1,0 +1,18 @@
+;;!domain: GraspFruit
+
+;;!problem: graspfruit-hard-3uav
+
+0.0: (take-not-rot-image uav1 f3 l1)
+1.0: (take-not-rot-image uav2 f5 l2)
+2.0: (grasp-fruit uav1 f3 l1 g3)
+3.0: (move uav1 l1 l4)
+4.0: (grasp-fruit uav2 f5 l2 g3)
+5.0: (take-not-rot-image uav1 f1 l4)
+6.0: (take-rot-image uav3 f2 l3)
+7.0: (take-rot-image uav2 f4 l2)
+8.0: (move uav2 l2 l6)
+9.0: (put-down-fruit uav2 f5 l6 g3)
+10.0: (put-down-fruit uav1 f3 l4 g3)
+11.0: (grasp-fruit uav1 f1 l4 g2)
+12.0: (move uav1 l4 l6)
+13.0: (put-down-fruit uav1 f1 l6 g2)

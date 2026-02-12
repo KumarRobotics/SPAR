@@ -1,0 +1,15 @@
+(define (problem watering-simple-2)
+  (:domain uavWatering)
+  (:objects u1 - uav p1 - pot l1 - location)
+  (:init
+    (at-uav u1 l1)
+    (at-pot p1 l1)
+    (empty u1)
+    (home l1)
+
+    (= (capacity p1) 10)
+    (= (water-level p1) 0)
+    (= (need-water l1) 8)
+  )
+  (:goal (and (= (need-water l1) 0)))
+)

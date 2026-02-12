@@ -1,0 +1,80 @@
+Example 1. Move uav from one position to another
+Action: This action enables the uav to move from one position to another connected position. This action incurs one unit of cost. For example, the uav can move from at position_1 to position_2 if the two positions are connected. The cost incurred is 1 unit.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+No predicate has been defined yet
+
+You can create and define new functions, but you may also reuse the following functions:
+No function has been defined yet
+
+Parameters:
+1. ?r - uav: The uav
+2. ?p1 - position: The current position
+3. ?p2 - position: The next position
+
+Preconditions:
+```
+(and 
+    (at ?r ?p1) 
+    (next-uav ?p1 ?p2)
+)
+```
+
+Effects:
+```
+(and 
+    (not (at ?r ?p1)) 
+    (at ?r ?p2) 
+    (increase (cost) 1)
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+1. (at ?r - uav ?p1 - position): true if uav ?r is at position ?p1
+2. (next-uav ?p1 - position ?p2 - position): true if position ?p2 goes after position ?p1
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+1. (cost): the total cost of uav
+
+
+Example 2. Update the tracking subgoal
+Action: This action enables the uav to update its current subgoal to the next subgoal if it reaches the current subgoal potision, the uav marks the current subgoal as reached. For example, if the current subgoal is position_1 while the next subgoal is position_2, and the uav is at position_1, then it will mark position_1 as reached subgoal and update the position_2 as the current subgoal.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+1. (at ?r - uav ?p1 - position): true if uav ?r is at position ?p1
+2. (next-uav ?p1 - position ?p2 - position): true if position ?p2 goes after position ?p1
+
+You can create and define new functions, but you may also reuse the following functions:
+1. (cost): the total cost of uav
+
+Parameters:
+1. ?r - uav: The uav
+2. ?p1 - position: The current goal position
+3. ?p2 - position: The next goal position
+
+Preconditions:
+```
+(and 
+    (at ?r ?p1) 
+    (next-goal ?p1 ?p2) 
+    (current-goal ?p1)
+)
+```
+
+Effects:
+```
+(and 
+    (not (current-goal ?p1)) 
+    (current-goal ?p2) 
+    (reach-subgoal ?p1)
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+1. (next-goal ?p1 - position ?p2 - position): true if position ?p2 is the next subgoal after position ?p1
+2. (current-goal ?p1 - position): true if the position ?p1 is the current subgoal
+3. (reach-subgoal ?p1 - position): true if the current subgoal ?p1 is reached
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+

@@ -1,0 +1,168 @@
+Example 1. uav flies from one position to another
+Action: This action enables the uav to fly from one position to another connected position when it is in the flying mode, and the weather at the current position is not bad. For example, if the uav is at position A and wants to fly to position B, it can do so if the uav is flying, the weather at position A is not bad and there is a direct connection to position B.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+No predicate has been defined yet
+
+You can create and define new functions, but you may also reuse the following functions:
+No function has been defined yet
+
+Parameters:
+1. ?r - uav: The uav
+2. ?p1 - position: The current position
+3. ?p2 - position: The next position
+
+Preconditions:
+```
+(and 
+    (at ?r ?p1) 
+    (fly-mode ?r) 
+    (not (bad-weather ?p1)) 
+    (next ?p1 ?p2)
+)
+```
+
+Effects:
+```
+(and 
+    (at ?r ?p2) 
+    (not (at ?r ?p1))
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+1. (at ?r - uav ?p1 - position): true if uav ?r is at position ?p1
+2. (fly-mode ?r - uav): true if the uav ?r is in flying mode
+3. (bad-weather ?p1 - position): true if position ?p1 has bad weather
+4. (next ?p1 - position ?p2 - position): true if position ?p2 goes after position ?p1
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+
+
+Example 2. uav drives from one position to another
+Action: This action enables the uav to drive from one position to another connected position when it is in the driving mode, and the road at the current position is not slippery. For example, if the uav is at position A and wants to drive to position B, it can do so if the uav is in driving mode, the road at position A is not slippery and there is a direct connection to position B.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+1. (at ?r - uav ?p1 - position): true if uav ?r is at position ?p1
+2. (fly-mode ?r - uav): true if the uav ?r is in flying mode
+3. (bad-weather ?p1 - position): true if position ?p1 has bad weather
+4. (next ?p1 - position ?p2 - position): true if position ?p2 goes after position ?p1
+
+You can create and define new functions, but you may also reuse the following functions:
+No function has been defined yet
+
+Parameters:
+1. ?r - uav: The uav
+2. ?p1 - position: The current position
+3. ?p2 - position: The next position
+
+Preconditions:
+```
+(and 
+    (at ?r ?p1) 
+    (drive-mode ?r) 
+    (not (slippery-road ?p1)) 
+    (next ?p1 ?p2)
+)
+```
+
+Effects:
+```
+(and 
+    (at ?r ?p2) 
+    (not (at ?r ?p1))
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+1. (drive-mode ?r - uav): true if uav is in drive mode
+2. (slippery-road ?p1 - position): true if the position ?p1 is slippery
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+
+
+Example 3. uav switch to flying mode
+Action: This action enables the uav to switch from driving mode to flying mode at its current position if the road is slippery. For example, if the uav is at position A and the road is slippery, it can switch to flying mode.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+1. (at ?r - uav ?p1 - position): true if uav ?r is at position ?p1
+2. (fly-mode ?r - uav): true if the uav ?r is in flying mode
+3. (bad-weather ?p1 - position): true if position ?p1 has bad weather
+4. (next ?p1 - position ?p2 - position): true if position ?p2 goes after position ?p1
+5. (drive-mode ?r - uav): true if uav is in drive mode
+6. (slippery-road ?p1 - position): true if the position ?p1 is slippery
+
+You can create and define new functions, but you may also reuse the following functions:
+No function has been defined yet
+
+Parameters:
+1. ?r - uav: The uav
+2. ?p - position: The current position
+
+Preconditions:
+```
+(and 
+    (slippery-road ?p) 
+    (at ?r ?p) 
+    (drive-mode ?r)
+)
+```
+
+Effects:
+```
+(and 
+    (not (drive-mode ?r)) 
+    (fly-mode ?r)
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+No newly defined predicate
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+
+
+Example 4. uav switch to drive mode
+Action: This action enables the uav to switch from flying mode to driving mode at its current position if the weather is bad. For example, if the uav is at position A and the weather is bad, it can switch to driving mode.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+1. (at ?r - uav ?p1 - position): true if uav ?r is at position ?p1
+2. (fly-mode ?r - uav): true if the uav ?r is in flying mode
+3. (bad-weather ?p1 - position): true if position ?p1 has bad weather
+4. (next ?p1 - position ?p2 - position): true if position ?p2 goes after position ?p1
+5. (drive-mode ?r - uav): true if uav is in drive mode
+6. (slippery-road ?p1 - position): true if the position ?p1 is slippery
+
+You can create and define new functions, but you may also reuse the following functions:
+No function has been defined yet
+
+Parameters:
+1. ?r - uav: The uav
+2. ?p - position: The current position
+
+Preconditions:
+```
+(and 
+    (bad-weather ?p) 
+    (at ?r ?p) 
+    (fly-mode ?r)
+)
+```
+
+Effects:
+```
+(and 
+    (not (fly-mode ?r)) 
+    (drive-mode ?r)
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+No newly defined predicate
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+

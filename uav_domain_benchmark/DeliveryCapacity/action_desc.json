@@ -1,0 +1,20 @@
+{
+  "uav loads a package": {
+    "desc": "This action enables the uav to load a package from a location if the uav's remaining capacity is larger than or equal to the package's weight. For example, if the remaining capacity of uav is 5 units and the weight of package_1 is 2 units, then the uav can load package_1 at location_1.",
+    "extra_info": [],
+    "name_in_pddl": "LOAD",
+    "abstract_desc": "This action enables the uav to load [object1] at [position1] if the uav's [value1] is larger than or equal to [object1]'s [value2]."
+  },
+  "uav unloads a package": {
+    "desc": "This action enables the uav to unload a package it is currently holding at a location. For example, the uav unloads package_1 at location_2.",
+    "extra_info": [],
+    "name_in_pddl": "UNLOAD",
+    "abstract_desc": "This action enables the uav to unload [object1] at [position1]."
+  },
+  "uav moves from one location to another": {
+    "desc": "This action enables the uav to move from one location to another. The total travel distance is accumulated by the distance between these two locations. For example, the uav moves from location_1 to location_2 and total travel distance is increased by the distance between these two locations.",
+    "extra_info": [],
+    "name_in_pddl": "MOVE",
+    "abstract_desc": "This action enables the uav to move from [position1] to [position2]. This action will accumulate [value1] by [value2]."
+  }
+}

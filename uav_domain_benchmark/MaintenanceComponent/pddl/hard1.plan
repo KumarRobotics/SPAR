@@ -1,0 +1,20 @@
+;;!domain: uav_maintenance
+
+;;!problem: uav_maintenance_problem
+
+0.0: (measure_thermal uav c2)
+1.0: (analyse_nomaly_heat uav c2)
+2.0: (measure_thermal uav c3)
+3.0: (analyse_nomaly_heat uav c3)
+4.0: (measure_thermal uav c4)
+5.0: (analyse_normal_heat uav c4)
+6.0: (take_image uav c3)
+7.0: (analyse_good_image uav c3)
+8.0: (take_image uav c1)
+9.0: (analyse_good_image uav c1)
+10.0: (take_image uav c2)
+11.0: (analyse_bad_image uav c2)
+12.0: (measure_thermal uav c1)
+13.0: (analyse_normal_heat uav c1)
+14.0: (take_image uav c4)
+15.0: (analyse_bad_image uav c4)

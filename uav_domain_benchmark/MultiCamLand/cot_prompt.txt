@@ -1,0 +1,250 @@
+Example 1. Move uav to its right position
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?  
+1. The uav ?r  
+2. The current position ?p1  
+3. The right position ?p2
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)  
+1. The uav ?r:  
+    - Must be at the current position - (at ?r ?p1)  
+2. The current position ?p1:  
+    - None  
+3. The right position ?p2:  
+    - Must be clear - (clear ?p2)  
+    - Must be to the right of ?p1 - (right ?p2 ?p1)
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)  
+1. The uav ?r:  
+    - Now at ?p2 - (at ?r ?p2)  
+    - No longer at ?p1 - (not (at ?r ?p1))  
+    - Increase the cost - (increase (cost) 1)
+2. The current position ?p1:  
+    - None  
+3. The right position ?p2:  
+    - None    
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 2. Move uav to its left position
+
+- According to the description, what are the objects involved in this action?
+1. The uav ?r
+2. The current position ?p1
+3. The left position ?p2
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)
+1. The uav ?r:
+    - Must be at its current position - (at ?r ?p1)
+2. The current position ?p1:
+    - None
+3. The left position ?p2:
+    - Target position must be clear - (clear ?p2)
+    - Must be to the left of the current position - (left ?p2 ?p1)
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)
+1. The uav ?r:
+    - Now at the left position - (at ?r ?p2)
+    - No longer at the old position - (not (at ?r ?p1))
+    - Increased cost by 1 - (increase (cost) 1)
+2. The current position ?p1:
+    - None
+3. The left position ?p2:
+    - None
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 3. Move uav to its below position
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?  
+1. The uav ?r  
+2. The current position ?p1  
+3. The position below ?p2
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)  
+1. The uav ?r:  
+    - Must be at the current position - (at ?r ?p1)  
+2. The current position ?p1:  
+    - None  
+3. The position below ?p2:  
+    - Must be clear - (clear ?p2)  
+    - Must be below the current position - (down ?p2 ?p1)
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)  
+1. The uav ?r:  
+    - Now at the new position - (at ?r ?p2)  
+    - No longer at the old position - (not (at ?r ?p1)) 
+    - Increase cost by 1 - (increase (cost) 1) 
+2. The current position ?p1:  
+    - None  
+3. The position below ?p2:  
+    - None 
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 4. Move uav to its above position
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?  
+1. The uav ?r  
+2. The current position ?p1  
+3. The position above ?p2
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)  
+1. The uav ?r:  
+    - Must be at the current position - (at ?r ?p1)  
+2. The current position ?p1:  
+    - None  
+3. The position above ?p2:  
+    - Must be clear - (clear ?p2)  
+    - Must be above the current position - (up ?p2 ?p1)
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)  
+1. The uav ?r:  
+    - Now at the new position - (at ?r ?p2)  
+    - No longer at the old position - (not (at ?r ?p1)) 
+    - Increase cost by 1 - (increase (cost) 1) 
+2. The current position ?p1:  
+    - None  
+3. The position above ?p2:  
+    - None  
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 5. Rotate uav's side camera to view the right side
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?  
+1. The uav ?r
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)  
+1. The uav ?r:  
+    - Must currently be seeing to the left - (see-left ?r)
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)  
+1. The uav ?r:  
+    - Now sees to the right - (see-right ?r)  
+    - No longer sees to the left - (not (see-left ?r))  
+    - Increase cost by 1 - (increase (cost) 1)
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 6. Rotate uav's side camera to view the left side
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?  
+1. The uav ?r
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)  
+1. The uav ?r:  
+    - Must currently be seeing to the right - (see-right ?r)
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)  
+1. The uav ?r:  
+    - Now sees to the left - (see-left ?r)  
+    - No longer sees to the right - (not (see-right ?r))  
+    - Increase cost by 1 - (increase (cost) 1)
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 7. uav detects position below
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?  
+1. The uav ?r  
+2. The current position ?p  
+3. The position below ?pp
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)  
+1. The uav ?r:  
+    - Must be at current position - (at ?r ?p) 
+2. The current position ?p:
+    - None
+3. The position below ?pp:  
+    - The position ?pp must be below ?p - (down ?pp ?p)  
+    - The position ?pp must not have an obstacle - (not (obs ?pp))
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)  
+1. The uav ?r:  
+    - Increase cost by 1 - (increase (cost) 1)
+2. The current position ?p:
+    - None
+3. The position below ?pp:  
+    - Marked as clear - (clear ?pp)  
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 8. uav detects position on the right
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?  
+1. The uav ?r  
+2. The current position ?p  
+3. The position on the right ?pp
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)  
+1. The uav ?r:  
+    - Must be at current position - (at ?r ?p)  
+    - Must be seeing right - (see-right ?r) 
+2. The current position ?p:
+    - None
+3. The position on the right ?pp:  
+    - The position ?pp must be to the right of ?p - (right ?pp ?p)  
+    - The position ?pp must not have an obstacle - (not (obs ?pp))
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)  
+1. The uav ?r:  
+    - Increase cost by 1 - (increase (cost) 1)
+2. The current position ?p:
+    - None
+3. The position on the right ?pp:  
+    - Marked as clear - (clear ?pp)  
+
+- Finally, write the PDDL action in the following format:
+
+
+Example 9. uav detects position on the left
+
+Let's think step by step and answer the following questions. Your output should be strictly following this format:
+
+- According to the description, what are the objects involved in this action?  
+1. The uav ?r  
+2. The current position ?p  
+3. The position on the left ?pp
+
+- For each object, what are the preconditions? State them using predicates or functions (reused or newly created)  
+1. The uav ?r:  
+    - Must be at current position - (at ?r ?p)  
+    - Must be seeing left - (see-left ?r)
+2. The current position ?p: 
+    - None
+3. The position on the left ?pp:  
+    - The position ?pp must be to the left of ?p - (left ?pp ?p)  
+    - The position ?pp must not have an obstacle - (not (obs ?pp))
+
+- For each object, what are the effects? State them using predicates or functions (reused or newly created)  
+1. The uav ?r:  
+    - Increase cost by 1 - (increase (cost) 1)
+2. The current position ?p: 
+    - None  
+3. The position on the left ?pp:  
+    - Marked as clear - (clear ?pp)
+
+- Finally, write the PDDL action in the following format:
+

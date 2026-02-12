@@ -1,0 +1,10 @@
+;;!domain: NavDomain
+
+;;!problem: nav-problem-3
+
+0.0: (move uav1 a c)
+1.0: (move uav1 c e)
+2.0: (move uav1 e f)
+3.0: (move uav1 f g)
+4.0: (move uav1 g h)
+5.0: (reach-goal uav1 h)

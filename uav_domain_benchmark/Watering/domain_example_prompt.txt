@@ -1,0 +1,261 @@
+Example 1. uav loads a watering pot
+Action: This action enables the uav to load a pot at some location if the uav is holding nothing. For example, the uav loads the pot at location_1.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+No predicate has been defined yet
+
+You can create and define new functions, but you may also reuse the following functions:
+No function has been defined yet
+
+Parameters:
+1. ?r - uav: the uav
+2. ?p - pot: the watering pot
+3. ?l - location: current location
+
+Preconditions:
+```
+(and 
+    (at-uav ?r ?l) 
+    (at-pot ?p ?l)
+    (empty ?r)
+)
+```
+
+Effects:
+```
+(and 
+    (hold ?r ?p) 
+    (not (empty ?r))
+    (not (at-pot ?p ?l))
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+1. (at-uav ?r - uav ?l - location): true if uav ?r is at location ?l
+2. (at-pot ?p - pot ?l - location): true if pot ?p is at location ?l
+3. (hold ?r - uav ?p - pot): true if uav ?r is holding pot ?p1
+4. (empty ?r - uav): true if uav ?r is empty
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+
+
+Example 2. Refill a watering pot
+Action: This action enables the uav to refill the pot to its full capacity at the home location. For example, if the uav is holding a pot at the home location, and if the capacity is 10 units, the pot will be filled to 10 units.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+1. (at-uav ?r - uav ?l - location): true if uav ?r is at location ?l
+2. (at-pot ?p - pot ?l - location): true if pot ?p is at location ?l
+3. (hold ?r - uav ?p - pot): true if uav ?r is holding pot ?p1
+4. (empty ?r - uav): true if uav ?r is empty
+
+You can create and define new functions, but you may also reuse the following functions:
+No function has been defined yet
+
+Parameters:
+1. ?r - uav: the uav
+2. ?p - pot: the watering pot
+3. ?l - location: current location
+
+Preconditions:
+```
+(and 
+    (at-uav ?r ?l) 
+    (home ?l) 
+    (hold ?r ?p)
+)
+```
+
+Effects:
+```
+(and 
+    (assign (water-level ?p) (capacity ?p))
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+1. (home ?l - location): true if location ?l is the home location that can refill water
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+1. (water-level ?p - pot): the current water level of pot ?p
+2. (capacity ?p - pot): the water capacity of the pot ?p
+
+
+Example 3. Pour water to fulfill the location's need on water
+Action: This action enables the uav to pour water to the location to fully fulfill the amount of location's need, if the water level in the pot is larger than or equal to the amount of location's need. After that the water level is reduced by the amount of location's need. For example, if the uav is at location_1 and holding a pot with 10 units water, if the need is 5 units at location_1, it will pour 5 units water to fulfill the need.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+1. (at-uav ?r - uav ?l - location): true if uav ?r is at location ?l
+2. (at-pot ?p - pot ?l - location): true if pot ?p is at location ?l
+3. (hold ?r - uav ?p - pot): true if uav ?r is holding pot ?p1
+4. (empty ?r - uav): true if uav ?r is empty
+5. (home ?l - location): true if location ?l is the home location that can refill water
+
+You can create and define new functions, but you may also reuse the following functions:
+1. (water-level ?p - pot): the current water level of pot ?p
+2. (capacity ?p - pot): the water capacity of the pot ?p
+
+Parameters:
+1. ?r - uav: the uav
+2. ?p - pot: the watering pot
+3. ?l - location: current location
+
+Preconditions:
+```
+(and 
+    (at-uav ?r ?l) 
+    (hold ?r ?p) 
+    (> (water-level ?p) 0)
+    (< (need-water ?l) (water-level ?p))
+)
+```
+
+Effects:
+```
+(and 
+    (assign (need-water ?l) 0) 
+    (decrease (water-level ?p) (need-water ?l))
+    (done ?l)
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+1. (done ?l - location): true if the location's need is completely fulfill
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+1. (need-water ?l - location): the amount of water needed at location ?level
+
+
+Example 4. Pour all the water into a location that needs water
+Action: This action enables the uav to pour all the water from the pot into a location, if the water level in the pot is less than the amount of location's need. After that the amount of location's need is reduced by the water level and the water level in the pot is reduced to zero. For example, if the uav is at location_1 and holding a pot with 10 units water and location_1 needs 15 units, it will pour all 10 units water into location_1, and the need at location_1 will be reduced by 10 units and the pot has no water now.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+1. (at-uav ?r - uav ?l - location): true if uav ?r is at location ?l
+2. (at-pot ?p - pot ?l - location): true if pot ?p is at location ?l
+3. (hold ?r - uav ?p - pot): true if uav ?r is holding pot ?p1
+4. (empty ?r - uav): true if uav ?r is empty
+5. (home ?l - location): true if location ?l is the home location that can refill water
+6. (done ?l - location): true if the location's need is completely fulfill
+
+You can create and define new functions, but you may also reuse the following functions:
+1. (water-level ?p - pot): the current water level of pot ?p
+2. (capacity ?p - pot): the water capacity of the pot ?p
+3. (need-water ?l - location): the amount of water needed at location ?level
+
+Parameters:
+1. ?r - uav: the uav
+2. ?p - pot: the watering pot
+3. ?l - location: current location
+
+Preconditions:
+```
+(and 
+    (at-uav ?r ?l) 
+    (hold ?r ?p) 
+    (> (water-level ?p) 0)
+    (> (need-water ?l)(water-level ?p)) 
+)
+```
+
+Effects:
+```
+(and 
+    (decrease (need-water ?l) (water-level ?p))
+    (assign (water-level ?p) 0)
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+No newly defined predicate
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+
+
+Example 5. Move uav from one location to another
+Action: This action enables the uav to move from one location to another. For example, the uav can move from location_1 to location_2.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+1. (at-uav ?r - uav ?l - location): true if uav ?r is at location ?l
+2. (at-pot ?p - pot ?l - location): true if pot ?p is at location ?l
+3. (hold ?r - uav ?p - pot): true if uav ?r is holding pot ?p1
+4. (empty ?r - uav): true if uav ?r is empty
+5. (home ?l - location): true if location ?l is the home location that can refill water
+6. (done ?l - location): true if the location's need is completely fulfill
+
+You can create and define new functions, but you may also reuse the following functions:
+1. (water-level ?p - pot): the current water level of pot ?p
+2. (capacity ?p - pot): the water capacity of the pot ?p
+3. (need-water ?l - location): the amount of water needed at location ?level
+
+Parameters:
+1. ?r - uav: The uav
+2. ?l1 - location: The current location
+3. ?l2 - location: The next location
+
+Preconditions:
+```
+(and 
+    (at-uav ?r ?l1)
+)
+```
+
+Effects:
+```
+(and 
+    (at-uav ?r ?l2) 
+    (not (at-uav ?r ?l1))
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+No newly defined predicate
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+
+
+Example 6. uav unloads a watering pot
+Action: This action enables the uav to unload the pot at some location. For example, the uav unloads the pot at location_1 and is now holding nothing.
+
+You can create and define new predicates, but you may also reuse the following predicates:
+1. (at-uav ?r - uav ?l - location): true if uav ?r is at location ?l
+2. (at-pot ?p - pot ?l - location): true if pot ?p is at location ?l
+3. (hold ?r - uav ?p - pot): true if uav ?r is holding pot ?p1
+4. (empty ?r - uav): true if uav ?r is empty
+5. (home ?l - location): true if location ?l is the home location that can refill water
+6. (done ?l - location): true if the location's need is completely fulfill
+
+You can create and define new functions, but you may also reuse the following functions:
+1. (water-level ?p - pot): the current water level of pot ?p
+2. (capacity ?p - pot): the water capacity of the pot ?p
+3. (need-water ?l - location): the amount of water needed at location ?level
+
+Parameters:
+1. ?r - uav: the uav
+2. ?p - pot: the watering pot
+3. ?l - location: current location
+
+Preconditions:
+```
+(and 
+    (hold ?r ?p)
+    (at-uav ?r ?l)
+)
+```
+
+Effects:
+```
+(and 
+    (not (hold ?r ?p)) 
+    (empty ?r)
+    (at-pot ?p ?l)
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+No newly defined predicate
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+

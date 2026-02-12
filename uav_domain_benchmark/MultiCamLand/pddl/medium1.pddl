@@ -1,0 +1,15 @@
+(define (problem medium-rotate-detect-right-down)
+  (:domain Multicam)
+  (:objects u1 - uav p1 p2 p3 - position)
+  (:init 
+    (at u1 p1)
+    (down p2 p1)
+    (right p3 p2)
+    (not (obs p2))
+    (not (obs p3))
+    (see-left u1)
+  )
+  (:goal 
+    (at u1 p3)
+  )
+)

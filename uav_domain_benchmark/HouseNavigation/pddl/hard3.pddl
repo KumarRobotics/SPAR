@@ -1,0 +1,22 @@
+; more uav
+(define (problem nav-prob-9)
+  (:domain uav-navigation)
+  (:objects u1 u2 - uav l1 l2 l3 l4 l5 l6 l7 l8 l9 l10 - location)
+  (:init
+    (at-uav u1 l1)
+    (at-uav u2 l10)
+    (next-location l1 l2) (next-location l2 l1)
+    (next-location l2 l3) (next-location l3 l2)
+    (next-location l3 l4) (next-location l4 l3)
+    (next-location l4 l5) (next-location l5 l4)
+    (next-location l5 l6) (next-location l6 l5)
+    (next-location l6 l7) (next-location l7 l6)
+    (next-location l7 l8) (next-location l8 l7)
+    (next-location l8 l9) (next-location l9 l8)
+    (next-location l9 l10) (next-location l10 l9)
+  )
+  (:goal (and
+    (goal-reached u1 l10)
+    (goal-reached u2 l1)
+  ))
+)

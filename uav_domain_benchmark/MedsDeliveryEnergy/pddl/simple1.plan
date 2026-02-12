@@ -1,0 +1,5 @@
+;;!domain: uav-sample-energy
+
+;;!problem: test-travel
+
+0.0: (Travel u1 l1 l2)

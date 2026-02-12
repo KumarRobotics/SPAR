@@ -1,0 +1,117 @@
+Example 1. Fly to a connected location
+Action: This action enables the uav to fly from its current location to another location that is directly connected. The uav must be in the air to fly. For example, the uav is in the air and can fly from position_1 to position_2 if they are connected.
+
+You can create and define new predicates, but you may also reuse the following predicates:  
+No predicate has been defined yet
+
+You can create and define new functions, but you may also reuse the following functions:  
+No function has been defined yet
+
+Parameters:  
+1. ?u - uav: The uav  
+2. ?from - location: The starting location  
+3. ?to - location: The destination location  
+
+Preconditions:
+```
+(and 
+    (at ?u ?from)
+    (connected ?from ?to)
+    (in-air ?u)
+)
+```
+
+Effects:
+```
+(and
+    (not (at ?u ?from))
+    (at ?u ?to)
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate)
+1. (at ?u - uav ?l - location): true if uav ?u is currently at location ?l  
+2. (connected ?from - location ?to - location): true if location ?to is directly connected to location ?from  
+3. (in-air ?u - uav): true if uav ?u is currently flying  
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+
+
+Example 2. Check if a location is suitable for landing
+Action: This action enables the uav to verify the current location is a valid landing spot if the uav is in the air and the location is clear. For example, the uav flies to check that the position_1 is clear, then position_1 is marked as suitable for landing.
+
+You can create and define new predicates, but you may also reuse the following predicates:  
+1. (at ?u - uav ?l - location): true if uav ?u is currently at location ?l  
+2. (in-air ?u - uav): true if uav ?u is flying  
+3. (clear ?l - location): true if location ?l is currently unoccupied and free of obstacles  
+
+You can create and define new functions, but you may also reuse the following functions:  
+No function has been defined yet
+
+Parameters:  
+1. ?u - uav: The uav  
+2. ?l - location: The current location of the uav  
+
+Preconditions:
+```
+(and 
+    (at ?u ?l)
+    (in-air ?u)
+    (clear ?l)
+)
+```
+
+Effects:
+```
+(landing-spot ?l)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate) 
+1. (landing-spot ?l - location): true if location ?l is considered suitable for landing  
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)  
+No newly defined function
+
+
+Example 3. Land at a verified landing spot
+Action: This action enables the uav to land at a location that has been previously marked as a valid landing spot. For example, the uav can land at position_1 if it has been marked as a suitable landing spot.
+
+You can create and define new predicates, but you may also reuse the following predicates:  
+1. (at ?u - uav ?l - location): true if uav ?u is currently at location ?l  
+2. (in-air ?u - uav): true if uav ?u is flying  
+3. (clear ?l - location): true if location ?l is currently unoccupied and free of obstacles 
+4. (landing-spot ?l - location): true if location ?l is considered suitable for landing 
+
+You can create and define new functions, but you may also reuse the following functions:  
+No function has been defined yet
+
+Parameters:  
+1. ?u - uav: The uav  
+2. ?l - location: The current location where landing is attempted  
+
+Preconditions:
+```
+(and 
+    (at ?u ?l)
+    (landing-spot ?l)
+    (in-air ?u)
+)
+```
+
+Effects:
+```
+(and 
+    (landed ?u)
+    (not (in-air ?u))
+)
+```
+
+New Predicates:(Please write: "No newly defined predicate" below if there is no new predicate) 
+1. (landed ?u - uav): true if uav ?u has successfully landed  
+
+New Functions:(Please write: "No newly defined function" below if there is no new function)
+No newly defined function
+
+
+

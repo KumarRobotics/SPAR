@@ -1,0 +1,13 @@
+;;!domain: Gate
+
+;;!problem: hard-two-uav-two-gates
+
+0.0: (increase_angle u1)
+1.0: (increase_angle u1)
+2.0: (decrease_angle u2)
+3.0: (decrease_angle u2)
+4.0: (decrease_angle u2)
+5.0: (decrease_angle u2)
+6.0: (decrease_angle u2)
+7.0: (pass-gate u2)
+8.0: (pass-gate u1)

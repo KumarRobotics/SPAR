@@ -1,0 +1,1 @@
+This domain models a uav conducting air quality monitoring over a network of connected regions. The uav is capable of moving between connected regions. Each region requires a certain amount of monitoring time to be considered adequately measured. The uav accumulates time spent monitoring each region until the required monitoring time is met.

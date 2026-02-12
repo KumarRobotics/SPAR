@@ -1,0 +1,11 @@
+;;!domain: DeliveryCapacityDomain
+
+;;!problem: hard-capacity-sequencing
+
+0.0: (LOAD u1 p1 la)
+1.0: (MOVE u1 la lb)
+2.0: (UNLOAD u1 p1 lb)
+3.0: (MOVE u1 lb la)
+4.0: (LOAD u1 p2 la)
+5.0: (MOVE u1 la lc)
+6.0: (UNLOAD u1 p2 lc)

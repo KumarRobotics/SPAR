@@ -1,0 +1,38 @@
+{
+  "uav moves at constant speed from one location to another": {
+    "desc": "This action enables the uav to move from one position to the next connected position without changing its current speed. The current position must be marked as passable. For example, if uav is at position_1, the position_1 is connected to position_2, if the position_1 is marked as passable, then the uav can move from position_1 to position_2 with no speed change.",
+    "extra_info": [],
+    "name_in_pddl": "const-move",
+    "abstract_desc": "This action enables the uav to move from [position1] to [position2] without changing [value1], if [position1] is marked as [state1] and [position1] and [position2] are [state2]."
+  },
+  "uav accelerates from one location to another": {
+    "desc": "This action enables the uav to move from one position to the next connected position while accelerating its current speed by the acceleration rate. The current position must be marked as passable. For example, if uav is at position_1, the position_1 is connected to position_2, if the position_1 is marked as passable, then the uav can move from position_1 to position_2. The current speed is increased by the acceleration rate.",
+    "extra_info": [],
+    "name_in_pddl": "acc-move",
+    "abstract_desc": "This action enables the uav to move from [position1] to [position2] while increasing [value1] by [value2], if [position1] is marked as [state1] and [position1] and [position2] are [state2]."
+  },
+  "uav decelerates from one location to another": {
+    "desc": "This action enables the uav to move from one position to the next connected position while decelerating its current speed by the deceleration rate. The speed value after decelerating must also be positive. The current position must be marked as passable. For example, if uav is at position_1, the position_1 is connected to position_2, if the position_1 is marked as passable, then the uav can move from position_1 to position_2. The current speed is decreased by the deceleration rate.",
+    "extra_info": [],
+    "name_in_pddl": "dcc-move",
+    "abstract_desc": "This action enables the uav to move from [position1] to [position2] while decreasing [value1] by [value2], if [position1] is marked as [state1] and [position1] and [position2] are [state2]."
+  },
+  "uav detect if the cluttered position can be passed": {
+    "desc": "This action enables the uav to mark a position as passable if it is at the cluttered position, and if the current speed is less than or equal to the maximum allowed speed for cluttered terrain. For example, if the uav is at cluttered position_1, and the current speed is 5 and the maximum allowed speed for cluttered position_1 is 10, then the uav can mark the cluttered position_1 as passable.",
+    "extra_info": [],
+    "name_in_pddl": "pass-clutter",
+    "abstract_desc": "This action enables the uav to mark [position1] as [state1], if [position1] is [state2] and the uav is at [position1], and if uav's [value1] is less than or equal to [value2] of [position1]."
+  },
+  "uav detect if the narrow gap can be passed": {
+    "desc": "This action enables the uav to mark a narrow-gap position as passable if it is at the narrow-gap position, and if the current speed is less than or equal to the maximum allowed speed for narrow-gap terrain. For example, if the uav is at narrow-gap position_1, and the current speed is 5 and the maximum allowed speed for narrow-gap position_1 is 10, then the uav can mark the narrow-gap position_1 as passable.",
+    "extra_info": [],
+    "name_in_pddl": "pass-narrow-gap",
+    "abstract_desc": "This action enables the uav to mark [position1] as [state1], if [position1] is [state2] and the uav is at [position1], and if uav's [value1] is less than or equal to [value2] of [position1]."
+  },
+  "uav detect if the open area can be passed": {
+    "desc": "This action enables the uav to mark a open-area position as passable if it is at the open-area position, and if the current speed is equal to or above the minimum allowed speed for open-area terrain. For example, if the uav is at open-area position_1, and the current speed is 10 and the minimum allowed speed for open-area position_1 is 5, then the uav can mark the open-area position_1 as passable.",
+    "extra_info": [],
+    "name_in_pddl": "pass-open-area",
+    "abstract_desc": "This action enables the uav to mark [position1] as [state1], if [position1] is [state2] and the uav is at [position1], and if uav's [value1] is greater than or equal to [value2] of [position1]."
+  }
+}

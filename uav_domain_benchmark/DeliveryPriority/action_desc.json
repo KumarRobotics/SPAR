@@ -1,0 +1,26 @@
+{
+  "uav moves from one location to another": {
+    "desc": "This action enables a uav to move from one location to another. For example, the uav can move from location_1 to location_2.",
+    "extra_info": [],
+    "name_in_pddl": "MOVE",
+    "abstract_desc": "This action enables a uav to move from [position1] to [position2]."
+  },
+  "uav loads a package": {
+    "desc": "This action enables a uav to load a package at some location if the package is marked as loadable. The uav can only load one package at a time. For example, if uav is holding nothing and package_1 is marked as loadable at location_1, the uav can load package_1 at location_1.",
+    "extra_info": [],
+    "name_in_pddl": "LOAD",
+    "abstract_desc": "This action enables a uav to load [object1] at [position1] if [object1] is marked as [state1]. The uav can only load one [object1] at a time."
+  },
+  "Mark the next package as loadable": {
+    "desc": "This action enables a uav to mark a package as loadable if the package follows previously delivered package in the order. It also disables the previously delivered package from being loadable again. For example, if package_1 has been delivered and the next package in the order is package_2, this action marks package_2 as loadable and package_1 as no longer loadable.",
+    "extra_info": [],
+    "name_in_pddl": "PickNext",
+    "abstract_desc": "This action enables a uav to mark [object1] as [state1] and mark [object2] as [state2] if [object1] follows [object2]."
+  },
+  "uav unloads a package": {
+    "desc": "This action enables a uav to unload a held package at the current location, marking the package as delivered. For example, if the uav is holding package_1 and is at location_2, it can unload package_1 at location_2. Package_1 is marked as delivered.",
+    "extra_info": [],
+    "name_in_pddl": "UNLOAD",
+    "abstract_desc": "This action enables a uav to unload [object1] at [position1], and mark [object1] as [state1]."
+  }
+}

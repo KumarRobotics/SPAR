@@ -1,0 +1,26 @@
+;;!domain: uav_passenger_transport
+
+;;!problem: hard-two-uav-three-passengers
+
+0.0: (move u2 l2 l5)
+1.0: (move u1 l1 l3)
+2.0: (board u1 p3 l3)
+3.0: (move u1 l3 l5)
+4.0: (deboard p3 u1 l5)
+5.0: (move u1 l5 l2)
+6.0: (recharge u1 l2)
+7.0: (move u1 l2 l5)
+8.0: (move u1 l5 l2)
+9.0: (move u1 l2 l5)
+10.0: (move u2 l5 l2)
+11.0: (recharge u2 l2)
+12.0: (move u2 l2 l3)
+13.0: (board u2 p1 l3)
+14.0: (move u2 l3 l2)
+15.0: (recharge u2 l2)
+16.0: (move u2 l2 l5)
+17.0: (deboard p1 u2 l5)
+18.0: (move u2 l5 l1)
+19.0: (board u2 p2 l1)
+20.0: (move u2 l1 l5)
+21.0: (deboard p2 u2 l5)

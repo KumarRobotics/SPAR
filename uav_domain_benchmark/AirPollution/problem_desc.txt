@@ -1,0 +1,1 @@
+There are three designated regions: region_1, region_2, and region_3. A UAV is required to follow a specific route: it starts at region_1, then moves to region_2, followed by region_3, and returns to region_1 to initiate a new monitoring cycle. The UAV must complete a total of four cycles of this route to collect air quality data for each region.

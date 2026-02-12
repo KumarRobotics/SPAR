@@ -1,0 +1,12 @@
+;;!domain: MarsExplorationDomain
+
+;;!problem: mars-prob-7
+
+0.0: (Move-rov r1 l1 l2)
+1.0: (Move-uav u1 l1 l2)
+2.0: (Move-rov r1 l2 l3)
+3.0: (Explore u1 l2)
+4.0: (Move-rov r1 l3 l1)
+5.0: (Move-uav u1 l2 l1)
+6.0: (Move-rov r1 l1 l2)
+7.0: (GetResource r1 l2)

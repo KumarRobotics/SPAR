@@ -1,0 +1,8 @@
+;;!domain: uav-sample-collection
+
+;;!problem: sample-delivery-disjoint-start
+
+0.0: (move-uav u1 base siteA)
+1.0: (get-blood-sample u1 s1 siteA)
+2.0: (move-uav u1 siteA lab)
+3.0: (give-blood-sample u1 s1 lab)

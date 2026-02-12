@@ -1,0 +1,8 @@
+;;!domain: DeliveryOrderDomain-STRIPS
+
+;;!problem: medium-picknext-continue
+
+0.0: (PickNext p1 p2)
+1.0: (LOAD u1 p2 l1)
+2.0: (MOVE u1 l1 l2)
+3.0: (UNLOAD u1 p2 l2)

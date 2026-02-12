@@ -1,0 +1,5 @@
+;;!domain: uav-sample-energy
+
+;;!problem: test-recharge
+
+0.0: (Recharge_Battery u1 l1)

@@ -1,0 +1,11 @@
+;;!domain: UAV-Perching
+
+;;!problem: uav-perching-problem
+
+0.0: (fly uav1 loc_start loc_mid)
+1.0: (detect-perch-spot uav1 loc_mid)
+2.0: (perch uav1 loc_mid)
+3.0: (takeoff uav1 loc_mid)
+4.0: (fly uav1 loc_mid loc_goal)
+5.0: (detect-perch-spot uav1 loc_goal)
+6.0: (perch uav1 loc_goal)

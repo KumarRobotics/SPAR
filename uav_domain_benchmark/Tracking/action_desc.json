@@ -1,0 +1,14 @@
+{
+  "Move uav from one position to another": {
+    "desc": "This action enables the uav to move from one position to another connected position. This action incurs one unit of cost. For example, the uav can move from at position_1 to position_2 if the two positions are connected. The cost incurred is 1 unit.",
+    "extra_info": [],
+    "name_in_pddl": "move",
+    "abstract_desc": "This action enables the uav to move from [position1] to [position2] if [position1] and [position2] are [state1]. This action will increase [value1] by [value2]."
+  },
+  "Update the tracking subgoal": {
+    "desc": "This action enables the uav to update its current subgoal to the next subgoal if it is at the current subgoal potision, the uav then marks the current subgoal as reached. For example, if the current subgoal is position_1 while the next subgoal is position_2, and the uav is at position_1, then it will mark position_1 as reached subgoal and update the position_2 as the current subgoal.",
+    "extra_info": [],
+    "name_in_pddl": "update-subgoal",
+    "abstract_desc": "This action enables the uav to mark [position2] as [state1], if the uav is at [position1] and [position1] is [state1]."
+  }
+}

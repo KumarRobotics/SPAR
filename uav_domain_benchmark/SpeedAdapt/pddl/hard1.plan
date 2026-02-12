@@ -1,0 +1,16 @@
+;;!domain: SpeedAdapt
+
+;;!problem: SpeedAdaptProb
+
+0.0: (dcc-move uav p1 p2)
+1.0: (pass-clutter uav p2)
+2.0: (acc-move uav p2 p3)
+3.0: (const-move uav p3 p4)
+4.0: (acc-move uav p4 p5)
+5.0: (pass-open-area uav p5)
+6.0: (dcc-move uav p5 p6)
+7.0: (dcc-move uav p6 p7)
+8.0: (const-move uav p7 p8)
+9.0: (const-move uav p8 p9)
+10.0: (pass-narrow-gap uav p9)
+11.0: (const-move uav p9 p10)
