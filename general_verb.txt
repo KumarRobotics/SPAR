@@ -1,0 +1,2 @@
+general verb:
+[move, mark, load, unload, reassign, take off, land, remove, increase/decrease, switch, take picture, analysis, measure, push, pour]

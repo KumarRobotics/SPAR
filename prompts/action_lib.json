@@ -1,0 +1,770 @@
+{
+  "This action enables a uav to move from its current position to a new position if two positions are connected. This costs one unit of energy. For example, the uav moves from position_1 to position_2 if there is a connection between them. This costs one unit of energy.": [
+    "2DNavigation",
+    "move",
+    "uav move from one position to another",
+    "This action enables a uav to move from [position1] to [position2] if [position1] and [position2] are [state1]. This action will increase [value1] by [value2]."
+  ],
+  "This action enables a uav to mark the task as finished when it is at the position that is marked as goal position. For example, if position_2 is the goal position and the uav is currently at position_2, it can perform this action to indicate that the task is finished.": [
+    "2DNavigation",
+    "reach-goal",
+    "Verify if uav has reached the goal",
+    "This action enables a uav to mark that it has [state1], if it is at [position1] and [position1] is [state1]."
+  ],
+  "This action enables the uav to move from one location to another if the uav's battery level is larger than the energy cost of the traveling between two locations. For example, if the uav is at loc1, the battery level of uav is 5 units and the energy cost from loc1 to loc2 is 2 units, then the uav can move from loc1 to loc2.": [
+    "AirPassenger",
+    "move",
+    "Move the uav between two locations",
+    "This action enables the uav to move from [position1] to [position2] if the uav's [value1] is larger than [value2] between [position1] and [position2]."
+  ],
+  "This action enables the uav to pick up a passenger at some location if the uav's remaining capacity is larger than or equal to the passenger's weight. For example, if Alice and the uav are both at loc2, Alice's weight is 3 units and the remaining capacity of uav is 5 units, Alice can board the uav.": [
+    "AirPassenger",
+    "board",
+    "Board a passenger onto the uav",
+    "This action enables the uav to load [object1] at [position1] if the uav's [value1] is larger than or equal to [object1]'s [value2]."
+  ],
+  "This action enables the uav to drop a passenger off at some location if the passenger is in the uav. For example, if Alice is in the uav and the uav is at loc3, she can deboard and appear at loc3.": [
+    "AirPassenger",
+    "deboard",
+    "Deboard a passenger from the uav",
+    "This action enables the uav to unload [object1] at [position1] if [object1] is [state1]."
+  ],
+  "This action enables the uav to reassign its battery to maximum capacity if it is located at a charging station. For example, if the uav is at loc1 and loc1 is a charging station, it can perform recharge to full battery capacity.": [
+    "AirPassenger",
+    "recharge",
+    "Recharge the uav at a charging station",
+    "This action enables the uav to reassign [value1] to [value2] if it is at [position1]."
+  ],
+  "This action enables a uav to move from its current region to a new region if two regions are connected. For example, the uav moves from region_1 to region_2 if there is a connection between them.": [
+    "AirPollution",
+    "move",
+    "uav move from one region to another",
+    "This action enables a uav to move from [position1] to [position2] if [position1] and [position2] are [state1]."
+  ],
+  "This action enables a uav to monitor in the current region if the region's monitoring time is less than the required monitoring time of that region. Each execution of this action increases the region's monitoring time by one unit. For example, if the uav is in region_1, the current monitoring time of region_1 is 2 units and the required monitoring time for region_1 is 3 units, then this action will increase region_1's monitoring time by 1 unit.": [
+    "AirPollution",
+    "monitoring",
+    "Monitoring at one region",
+    "This action enables a uav to observe in [position1] if [position1]'s [value1] is less than [position1]'s [value2]. This action will increase the [position1]'s [value1] by [value3]."
+  ],
+  "This action allows the robot to pick up an object from a surface or stack. For example, the robot picks up a block from the table or from another block.": [
+    "BlockWorld",
+    "pickup",
+    "Pick up an object",
+    null
+  ],
+  "This action enables the robot to put down an object that it is holding. For example, the robot puts down a block on the table or on top of another block.": [
+    "BlockWorld",
+    "putdown",
+    "Put down an object",
+    null
+  ],
+  "This action enables the robot to place one object on top of another, creating a stack. For example, the robot stacks a yellow block on top of a green block.": [
+    "BlockWorld",
+    "stack",
+    "Stack an object on top of another",
+    null
+  ],
+  "This action enables the robot to remove an object from the top of a stack. For example, the robot unstacks a yellow block that is on top of a green block.": [
+    "BlockWorld",
+    "unstack",
+    "Unstack an object from the top of another",
+    null
+  ],
+  "This action enables the uav to pick up a sprayer if the uav is on the ground and currently carrying nothing. This action incurs a cost of 5. For example, the uav can pick up a sprayer from the ground if the uav and sprayer are both on the ground, and incur 5 units cost.": [
+    "CeilingPaint",
+    "Pick-up-sprayer",
+    "Pick up a sprayer",
+    "This action enables the uav to load [object1] on [position1] if the uav is on [position1] and is [state1]. This action will increase [value1] by [value2]."
+  ],
+  "This action enables the uav to put down a sprayer that it is holding if the uav is on the ground. This action incurs a cost of 4. For example, the uav puts down a sprayer on the ground if it is on the gound, and incur 4 units cost.": [
+    "CeilingPaint",
+    "Put-down-sprayer",
+    "Put down a sprayer",
+    "This action enables the uav to unload [object1] if the uav is on [position1]. This action will increase [value1] by [value2]."
+  ],
+  "This action enables the uav to take off from the ground and start flying. This action incurs a cost of 6. For example, the uav can take off from the ground and be in the air, and incur 6 units cost.": [
+    "CeilingPaint",
+    "Take-off",
+    "uav takes off from the ground",
+    "This action enables the uav to take off from [position1] and start [state1]. This action will increase [value1] by [value2]."
+  ],
+  "This action enables the uav to land on the ground after flying. This action incurs a cost of 7. For example, the uav can land on the ground after flying and incur 7 units cost.": [
+    "CeilingPaint",
+    "Landing",
+    "uav lands on the ground",
+    "This action enables the uav to land at [position1] after [state1]. This action will increase [value1] by [value2]."
+  ],
+  "This action enables the uav to fly to another position from the current position on the ceiling, the uav must be in the air all the time. This action incurs a cost of 1. For example, the uav can fly from position_1 to position_2 on the ceiling, and incur 1 unit cost.": [
+    "CeilingPaint",
+    "Fly-to",
+    "uav flies to another position on the ceiling",
+    "This action enables the uav to move from [position1] to [position2], the uav must be in [state1]. This action will increase [value1] by [value2]."
+  ],
+  "This action enables the uav to paint a position with specific color on the ceiling, the uav must hold the sprayer with that specific color, and must be in the air to paint. This action incurs a cost of 1. For example, if the UAV is flying and equipped with a red sprayer, it can paint position_1 red on the ceiling, and incur 1 unit cost.": [
+    "CeilingPaint",
+    "Paint",
+    "uav paints a position on the ceiling",
+    "This action enables the uav to paint at [position1] with [state1], the uav must load [object1] with [state1], the uav also need to be in [state2]. This action will increase [value1] by [value2]."
+  ],
+  "This action enables the truck to load a packagea at some location, the truck doesn't have load limit. For example, truck_1 loads package_1 at location_1.": [
+    "CityCargo",
+    "truck-load",
+    "Load a package into a truck",
+    "This action enables the truck to load [object1] at [position1], the truck doesn't have load limit."
+  ],
+  "This action enables the truck to unload a package at some location. For example, truck_1 unloads package_1 at location_2.": [
+    "CityCargo",
+    "truck-unload",
+    "Unload a package from a truck",
+    "This action enables the truck to unload [object1] at [position1]."
+  ],
+  "This action enables the uav to load a package if the location is an airport. the uav doesn't have load limit. For example, uav loads package_1 at airport_1.": [
+    "CityCargo",
+    "uav-load",
+    "Load a package into an uav",
+    "This action enables the uav to load [object1] if [position1] is [state1]. The uav doesn't have load limit."
+  ],
+  "This action enables the uav to unload a package if the location is an airport. For example, uav unloads package_1 at airport_2.": [
+    "CityCargo",
+    "uav-unload",
+    "Unload a package from an uav",
+    "This action enables the uav to unload [object1] if [position1] is [state1]."
+  ],
+  "This action enables the truck to go from one location to another inside the same city. For example, truck_1 drives from location_1 to location_2 inside city_1.": [
+    "CityCargo",
+    "truck-drive",
+    "Drive a truck from one location to another inside the same city",
+    "This action enables the truck to move from [object1]'s [position1] to [object1]'s [position2]."
+  ],
+  "This action enables the uav to fly from one airport to another airport across different cities. For example, uav flies from airport_1 in city_1 to airport_2 in city_2.": [
+    "CityCargo",
+    "uav-fly",
+    "Fly an uav from one location to another in a city",
+    "This action enables the uav to move from [object1]'s [position1] to [object2]'s [position2]."
+  ],
+  "This action enables the uav to pick up a package at some location. The uav can only carry one package at a time. For example, the uav loads package_1 at location_1.": [
+    "Delivery",
+    "LOAD",
+    "Load a package",
+    "This action enables the uav to load [object1] at [position1]. The uav can only load one [object1] at a time."
+  ],
+  "This action enables the uav to unload a package at some location. For example, the uav unloads package_1 at location_1.": [
+    "Delivery",
+    "UNLOAD",
+    "Unload a package",
+    "This action enables the uav to unload [object1] at [position1]."
+  ],
+  "This action allows the uav to travel from its current location to another location. For example, the uav moves from location_1 to location_2.": [
+    "Delivery",
+    "MOVE",
+    "Move uav to another location",
+    "This action allows the uav to move from [position1] to [position2]."
+  ],
+  "This action enables the uav to load a package from a location if the uav's remaining capacity is larger than or equal to the package's weight. For example, if the remaining capacity of uav is 5 units and the weight of package_1 is 2 units, then the uav can load package_1 at location_1.": [
+    "DeliveryCapacity",
+    "LOAD",
+    "uav loads a package",
+    "This action enables the uav to load [object1] at [position1] if the uav's [value1] is larger than or equal to [object1]'s [value2]."
+  ],
+  "This action enables the uav to unload a package it is currently holding at a location. For example, the uav unloads package_1 at location_2.": [
+    "DeliveryCapacity",
+    "UNLOAD",
+    "uav unloads a package",
+    "This action enables the uav to unload [object1] at [position1]."
+  ],
+  "This action enables the uav to move from one location to another. The total travel distance is accumulated by the distance between these two locations. For example, the uav moves from location_1 to location_2 and total travel distance is increased by the distance between these two locations.": [
+    "DeliveryCapacity",
+    "MOVE",
+    "uav moves from one location to another",
+    "This action enables the uav to move from [position1] to [position2]. This action will accumulate [value1] by [value2]."
+  ],
+  "This action enables a uav to load a package at a location, provided the location is not a warehouse. The uav can carry only one package at a time. For example, if the uav is currently empty and located at position_1 as package_1, and position_1 is not a warehouse, it can load package_1.": [
+    "DeliveryDurative",
+    "LOAD",
+    "uav loads a package",
+    "This action enables a uav to load [object1] at [position1], if [position1] is not [state1]. The uav can load only one [object1] at a time."
+  ],
+  "This action enables a uav to unload a held package at a location, provided the location is a warehouse. Each package has an associated value, and unloading it increases the total value accordingly. For example, if the uav is holding package_1 at a warehouse, it can unload the package, permanently store it, and increase the total value by the value of package_1.": [
+    "DeliveryDurative",
+    "UNLOAD",
+    "uav unloads a package",
+    "This action enables a uav to unload [object1] at [position1], if [position1] is [state1]. This action will increase [value2] by [object1]'s [value1]."
+  ],
+  "This action enables a uav to move from one location to another with specific time cost increased between the two locations. For example, the uav can move from location_1 to location_2 and the total time cost is increased by the travel duration between two locations.": [
+    "DeliveryDurative",
+    "MOVE",
+    "uav moves from one location to another",
+    "This action enables a uav to move from [position1] to [position2]. This action will increase [value1] by [value2] between [position1] and [position2]."
+  ],
+  "This action enables a uav to move from one location to another. For example, the uav can move from location_1 to location_2.": [
+    "DeliveryPriority",
+    "MOVE",
+    "uav moves from one location to another",
+    "This action enables a uav to move from [position1] to [position2]."
+  ],
+  "This action enables a uav to load a package at some location if the package is marked as loadable. The uav can only load one package at a time. For example, if uav is holding nothing and package_1 is marked as loadable at location_1, the uav can load package_1 at location_1.": [
+    "DeliveryPriority",
+    "LOAD",
+    "uav loads a package",
+    "This action enables a uav to load [object1] at [position1] if [object1] is marked as [state1]. The uav can only load one [object1] at a time."
+  ],
+  "This action enables a uav to mark a package as loadable if the package follows previously delivered package in the order. It also disables the previously delivered package from being loadable again. For example, if package_1 has been delivered and the next package in the order is package_2, this action marks package_2 as loadable and package_1 as no longer loadable.": [
+    "DeliveryPriority",
+    "PickNext",
+    "Mark the next package as loadable",
+    "This action enables a uav to mark [object1] as [state1] and mark [object2] as [state2] if [object1] follows [object2]."
+  ],
+  "This action enables a uav to unload a held package at the current location, marking the package as delivered. For example, if the uav is holding package_1 and is at location_2, it can unload package_1 at location_2. Package_1 is marked as delivered.": [
+    "DeliveryPriority",
+    "UNLOAD",
+    "uav unloads a package",
+    "This action enables a uav to unload [object1] at [position1], and mark [object1] as [state1]."
+  ],
+  "This action enables the uav to move from its current area to a different area if two areas are connected. For example, the uav moves from area_1 to area_2 if area_1 and area_2 are connected.": [
+    "ForestFireCollaboration",
+    "MOVE-uav",
+    "Move uav to another area",
+    "This action enables the uav to move from [position1] to [position2] if [position1] and [position2] are [state1]."
+  ],
+  "This action enables the ugv to move from one area to another if two areas are connected. For example, the ugv moves from area_1 to area_2 if area_1 and area_2 are connected.": [
+    "ForestFireCollaboration",
+    "MOVE-ugv",
+    "Move ugv to another area",
+    "This action enables the ugv to move from [position1] to [position2] if [position1] and [position2] are [state1]."
+  ],
+  "This action enables the uav to mark an area dangerous if the area has fire and the uav is at that area. For example, if the uav at area_2 and area_2 has fire, uav will mark area_2 as dangerous.": [
+    "ForestFireCollaboration",
+    "CALL-uav",
+    "Monitor an area for fire",
+    "This action enables the uav to mark [position1] as [state1], if [position1] has [object1] and the uav is at [position1]."
+  ],
+  "This action enables the ugv to extinguish a fire in a area only if the area is dangerous. For example, the ugv extinguishes the fire in area_1 if area_1 has been marked as dangerous.": [
+    "ForestFireCollaboration",
+    "ExTINGUISH-FIRE",
+    "Extinguish fire in an area",
+    "This action enables the ugv to remove [object1] in [position1] if [position1] is [state1]."
+  ],
+  "This action enables the uav to increase its current angle by some rate if the current angle is less than the required angle. For example, if the gate angle is 10 degrees and the uav's current angle is 5 degress, this action will increase the uav angle by some control rate.": [
+    "Gate",
+    "increase_angle",
+    "Increase uav orientation toward target gate angle",
+    "This action enables the uav to increase its [value1] by [value2] if [value1] is less than [value3]."
+  ],
+  "This action enables the uav to decrease its current angle by some rate if the current angle is more than the required angle. For example, if the gate angle is 10 degrees and the uav's current angle is 15 degress, this action will decrease the uav angle by some control rate.": [
+    "Gate",
+    "decrease_angle",
+    "Decrease uav orientation toward target gate angle",
+    "This action enables the uav to decrease its [value1] by [value2] if [value1] is greater than [value3]."
+  ],
+  "This action enables the uav to pass through the gate if the uav's angle equals to the gate's required angle. For example, if the gate angle is 10 degrees and the uav's current angle is also 10 degress, this action will enable the uav to pass through the gate.": [
+    "Gate",
+    "pass-gate",
+    "Pass through the gate",
+    "This action enables the uav to move from [position1] if [value1] equals [value2]."
+  ],
+  "This action enables the uav to move from its current location to a neighboring location if the current location is clear and they are connected. For example, if the uav is at location_1 and location_1 is clear and connected to location_2, the uav can move to location_2.": [
+    "GraspDelivery",
+    "move",
+    "Move uav from one location to another",
+    "This action enables the uav to move from [position1] to [position2] if [position1] is [state1] and [position1] and [position2] are [state2]."
+  ],
+  "This action enables the uav to mark the current location as narrow and not clear, if the uav is at a gap location. For example, if the uav is at location_1, and location_1 is a gap, then the uav can mark this location as narrow and not clear.": [
+    "GraspDelivery",
+    "detect-obstacle",
+    "Detect if current location is a gap",
+    "This action enables the uav to mark [position1] as [state1] and [state2] if [position1] is [state3]."
+  ],
+  "This action enables the uav to mark the current location as clear and not narrow, if the uav is not at a gap location. For example, if the uav is at location_1, and location_1 is not a gap, then the uav can mark this location as clear and not narrow.": [
+    "GraspDelivery",
+    "detect-clear",
+    "Detect if current location is not gap",
+    "This action enables the uav to mark [position1] as [state1] and [state2] if [position1] is [state3]."
+  ],
+  "This action enables the uav to move between two locations if these two locations are connected, and the current location is marked as narrow and not clear, the uav can pass it in a shrunk state. For example, if the uav is at location_1 and is in a shrunk state, and location_1 is marked as narrow and not clear, the uav can pass through the gap to another connected location.": [
+    "GraspDelivery",
+    "shrink-pass",
+    "uav passes through a gap",
+    "This action enables the uav to move from [position1] to [position2] if [position1] and [position2] are [state1] and [position1] is marked as [state2] and [state3], and if the uav is in [state4]."
+  ],
+  "This action enables the uav to enter shrunk mode if it is currently in normal mode. For example, a uav in normal size can shrink to switch into shrunk mode.": [
+    "GraspDelivery",
+    "shrinking",
+    "Shrink the uav",
+    "This action enables the uav to switch to [state1] if it is currently in [state2]."
+  ],
+  "This action enables the uav to enter normal size mode if it is currently in shrunk mode. For example, a shrunk uav can expand to switch into normal size mode.": [
+    "GraspDelivery",
+    "release",
+    "Release the uav to normal size",
+    "This action enables the uav to switch to [state1] if it is currently in [state2]."
+  ],
+  "This action enables the uav to grasp a package at its current location, the uav must be in shrunk mode for holding. For example, if the uav is at location_1 and there is a package at location_1, the uav can grasp the package and shrink to hold it.": [
+    "GraspDelivery",
+    "grasp",
+    "Grasp a package",
+    "This action enables the uav to load [object1] at [position1], the uav must be in [state1]."
+  ],
+  "This action enables the uav to release a held package at the current location and return to normal size mode. For example, if the uav is at location_1 and it has a package held, it can unload the package at location_1 and return to normal size.": [
+    "GraspDelivery",
+    "unload",
+    "Unload a package",
+    "This action enables the uav to unload [object1] at [position1] and be in [state1]."
+  ],
+  "This action enables the uav to move from its current position to a new position, if its battery level is larger than or equal to the energy cost between two positions. For example, uav_1 moves from loc_1 to loc_2 if it has 10 units battery level and the cost between loc_1 and loc_2 is 7 units.": [
+    "GraspFruit",
+    "move",
+    "Move a uav from one position to another",
+    "This action enables the uav to move from [position1] to [position2], if uav's [value1] is larger than or equals to the [value2] between [position1] and [position2]."
+  ],
+  "This action enables the uav to recharge its battery level to full capacity at a location if the location is a charging spot. For example, if the battery capacity is 10 units and loc_1 is a charging spot, uav_1 can recharge its battery level to 10 units at loc_1.": [
+    "GraspFruit",
+    "recharge",
+    "Recharge uav at charging station",
+    "This action enables the uav to reassign [value1] to [value2] at [position1] if [position1] is [state1]."
+  ],
+  "This action enables a uav to grasp a fruit located at the same position by clamping the gripper, provided that the fruit is marked as good. The uav can only grasp one fruit at a time. For example, if the fruit_1 is marked as good, then uav_1 can grasp and load the fruit_1 at loc_1 using gripper_1.": [
+    "GraspFruit",
+    "grasp-fruit",
+    "Grasp a good fruit using uav's gripper",
+    "This action enables the uav to load [object1] at [location1], if [object1] is marked as [state1] and uav's [object2] is [state2]."
+  ],
+  "This action enables a uav to unload a held fruit at its current location and release its gripper. For example, uav_1 unloads fruit_1 at loc_2, and its gripper_1 is released.": [
+    "GraspFruit",
+    "put-down-fruit",
+    "Put down a fruit held by uav",
+    "This action enables the uav to unload [object1] at [location1], and the uav's [object] is in [state1]."
+  ],
+  "This action enables the uav to take an image of a fruit at the same location. If the fruit is not rotten, the uav will mark it as good. For example, uav_1 take an image of fruit_1 at loc_2, if the fruit_1 is not rotten, then uav_1 will mark fruit_1 as a good fruit.": [
+    "GraspFruit",
+    "take-not-rot-image",
+    "Take image of not rotten fruit",
+    "This action enables the uav to take a picture of [object1] at [location1]. If [object1] is in [state1], the uav will mark it as [state2]."
+  ],
+  "This action enables the uav to take an image of a fruit at the same location. If the fruit is rotten, the uav will mark it as not good. For example, uav_1 take an image of fruit_1 at loc_2, if the fruit_1 is rotten, then uav_1 will mark fruit_1 as not a good fruit.": [
+    "GraspFruit",
+    "take-rot-image",
+    "Take image of rotten fruit",
+    "This action enables the uav to take a picture of [object1] at [location1]. If [object1] is in [state1], the uav will mark it as [state2]."
+  ],
+  "This action enables the uav to move from its current position to a new position if two positions are connected and the new position is marked as clear. Each move incurs a unit cost. For example, if the uav is at position_1, position_1 is connected to position_2, if position_2 is marked as clear, then the uav can move to position_2.": [
+    "GridExplore",
+    "move",
+    "Move uav to another position",
+    "This action enables the uav to move from [position1] to [position2] if [position1] and [position2] are [state1], and if [position2] is marked as [state2]. This action will increase [value1] by [value2]."
+  ],
+  "This action enables the uav to mark the position as clear if the position is connected to its current position, and if the connected position does not have obstacle. For example, the uav is at position_1 and position_2 is connected to position_1, if position_2 does not have obstacle, then the uav can mark position_2 as clear.": [
+    "GridExplore",
+    "mark-clear",
+    "Detect obstacles in adjacent positions",
+    "This action enables the uav to mark [position1] as [state1] if [position1] and [position2] are [state2], and [position1] is [state3]."
+  ],
+  "This action enables the uav to move from its current location to the next location if two locations are connected. For example, the uav can move from location_1 to location_2 if they are connected.": [
+    "HouseNavigation",
+    "Move-to-Next-Location",
+    "Move to the next location",
+    "This action enables the uav to move from [position1] to [position2] if [position1] and [position2] are [state1]."
+  ],
+  "This action enables a uav to mark that it has reached the goal, if it is at the goal position. For example, if position_2 is the goal position and the uav is currently at position_2, it can perform this action to indicate that it has reached the goal.": [
+    "HouseNavigation",
+    "Verify-Arrival-at-Goal-Location",
+    "Check if the uav has reached the goal location",
+    "This action enables the uav to mark that it has [state1] if it is at [position1] and [position1] is [state2]."
+  ],
+  "This action enables the uav to fly from its current location to another location that is directly connected. The uav must be in the air to fly. For example, the uav is in the air and can fly from position_1 to position_2 if they are connected.": [
+    "Landing",
+    "fly",
+    "Fly to a connected location",
+    "This action enables the uav to move from [position1] to [position2] if [position1] and [position2] are [state1] and if the uav is in [state2]."
+  ],
+  "This action enables the uav to mark the current location as a valid landing spot, if the uav is in the air and if the location is clear. For example, the uav flies to check position_1, if position_1 is clear, then position_1 is marked as valid landing spot.": [
+    "Landing",
+    "check-landing-spot",
+    "Check if a location is suitable for landing",
+    "This action enables the uav to mark [position1] as [state1], if the uav is in [state2] and [position1] is [state3]."
+  ],
+  "This action enables the uav to land at a location, if the location has been marked as a valid landing spot. For example, the uav can land at position_1 if it has been marked as a valid landing spot.": [
+    "Landing",
+    "land",
+    "Land at a verified landing spot",
+    "This action enables the uav to land at [position1] if [position1] is marked as [state1]."
+  ],
+  "This action enables a uav to take an image of a component, but only if it is currently available. After taking the image, the uav becomes unavailable.": [
+    "MaintenanceComponent",
+    "take_image",
+    "Take an image of a component",
+    "This action enables the uav to take a picture of [object1] if the uav is [state1]. After taking picture, the uav becomes [state2]."
+  ],
+  "This action enables a uav to analyze an image of a component that is in a bad state. If an image has been taken, the uav can process it and mark the component as an anomaly. After analysis, the uav becomes available again.": [
+    "MaintenanceComponent",
+    "analyse_bad_image",
+    "Analyse image of a component that is in bad state",
+    "This action enables the uav to analyze [object1] of [object2] that is in [state1]. If [object1] has been taken, the uav processes it, marks [object2] as [state2], and becomes [state3]."
+  ],
+  "This action enables a uav to analyze an image of a component that is not in a bad state. If an image has been taken, the uav can process it and then doesn't need to do anything. After analysis, the uav becomes available again.": [
+    "MaintenanceComponent",
+    "analyse_good_image",
+    "Analyse image of a good component",
+    "This action enables the uav to analyze [object1] of [object2] that is in [state1] state. If [object1] has been taken, the uav does nothing and becomes [state2]."
+  ],
+  "This action enables a uav to measure the thermal value of a component, but only if the uav is currently available. After measuring, the uav becomes unavailable.": [
+    "MaintenanceComponent",
+    "measure_thermal",
+    "Measure thermal value of a component",
+    "This action enables the uav to measure [value1] of [object1] if the uav is [state1]. After measuring, the uav becomes [state2]."
+  ],
+  "This action enables a uav to analyze the thermal value of a component. If the value is below the maximum threshold, the uav doesn't have to do anything. After analysis, the uav becomes available again.": [
+    "MaintenanceComponent",
+    "analyse_normal_heat",
+    "Analyse thermal value of a good component",
+    "This action enables the uav to analyze [value1] of [object1]. If [value1] is below [value2], the uav does nothing and becomes [state1]."
+  ],
+  "This action enables a uav to analyze the thermal value of a component. If the value is equal to or above the maximum threshold, the component is marked as an anomaly. After the analysis, the uav becomes available again.": [
+    "MaintenanceComponent",
+    "analyse_nomaly_heat",
+    "Analyse thermal value of a anomaly component",
+    "This action enables the uav to analyze [value1] of [object1]. If [value1] is above or equal to [value2], the uav can mark [object1] as [state1], and the uav becomes [state2]."
+  ],
+  "This action enables a uav to move from its current location to another target location. For example, a uav can move from Site-A to Site-B.": [
+    "MarsExploration",
+    "Move-uav",
+    "Move uav from one location to another",
+    "This action enables the uav to move from [position1] to [position2]."
+  ],
+  "This action enables a rover to drive from its current position to another target location. For example, a rover may travel from Site-B to Site-C.": [
+    "MarsExploration",
+    "Move-rov",
+    "Move Rover from one location to another",
+    "This action enables the rover to move from [position1] to [position2]."
+  ],
+  "This action enables a uav to explore a location that contains potential resources. If the location holds a resource, then the uav marks the location as explored. For example, if the uav is at Site-A where there is a resource, the uav will mark Site-A as explored.": [
+    "MarsExploration",
+    "Explore",
+    "uav explores a location",
+    "This action enables the uav to mark [position1] as [state1] if [position1] has [object1]."
+  ],
+  "This action enables a rover to collect resources from a previously explored location. The resource at each location can only be collected once. The amount collected increases the total resource based on the value at that location. For example, if the Site-A has 5 units of resource, a rover can collect it, and the total resource increases by 5 units.": [
+    "MarsExploration",
+    "GetResource",
+    "Rover gets resource from locations",
+    "This action enables the rover to load [object1] from [position1] if [position1] is [state1]. This action will increase [value1] by [value2] of [object1]."
+  ],
+  "This action enables a robot arm to begin cooking a meal at a location if the meal is not yet prepared. For example, if the arm is at kitchen_1 and meal_1 is unprepared, the robot arm can start cooking meal_1 at kitchen_1.": [
+    "MealDelivery",
+    "start-cooking",
+    "robot arm starts cooking a meal at some location",
+    "This action enables a robot arm to begin cooking [object1] at [position1] if [object1] is [state1]."
+  ],
+  "This action enables a robot arm to finish cooking a meal that it has started cooking. The meal becomes prepared and is available for picking up at the location. For example, if arm_1 is cooking meal_1 at kitchen_1, it can finish cooking and meal_1 becomes prepared and present at kitchen_1.": [
+    "MealDelivery",
+    "finish-cooking",
+    "robot arm finishes cooking a meal at some location",
+    "This action enables a robot arm to finish cooking [object1]. [object1] becomes [state1] and available at [position1]."
+  ],
+  "This action enables the UAV to fly from one location to another. For example, the UAV can fly from kitchen_1 to location_1.": [
+    "MealDelivery",
+    "fly",
+    "uav flies from one location to another",
+    "This action enables the uav to move from [position1] to [position2]."
+  ],
+  "This action enables the UAV to pick up a prepared meal at a location, if the UAV is empty. For example, if the UAV is at kitchen_1, meal_1 is prepared and located there, and the UAV is empty, it can pick up meal_1.": [
+    "MealDelivery",
+    "pick-up-meal",
+    "uav picks up a prepared meal at a location",
+    "This action enables the uav to load [object1] at [position1] if the uav is [state1] and [object1] is [state2]."
+  ],
+  "This action enables the UAV to deliver a carried meal to some location. After delivery, the UAV becomes empty again. For example, if the UAV is carrying meal_1 and is at location_1, it can deliver the meal there.": [
+    "MealDelivery",
+    "deliver-meal",
+    "uav delivers a meal to a location",
+    "This action enables the uav to unload [object1] to [position1]. After this, the uav becomes [state1]."
+  ],
+  "This action enables a uav to move from its current location to a new location. For example, the uav can move from the location_1 to location_2.": [
+    "MedsDelivery",
+    "move-uav",
+    "Move the uav to another location",
+    "This action enables a uav to move from [position1] to [position2]."
+  ],
+  "This action enables a uav to pick up a blood sample from some location if the uav is holding nothing. For example, the uav picks up a sample at the location_1.": [
+    "MedsDelivery",
+    "get-blood-sample",
+    "Pick up a blood sample from a location",
+    "This action enables a uav to load [object1] from [position1] if the uav is [state1]."
+  ],
+  "This action enables a uav to deliver a carried blood sample to a target location. The uav must be holding the sample and be at the target location. For example, the uav drop the sample to the location_2.": [
+    "MedsDelivery",
+    "give-blood-sample",
+    "Deliver a blood sample to a location",
+    "This action enables a uav to unload [object1] to [position1] if the uav is [state1] and it is at [position1]."
+  ],
+  "This action enables the uav to move from one location to another location if battery power of uav is larger than or equals to the energy cost between two locations. For example, the uav has 10 units of battery power, moving from Location_1 to Location_2 needs 5 units of battery power, thus the uav can move from Location_1 to Location_2.": [
+    "MedsDeliveryEnergy",
+    "Travel",
+    "Move uav between locations",
+    "This action enables the uav to move from [position1] to [position2], if uav's [value1] is larger than or equals to the [value2] between [position1] and [position2]."
+  ],
+  "This action enables the uav to collect a blood sample at some location. For example, the uav picks up Sample_1 at Location_1.": [
+    "MedsDeliveryEnergy",
+    "Collect_Blood_Sample",
+    "Pick up blood sample",
+    "This action enables the uav to load [object1] at [position1]."
+  ],
+  "This action enables the uav to unload a blood sample to some location. For example, the uav unloads Sample_2 at Location_2.": [
+    "MedsDeliveryEnergy",
+    "Unload_Blood_Sample",
+    "Unload blood sample",
+    "This action enables the uav to unload [object1] at [position1]."
+  ],
+  "This action enables the uav to reassign its battery at specific locations. The battery level is directly set to the recharge capacity of the location. For example, if the uav is at Location_1 and the recharge capacity of Location_1 is 4 units, then the uav's battery level becomes 4 units after reassigning.": [
+    "MedsDeliveryEnergy",
+    "Recharge_Battery",
+    "Recharge uav's battery",
+    "This action enables the uav to reassign [value1] at [position1], setting [value1] to [value2] of [position1]."
+  ],
+  "This action enables the ugv to move from one position to another if both positions are marked as clear and connected. This movement incur a unit cost. For example, the ugv moves from Position_1 to Position_2 if Position_1 and Position_2 are clear and the cost is increased by 1 unit.": [
+    "MovableObs",
+    "move-ugv",
+    "Move ugv from one position to another",
+    "This action enables the ugv to move from [position1] to [position2] if [position1] and [position2] are [state1] and if [position1] and [position2] are both marked as [state2]. This action will increase [value1] by [value2]."
+  ],
+  "This action enables the uav to move from one position to another if two positions are connected. This movement incur a unit cost. For example, the uav moves from Position_1 to Position_2 if Position_1 and Position_2 are connected and the cost is increased by 1 unit.": [
+    "MovableObs",
+    "move-uav",
+    "Move uav from one position to another",
+    "This action enables the uav to move from [position1] to [position2] if [position1] and [position2] are [state1]. This action will increase [value1] by [value2]."
+  ],
+  "This action enables the uav to mark the current position as clear, not having-fixed-obstacle and not having-movable-obstacle, if the position has no fixed and movable obstacle. This movement incur a unit cost. For example, if the uav is at position_1 and position_1 has no fixed and movable obstacle, the uav will mark position_1 as clear, and not having-fixed-obstacle and not having-fixed-obstacle. The cost is increased by 1 unit.": [
+    "MovableObs",
+    "uav-detect-clear",
+    "uav detects clear position",
+    "This action enables the uav to mark [position1] as [state1], [state2] and [state3] if [position1] is [state4]. This action will increase [value1] by [value2]."
+  ],
+  "This action enables the uav to mark the current position as having-fixed-obstacle, not clear and not having-movable-obstacle, if the position has fixed obstacle. This movement incur a unit cost. For example, if the uav is at position_1 and position_1 has fixed obstacle, the uav will mark position_1 as having-fixed-obstacle, and not clear and not having-fixed-obstacle. The cost is increased by 1 unit.": [
+    "MovableObs",
+    "uav-detect-fix",
+    "uav detects positions that has fixed obstacles",
+    "This action enables the uav to mark [position1] as [state1], [state2] and [state3] if [position1] is [state4]. This action will increase [value1] by [value2]."
+  ],
+  "This action enables the uav to mark the current position as having-movable-obstacle, not clear and not having-fixed-obstacle, if the position has movable obstacle. This movement incur a unit cost. For example, if the uav is at position_1 and position_1 has movable obstacle, the uav will mark position_1 as having-movable-obstacle, and not clear and not having-fixed-obstacle. The cost is increased by 1 unit.": [
+    "MovableObs",
+    "uav-detect-mov",
+    "uav detects positions that has movable obstacles",
+    "This action enables the uav to mark [position1] as [state1], [state2] and [state3] if [position1] is [state4]. This action will increase [value1] by [value2]."
+  ],
+  "This action enables the ugv pushes a movable obstacle from an adjacent position to another new position that is adjacent to that obstacle's location, given that the new position is marked as clear and not equal to the ugv's current location. The ugv also move forward to the obstacle's original position. After this action, the obstacle states in these positions also are updated. This movement incur two units cost. For example, if the ugv is at Position_1, and Position_2 is marked as having-moveable-obstacles, the ugv can push the obstacle to Position_3 and move to Position_2 if Position_3 is marked as clear, connected to Position_2 and not equal to Position_1. The cost is increased by 2 units. Now Position_2 is marked clear and Position_3 has a movable obstacle and it is marked as having-moveable-obstacles.": [
+    "MovableObs",
+    "push",
+    "ugv pushs the movable obstacles to another position",
+    "This action enables the ugv to push [object1] from [position1] to [position2], if [position2] is [state1], [position2] and [position1] are [state2], and [position1] is not equal to [position3]. The ugv then moves to [position1]. This action will increase [value1] by [value2]."
+  ],
+  "This action enables the uav to move from its current position to position on the right if the position on the right is marked as clear. This action costs one energy power.": [
+    "MultiCamLand",
+    "move-right",
+    "Move uav to its right position",
+    "This action enables the uav to move from [position1] to [position2], if [position2] is [state1] and marked as [state2]. This action will increase [value1] by [value2]."
+  ],
+  "This action enables the uav to move from its current position to position on the left if the position on the left is marked as clear. This action costs one energy power.": [
+    "MultiCamLand",
+    "move-left",
+    "Move uav to its left position",
+    "This action enables the uav to move from [position1] to [position2], if [position2] is [state1] and marked as [state2].  This action will increase [value1] by [value2]."
+  ],
+  "This action enables the uav to move from its current position to position below if the position below is marked as clear. This action costs one energy power.": [
+    "MultiCamLand",
+    "move-down",
+    "Move uav to its below position",
+    "This action enables the uav to move from [position1] to [position2], if [position2] is [state1] and marked as [state2].  This action will increase [value1] by [value2]."
+  ],
+  "This action enables the uav to move from its current position to position above if the position above is marked as clear. This action costs one energy power.": [
+    "MultiCamLand",
+    "move-up",
+    "Move uav to its above position",
+    "This action enables the uav to move from [position1] to [position2], if [position2] is [state1] and marked as [state2]. This action will increase [value1] by [value2]."
+  ],
+  "This action enables the uav to rotate to let its side camera to view to right side. This action requires that the uav was previously seeing to the left.": [
+    "MultiCamLand",
+    "rotate-to-right",
+    "Rotate uav's side camera to view the right side",
+    "This action enables the uav to switch [object1] to [state1] if [object1] was previously [state2]. This action will increase [value1] by [value2]."
+  ],
+  "This action enables the uav to rotate to let its side camera to view to left side. This action requires that the uav was previously seeing to the right.": [
+    "MultiCamLand",
+    "rotate-to-left",
+    "Rotate uav's side camera to view the left side",
+    "This action enables the uav to switch [object1] to [state1] if [object1] was previously [state2]. This action will increase [value1] by [value2]."
+  ],
+  "This action enables the uav to mark the position below its current position as clear, if the position below has no obstacle.": [
+    "MultiCamLand",
+    "detect_down",
+    "uav detects position below",
+    "This action enables the uav to mark [position1] as [state1] if [position1] is [state2] and [state3]. This action will increase [value1] by [value2]."
+  ],
+  "This action enables the uav to mark the position on the right of its current position as clear, if it has no obstacle and the uav's side camera is seeing to the right side.": [
+    "MultiCamLand",
+    "detect_right",
+    "uav detects position on the right",
+    "This action enables the uav to mark [position1] as [state1] if [position1] is [state2], [state3], and the uav's [object1] is [state4]. This action will increase [value1] by [value2]."
+  ],
+  "This action enables the uav to mark the position on the left of its current position as clear, if it has no obstacle and the uav's side camera is seeing to the left side.": [
+    "MultiCamLand",
+    "detect_left",
+    "uav detects position on the left",
+    "This action enables the uav to mark [position1] as [state1] if [position1] is [state2], [state2], and the uav's [object1] is [state4]. This action will increase [value1] by [value2]."
+  ],
+  "This action enables the uav to fly from one location to another if the two locations are connected and the uav is currently flying. For example, a uav can fly from location_1 to location_2 if the two positions are connected and the uav is flying.": [
+    "Perching",
+    "fly",
+    "uav flies from one location to another",
+    "This action enables the uav to move from [position1] to [position2] if [position1] and [position2] are [state1] and the uav is in [state2]."
+  ],
+  "The action enables the uav to mark the current location as suitable for perching if the location is clear. The uav can only detect when it is flying at that location. For example, if the uav is flying at location_1, it can mark location_1 as suitable for perching if location_1 is clear.": [
+    "Perching",
+    "detect-perch-spot",
+    "uav detects if a location can be perched",
+    "This action enables the uav to mark [position1] as [state1], if [position1] is [state2] and the uav is in [state3]."
+  ],
+  "The action enables the uav to perch at some location, if it is currently flying at that location and the location has been marked as a perchable spot. This perching spot will be recorded. For example, if the uav is flying at location_1 and location_1 is marked as a perchable spot, the uav can perch at location_1. Location_1 will be marked as visited.": [
+    "Perching",
+    "perch",
+    "uav perches at the location",
+    "This action enables the uav to land at [position1], if the uav is in [state1] and at [position1], and if [position1] is marked as [state2]."
+  ],
+  "This action enables the uav to take off vertically at a location, if it is currently perched at that location. For example, if the uav is perched at location_1, it can take off in place and flying at location_1.": [
+    "Perching",
+    "takeoff",
+    "uav takes off from the perched location",
+    "This action enables the uav to take off at [position1] if it is at [position1]."
+  ],
+  "This action enables the uav to move from its current location to the next location if the two locations are connected. For example, the uav moves from location_1 to location_2 if location_1 and location_2 are connected.": [
+    "SimpleNavigation",
+    "move-next",
+    "Move to the next designated location",
+    "This action enables the uav to move from [position1] to [position2] if [position1] and [position2] are [state1]."
+  ],
+  "This action enables a uav to mark it has reached the goal when it is at the goal location. For example, if location_2 is the goal location and the uav is currently at location_2, it can mark as having reached the goal.": [
+    "SimpleNavigation",
+    "if-reach-goal",
+    "Check if uav reach goal location",
+    "This action enables the uav to mark it has [state1] if the uav is at [position1] and [position1] is [state2]."
+  ],
+  "This action enables the uav to move from one position to the next connected position without changing its current speed. The current position must be marked as passable. For example, if uav is at position_1, the position_1 is connected to position_2, if the position_1 is marked as passable, then the uav can move from position_1 to position_2 with no speed change.": [
+    "SpeedAdapt",
+    "const-move",
+    "uav moves at constant speed from one location to another",
+    "This action enables the uav to move from [position1] to [position2] without changing [value1], if [position1] is marked as [state1] and [position1] and [position2] are [state2]."
+  ],
+  "This action enables the uav to move from one position to the next connected position while accelerating its current speed by the acceleration rate. The current position must be marked as passable. For example, if uav is at position_1, the position_1 is connected to position_2, if the position_1 is marked as passable, then the uav can move from position_1 to position_2. The current speed is increased by the acceleration rate.": [
+    "SpeedAdapt",
+    "acc-move",
+    "uav accelerates from one location to another",
+    "This action enables the uav to move from [position1] to [position2] while increasing [value1] by [value2], if [position1] is marked as [state1] and [position1] and [position2] are [state2]."
+  ],
+  "This action enables the uav to move from one position to the next connected position while decelerating its current speed by the deceleration rate. The speed value after decelerating must also be positive. The current position must be marked as passable. For example, if uav is at position_1, the position_1 is connected to position_2, if the position_1 is marked as passable, then the uav can move from position_1 to position_2. The current speed is decreased by the deceleration rate.": [
+    "SpeedAdapt",
+    "dcc-move",
+    "uav decelerates from one location to another",
+    "This action enables the uav to move from [position1] to [position2] while decreasing [value1] by [value2], if [position1] is marked as [state1] and [position1] and [position2] are [state2]."
+  ],
+  "This action enables the uav to mark a position as passable if it is at the cluttered position, and if the current speed is less than or equal to the maximum allowed speed for cluttered terrain. For example, if the uav is at cluttered position_1, and the current speed is 5 and the maximum allowed speed for cluttered position_1 is 10, then the uav can mark the cluttered position_1 as passable.": [
+    "SpeedAdapt",
+    "pass-clutter",
+    "uav detect if the cluttered position can be passed",
+    "This action enables the uav to mark [position1] as [state1], if [position1] is [state2] and the uav is at [position1], and if uav's [value1] is less than or equal to [value2] of [position1]."
+  ],
+  "This action enables the uav to mark a narrow-gap position as passable if it is at the narrow-gap position, and if the current speed is less than or equal to the maximum allowed speed for narrow-gap terrain. For example, if the uav is at narrow-gap position_1, and the current speed is 5 and the maximum allowed speed for narrow-gap position_1 is 10, then the uav can mark the narrow-gap position_1 as passable.": [
+    "SpeedAdapt",
+    "pass-narrow-gap",
+    "uav detect if the narrow gap can be passed",
+    "This action enables the uav to mark [position1] as [state1], if [position1] is [state2] and the uav is at [position1], and if uav's [value1] is less than or equal to [value2] of [position1]."
+  ],
+  "This action enables the uav to mark a open-area position as passable if it is at the open-area position, and if the current speed is equal to or above the minimum allowed speed for open-area terrain. For example, if the uav is at open-area position_1, and the current speed is 10 and the minimum allowed speed for open-area position_1 is 5, then the uav can mark the open-area position_1 as passable.": [
+    "SpeedAdapt",
+    "pass-open-area",
+    "uav detect if the open area can be passed",
+    "This action enables the uav to mark [position1] as [state1], if [position1] is [state2] and the uav is at [position1], and if uav's [value1] is greater than or equal to [value2] of [position1]."
+  ],
+  "This action enables the uav to fly from one position to another connected position when it is in the flying mode, and the weather at the current position is not bad. For example, if the uav is at position A and wants to fly to position B, it can do so if the uav is flying, the weather at position A is not bad and there is a direct connection to position B.": [
+    "TerrainAdapt",
+    "fly",
+    "uav flies from one position to another",
+    "This action enables the uav to move from [position1] to [position2], if the uav is in [state1], [position1] and [position2] are [state2], and [position1] is [state3]."
+  ],
+  "This action enables the uav to drive from one position to another connected position when it is in the driving mode, and the road at the current position is not slippery. For example, if the uav is at position A and wants to drive to position B, it can do so if the uav is in driving mode, the road at position A is not slippery and there is a direct connection to position B.": [
+    "TerrainAdapt",
+    "drive",
+    "uav drives from one position to another",
+    "This action enables the uav to move from [position1] to [position2], if the uav is in [state1], [position1] and [position2] are [state2], and [position1] is [state3]."
+  ],
+  "This action enables the uav to switch from driving mode to flying mode at its current position if the road is slippery. For example, if the uav is at position A and the road is slippery, it can switch to flying mode.": [
+    "TerrainAdapt",
+    "switch-fly",
+    "uav switch to flying mode",
+    "This action enables the uav to switch from [state1] to [state2] at [position1] if [position1] is [state3]."
+  ],
+  "This action enables the uav to switch from flying mode to driving mode at its current position if the weather is bad. For example, if the uav is at position A and the weather is bad, it can switch to driving mode.": [
+    "TerrainAdapt",
+    "switch-drive",
+    "uav switch to drive mode",
+    "This action enables the uav to switch from [state1] to [state2] at [position1] if [position1] is [state3]."
+  ],
+  "This action enables the uav to move from one position to another connected position. This action incurs one unit of cost. For example, the uav can move from at position_1 to position_2 if the two positions are connected. The cost incurred is 1 unit.": [
+    "Tracking",
+    "move",
+    "Move uav from one position to another",
+    "This action enables the uav to move from [position1] to [position2] if [position1] and [position2] are [state1]. This action will increase [value1] by [value2]."
+  ],
+  "This action enables the uav to update its current subgoal to the next subgoal if it is at the current subgoal potision, the uav then marks the current subgoal as reached. For example, if the current subgoal is position_1 while the next subgoal is position_2, and the uav is at position_1, then it will mark position_1 as reached subgoal and update the position_2 as the current subgoal.": [
+    "Tracking",
+    "update-subgoal",
+    "Update the tracking subgoal",
+    "This action enables the uav to mark [position2] as [state1], if the uav is at [position1] and [position1] is [state1]."
+  ],
+  "This action enables the uav to load a pot at some location if the uav is holding nothing. For example, the uav loads the pot at location_1.": [
+    "Watering",
+    "load-pot",
+    "uav loads a watering pot",
+    "This action enables the uav to load [object1] at [position1] if the uav is [state1]."
+  ],
+  "This action enables the uav to refill the pot to its full capacity at the home location. For example, if the uav is holding a pot at the home location, and if the capacity is 10 units, the pot will be filled to 10 units.": [
+    "Watering",
+    "refill",
+    "Refill a watering pot",
+    "This action enables the uav to reassign [value1] of [object1] to [value2] at [position1]."
+  ],
+  "This action enables the uav to pour water to the location to fully fulfill the amount of location's need, if the water level in the pot is larger than or equal to the amount of location's need. For example, if the uav is at location_1 and holding a pot with 10 units water, if the need is 5 units at location_1, it will pour 5 units water to fulfill the need.": [
+    "Watering",
+    "watering-pour-to-fill",
+    "Pour water to fulfill the location's need on water",
+    "This action enables the uav to pour [value1] of [object1] to fully fulfill [value2] of [position1], if [value1] of [object1] is larger than or equal to [value2] of [position1]."
+  ],
+  "This action enables the uav to pour all the water from the pot into a location, if the water level in the pot is less than the amount of location's need. For example, if the uav is at location_1 and holding a pot with 10 units water and location_1 needs 15 units, it will pour all 10 units water into location_1, and the need at location_1 will be reduced by 10 units and the pot has no water now.": [
+    "Watering",
+    "watering-pour-empty",
+    "Pour all the water into a location that needs water",
+    "This action enables the uav to pour all the [value1] of [object1] into [value2] of [position1], if the [value1] of [object1] is less than [value2] of [position1]."
+  ],
+  "This action enables the uav to move from one location to another. For example, the uav can move from location_1 to location_2.": [
+    "Watering",
+    "move",
+    "Move uav from one location to another",
+    "This action enables the uav to move from [position1] to [position2]."
+  ],
+  "This action enables the uav to unload the pot at some location. For example, the uav unloads the pot at location_1 and is now holding nothing.": [
+    "Watering",
+    "unload",
+    "uav unloads a watering pot",
+    "This action enables the uav to unload [object1] at [position1] and become [state1]."
+  ],
+  "This action enables the uav to move from one position to another connected position if there is no wind at the current position. This action increases the total cost by one unit. For example, if the uav is at position_1 and position_1 has no wind, then the uav can move from position_1 to position_2 if two positions are connected.": [
+    "WindDisturbance",
+    "move",
+    "uav moves from one position to another",
+    "This action enables the uav to move from [position1] to [position2], if [position1] has [state1] and [position1] and [position2] are [state2]. This action will increase [value1] by [value2]."
+  ],
+  "This action enables the uav to be passively moved by wind from its current position to the next position, if the wind at the current location blows toward the next position. No cost is incurred for this action. For example, if the uav is at position_1 and the wind at position_1 blows toward position_2, then the uav can be passively moved by wind from position_1 to position_2 with no cost.": [
+    "WindDisturbance",
+    "blow",
+    "Wind blows the uav to another position",
+    "This action enables the uav to be passively moved by [object1] from [position1] to [position2] if [object1] at [position1] is [state1] toward [position2]."
+  ]
+}
