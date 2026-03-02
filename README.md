@@ -5,7 +5,8 @@
 
  SPAR is a framework that leverages the generative capabilities of LLMs to automatically produce valid, diverse, and semantically accurate PDDL domains from natural language input.
 
-__Authors__: Songhao Huang*, [Yuwei Wu*](https://github.com/yuwei-wu), Guangyao Shi, Gaurav S Sukhatme, Vijay Kumar
+__Authors__: [Songhao Huang](https://scholar.google.com/citations?user=agLfnDmqINkC) *, [Yuwei Wu](https://github.com/yuwei-wu) *, 
+[Guangyao Shi](https://guangyaoshi.github.io/), [Gaurav S. Sukhatme](https://uscresl.org/principal-investigator/), and [Vijay Kumar](https://www.kumarrobotics.org/)
 
 __Related Paper__: Songhao Huang*, Yuwei Wu*, Guangyao Shi, Gaurav S. Sukhatme, and Vijay Kumar. "SPAR: Scalable LLM-based PDDL Domain Generation for Aerial Robotics." [arxiv Preprint](https://arxiv.org/pdf/2509.13691)
 
